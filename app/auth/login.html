@@ -1,17 +1,45 @@
-<div class="page-wrapper">
+<div class="login-container">
 
-  <div class="page-header">
-    <h1><a ui-sref="home"><img class="logo-img" src="images/logo.png" /></a> Log In</h1>
-  </div>
-
-  <form>
-    <div class="input-group">
-      <input type="email" class="form-control" placeholder="Email">
-    </div>
-    <div class="input-group">
-      <input type="password" class="form-control" placeholder="Password">
-    </div>
-    <input type="submit" class="btn btn-default" value="Log In">
-  </form>
-
+            <div class="login-box animated fadeInDown" ng-controller="AuthCtrl">
+                <div class="login-logo"></div>
+                <div class="login-body">
+                    <div class="login-title"><strong>Welcome</strong>, please login</div>
+                    <form class="form-horizontal">
+                        <div class="container" ng-controller="AlertCtrl">
+                            <div class="alert alert-{{alert.class}}" ng-model="alert.message" ng-show="alert.message">
+                                {{alert.message}}
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info btn-block" ng-click="authWithPassword()">Log In</button>
+                        </div>
+                        <!--<p ng-if="message">Message: <strong>{{ message }}</strong></p>-->
+                        <!--<p ng-if="error">Error: <strong>{{ error }}</strong></p>-->
+                    </div>
+                    </form>
+                </div>
+                <div class="login-footer">
+                    <div class="pull-left">
+                        &copy; 2016 JobCenter.com
+                    </div>
+                    <div class="pull-right">
+                        <a href="#">About</a> |
+                        <a href="#">Privacy</a> |
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
 </div>

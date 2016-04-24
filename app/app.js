@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc overview
- * @name angularfireSlackApp
+ * @name mainApp
  * @description
- * # angularfireSlackApp
+ * # mainApp
  *
  * Main module of the application.
  */
@@ -27,8 +27,16 @@ angular
       .state('search', {
         url: '/search',
         templateUrl: 'views/search.html'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'auth/login.html'
+      })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'admin/index.html'
       });
 
     $urlRouterProvider.otherwise('/');
   })
-  .constant('FirebaseUrl', 'https://slack.firebaseio.com/');
+  .constant('FirebaseUrl', 'https://jobcenter-id-auth.firebaseio.com/');
