@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('angularfireSlackApp', [
+  .module('mainApp', [
     'firebase',
     'angular-md5',
     'ui.router'
@@ -18,15 +18,15 @@ angular
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'home/home.html'
+        templateUrl: 'views/home.html'
       })
-      .state('login', {
-        url: '/login',
-        templateUrl: 'auth/login.html'
+      .state('contact-us', {
+        url: '/contact-us',
+        templateUrl: 'views/contact-us.html'
       })
-      .state('register', {
-        url: '/register',
-        templateUrl: 'auth/register.html'
+      .state('search', {
+        url: '/search',
+        templateUrl: 'views/search.html'
       });
 
     $urlRouterProvider.otherwise('/');
