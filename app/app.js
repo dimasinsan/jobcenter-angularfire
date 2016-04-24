@@ -14,7 +14,8 @@ angular
     'angular-md5',
     'ui.router'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    // $locationProvider.html5Mode(true);
     $stateProvider
       .state('home', {
         url: '/',
