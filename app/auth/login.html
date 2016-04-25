@@ -1,23 +1,26 @@
 <div class="login-container">
 
-            <div class="login-box animated fadeInDown" ng-controller="AuthCtrl">
+            <div class="login-box animated fadeInDown">
                 <div class="login-logo"></div>
                 <div class="login-body">
                     <div class="login-title"><strong>Welcome</strong>, please login</div>
+                    <div class="alert alert-danger" ng-show="authCtrl.error">
+                        <span>{{ authCtrl.error.message }}</span>
+                    </div>
                     <form class="form-horizontal">
-                        <div class="container" ng-controller="AlertCtrl">
-                            <div class="alert alert-{{alert.class}}" ng-model="alert.message" ng-show="alert.message">
-                                {{alert.message}}
-                            </div>
-                        </div>
+                        <!--<div class="container">-->
+                        <!--    <div class="alert alert-{{alert.class}}" ng-model="alert.message" ng-show="alert.message">-->
+                        <!--        {{alert.message}}-->
+                        <!--    </div>-->
+                        <!--</div>-->
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Email" ng-model="email">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="authCtrl.user.email">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                            <input type="password" class="form-control" placeholder="Password" ng-model="authCtrl.user.password">
                         </div>
                     </div>
                     <div class="form-group">
@@ -25,7 +28,7 @@
                             <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-info btn-block" ng-click="authWithPassword()">Log In</button>
+                            <button class="btn btn-info btn-block" ng-click="authCtrl.login()">Log In</button>
                         </div>
                         <!--<p ng-if="message">Message: <strong>{{ message }}</strong></p>-->
                         <!--<p ng-if="error">Error: <strong>{{ error }}</strong></p>-->
