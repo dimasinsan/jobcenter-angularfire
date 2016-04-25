@@ -5,31 +5,30 @@
             <div class="page-header">
 
                 <!-- page header holder -->
-                <div class="page-header-holder">
-
-                    <!-- page logo -->
-                    <div class="logo">
-                        <a href="index.html">JobCenter.com</a>
+                <nav class="navbar navbar-default">
+                  <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.jpg"/></a>
                     </div>
-                    <!-- ./page logo -->
-
-
-                    <!-- nav mobile bars -->
-                    <div class="navigation-toggle">
-                        <div class="navigation-toggle-button"><span class="fa fa-bars"></span></div>
-                    </div>
-                    <!-- ./nav mobile bars -->
-
-                    <!-- navigation -->
-                    <ul class="navigation">
+                
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                      <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Contact Us</a></li>
                         <li><a ui-sref="search">Cari Pekerja</a></li>
-                        <li class = "pull-right"><a href="pages-login.html"><span class="fa fa-eye"></span></a></li>
-                    </ul>
-                    <!-- ./navigation -->
-
-
-                </div>
+                        <li><a ui-sref="login"><span class="fa fa-eye"></span></a></li>
+                      </ul>
+            
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container -->
+                </nav><!-- /.navbar -->
                 <!-- ./page header holder -->
 
             </div>
@@ -56,7 +55,7 @@
                                 <div class="carousel-caption">
                                 <h1>Mencari pekerja tidak pernah semudah ini</h1>
                                 <p class="lead">Berbagai jenis pekerja di lebih dari 200 lokasi di pulau Jawa.</p>
-                                <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+                                <a class="btn btn-large btn-primary" href="#">Cari Pekerja</a>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +86,7 @@
                     <!-- page content holder -->
                     <div class="page-content-holder">
                         <div class="row">
-                            <div class="col-md-8 this-animate" data-animate="fadeInLeft">
+                            <div class="col-md-8">
 
                                 <div class="block-heading block-heading-centralized">
                                     <h2 class="heading-underline">JobCenter.Com</h2>
@@ -95,12 +94,12 @@
                                         Biggest worker agency in Indonesia. Provides the most diverse types of workers in over 200 areas in Java.
                                     </div>
                                 </div>
-                                <div class="block this-animate" data-animate="fadeInLeft">
-                                    <img src="assets/atlant_technologies.png" class="img-responsive"/>
+                                <div class="block">
+                                    <img src="assets/atlant_technologies.png" class="img-responsive" alt="pic here"/>
                                 </div>
                             </div>
-                            <div class="col-md-4 this-animate text-center" data-animate="fadeInRight">
-                                <img src="assets/atlant_responsive.png" class="img-responsive-mobile"/>
+                            <div class="col-md-4 text-center">
+                                <img src="assets/atlant_responsive.png" class="img-responsive-mobile" alt="pic here"/>
                             </div>
                         </div>
                     </div>
@@ -119,7 +118,7 @@
                         <div class="row">
 
                             <div class="col-md-4">
-                                <div class="text-column text-column-centralized tex-column-icon-lg this-animate" data-animate="fadeInLeft">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
                                     <div class="text-column-icon">
                                         <span class="fa fa-search"></span>
                                     </div>
@@ -131,7 +130,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <div class="text-column text-column-centralized tex-column-icon-lg this-animate" data-animate="fadeInUp">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
                                     <div class="text-column-icon">
                                         <span class="fa fa-calendar"></span>
                                     </div>
@@ -144,7 +143,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <div class="text-column text-column-centralized tex-column-icon-lg this-animate" data-animate="fadeInRight">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
                                     <div class="text-column-icon">
                                         <span class="fa fa-clipboard "></span>
                                     </div>
@@ -235,10 +234,9 @@
                                 <h3>Quick links</h3>
 
                                 <div class="list-links">
-                                    <a href="#">Home</a>
-                                    <a href="about.html">About Us</a>
-                                    <a href="contacts.html">Contact Us</a>
-                                    <a href="search.html">Cari Pekerja</a>
+                                    <a ui-sref="home">Home</a>
+                                    <a ui-sref="contact-us">Contact Us</a>
+                                    <a ui-sref="search">Cari Pekerja</a>
                                 </div>
                             </div>
                             <!-- ./quick links -->

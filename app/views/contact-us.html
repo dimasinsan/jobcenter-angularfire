@@ -5,31 +5,30 @@
             <div class="page-header">
 
                 <!-- page header holder -->
-                <div class="page-header-holder">
-
-                    <!-- page logo -->
-                    <div class="logo">
-                        <a href="index.html">JobCenter.com</a>
+                <nav class="navbar navbar-default">
+                  <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.jpg"/></a>
                     </div>
-                    <!-- ./page logo -->
-
-
-                    <!-- nav mobile bars -->
-                    <div class="navigation-toggle">
-                        <div class="navigation-toggle-button"><span class="fa fa-bars"></span></div>
-                    </div>
-                    <!-- ./nav mobile bars -->
-
-                    <!-- navigation -->
-                    <ul class="navigation">
-                        <li><a href="contacts.html">Contact Us</a></li>
-                        <li><a href="search.html">Cari Pekerja</a></li>
-                        <li class = "pull-right"><a href="pages-login.html"><span class="fa fa-eye"></span></a></li>
-                    </ul>
-                    <!-- ./navigation -->
-
-
-                </div>
+                
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="contact-us">Contact Us</a></li>
+                        <li><a ui-sref="search">Cari Pekerja</a></li>
+                        <li><a ui-sref="login"><span class="fa fa-eye"></span></a></li>
+                      </ul>
+            
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container -->
+                </nav><!-- /.navbar -->
                 <!-- ./page header holder -->
 
             </div>
@@ -47,7 +46,7 @@
                             <h1>Contacts Us</h1>
                             <!-- breadcrumbs -->
                             <ul class="breadcrumb">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a ui-sref="home">Home</a></li>
                                 <li class="active">Contacts</li>
                             </ul>
                             <!-- ./breadcrumbs -->
@@ -69,7 +68,7 @@
                     <div class="page-content-holder">
 
                         <div class="row">
-                            <div class="col-md-7 this-animate" data-animate="fadeInLeft">
+                            <div class="col-md-7">
 
                                 <div class="text-column">
                                     <h4>Contact Us</h4>
@@ -105,12 +104,13 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-5 this-animate" data-animate="fadeInRight">
+                            <div class="col-md-5">
                               <div class="panel-group" id="accordion">
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse1">
                                      Jakarta Pusat</a>
                                    </h4>
                                  </div>
@@ -129,7 +129,8 @@
                                <div class="panel panel-default">
                           	     <div class="panel-heading">
                           	       <h4 class="panel-title">
-                          	         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                          	         <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse2">
                           	         Jakarta Utara</a>
                           	       </h4>
                           	     </div>
@@ -147,7 +148,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse3">
                                        Jakarta Timur</a>
                             	       </h4>
                             	     </div>
@@ -165,7 +167,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse4">
                                        Jakarta Selatan</a>
                             	       </h4>
                             	     </div>
@@ -183,7 +186,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse5">
                                        Jakarta Barat</a>
                             	       </h4>
                             	     </div>
@@ -201,7 +205,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse6">
                                        Bogor</a>
                             	       </h4>
                             	     </div>
@@ -219,7 +224,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse7">
                                        Depok</a>
                             	       </h4>
                             	     </div>
@@ -237,7 +243,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse8">
                                        Tangerang</a>
                             	       </h4>
                             	     </div>
@@ -255,7 +262,8 @@
                                <div class="panel panel-default">
                                  <div class="panel-heading">
                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
+          data-target="#collapse9">
                                        Bekasi</a>
                             	       </h4>
                             	     </div>
@@ -303,9 +311,9 @@
                                 <h3>Quick links</h3>
 
                                 <div class="list-links">
-                                    <a href="#">Home</a>
-                                    <a href="#">Pages</a>
-                                    <a href="#">Cari Pekerja</a>
+                                    <a ui-sref="home">Home</a>
+                                    <a ui-sref="contact-us">Contact Us</a>
+                                    <a ui-sref="search">Cari Pekerja</a>
                                 </div>
                             </div>
                             <!-- ./quick links -->
