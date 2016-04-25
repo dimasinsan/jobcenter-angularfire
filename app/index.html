@@ -12,11 +12,13 @@
         <link rel="stylesheet" type="text/css" href="css/revolution-slider/settings.css" media="screen" />
         
         <!-- front css -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/jumbotron.css"/>
-        
+        <link rel="stylesheet" type="text/css" href="./css/styles.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="./css/jumbotron.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/animate/animate.min.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/admin-index.css"/>
+
         <!-- admin css -->
-        <!--<link rel="stylesheet" type="text/css" id="theme" href="css/admin-css/theme-default.css"/>-->
+        <!--<link rel="stylesheet" type="text/css" id="theme" href="./css/theme-default.css"/>-->
         <!--<link rel="stylesheet" type="text/css" href="css/bootstrap/admin-css/bootstrap.min.css"/>-->
 
 
@@ -37,6 +39,8 @@
 
         <script type="text/javascript" src="vendor/actions.js"></script>
         <script type="text/javascript" src="vendor/slider.js"></script>
+
+        
         <!-- END FRONT PAGE PLUGINS -->
         
         <!--ADMIN PAGE PLUGINS -->
@@ -64,13 +68,13 @@
         <script src="vendor/angularfire.min.js"></script>
         <script src="vendor/angular-ui-router.min.js"></script>
         <script src="vendor/angular-md5.min.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+        <!--END VENDOR PLUGINS-->
         
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!--CUSTOM SCRIPT-->
         <script src="app.js"></script>
-        <script type="text/javascript" src="auth/auth.js"></script>
-        <!-- endbuild -->
+        <script type="text/javascript" src="auth/auth.controller.js"></script>
+        <script type="text/javascript" src="auth/auth.service.js"></script>
+        <!--END CUSTOM SCRIPT-->
         
     </body>
 </html>

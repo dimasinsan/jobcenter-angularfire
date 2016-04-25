@@ -30,6 +30,7 @@ angular
       })
       .state('login', {
         url: '/login',
+        controller: 'AuthCtrl as authCtrl',
         templateUrl: 'auth/login.html'
       })
       .state('admin', {
