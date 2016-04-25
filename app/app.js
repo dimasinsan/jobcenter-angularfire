@@ -12,7 +12,8 @@ angular
   .module('mainApp', [
     'firebase',
     'angular-md5',
-    'ui.router'
+    'ui.router',
+    'dbApp'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -26,7 +27,7 @@ angular
       })
       .state('search', {
         url: '/search',
-        templateUrl: 'views/search.html'
+        templateUrl: 'search/search.html'
       })
       .state('login', {
         url: '/login',
