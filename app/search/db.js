@@ -15,7 +15,7 @@ db.controller("searchController", function($scope, $firebaseArray) {
       $scope.filter[prop] = $scope.input[prop];
     }
   };
-  
+   
 }); //end of searchController
 
 db.controller("profileViewController", function ($scope, $firebaseArray) {
@@ -177,9 +177,9 @@ db.controller("branchPushController", function () {
   var inputAlamat = document.getElementById('inputAlamat');
   var inputKodya = document.getElementById('inputKodya');
   var inputTelp = document.getElementById('inputTelp');
-  var btUpdateMessage = document.getElementById('btUpdateMessage');
+  var buttonAdd = document.getElementById('buttonAdd');
 
-        btUpdateMessage.addEventListener('click', function () {
+        buttonAdd.addEventListener('click', function () {
             ref.push({
               nama: inputNama.value,
               alamat: inputAlamat.value,

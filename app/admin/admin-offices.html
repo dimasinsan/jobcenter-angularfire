@@ -59,9 +59,9 @@
                       <div class="row">
                           <br>
                           <br>
-                            <div class="col-xs-12">
+                            <div class="col-xs-12"> 
 
-                                <form ng-controller="branchController" ng-submit="addGroup(newGroup)" class="form-horizontal">
+                                <form ng-controller="branchPushController" class="form-horizontal">
 
                                     <div class="panel panel-default tabs" style="max-height; 400px; overflow; auto;">
                                         <ul class="nav nav-tabs" role="tablist">
@@ -76,36 +76,35 @@
                                                 <div class="form-group">
                                                     <label class="col-md-3 col-xs-12 control-label">Kotamadya</label>
                                                     <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" id="kotamadya" placeholder="Ex: Jakarta Pusat" ng-model="newGroup.kotamadya"></input>
+                                                        <input type="text" class="form-control" id="inputKodya" placeholder="Ex: Jakarta Pusat" required/>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="col-md-3 col-xs-12 control-label">Kantor</label>
                                                     <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" ng-model="newGroup.nama" placeholder="Nama Kantor"/>
+                                                        <input type="text" class="form-control" id="inputNama" placeholder="Nama Kantor" required/>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="col-md-3 col-xs-12 control-label">Alamat</label>
                                                     <div class="col-md-6 col-xs-12">
-                                                        <textarea class="form-control" id="alamat" rows="3" ng-model="newGroup.alamat" placeholder="Alamat Baru"/></textarea>
+                                                        <textarea class="form-control" rows="5" id="inputAlamat" placeholder="Alamat Baru" required></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
                                                     <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" ng-model="newGroup.telp" placeholder="Nomor Telepon"/>
+                                                        <input type="text" class="form-control" id="inputTelp" placeholder="ex: 021-2132123" onkeypress="return event.charCode >= 45 && event.charCode <=57" required/>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-xs-9">
-                                                <a href="#" class="btn btn-primary pull-right">
-                                                Add Address
-                                                </a>
-                                                </div>
+                                                <button type="submit" id="buttonAdd" class="btn btn-primary pull-right"/>
+                                                Add Branch                                                                             
+                                            </div>
                                             </div>
 
                                             <div class="tab-pane" id="tab-second">
