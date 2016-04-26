@@ -58,15 +58,42 @@ angular
       })      
       .state('adminprof', {
         url: '/adminprof',
-        templateUrl: 'admin/admin-prof.html'
+        templateUrl: 'admin/admin-prof.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       })
       .state('workerprof', {
         url: '/workerprof',
-        templateUrl: 'admin/admin-workerprof.html'
+        templateUrl: 'admin/admin-workerprof.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       })
       .state('offices', {
         url: '/offices',
-        templateUrl: 'admin/admin-offices.html'
+        templateUrl: 'admin/admin-offices.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
