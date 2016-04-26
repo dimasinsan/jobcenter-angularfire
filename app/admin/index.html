@@ -1,5 +1,5 @@
 <!-- START PAGE CONTAINER -->
-    <div class="page-container">
+    <div class="page-container-admin clearfix">
 
       <!-- START PAGE SIDEBAR -->
       <div class="page-sidebar">
@@ -10,11 +10,11 @@
             </li>
             <li class="xn-profile">
                 <a href="#" class="profile-mini">
-                    <img src="./img/Daler.jpg" alt="Daler Mehndi"/>
+                    <img src="./img/daler.jpg" alt="Daler Mehndi"/>
                 </a>
                 <div class="profile">
                     <div class="profile-image">
-                        <img src="./img/Daler.jpg" alt="Daler Mehndi"/>
+                        <img src="./img/daler.jpg" alt="Daler Mehndi"/>
                     </div>
                     <div class="profile-data">
                         <div class="profile-data-name">Daler Mehndi</div>
@@ -24,11 +24,11 @@
             </li>
             <li class="xn-title">Navigation</li>
             <li class="active">
-                <a href="admin-index.html"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                <a ui-sref="admin"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
             </li>
-                <li><a href="admin-prof.html"><span class="fa fa-user"></span> <span class="xn-text">Admin Profiles</span></a></li>
-                <li><a href="admin-workerprof.html"><span class="fa fa-users"></span> <span class="xn-text">Worker Profiles</span></a></li>
-                <li><a href="admin-offices.html"><span class="glyphicon glyphicon-tower"></span> <span class="xn-text">Branch Offices</span></a></li>
+                <li><a ui-sref="prof"><span class="fa fa-user"></span> <span class="xn-text">Admin Profiles</span></a></li>
+                <li><a ui-sref="workerprof"><span class="fa fa-users"></span> <span class="xn-text">Worker Profiles</span></a></li>
+                <li><a ui-sref="offices"><span class="glyphicon glyphicon-tower"></span> <span class="xn-text">Branch Offices</span></a></li>
 
         </ul>
         <!-- END X-NAVIGATION -->
@@ -47,7 +47,7 @@
                         <!-- END TOGGLE NAVIGATION -->
                         <!-- SIGN OUT -->
                         <li class="xn-icon-button pull-right">
-                            <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+                            <a ui-sref="login" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
                         </li>
                         <!-- END SIGN OUT -->
                     </ul><!-- END X-NAVIGATION VERTICAL -->
@@ -59,37 +59,11 @@
                     <!-- END BREADCRUMB -->
                     <!-- PAGE CONTENT WRAPPER -->
                     <div class="page-content-wrap">
-                      <!-- START WIDGETS -->
-                      <div class="row">
-                        <div class="col-md-3">
-
-                            <!-- START WIDGET SLIDER -->
-                            <div class="widget widget-default widget-carousel">
-                                <div class="owl-carousel" id="owl-example">
-                                    <div>
-                                        <div class="widget-title">Total Visitors</div>
-                                        <div class="widget-subtitle">27/08/2014 15:23</div>
-                                        <div class="widget-int">3,548</div>
-                                    </div>
-                                    <div>
-                                        <div class="widget-title">Returned</div>
-                                        <div class="widget-subtitle">Visitors</div>
-                                        <div class="widget-int">1,695</div>
-                                    </div>
-                                    <div>
-                                        <div class="widget-title">New</div>
-                                        <div class="widget-subtitle">Visitors</div>
-                                        <div class="widget-int">1,977</div>
-                                    </div>
-                                </div>
-                                <div class="widget-controls">
-                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-                                </div>
-                            </div>
-                            <!-- END WIDGET SLIDER -->
-
-                        </div>
-                      </div>
+                        
+                        
+                    <p>aaaay</p>
+            
+            
                       </div>
                       <!-- END PAGE CONTENT WRAPPER -->
                     </div>
@@ -108,7 +82,7 @@
                             </div>
                             <div class="mb-footer">
                                 <div class="pull-right">
-                                    <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                                    <a ui-sref="login" class="btn btn-success btn-lg">Yes</a>
                                     <button class="btn btn-default btn-lg mb-control-close">No</button>
                                 </div>
                             </div>

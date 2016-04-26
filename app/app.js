@@ -12,7 +12,8 @@ angular
   .module('mainApp', [
     'firebase',
     'angular-md5',
-    'ui.router'
+    'ui.router',
+    'dbApp'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -26,7 +27,7 @@ angular
       })
       .state('search', {
         url: '/search',
-        templateUrl: 'views/search.html'
+        templateUrl: 'search/search.html'
       })
       .state('login', {
         url: '/login',
@@ -44,7 +45,7 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'admin/index.html',
+        templateUrl: 'admin/admin-prof.html',
         resolve: {
           requireNoAuth: function($state, Auth){
             return Auth.$requireAuth().then(function(auth){
@@ -54,6 +55,18 @@ angular
             });
           }
         }
+      })      
+      .state('adminprof', {
+        url: '/adminprof',
+        templateUrl: 'admin/admin-prof.html'
+      })
+      .state('workerprof', {
+        url: '/workerprof',
+        templateUrl: 'admin/admin-workerprof.html'
+      })
+      .state('offices', {
+        url: '/offices',
+        templateUrl: 'admin/admin-offices.html'
       });
 
     $urlRouterProvider.otherwise('/');

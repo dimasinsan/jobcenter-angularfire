@@ -1,5 +1,5 @@
 <!-- page container -->
-        <div class="page-container">
+        <div class="page-container" ng-controller="searchController">
 
             <!-- page header -->
             <!-- page header -->
@@ -24,7 +24,7 @@
                       <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Contact Us</a></li>
                         <li><a ui-sref="search">Cari Pekerja</a></li>
-                        <li><a ui-sref="login"><span class="fa fa-eye"></span></a></li>
+                        <li><a ui-sref="login"><span class="fa fa-sign-in"></span></a></li>
                       </ul>
             
                     </div><!-- /.navbar-collapse -->
@@ -393,7 +393,7 @@
                                 </select>
                             </div>
                             <br>
-                            <a href="#" class="btn btn-primary pull-right" ng-click="apply()">
+                            <a class="btn btn-primary pull-right" ng-click="apply()">
                                 <span class="glyphicon glyphicon-filter"></span> Update
                             </a>
                         </div>
