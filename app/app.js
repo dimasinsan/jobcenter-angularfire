@@ -45,7 +45,8 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'admin/admin-prof.html',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-landing.html',
         resolve: {
           requireNoAuth: function($state, Auth){
             return Auth.$requireAuth().then(function(auth){
@@ -58,15 +59,45 @@ angular
       })      
       .state('adminprof', {
         url: '/adminprof',
-        templateUrl: 'admin/admin-prof.html'
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-prof.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       })
       .state('workerprof', {
         url: '/workerprof',
-        templateUrl: 'admin/admin-workerprof.html'
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-workerprof.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       })
       .state('offices', {
         url: '/offices',
-        templateUrl: 'admin/admin-offices.html'
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-offices.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
