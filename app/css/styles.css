@@ -43,6 +43,20 @@ body {
   font-size: 15px;
 }
 
+.navbar-default-admin {
+  background-color: #33414e;
+}
+
+.navbar-default-admin > li > a:hover, .nav > li > a:focus {
+	text-decoration: none;
+	/* background-color: #993d00; */
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+	text-decoration: none;
+	background-color: #33414e;
+  color: #29b2e1;
+}
 .btn .fa, .btn .glyphicon {
     font-size: 15px;
  }
@@ -231,7 +245,7 @@ body {
   padding-right: 0px;
 }
 a {
-  color: #0088cc;
+  color: #ffffff;
   -webkit-transition: color 200ms ease;
   -moz-transition: color 200ms ease;
   -ms-transition: color 200ms ease;
@@ -239,7 +253,7 @@ a {
   transition: color 200ms ease;
 }
 a:hover {
-  color: #FFFF03;
+  color: #33414e;
   text-decoration: none;
 }
 /* START TEMPLATE */

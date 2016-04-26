@@ -5,7 +5,7 @@
             <div class="page-header">
 
                 <!-- page header holder -->
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default-admin">
                   <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -25,9 +25,8 @@
                         <li><a ui-sref="adminprof">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
                         <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><button class="btn btn-info btn-block" ng-click="authCtrl.logout()">Log Out</button></li>
+                        <li><a class="btn" title="Log Out" ng-click="authCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
                       </ul>
-            
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
                 </nav><!-- /.navbar -->
