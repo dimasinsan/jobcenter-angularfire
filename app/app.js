@@ -36,7 +36,7 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'admin/admin-prof.html'
+        templateUrl: 'admin/admin-landing.html'
       })      
       .state('adminprof', {
         url: '/adminprof',
