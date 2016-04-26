@@ -4,6 +4,9 @@
 @import "./bootstrap/bootstrap.min.css";
 @import "./fontawesome/font-awesome.min.css";
 @import "./animate/animate.min.css";
+@import "./fontawesome/proxima.css";
+@import "./fontawesome/icomoon.css";
+@import "./fontawesome/helvetica.css";
 
 
 /* PREDEFINED CLASSES */
@@ -28,8 +31,8 @@ body {
   padding: 0px;
   margin: 0px;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-family: 'proxima', sans-serif;
+  font-size: 14px;
   color: #757575;
   overflow-x: hidden;
   background: #ffffff;
@@ -553,6 +556,7 @@ a:hover {
   padding: 0px;
   margin: 0px;
   position: relative;
+  font-family: 'helvetica';
 }
 .page-container .page-content .page-content-wrap .page-content-holder h1.heading-underline,
 .page-container .page-content .page-content-wrap .page-content-holder h2.heading-underline,
@@ -758,7 +762,7 @@ a:hover {
   float: left;
   width: 100%;
   padding: 0px 5px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
 }
 .page-container .page-content .page-content-wrap .page-content-holder .text-column.text-column-centralized {
@@ -1684,6 +1688,7 @@ blockquote p {
 .btn-primary {
   background-color: #353831;
   border-color: #00003B;
+  color: #FFFF03;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -1692,6 +1697,7 @@ blockquote p {
 .open > .dropdown-toggle.btn-primary {
   background-color: #FFFF03;
   border-color: #00003B;
+  color:  #00003B;
 }
 .btn-primary[disabled],
 .btn-primary.disabled {
@@ -1785,7 +1791,7 @@ blockquote p {
 }
 .breadcrumb li,
 .breadcrumb li a {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 12px;
   color: #a8a8a8;
   text-decoration: none;
