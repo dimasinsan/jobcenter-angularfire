@@ -57,8 +57,8 @@ angular
           }
         }
       })      
-      .state('adminprof', {
-        url: '/adminprof',
+      .state('admin-list', {
+        url: '/admin-list',
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-prof.html',
         resolve: {
@@ -89,6 +89,20 @@ angular
         url: '/offices',
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-offices.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
+      })
+      .state('admin-profile', {
+        url: '/admin-profile',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-prof-add.html',
         resolve: {
           requireNoAuth: function($state, Auth){
             return Auth.$requireAuth().then(function(auth){
