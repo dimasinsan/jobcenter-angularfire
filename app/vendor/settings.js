@@ -45,6 +45,10 @@ var site_settings = '<div class="ts-button">'
         +'</div>'
     +'</div>';
 
+var height = $('.page-content-wrap').height()
+    
+$('.page-sidebar').height(height);
+
 var settings_block = document.createElement('div');
     settings_block.className = "theme-settings";
     settings_block.innerHTML = site_settings;
@@ -176,10 +180,10 @@ function set_settings(theme_settings,option){
     /* Start Custom Sidebar */
     if(option && option === 'st_sb_toggled'){
         if(theme_settings.st_sb_toggled == 1){
-            $(".page-container").addClass("page-navigation-toggled");
+            $(".page-container-admin").addClass("page-navigation-toggled");
             $(".x-navigation-minimize").trigger("click");
         }else{
-            $(".page-container").removeClass("page-navigation-toggled");
+            $(".page-container-admin").removeClass("page-navigation-toggled");
             $(".x-navigation-minimize").trigger("click");
         }
     }

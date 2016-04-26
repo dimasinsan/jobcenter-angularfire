@@ -1,0 +1,170 @@
+<!-- page container -->
+        <div class="page-container">
+
+            <!-- page header -->
+            <div class="page-header">
+
+                <!-- page header holder -->
+                <nav class="navbar navbar-default">
+                  <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.jpg"/></a>
+                    </div>
+                
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="adminprof">Edit Admins</a></li>
+                        <li><a ui-sref="workerprof">Edit Workers</a></li>
+                        <li><a ui-sref="offices">Edit Offices</a></li>
+                        <li><a ui-sref="login"><span class="fa fa-sign-out"></span></a></li>
+                      </ul>
+            
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container -->
+                </nav><!-- /.navbar -->
+                <!-- ./page header holder -->
+
+            </div>
+            <!-- ./page header -->
+
+            <!-- page content -->
+            <div class="page-content">
+
+                <!-- page content wrapper -->
+                <div class="page-content-wrap">
+                    <div class="container">
+                        <h2>Offices Page:    <small> Add/Edit your offices & branch offices </small></h2>
+                    </div>
+                    <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
+
+                    <!-- page content holder -->
+                     <div class="page-content-wrap">
+                      <div class="container">
+                      <div class="row">
+                          <br>
+                          <br>
+                            <div class="col-xs-12">
+
+                                <form ng-controller="branchController" ng-submit="addGroup(newGroup)" class="form-horizontal">
+
+                                    <div class="panel panel-default tabs" style="max-height; 400px; overflow; auto;">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="active"><a href="javascript:;" role="tab" data-toggle="tab" data-target="#tab-first">Add</a></li>
+                                            <li><a href="javascript:;" role="tab" data-toggle="tab" data-target="#tab-second">Edit</a></li>
+                                        </ul>
+                                        <div class="panel-body tab-content">
+                                            
+                                            <div class="tab-pane active" id="tab-first">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum dolor sem, quis pharetra dui ultricies vel. Cras non pulvinar tellus, vel bibendum magna. Morbi tellus nulla, cursus non nisi sed, porttitor dignissim erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis commodo lectus. Vivamus vel tincidunt enim, non vulputate ipsum. Ut pellentesque consectetur arcu sit amet scelerisque. Fusce commodo leo eros, ut eleifend massa congue at.</p>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Kotamadya</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" id="kotamadya" placeholder="Ex: Jakarta Pusat" ng-model="newGroup.kotamadya"></input>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Kantor</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" ng-model="newGroup.nama" placeholder="Nama Kantor"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Alamat</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <textarea class="form-control" id="alamat" rows="3" ng-model="newGroup.alamat" placeholder="Alamat Baru"/></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" ng-model="newGroup.telp" placeholder="Nomor Telepon"/>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-xs-9">
+                                                <a href="#" class="btn btn-primary pull-right">
+                                                Add Address
+                                                </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="tab-second">
+                                                <p>This is non libero bibendum, scelerisque arcu id, placerat nunc. Integer ullamcorper rutrum dui eget porta. Fusce enim dui, pulvinar a augue nec, dapibus hendrerit mauris. Praesent efficitur, elit non convallis faucibus, enim sapien suscipit mi, sit amet fringilla felis arcu id sem. Phasellus semper felis in odio convallis, et venenatis nisl posuere. Morbi non aliquet magna, a consectetur risus. Vivamus quis tellus eros. Nulla sagittis nisi sit amet orci consectetur laoreet.</p>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Kotamadya</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <p type="text" class="form-control" id="kotamadya" placeholder="Kotamadya"/></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Kantor</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" placeholder="Nama Kantor"/>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Alamat</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <textarea class="form-control" id="alamat" rows="3" placeholder="Alamat Baru"/></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" placeholder="Nomor Telepon"/>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-4 col-xs-12">
+                                                <a href="#" class="btn btn-danger pull-right">
+                                                Search
+                                                </a>
+                                                </div>
+                                                
+                                                <div class="col-xs-5">
+                                                <button type="submit" href="#" class="btn btn-primary pull-right">
+                                                Add Address
+                                                </a>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+
+                    </div>
+                    <!-- ./page content holder -->
+                </div>
+                <!-- ./page content wrapper -->
+
+            </div>
+            <!-- ./page content -->
+
+           
+
+        </div>
+        <!-- ./page container -->

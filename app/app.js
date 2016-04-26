@@ -34,7 +34,19 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'admin/index.html'
+        templateUrl: 'admin/admin-prof.html'
+      })      
+      .state('adminprof', {
+        url: '/adminprof',
+        templateUrl: 'admin/admin-prof.html'
+      })
+      .state('workerprof', {
+        url: '/workerprof',
+        templateUrl: 'admin/admin-workerprof.html'
+      })
+      .state('offices', {
+        url: '/offices',
+        templateUrl: 'admin/admin-offices.html'
       });
 
     $urlRouterProvider.otherwise('/');
