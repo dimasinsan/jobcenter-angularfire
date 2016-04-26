@@ -45,8 +45,8 @@ angular
       })
       .state('admin', {
         url: '/admin',
+        controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-landing.html',
-        templateUrl: 'admin/admin-prof.html',
         resolve: {
           requireNoAuth: function($state, Auth){
             return Auth.$requireAuth().then(function(auth){
@@ -59,6 +59,7 @@ angular
       })      
       .state('adminprof', {
         url: '/adminprof',
+        controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-prof.html',
         resolve: {
           requireNoAuth: function($state, Auth){
@@ -72,6 +73,7 @@ angular
       })
       .state('workerprof', {
         url: '/workerprof',
+        controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-workerprof.html',
         resolve: {
           requireNoAuth: function($state, Auth){
@@ -85,6 +87,7 @@ angular
       })
       .state('offices', {
         url: '/offices',
+        controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-offices.html',
         resolve: {
           requireNoAuth: function($state, Auth){

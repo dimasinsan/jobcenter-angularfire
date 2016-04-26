@@ -22,6 +22,11 @@ angular.module('mainApp')
                 authCtrl.error = error;
             });
         };
+        
+        authCtrl.logout = function(){
+            Auth.$unauth();
+            $state.go('home');
+        };
     });
     // .controller('AlertCtrl', [
     //     '$scope', '$rootScope', function($scope, $rootScope) {
