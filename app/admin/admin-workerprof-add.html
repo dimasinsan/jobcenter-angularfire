@@ -5,7 +5,7 @@
             <div class="page-header">
 
                 <!-- page header holder -->
-                <nav class="navbar navbar-default-admin">
+                <nav class="navbar navbar-default">
                   <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -21,12 +21,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                       <ul class="nav navbar-nav navbar-right">
-                        <li><a ui-sref="admin">Landing Page</a></li>
                         <li><a ui-sref="admin-list">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
                         <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><a class="btn" title="Log Out" ng-click="authCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
+                        <li><button class="btn btn-info btn-block" ng-click="authCtrl.logout()">Log Out</button></li>
                       </ul>
+            
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
                 </nav><!-- /.navbar -->
@@ -55,7 +55,7 @@
                     
                     <div class="container">
                               <div class="row">
-                            <form class="form-horizontal col-lg-5 col-sm-offset-1">
+                            <form action="" class="form-horizontal col-lg-5 col-sm-offset-1">
                               <div class="form-group">
                       					<label for="user-unique" class="col-lg-3 control-label">Unique ID</label>
                       					<div class="col-sm-8">
@@ -138,10 +138,9 @@
                 <div class="col-lg-6 col-lg-offset-2">
                 <button type="submit" class="btn btn-primary">Add</button>
                 <button type="submit" class="btn btn-primary">Cancel</button>
-                </div>
               </div>
-              <br>
-            </div>
+                        </div>
+                    </div>
 
                     </div>
                     <!-- ./page content holder -->

@@ -99,6 +99,20 @@ angular
           }
         }
       })
+      .state('add-offices', {
+        url: '/add-offices',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-offices-add.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
+      })
       .state('admin-profile', {
         url: '/admin-profile',
         controller: 'AuthCtrl as authCtrl',
