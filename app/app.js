@@ -32,11 +32,30 @@ angular
       .state('login', {
         url: '/login',
         controller: 'AuthCtrl as authCtrl',
-        templateUrl: 'auth/login.html'
+        templateUrl: 'auth/login.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              $state.go('admin');
+            }, function(error){
+              return;
+            });
+          }
+        }
       })
       .state('admin', {
         url: '/admin',
-        templateUrl: 'admin/admin-landing.html'
+        templateUrl: 'admin/admin-landing.html',
+        templateUrl: 'admin/admin-prof.html',
+        resolve: {
+          requireNoAuth: function($state, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return;
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
       })      
       .state('adminprof', {
         url: '/adminprof',
