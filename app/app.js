@@ -45,6 +45,7 @@ angular
       })
       .state('admin', {
         url: '/admin',
+        templateUrl: 'admin/admin-landing.html',
         templateUrl: 'admin/admin-prof.html',
         resolve: {
           requireNoAuth: function($state, Auth){
