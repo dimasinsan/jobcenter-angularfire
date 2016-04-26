@@ -37,8 +37,12 @@ body {
 
 .navbar {
   margin-bottom: 0px;
+  font-size: 15px;
 }
 
+.btn .fa, .btn .glyphicon {
+    font-size: 15px;
+ }
 /* LOGIN */
 .login-container {
   float: left;
