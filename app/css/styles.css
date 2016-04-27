@@ -58,7 +58,7 @@ body {
 }
 .nav > li > a:hover, .nav > li > a:focus {
 	text-decoration: none;
-	background-color: #33414e;
+	background-color: #ffa000;
   color: #29b2e1;
 }
 .btn .fa, .btn .glyphicon {
