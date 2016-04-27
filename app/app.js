@@ -11,7 +11,6 @@
 angular
   .module('mainApp', [
     'firebase',
-    'angular-md5',
     'ui.router',
     'dbApp'
   ])
@@ -48,10 +47,8 @@ angular
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-landing.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
           }
@@ -59,14 +56,17 @@ angular
       })      
       .state('adminprof', {
         url: '/adminprof',
-        controller: 'AuthCtrl as authCtrl',
+        controller: 'ProfileCtrl as profileCtrl',
         templateUrl: 'admin/admin-prof.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
+            });
+          },
+          profile: function(Users, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded();
             });
           }
         }
@@ -76,10 +76,8 @@ angular
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-workerprof.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
           }
@@ -90,10 +88,8 @@ angular
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-offices.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
           }
