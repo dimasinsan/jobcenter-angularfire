@@ -41,7 +41,7 @@
                 <!-- page content wrapper -->
                 <div class="page-content-wrap">
                     <div class="container">
-                        <h2>Admins Profile Page:    <small> Add/Edit your admins </small></h2>
+                        <h2>Admins Profile Page:    <small> Add your admins </small></h2>
                     </div>
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
 
@@ -51,18 +51,35 @@
                       <div class="row">
                           <br>
                           <br>
-                          <!--FILTER-->
-                             <div class="container"> 
-                                <div class="row">
-                                <h2 class="col-sm-3 text-left">Filter:</h2>
-                                <a ui-sref="admin-profile" class="btn btn-warning col-sm-offset-7">
-                                  <span class="glyphicon glyphicon-plus-sign"></span> Add Admin
-                                </a>
-                                </div>
-                                <div class="well" style="max-height: 400px;overflow: auto;">
-                                <div class="col-xs-3">
-                                  <div class="form-group">
-                                   <label for="sel3">Lokasi Cabang:</label>
+                          
+                    
+                    <div class="container">
+                              <div class="row">
+                            <form class="form-horizontal col-lg-5 col-sm-offset-1">
+                              <div class="form-group">
+                      					<label for="user-unique" class="col-lg-3 control-label">Unique ID</label>
+                      					<div class="col-sm-8">
+                      						<p type="text" class="form-control" id="user-unique" placeholder="Unique ID">Unique ID</p>
+                      					</div>
+                      				</div>
+
+                      				<div class="form-group">
+                      					<label for="user-name" class="col-lg-3 control-label">Nama</label>
+                      					<div class="col-lg-8">
+                      						<input type="text" class="form-control" id="user-name" placeholder="Masukkan Nama">
+                      					</div>
+                      				</div>
+                         
+                      				<div class="form-group">
+                      					<label for="user-email" class="col-lg-3 control-label">Email</label>
+                      					<div class="col-lg-8">
+                      						<input type="text" class="form-control" id="user-name" placeholder="Masukkan Email">
+                      					</div>
+                      				</div>
+
+                                   <div class="form-group">
+                                   <label for="lokasi" class="col-lg-3 control-label">Lokasi Cabang:</label>
+                                   <div class="col-lg-8">
                                    <select class="form-control" id="lokasi">
                                      <option>Select</option>
                                      <option>Jakarta</option>
@@ -102,78 +119,29 @@
                                      <option>Tegal</option>
                                      <option>Yogyakarta</option>
                                    </select>
+                                   </div>
                                  </div>
-                                 <a href="#" class="btn btn-default">
-                                  <span class="glyphicon glyphicon-filter"></span> Filter
-                                </a>
-                              </div>
-                              </div>
-                            </div> 
-                            <!--END FILTER-->
-                        </div>
-                        <br>
-                        <br>
-                        <!--RESULTS-->
-                      <div class="container">
-                        <h3>Search Results:</h3>
-                        <br>
-                      <div class="container">
-                       <div class="col-lg-1">
-                              <img src="gadis_1.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                              <a href ="" class="">Stefani</a>
-                       </div>
-                            <div class="col-lg-1">
-                               <div class="container text-center">
-                                  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
-                              </div>
-                            </div>
-                            <div class="col-lg-1">
-                              <h5 class="title">Admin</h5>
-                            </div>
-                            <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-danger">
-                                  <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </div>
-                            <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-primary">
-                                  <span class="glyphicon glyphicon-edit"> Edit</span>
-                                </a>
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="container">
-                           <div class="col-lg-1">
-                            <img src="gadis_2.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                            <a href ="" class="">Michele</a>
-                          </div>
-                          <div class="col-lg-1">
-                              <div class="container text-center">
-                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
-                            </div>
-                          </div>
-                          <div class="col-lg-1">
-                            <h5 class="title">Admin</h5>
-                          </div>
-                          <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-danger">
-                                  <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                          </div>
-                          <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-primary">
-                                  <span class="glyphicon glyphicon-edit"> Edit</span>
-                                </a>
-                          </div>
-                          </div>
-                          <br>
-                          <hr>
-                      </div>
-
-                    <!--/RESULTS-->
+                    </form>
                     
-                    
-                    </div>
+             <!--       <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
+                      <a href="girls-3.jpg" class="thumbnail">
+                    <img src="girls-3.jpg" alt="girls-3"></img>
+                  </a>
+                    <div class="caption">
+                      <h5>Add your Pictures here</h5>
+                     <p><a href="#" class="btn btn-primary" role="button">Browse</a></p>
+                  </div>
+                  </div> -->
+                </div>
+                <br>
+                            <!-- END WORKER PROFILE -->
+                <div class="col-lg-6 col-lg-offset-2">
+                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">Cancel</button>
+                </div>
+              </div>
+              <br>
+            </div>
 
                     </div>
                     <!-- ./page content holder -->

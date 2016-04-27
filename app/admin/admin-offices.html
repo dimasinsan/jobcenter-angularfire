@@ -5,7 +5,7 @@
             <div class="page-header">
 
                 <!-- page header holder -->
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default-admin">
                   <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -22,12 +22,11 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                       <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="admin">Landing Page</a></li>
-                        <li><a ui-sref="adminprof">Edit Admins</a></li>
+                        <li><a ui-sref="admin-list">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
                         <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><button class="btn btn-info btn-block" ng-click="authCtrl.logout()">Log Out</button></li>
+                        <li><a class="btn" title="Log Out" ng-click="authCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
                       </ul>
-            
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
                 </nav><!-- /.navbar -->
@@ -42,14 +41,7 @@
                 <!-- page content wrapper -->
                 <div class="page-content-wrap">
                     <div class="container">
-                        <h2>Offices Page:    <small> Add/Edit your offices & branch officesa
-                        
-                        
-                        
-                        
-                        
-                        
-                        </small></h2>
+                        <h2>Branch Offices Page:    <small> Add/Edit your branch offices </small></h2>
                     </div>
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
 
@@ -59,109 +51,128 @@
                       <div class="row">
                           <br>
                           <br>
-                            <div class="col-xs-12">
-
-                                <form ng-controller="branchController" ng-submit="addGroup(newGroup)" class="form-horizontal">
-
-                                    <div class="panel panel-default tabs" style="max-height; 400px; overflow; auto;">
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li class="active"><a href="javascript:;" role="tab" data-toggle="tab" data-target="#tab-first">Add</a></li>
-                                            <li><a href="javascript:;" role="tab" data-toggle="tab" data-target="#tab-second">Edit</a></li>
-                                        </ul>
-                                        <div class="panel-body tab-content">
-                                            
-                                            <div class="tab-pane active" id="tab-first">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum dolor sem, quis pharetra dui ultricies vel. Cras non pulvinar tellus, vel bibendum magna. Morbi tellus nulla, cursus non nisi sed, porttitor dignissim erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis commodo lectus. Vivamus vel tincidunt enim, non vulputate ipsum. Ut pellentesque consectetur arcu sit amet scelerisque. Fusce commodo leo eros, ut eleifend massa congue at.</p>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Kotamadya</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" id="kotamadya" placeholder="Ex: Jakarta Pusat" ng-model="newGroup.kotamadya"></input>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Kantor</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" ng-model="newGroup.nama" placeholder="Nama Kantor"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Alamat</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <textarea class="form-control" id="alamat" rows="3" ng-model="newGroup.alamat" placeholder="Alamat Baru"/></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" ng-model="newGroup.telp" placeholder="Nomor Telepon"/>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="col-xs-9">
-                                                <a href="#" class="btn btn-primary pull-right">
-                                                Add Address
-                                                </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane" id="tab-second">
-                                                <p>This is non libero bibendum, scelerisque arcu id, placerat nunc. Integer ullamcorper rutrum dui eget porta. Fusce enim dui, pulvinar a augue nec, dapibus hendrerit mauris. Praesent efficitur, elit non convallis faucibus, enim sapien suscipit mi, sit amet fringilla felis arcu id sem. Phasellus semper felis in odio convallis, et venenatis nisl posuere. Morbi non aliquet magna, a consectetur risus. Vivamus quis tellus eros. Nulla sagittis nisi sit amet orci consectetur laoreet.</p>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Kotamadya</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <p type="text" class="form-control" id="kotamadya" placeholder="Kotamadya"/></p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Kantor</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" placeholder="Nama Kantor"/>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Alamat</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <textarea class="form-control" id="alamat" rows="3" placeholder="Alamat Baru"/></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" placeholder="Nomor Telepon"/>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="col-md-4 col-xs-12">
-                                                <a href="#" class="btn btn-danger pull-right">
-                                                Search
-                                                </a>
-                                                </div>
-                                                
-                                                <div class="col-xs-5">
-                                                <button type="submit" href="#" class="btn btn-primary pull-right">
-                                                Add Address
-                                                </a>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-
-                                </form>
-
-                            </div>
+                          <!--FILTER-->
+                             <div class="container"> 
+                                <div class="row">
+                                <h2 class="col-sm-3 text-left">Filter:</h2>
+                                <a ui-sref="add-offices" class="btn btn-warning col-sm-offset-7">
+                                  <span class="glyphicon glyphicon-plus-sign"></span> Add office
+                                </a>
+                                </div>
+                                <div class="well" style="max-height: 400px;overflow: auto;">
+                                <div class="col-xs-3">
+                                  <div class="form-group">
+                                   <label for="sel3">Lokasi Cabang:</label>
+                                   <select class="form-control" id="lokasi">
+                                     <option>Select</option>
+                                     <option>Jakarta</option>
+                                     <option>Bandung</option>
+                                     <option>Surabaya</option>
+                                     <option>Medan</option>
+                                     <option>Semarang</option>
+                                     <option>Ambon</option>
+                                     <option>Balikpapan</option>
+                                     <option>Banda Aceh</option>
+                                     <option>Bandar Lampung</option>
+                                     <option>Banjarmasin</option>
+                                     <option>Batam</option>
+                                     <option>Bekasi</option>
+                                     <option>Bengkulu</option>
+                                     <option>Bogor</option>
+                                     <option>Cirebon</option>
+                                     <option>Denpasar</option>
+                                     <option>Depok</option>
+                                     <option>Gorontalo</option>
+                                     <option>Jambi</option>
+                                     <option>Jayapura</option>
+                                     <option>Kediri</option>
+                                     <option>Kendari</option>
+                                     <option>Madiun</option>
+                                     <option>Makassar</option>
+                                     <option>Malang</option>
+                                     <option>Manado</option>
+                                     <option>Padang</option>
+                                     <option>Palembang</option>
+                                     <option>Pekanbaru</option>
+                                     <option>Pontianak</option>
+                                     <option>Samarinda</option>
+                                     <option>Serang</option>
+                                     <option>Tangerang</option>
+                                     <option>Tasikmalaya</option>
+                                     <option>Tegal</option>
+                                     <option>Yogyakarta</option>
+                                   </select>
+                                 </div>
+                                 <a href="#" class="btn btn-default">
+                                  <span class="glyphicon glyphicon-filter"></span> Filter
+                                </a>
+                              </div>
+                              </div>
+                            </div> 
+                            <!--END FILTER-->
                         </div>
                         <br>
                         <br>
+                        <!--RESULTS-->
+                      <div class="container">
+                        <h3>Search Results:</h3>
+                        <br>
+                      <div class="container">
+                       <div class="col-lg-1">
+                              <img src="gadis_1.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
+                              <a href ="" class="">Stefani</a>
+                       </div>
+                            <div class="col-lg-1">
+                               <div class="container text-center">
+                                  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
+                              </div>
+                            </div>
+                            <div class="col-lg-1">
+                              <h5 class="title">Admin</h5>
+                            </div>
+                            <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </div>
+                            <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-primary">
+                                  <span class="glyphicon glyphicon-edit"> Edit</span>
+                                </a>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="container">
+                           <div class="col-lg-1">
+                            <img src="gadis_2.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
+                            <a href ="" class="">Michele</a>
+                          </div>
+                          <div class="col-lg-1">
+                              <div class="container text-center">
+                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
+                            </div>
+                          </div>
+                          <div class="col-lg-1">
+                            <h5 class="title">Admin</h5>
+                          </div>
+                          <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                          </div>
+                          <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-primary">
+                                  <span class="glyphicon glyphicon-edit"> Edit</span>
+                                </a>
+                          </div>
+                          </div>
+                          <br>
+                          <hr>
+                      </div>
+
+                    <!--/RESULTS-->
+                    
+                    
                     </div>
 
                     </div>
