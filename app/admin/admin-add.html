@@ -1,6 +1,6 @@
 <!-- page container -->
 <div class="page-container">
-
+    
     <!-- page header -->
     <div class="page-header">
 
@@ -65,9 +65,9 @@
                                     <!--        <p type="text" class="form-control" id="user-unique" placeholder="Unique ID">Unique ID</p>-->
                                     <!--    </div>-->
                                     <!--</div>-->
-                                    <p ng-hide="profileCtrl.profile.displayName">
-                                        Anda perlu memasukkan nama anda sebelum dapat membuka halaman Admin
-                                    </p>
+                                    <div class="alert alert-warning" ng-show="authCtrl.error" ng-hide="profileCtrl.profile.displayName">
+                                        <span>Masukkan nama anda sebelum membuka halaman Admin</span>
+                                    </div>
                                     <div class="form-group">
                                         <label for="user-name" class="col-lg-3 control-label">Nama</label>
                                         <div class="col-lg-8">
@@ -140,9 +140,10 @@
                             </div>
                             <br>
                             <!-- END WORKER PROFILE -->
+
                             <div class="col-lg-6 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary">Add</button>
-                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-primary" ng-click="profileCtrl.updateProfile()">Save</button>
+                                <button type="submit" class="btn btn-primary" ui-sref = "admin">Cancel</button>
                             </div>
                         </div>
                         <br>
