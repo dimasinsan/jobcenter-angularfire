@@ -111,14 +111,17 @@ angular
       })
       .state('admin-profile', {
         url: '/admin-profile',
-        controller: 'AuthCtrl as authCtrl',
+        controller: 'ProfileCtrl as profileCtrl',
         templateUrl: 'admin/admin-prof-add.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
+            });
+          },
+          profile: function(Users, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded();
             });
           }
         }

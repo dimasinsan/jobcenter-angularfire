@@ -3,7 +3,8 @@ angular.module('mainApp')
     var profileCtrl = this;
     
     profileCtrl.profile = profile;
-    
+    profileCtrl.profile.email = auth.email;
+
     profileCtrl.updateProfile = function(){
         profileCtrl.profile.$save().then(function(){
           $state.go('admin');
