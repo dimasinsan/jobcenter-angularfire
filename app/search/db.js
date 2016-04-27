@@ -2,11 +2,43 @@ var db = angular.module("dbApp", ["firebase"]);
 
 var URL = "https://jobcenter.firebaseio.com/";
 
-db.controller("searchController", function($scope, $firebaseArray) {
+
+db.controller("searchController", function($scope, $firebaseArray, $firebaseObject) {
   
   var ref2 = new Firebase(URL + 'labor');
-//  var child = ref2.child("labor");
+  var ref = new Firebase(URL + 'branch');
+  var ref3 = new Firebase(URL + 'lokasi');  
+  
   $scope.datas = $firebaseArray(ref2);
+  $scope.branches = $firebaseArray(ref);
+  
+  // var inputNama = document.getElementById('inputNama');
+  // var inputAlamat = document.getElementById('inputAlamat');
+  // var inputKodya = document.getElementById('inputKodya');
+  // var inputTelp = document.getElementById('inputTelp');
+  // var buttonEdit = document.getElementById('buttonEdit');
+  
+  // buttonEdit.addEventListener('click', function() {
+  //         ref3.update({
+  //           nama: inputNama.value,
+  //           alamat: inputAlamat.value,
+  //           telp: inputTelp.value,
+  //           kotamadya: inputKodya.value
+  //         });
+  // });
+  
+  // $scope.person = $firebaseObject(ref3);
+  
+  // $scope.edit = function () {
+  //   $scope.person.$save();
+  // }
+  
+  // ref.on("child_added", function(snaps) {
+    
+  //   $scope.msg = snaps.key();      
+  //   $scope.key = snaps.val().kotamadya;    
+    
+  // });
   
   $scope.filter = {};
   $scope.input = {};
@@ -53,13 +85,13 @@ db.controller("profileViewController", function ($scope, $firebaseArray) {
 
 }); //end of db view controller
 
-db.controller("branchViewController", function($scope, $firebaseArray) {
+// db.controller("branchViewController", function($scope, $firebaseArray) {
   
-  var ref = new Firebase(URL + "branch");
-//  var child = ref.child("branch");
-  $scope.branches = $firebaseArray(ref);
+//   var ref = new Firebase(URL + "branch");
+// //  var child = ref.child("branch");
+//   $scope.branches = $firebaseArray(ref);
   
-}); // end of branch view controller
+// }); // end of branch view controller
 
 db.controller("laborPushController", function ($scope, $firebaseArray) {
   
@@ -99,7 +131,7 @@ db.controller("laborPushController", function ($scope, $firebaseArray) {
               tanggallahir: inputTanggal.value,
               asal: inputAsal.value,      
               alamat: inputAlamat.value,
-              lokasi: inputLokasi.value,
+              kotamadya: inputLokasi.value,
               kategori: inputKategori.value,
               profesi: inputProfesi.value,
               tersedia: "ya",
@@ -178,6 +210,7 @@ db.controller("branchPushController", function () {
   var inputKodya = document.getElementById('inputKodya');
   var inputTelp = document.getElementById('inputTelp');
   var buttonAdd = document.getElementById('buttonAdd');
+  var buttonEdit = document.getElementById('buttonEdit');
 
         buttonAdd.addEventListener('click', function () {
             ref.push({
@@ -186,6 +219,17 @@ db.controller("branchPushController", function () {
               telp: inputTelp.value,
               kotamadya: inputKodya.value
             });
+        });
+            
+        buttonEdit.addEventListener('click', function() {
+          ref2.update({
+            nama: inputNama.value,
+            alamat: inputAlamat.value,
+            telp: inputTelp.value,
+            kotamadya: inputKodya.value
+          });
+          
+        });
             
             //ref2.child().push([inputKodya.value]);     
                    
@@ -195,7 +239,7 @@ db.controller("branchPushController", function () {
             inputTelp.value = '';
 
         });
-      }); //end of branch push controller
+      //end of branch push controller
   
   // var nama = $('#nameInput').val();
   // var alamat = $('#alamatInput').val();

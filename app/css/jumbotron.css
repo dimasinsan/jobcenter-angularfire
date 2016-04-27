@@ -50,6 +50,7 @@
       line-height: 1.25;
       color: #FFFF03;
       text-shadow: 0 1px 1px rgba(0,0,0,.4);
+      font-weight: bold;
     }
     
     .carousel-caption p {

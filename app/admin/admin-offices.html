@@ -46,7 +46,7 @@
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
 
                     <!-- page content holder -->
-                     <div class="page-content-wrap">
+                     <div class="page-content-wrap" ng-controller="searchController">
                       <div class="container">
                       <div class="row">
                           <br>
@@ -62,50 +62,13 @@
                                 <div class="well" style="max-height: 400px;overflow: auto;">
                                 <div class="col-xs-3">
                                   <div class="form-group">
-                                   <label for="sel3">Lokasi Cabang:</label>
-                                   <select class="form-control" id="lokasi">
-                                     <option>Select</option>
-                                     <option>Jakarta</option>
-                                     <option>Bandung</option>
-                                     <option>Surabaya</option>
-                                     <option>Medan</option>
-                                     <option>Semarang</option>
-                                     <option>Ambon</option>
-                                     <option>Balikpapan</option>
-                                     <option>Banda Aceh</option>
-                                     <option>Bandar Lampung</option>
-                                     <option>Banjarmasin</option>
-                                     <option>Batam</option>
-                                     <option>Bekasi</option>
-                                     <option>Bengkulu</option>
-                                     <option>Bogor</option>
-                                     <option>Cirebon</option>
-                                     <option>Denpasar</option>
-                                     <option>Depok</option>
-                                     <option>Gorontalo</option>
-                                     <option>Jambi</option>
-                                     <option>Jayapura</option>
-                                     <option>Kediri</option>
-                                     <option>Kendari</option>
-                                     <option>Madiun</option>
-                                     <option>Makassar</option>
-                                     <option>Malang</option>
-                                     <option>Manado</option>
-                                     <option>Padang</option>
-                                     <option>Palembang</option>
-                                     <option>Pekanbaru</option>
-                                     <option>Pontianak</option>
-                                     <option>Samarinda</option>
-                                     <option>Serang</option>
-                                     <option>Tangerang</option>
-                                     <option>Tasikmalaya</option>
-                                     <option>Tegal</option>
-                                     <option>Yogyakarta</option>
+                                   <!--<label for="sel3">Lokasi Cabang:</label>-->
+                                   <select class="form-control select" id="lokasi" ng-model="kodim.kotamadya">
+                                     <option >Lokasi Cabang</option>                                     
+                                     <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                     
                                    </select>
                                  </div>
-                                 <a href="#" class="btn btn-default">
-                                  <span class="glyphicon glyphicon-filter"></span> Filter
-                                </a>
+                                
                               </div>
                               </div>
                             </div> 
@@ -116,56 +79,84 @@
                         <!--RESULTS-->
                       <div class="container">
                         <h3>Search Results:</h3>
+                     
                         <br>
-                      <div class="container">
-                       <div class="col-lg-1">
-                              <img src="gadis_1.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                              <a href ="" class="">Stefani</a>
-                       </div>
-                            <div class="col-lg-1">
-                               <div class="container text-center">
-                                  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
-                              </div>
-                            </div>
-                            <div class="col-lg-1">
-                              <h5 class="title">Admin</h5>
-                            </div>
-                            <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-danger">
-                                  <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </div>
-                            <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-primary">
-                                  <span class="glyphicon glyphicon-edit"> Edit</span>
-                                </a>
-                            </div>
-                          </div>
+                      <div class="container" ng-show="kodim != null">
+                              <div class="row">
+                            <form class="form-horizontal col-lg-8 col-sm-offset-1"  ng-repeat="branch in branches | filter:kodim">
+                                            
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Kotamadya </label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" id="inputKodya" value="{{branch.kotamadya}}" required/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Kantor</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" id="inputNama" value="{{branch.nama}}" required/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">Alamat</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <textarea class="form-control" rows="5" id="inputAlamat"  required>{{branch.alamat}}</textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
+                                                    <div class="col-md-6 col-xs-12">
+                                                        <input type="text" class="form-control" id="inputTelp" value="{{branch.telp}}"  onkeypress="return event.charCode >= 45 && event.charCode <=57" required/>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-xs-9">
+                                                <button type="submit" id="buttonEdit" class="btn btn-primary pull-right"/>
+                                                Edit Branch
+                                                
+                                            </div>
+                                            <br><hr>
+
+                                        
+                                   
+
+                                </form>
+                                
+                                
+                                <table class="table" bgcolor="#353831">
+                                  <thead>
+                                    <th>Kotamadya</th>
+                                    <th>Nama Kantor</th>
+                                    <th>Alamat</th>
+                                    <th>No Tlp</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                  </thead>
+                                  <tbody>
+                                    <tr ng-repeat="(id, branch) in branches">
+                                      <td>{{branch.kotamadya}}</td>
+                                      <td>{{branch.nama}}</td>
+                                      <td>{{branch.alamat}}</td>
+                                      <td>{{branch.telp}}</td>
+                                      <td>
+                                        <a ui-sref="offices-edit">Edit</a>                                        
+                                      </td>
+                                      <td>
+                                        <a ui-sref="remove">Remove</a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                    
+            
+                </div>
+                <br>
+                        </div>
                           <hr>
-                          <div class="container">
-                           <div class="col-lg-1">
-                            <img src="gadis_2.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                            <a href ="" class="">Michele</a>
-                          </div>
-                          <div class="col-lg-1">
-                              <div class="container text-center">
-                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
-                            </div>
-                          </div>
-                          <div class="col-lg-1">
-                            <h5 class="title">Admin</h5>
-                          </div>
-                          <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-danger">
-                                  <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                          </div>
-                          <div class="col-lg-1 pull-right">
-                              <a href="#" class="btn btn-primary">
-                                  <span class="glyphicon glyphicon-edit"> Edit</span>
-                                </a>
-                          </div>
-                          </div>
+                          
                           <br>
                           <hr>
                       </div>
