@@ -52,6 +52,10 @@ body {
 	/* background-color: #993d00; */
 }
 
+.carousel-caption .btn {
+  font-size: 20px;
+  padding: 12px 15px;
+}
 .nav > li > a:hover, .nav > li > a:focus {
 	text-decoration: none;
 	background-color: #33414e;
