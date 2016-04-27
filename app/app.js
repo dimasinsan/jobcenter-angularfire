@@ -44,11 +44,22 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        controller: 'AuthCtrl as authCtrl',
+        controller: 'AdminCtrl as adminCtrl',
         templateUrl: 'admin/admin-landing.html',
         resolve: {
-          auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
+          admin: function(Admin){
+            return Admin.$loaded();
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
               $state.go('login');
             });
           }
