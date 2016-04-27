@@ -83,6 +83,18 @@ angular
           }
         }
       })
+      .state('add-workers', {
+        url: '/add-workers',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-workerprof-add.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          }
+        }
+      })
       .state('offices', {
         url: '/offices',
         controller: 'AuthCtrl as authCtrl',
