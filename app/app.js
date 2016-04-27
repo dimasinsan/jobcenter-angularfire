@@ -57,7 +57,7 @@ angular
       .state('admin-list', {
         url: '/admin-list',
         controller: 'ProfileCtrl as profileCtrl',
-        templateUrl: 'admin/admin-prof.html',
+        templateUrl: 'admin/admin-list.html',
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
