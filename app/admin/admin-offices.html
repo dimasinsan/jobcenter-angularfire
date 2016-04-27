@@ -46,7 +46,7 @@
 
                     <!-- page content holder -->
                      <div class="page-content-wrap" ng-controller="searchController">
-                      <div class="container">
+                      <div class="container" ng-controller="branchViewController">
                       <div class="row">
                           <br>
                           <br>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="well" style="max-height: 400px;overflow: auto;">
                                 <div class="col-xs-3">
-                                  <div class="form-group">
+                                  <div class="form-group" >
                                    <!--<label for="sel3">Lokasi Cabang:</label>-->
                                    <select class="form-control select" id="lokasi" ng-model="kodim.kotamadya">
                                      <option >Lokasi Cabang</option>                                     
