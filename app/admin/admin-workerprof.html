@@ -11,9 +11,7 @@
                     <div class="navbar-header">
                       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="fa fa-bars"></span>
                       </button>
                       <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.jpg"/></a>
                     </div>
@@ -21,6 +19,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                       <ul class="nav navbar-nav navbar-right">
+                        <li><a title="Edit my profile" ui-sref="admin-profile"><span class="fa fa-cog"></span></a></li>
                         <li><a ui-sref="admin">Landing Page</a></li>
                         <li><a ui-sref="admin-list">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
@@ -41,7 +40,7 @@
                 <!-- page content wrapper -->
                 <div class="page-content-wrap">
                     <div class="container">
-                        <h2>Admins Profile Page:    <small> Add/Edit your admins </small></h2>
+                        <h2>Workers Profile Page:    <small> Add/Edit your workers </small></h2>
                     </div>
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
 
@@ -55,34 +54,34 @@
                       <div class="container">
                         <div class="row">
                         <h2 class="col-sm-3 text-left">Filter:</h2>
-                        <a href="#" class="btn btn-danger col-sm-offset-7">
+                        <a ui-sref="add-workers" class="btn btn-warning col-sm-offset-7">
                           <span class="glyphicon glyphicon-plus-sign"></span> Add Worker
                         </a>
                         </div>
                         <div class="well" style="max-height: 400px;overflow: auto;">
                           <div class="col-xs-3">
                             <div class="form-group">
-                             <label for="sel1">Kategori:</label>
+                             <label for="sel1"></label>
                              <select class="form-control" id="kategori">
-                               <option>Select</option>
+                               <option>Kategori</option>
                                <option>Rumah Tangga</option>
                                <option>Pekerja Umum</option>
                                <option>Pekerja Berketrampilan</option>
                              </select>
                            </div>
                             <div class="form-group">
-                             <label for="sel2">Status:</label>
+                             <label for="sel2"></label>
                              <select class="form-control" id="status">
-                               <option>Select</option>
+                               <option>Status</option>
                                <option>Lajang</option>
                                <option>Menikah</option>
                                <option>Janda / Duda</option>
                                </select>
                            </div>
                            <div class="form-group">
-                            <label for="sel6">Agama:</label>
+                            <label for="sel6"></label>
                             <select class="form-control" id="agama">
-                              <option>Select</option>
+                              <option>Agama</option>
                               <option>Islam</option>
                               <option>Katolik</option>
                               <option>Kristen</option>
@@ -92,9 +91,9 @@
                             </select>
                           </div>
                           <div class="form-group">
-                           <label for="sel1">Waktu:</label>
+                           <label for="sel1"></label>
                            <select class="form-control" id="waktu">
-                             <option>Select</option>
+                             <option>Waktu</option>
                              <option>Menginap</option>
                              <option>Infal</option>
                              <option>Pulang-Pergi</option>
@@ -104,9 +103,9 @@
                     
                         <div class="col-xs-3">
                           <div class="form-group">
-                           <label for="sel3">Lokasi Cabang:</label>
+                           <label for="sel3"></label>
                            <select class="form-control" id="lokasi">
-                             <option>Select</option>
+                             <option>Lokasi Cabang</option>
                              <option>Jakarta</option>
                              <option>Bandung</option>
                              <option>Surabaya</option>
@@ -146,9 +145,9 @@
                            </select>
                          </div>
                           <div class="form-group">
-                           <label for="sel4">Gaji Bulanan(min):</label>
+                           <label for="sel4"></label>
                            <select class="form-control" id="gajimin">
-                             <option>Select</option>
+                             <option>Gaji Bulanan (min)</option>
                              <option>Rp 1,000,000</option>
                              <option>Rp 1,100,000</option>
                              <option>Rp 1,200,000</option>
@@ -178,9 +177,9 @@
                            </select>
                          </div>
                          <div class="form-group">
-                          <label for="sel1">Suku Asal:</label>
+                          <label for="sel1"></label>
                           <select class="form-control" id="suku">
-                            <option>Select</option>
+                            <option>Suku Asal</option>
                             <option>Jawa</option>
                             <option>Sunda</option>
                             <option>Banten</option>
@@ -197,9 +196,9 @@
                     
                       <div class="col-xs-3">
                         <div class="form-group">
-                         <label for="sel5">Profesi:</label>
+                         <label for="sel5"></label>
                          <select class="form-control" id="profesi">
-                           <option>Select</option>
+                           <option>Profesi</option>
                            <option>P.R.T.</option>
                            <option>Nanny</option>
                            <option>Baby Sitter</option>
@@ -211,9 +210,9 @@
                          </select>
                        </div>
                        <div class="form-group">
-                        <label for="sel4">Gaji Bulanan(max):</label>
+                        <label for="sel4"></label>
                         <select class="form-control" id="gajimax">
-                          <option>Select</option>
+                          <option>Gaji Bulanan (max)</option>
                           <option>Rp 1,000,000</option>
                           <option>Rp 1,100,000</option>
                           <option>Rp 1,200,000</option>
@@ -243,9 +242,9 @@
                         </select>
                       </div>
                        <div class="form-group">
-                        <label for="sel2">Usia (min):</label>
+                        <label for="sel2"></label>
                         <select class="form-control" id="usiamin">
-                          <option>Select</option>
+                          <option>Usia (min)</option>
                           <option>17</option>
                           <option>18</option>
                           <option>19</option>
@@ -291,17 +290,17 @@
                     
                     <div class="col-xs-3">
                       <div class="form-group">
-                       <label for="sel7">Jenis Kelamin:</label>
+                       <label for="sel7"></label>
                        <select class="form-control" id="gender">
-                         <option>Select</option>
+                         <option>Jenis Kelamin</option>
                          <option>Pria</option>
                          <option>Wanita</option>
                        </select>
                      </div>
                      <div class="form-group">
-                      <label for="sel7">Pendidikan Terakhir:</label>
+                      <label for="sel7"></label>
                       <select class="form-control" id="pendidikan">
-                        <option>Select</option>
+                        <option>Pendidikan Terakhir</option>
                         <option>SD</option>
                         <option>SMP</option>
                         <option>SMA</option>
@@ -309,9 +308,9 @@
                       </select>
                     </div>
                     <div class="form-group">
-                     <label for="sel2">Usia (max):</label>
+                     <label for="sel2"></label>
                      <select class="form-control" id="usiamax">
-                       <option>Select</option>
+                       <option>Usia (max)</option>
                        <option>17</option>
                        <option>18</option>
                        <option>19</option>
@@ -370,254 +369,58 @@
                         <h3>Search Results:</h3>
                         <br>
                       <div class="container">
-                       <div class="col-lg-4">
-                              <img src="gadis_1.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                              <a href ="" class="">Stefani</a>
-                            </div>
-                            <div class="col-lg-4">
-                               <div class="container text-center">
+                       <div class="col-lg-3">
+                              <img src="../img/gadis_1.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
+                              <a href ="" class=""> Stefani</a>
+                       </div>
+                            <div class="col-lg-1">
+                               <div class="container text-justified">
                                   <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
                               </div>
                             </div>
-                            <div class="col-lg-4">
-                              <h5 class="title">Nanny</h5>
+                            <div class="col-lg-3 col-lg-offset-1">
+                              <h5 class="title" align="right"> Baby Sitter</h5>
+                            </div>
+                            <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </div>
+                            <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-primary">
+                                  <span class="glyphicon glyphicon-edit"> Edit</span>
+                                </a>
                             </div>
                           </div>
                           <hr>
                           <div class="container">
-                           <div class="col-lg-4">
-                            <img src="gadis_2.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                            <a href ="" class="">Michele</a>
+                           <div class="col-lg-3">
+                            <img src="../img/gadis_2.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>
+                            <a href ="" class=""> Michele</a>
                           </div>
-                          <div class="col-lg-4">
-                              <div class="container text-center">
-                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>
+                          <div class="col-lg-1">
+                              <div class="container text-justified">
+                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Jakarta Selatan</span>
                             </div>
                           </div>
-                          <div class="col-lg-4">
-                            <h5 class="title">Baby Sitter</h5>
+                          <div class="col-lg-3 col-lg-offset-1">
+                            <h5 class="title" align="right"> Baby Sitter</h5>
+                          </div>
+                          <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-danger">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                          </div>
+                          <div class="col-lg-1 pull-right">
+                              <a href="#" class="btn btn-primary">
+                                  <span class="glyphicon glyphicon-edit"> Edit</span>
+                                </a>
                           </div>
                           </div>
-                          <br>
-                          <hr>
-                      </div>
+                          <br /><br /><br />
 
                     <!--/RESULTS-->
                     
-                    <div class="container">
-                              <div class="row">
-                            <form action="" class="form-horizontal col-lg-5 col-sm-offset-1">
-                              <div class="form-group">
-                      					<label for="user-unique" class="col-lg-3 control-label">Unique ID</label>
-                      					<div class="col-sm-8">
-                      						<p type="text" class="form-control" id="user-unique" placeholder="Unique ID">Unique ID</p>
-                      					</div>
-                      				</div>
-
-                      				<div class="form-group">
-                      					<label for="user-name" class="col-lg-3 control-label">Nama</label>
-                      					<div class="col-lg-8">
-                      						<input type="text" class="form-control" id="user-name" placeholder="Masukkan Nama">
-                      					</div>
-                      				</div>
-                         
-                      				<div class="form-group">
-                      					<label for="user-address" class="col-lg-3 control-label">Alamat</label>
-                      					<div class="col-lg-8">
-                      						<textarea class="form-control" id="user-address" rows="5"></textarea>
-                      					</div>
-                      				</div>
-                      
-                      <div class="form-group">
-                        <label for="user-status" class="col-lg-3 control-label">Status</label>
-                         <div class="col-sm-8">
-                        <select class="form-control" id="status">
-                          <option>Semua</option>
-                          <option>Lajang</option>
-                          <option>Menikah</option>
-                          <option>Janda</option>
-                          <option>Duda</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--<div class="form-group">
-                      					<label for="user-status" class="col-lg-3 control-label">Status</label>
-                      					<div class="col-sm-8">
-                      						<input type="text" class="form-control" id="user-status" placeholder="Status">
-                      					</div>
-                      				</div>-->
-                      
-          				<div class="form-group">
-          					<label for="user-telp" class="col-lg-3 control-label">Tel./Handphone</label>
-          					<div class="col-sm-8">
-          						<input type="text" class="form-control" id="user-telp" placeholder="Masukkan Nomor Telephone/Handphone">
-          					</div>
-          				</div>
-                      
-
-                        <div class="form-group">
-                          <label for="user-agama" class="col-lg-3 control-label">Agama</label>
-                           <div class="col-sm-8">
-                          <select class="form-control" id="agama">
-                            <option>Semua</option>
-                            <option>Islam</option>
-                            <option>Kristen</option>
-                            <option>Hindu</option>
-                            <option>Budha</option>
-                            </select>
-                          </div>
-                        </div>
-                      <!--<div class="form-group">
-                        <label for="user-agama" class="col-lg-3 control-label">Agama</label>
-                      <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-agama" placeholder="Agama">
-                        </div>
-                      </div>-->
-
-                        <div class="form-group">
-                          <label for="user-gender" class="col-lg-3 control-label">Gender</label>
-                           <div class="col-sm-8">
-                          <select class="form-control" id="gender">
-                            <option>Semua</option>
-                            <option>Laki-laki</option>
-                            <option>Perempuan</option>
-                            <option>Other</option>
-                            </select>
-                          </div>
-                        </div>
-                        
-                      <div class="form-group">
-                        <label for="user-edu" class="col-lg-3 control-label">Pendidikan terakhir</label>
-                         <div class="col-sm-8">
-                        <select class="form-control" id="edu">
-                          <option>Semua</option>
-                          <option>SD</option>
-                          <option>SMP</option>
-                          <option>SMU/SMK</option>
-                          <option>D3/Sarjana</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--  <div class="form-group">
-                        <label for="user-edu" class="col-lg-3 control-label">Pendidikan Terakhir</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-edu" placeholder="Pendidikan Terakhir">
-                        </div>
-                      </div>-->
-
-                      <div class="form-group">
-                        <label for="user-exp" class="col-lg-3 control-label">Pengalaman Kerja</label>
-                         <div class="col-sm-8">
-                        <select class="form-control" id="exp">
-                          <option>Semua</option>
-                          <option>1 tahun</option>
-                          <option>2 tahun</option>
-                          <option>3 tahun</option>
-                          <option>4 tahun</option>
-                          <option>5 tahun/lebih</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--<div class="form-group">
-                        <label for="user-exp" class="col-lg-3 control-label">Pengalaman Kerja</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-exp" placeholder="Pengalaman Kerja">
-                        </div>
-                      </div>-->
-
-                      <div class="form-group">
-                        <label for="user-abroad" class="col-lg-3 control-label">Pengalaman Kerja Luar Negeri</label>
-                         <div class="col-sm-8">
-                        <select class="form-control" id="abroad">
-                          <option>Ya</option>
-                          <option>Tidak</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--<div class="form-group">
-                        <label for="user-abroad" class="col-lg-3 control-label">Pengalaman Kerja Luar Negeri</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-abroad" placeholder="">
-                        </div>
-                      </div>-->
-
-                      <div class="form-group">
-                        <label for="user-suku" class="col-lg-3 control-label">Suku</label>
-                         <div class="col-sm-8">
-                        <select class="form-control" id="suku">
-                          <option>Semua</option>
-                          <option>Jawa</option>
-                          <option>Sunda</option>
-                          <option>Batak</option>
-                          <option>Bali</option>
-                          <option>NTT/NTB</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--<div class="form-group">
-                        <label for="user-suku" class="col-lg-3 control-label">Suku</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-suku" placeholder="Suku">
-                        </div>
-                      </div>-->
-
-                      <div class="form-group">
-                        <label for="user-tinggi" class="col-lg-3 control-label">Tinggi</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-tinggi" placeholder="Centimeter">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="user-berat" class="col-lg-3 control-label">Berat</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-berat" placeholder="Kilogram">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="user-bahasa" class="col-lg-3 control-label" >Keterampilan Bahasa</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-bahasa" placeholder="Keterampilan Bahasa">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="user-waktu" class="col-lg-3 control-label">Waktu Ketersediaan</label>
-                         <div class="col-sm-8">
-                        <select class="form-control" id="waktu">
-                          <option>Semua</option>
-                          <option>Sudah Tersedia</option>
-                          <option>Akan Tersedia</option>
-                          <option>Infal</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--<div class="form-group">
-                        <label for="user-waktu" class="col-lg-3 control-label">Waktu ketersediaan</label>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" id="user-waktu" placeholder="">
-                        </div>
-                      </div>-->
-                    </form>
-                    <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
-                      <a href="girls-3.jpg" class="thumbnail">
-                    <img src="girls-3.jpg" alt="girls-3"></img>
-                  </a>
-                    <div class="caption">
-                      <h5>Add your Pictures here</h5>
-                     <p><a href="#" class="btn btn-primary" role="button">Browse</a></p>
-                  </div>
-                  </div>
-                </div>
-                <hr>
-                            <!-- END WORKER PROFILE -->
-                <div class="col-lg-6 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <button type="submit" class="btn btn-primary">Cancel</button>
-                <br>
-              </div>
-                        </div>
                     </div>
 
                     </div>

@@ -5,15 +5,13 @@
             <div class="page-header">
 
                 <!-- page header holder -->
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default-admin">
                   <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="fa fa-bars"></span>
                       </button>
                       <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.jpg"/></a>
                     </div>
@@ -21,12 +19,13 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                       <ul class="nav navbar-nav navbar-right">
+                        <li><a title="Edit my profile" ui-sref="admin-profile"><span class="fa fa-cog"></span></a></li>
+                        <li><a ui-sref="admin">Landing Page</a></li>
                         <li><a ui-sref="admin-list">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
                         <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><button class="btn btn-info btn-block" ng-click="authCtrl.logout()">Log Out</button></li>
+                        <li><a class="btn" title="Log Out" ng-click="authCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
                       </ul>
-            
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
                 </nav><!-- /.navbar -->
@@ -41,7 +40,7 @@
                 <!-- page content wrapper -->
                 <div class="page-content-wrap">
                     <div class="container">
-                        <h2>Admins Profile Page:    <small> Add your admins </small></h2>
+                        <h2>Workers Profile Page:    <small> Add your workers </small></h2>
                     </div>
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
 
@@ -71,73 +70,200 @@
                       				</div>
                          
                       				<div class="form-group">
-                      					<label for="user-email" class="col-lg-3 control-label">Email</label>
+                      					<label for="user-address" class="col-lg-3 control-label">Alamat</label>
                       					<div class="col-lg-8">
-                      						<input type="text" class="form-control" id="user-name" placeholder="Masukkan Email">
+                      						<textarea class="form-control" id="user-address" rows="5"></textarea>
                       					</div>
                       				</div>
+                      
+                      <div class="form-group">
+                        <label for="user-status" class="col-lg-3 control-label">Status</label>
+                         <div class="col-sm-8">
+                        <select class="form-control" id="status">
+                          <option>Semua</option>
+                          <option>Lajang</option>
+                          <option>Menikah</option>
+                          <option>Janda</option>
+                          <option>Duda</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--<div class="form-group">
+                      					<label for="user-status" class="col-lg-3 control-label">Status</label>
+                      					<div class="col-sm-8">
+                      						<input type="text" class="form-control" id="user-status" placeholder="Status">
+                      					</div>
+                      				</div>-->
+                      
+          				<div class="form-group">
+          					<label for="user-telp" class="col-lg-3 control-label">Tel./Handphone</label>
+          					<div class="col-sm-8">
+          						<input type="text" class="form-control" id="user-telp" placeholder="Masukkan Nomor Telephone/Handphone">
+          					</div>
+          				</div>
+                      
 
-                                   <div class="form-group">
-                                   <label for="lokasi" class="col-lg-3 control-label">Lokasi Cabang:</label>
-                                   <div class="col-lg-8">
-                                   <select class="form-control" id="lokasi">
-                                     <option>Select</option>
-                                     <option>Jakarta</option>
-                                     <option>Bandung</option>
-                                     <option>Surabaya</option>
-                                     <option>Medan</option>
-                                     <option>Semarang</option>
-                                     <option>Ambon</option>
-                                     <option>Balikpapan</option>
-                                     <option>Banda Aceh</option>
-                                     <option>Bandar Lampung</option>
-                                     <option>Banjarmasin</option>
-                                     <option>Batam</option>
-                                     <option>Bekasi</option>
-                                     <option>Bengkulu</option>
-                                     <option>Bogor</option>
-                                     <option>Cirebon</option>
-                                     <option>Denpasar</option>
-                                     <option>Depok</option>
-                                     <option>Gorontalo</option>
-                                     <option>Jambi</option>
-                                     <option>Jayapura</option>
-                                     <option>Kediri</option>
-                                     <option>Kendari</option>
-                                     <option>Madiun</option>
-                                     <option>Makassar</option>
-                                     <option>Malang</option>
-                                     <option>Manado</option>
-                                     <option>Padang</option>
-                                     <option>Palembang</option>
-                                     <option>Pekanbaru</option>
-                                     <option>Pontianak</option>
-                                     <option>Samarinda</option>
-                                     <option>Serang</option>
-                                     <option>Tangerang</option>
-                                     <option>Tasikmalaya</option>
-                                     <option>Tegal</option>
-                                     <option>Yogyakarta</option>
-                                   </select>
-                                   </div>
-                                 </div>
+                        <div class="form-group">
+                          <label for="user-agama" class="col-lg-3 control-label">Agama</label>
+                           <div class="col-sm-8">
+                          <select class="form-control" id="agama">
+                            <option>Semua</option>
+                            <option>Islam</option>
+                            <option>Kristen</option>
+                            <option>Hindu</option>
+                            <option>Budha</option>
+                            </select>
+                          </div>
+                        </div>
+                      <!--<div class="form-group">
+                        <label for="user-agama" class="col-lg-3 control-label">Agama</label>
+                      <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-agama" placeholder="Agama">
+                        </div>
+                      </div>-->
+
+                        <div class="form-group">
+                          <label for="user-gender" class="col-lg-3 control-label">Gender</label>
+                           <div class="col-sm-8">
+                          <select class="form-control" id="gender">
+                            <option>Semua</option>
+                            <option>Laki-laki</option>
+                            <option>Perempuan</option>
+                            <option>Other</option>
+                            </select>
+                          </div>
+                        </div>
+                        
+                      <div class="form-group">
+                        <label for="user-edu" class="col-lg-3 control-label">Pendidikan terakhir</label>
+                         <div class="col-sm-8">
+                        <select class="form-control" id="edu">
+                          <option>Semua</option>
+                          <option>SD</option>
+                          <option>SMP</option>
+                          <option>SMU/SMK</option>
+                          <option>D3/Sarjana</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--  <div class="form-group">
+                        <label for="user-edu" class="col-lg-3 control-label">Pendidikan Terakhir</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-edu" placeholder="Pendidikan Terakhir">
+                        </div>
+                      </div>-->
+
+                      <div class="form-group">
+                        <label for="user-exp" class="col-lg-3 control-label">Pengalaman Kerja</label>
+                         <div class="col-sm-8">
+                        <select class="form-control" id="exp">
+                          <option>Semua</option>
+                          <option>1 tahun</option>
+                          <option>2 tahun</option>
+                          <option>3 tahun</option>
+                          <option>4 tahun</option>
+                          <option>5 tahun/lebih</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--<div class="form-group">
+                        <label for="user-exp" class="col-lg-3 control-label">Pengalaman Kerja</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-exp" placeholder="Pengalaman Kerja">
+                        </div>
+                      </div>-->
+
+                      <div class="form-group">
+                        <label for="user-abroad" class="col-lg-3 control-label">Pengalaman Kerja Luar Negeri</label>
+                         <div class="col-sm-8">
+                        <select class="form-control" id="abroad">
+                          <option>Ya</option>
+                          <option>Tidak</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--<div class="form-group">
+                        <label for="user-abroad" class="col-lg-3 control-label">Pengalaman Kerja Luar Negeri</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-abroad" placeholder="">
+                        </div>
+                      </div>-->
+
+                      <div class="form-group">
+                        <label for="user-suku" class="col-lg-3 control-label">Suku</label>
+                         <div class="col-sm-8">
+                        <select class="form-control" id="suku">
+                          <option>Semua</option>
+                          <option>Jawa</option>
+                          <option>Sunda</option>
+                          <option>Batak</option>
+                          <option>Bali</option>
+                          <option>NTT/NTB</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--<div class="form-group">
+                        <label for="user-suku" class="col-lg-3 control-label">Suku</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-suku" placeholder="Suku">
+                        </div>
+                      </div>-->
+
+                      <div class="form-group">
+                        <label for="user-tinggi" class="col-lg-3 control-label">Tinggi</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-tinggi" placeholder="Centimeter">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="user-berat" class="col-lg-3 control-label">Berat</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-berat" placeholder="Kilogram">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="user-bahasa" class="col-lg-3 control-label" >Keterampilan Bahasa</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-bahasa" placeholder="Keterampilan Bahasa">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="user-waktu" class="col-lg-3 control-label">Waktu Ketersediaan</label>
+                         <div class="col-sm-8">
+                        <select class="form-control" id="waktu">
+                          <option>Semua</option>
+                          <option>Sudah Tersedia</option>
+                          <option>Akan Tersedia</option>
+                          <option>Infal</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!--<div class="form-group">
+                        <label for="user-waktu" class="col-lg-3 control-label">Waktu ketersediaan</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" id="user-waktu" placeholder="">
+                        </div>
+                      </div>-->
                     </form>
-                    
-             <!--       <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
-                      <a href="girls-3.jpg" class="thumbnail">
-                    <img src="girls-3.jpg" alt="girls-3"></img>
+                    <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
+                      <a href="../img/admin_worker/gadis_2.jpg" class="thumbnail">
+                    <img src="../img/admin_worker/gadis_2.jpg" alt="gadis_2"></img>
                   </a>
                     <div class="caption">
                       <h5>Add your Pictures here</h5>
-                     <p><a href="#" class="btn btn-primary" role="button">Browse</a></p>
+                     <p><a href="#" class="btn btn-info" role="button">Browse</a></p>
                   </div>
-                  </div> -->
+                  </div>
                 </div>
-                <br>
+                <hr>
                             <!-- END WORKER PROFILE -->
                 <div class="col-lg-6 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <button type="submit" class="btn btn-primary">Cancel</button>
+                <br><br />
               </div>
                         </div>
                     </div>

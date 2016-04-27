@@ -11,7 +11,6 @@
 angular
   .module('mainApp', [
     'firebase',
-    'angular-md5',
     'ui.router',
     'dbApp'
   ])
@@ -45,12 +44,21 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        controller: 'AuthCtrl as authCtrl',
+        controller: 'AdminCtrl as adminCtrl',
         templateUrl: 'admin/admin-landing.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
+          admin: function(Admin){
+            return Admin.$loaded();
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
             }, function(error){
               $state.go('login');
             });
@@ -59,14 +67,17 @@ angular
       })      
       .state('admin-list', {
         url: '/admin-list',
-        controller: 'AuthCtrl as authCtrl',
-        templateUrl: 'admin/admin-prof.html',
+        controller: 'ProfileCtrl as profileCtrl',
+        templateUrl: 'admin/admin-list.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
+            });
+          },
+          profile: function(Users, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded();
             });
           }
         }
@@ -76,10 +87,20 @@ angular
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-workerprof.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          }
+        }
+      })
+      .state('add-workers', {
+        url: '/add-workers',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-workerprof-add.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
           }
@@ -90,10 +111,8 @@ angular
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'admin/admin-offices.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
           }
@@ -115,14 +134,17 @@ angular
       })
       .state('admin-profile', {
         url: '/admin-profile',
-        controller: 'AuthCtrl as authCtrl',
-        templateUrl: 'admin/admin-prof-add.html',
+        controller: 'ProfileCtrl as profileCtrl',
+        templateUrl: 'admin/admin-edit.html',
         resolve: {
-          requireNoAuth: function($state, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return;
-            }, function(error){
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
               $state.go('login');
+            });
+          },
+          profile: function(Users, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded();
             });
           }
         }
