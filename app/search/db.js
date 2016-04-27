@@ -213,13 +213,21 @@ db.controller("branchPushController", function () {
   var buttonEdit = document.getElementById('buttonEdit');
 
         buttonAdd.addEventListener('click', function () {
-            ref.push({
+          var pushref =  ref.push({
               nama: inputNama.value,
               alamat: inputAlamat.value,
               telp: inputTelp.value,
               kotamadya: inputKodya.value
+            }).then(function(ref){
+              alert(ref);
+            }, function(error) {
+              alert("Error: ", error);
             });
+            var pushID = pushref.key();
+            alert("Succesfull! "+ pushId);
+            
         });
+        
             
         buttonEdit.addEventListener('click', function() {
           ref2.update({
