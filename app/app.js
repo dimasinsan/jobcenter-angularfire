@@ -108,7 +108,7 @@ angular
       })
       .state('offices', {
         url: '/offices',
-        controller: 'AuthCtrl as authCtrl',
+        controller: 'searchController',
         templateUrl: 'admin/admin-offices.html',
         resolve: {
           auth: function($state, Users, Auth){
@@ -148,7 +148,22 @@ angular
             });
           }
         }
+      })
+      .state('branch-edit', {
+        url: '/branch-edit/:branchId',
+        controller: 'searchController',
+        templateUrl: 'admin/branch-edit.html',
+        resolve: 
+        {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          }
+            
+        }
       });
+      
 
     $urlRouterProvider.otherwise('/');
   })

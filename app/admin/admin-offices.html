@@ -1,93 +1,100 @@
 <!-- page container -->
-        <div class="page-container">
+<div class="page-container">
 
-            <!-- page header -->
-            <div class="page-header">
+  <!-- page header -->
+  <div class="page-header">
 
-                <!-- page header holder -->
-                <nav class="navbar navbar-default-admin">
-                  <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+    <!-- page header holder -->
+    <nav class="navbar navbar-default-admin">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="fa fa-bars"></span>
                       </button>
-                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png"/></a>
-                    </div>
-                
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                      <ul class="nav navbar-nav navbar-right">
-                        <li><a title="Edit my profile" ui-sref="admin-profile"><span class="fa fa-cog"></span></a></li>
-                        <li><a ui-sref="admin">Landing Page</a></li>
-                        <li><a ui-sref="admin-list">Edit Admins</a></li>
-                        <li><a ui-sref="workerprof">Edit Workers</a></li>
-                        <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><a class="btn" title="Log Out" ng-click="authCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
-                      </ul>
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container -->
-                </nav><!-- /.navbar -->
-                <!-- ./page header holder -->
+          <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png" /></a>
+        </div>
 
-            </div>
-            <!-- ./page header -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a title="Edit my profile" ui-sref="admin-profile"><span class="fa fa-cog"></span></a></li>
+            <li><a ui-sref="admin">Landing Page</a></li>
+            <li><a ui-sref="admin-list">Edit Admins</a></li>
+            <li><a ui-sref="workerprof">Edit Workers</a></li>
+            <li><a ui-sref="offices">Edit Offices</a></li>
+            <li><a class="btn" title="Log Out" ng-click="authCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- /.navbar -->
+    <!-- ./page header holder -->
 
-            <!-- page content -->
-            <div class="page-content">
+  </div>
+  <!-- ./page header -->
 
-                <!-- page content wrapper -->
-                <div class="page-content-wrap">
-                    <div class="container">
-                        <h2>Branch Offices Page:    <small> Add/Edit your branch offices </small></h2>
-                    </div>
-                    <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
+  <!-- page content -->
+  <div class="page-content">
 
-                    <!-- page content holder -->
-                     <div class="page-content-wrap" ng-controller="searchController">
-                      <div class="container" ng-controller="branchViewController">
-                      <div class="row">
-                          <br>
-                          <br>
-                          <!--FILTER-->
-                             <div class="container"> 
-                                <div class="row">
-                                <h2 class="col-sm-3 text-left">Filter:</h2>
-                                <a ui-sref="add-offices" class="btn btn-warning col-sm-offset-7">
-                                  <span class="glyphicon glyphicon-plus-sign"></span> Add office
-                                </a>
-                                </div>
-                                <div class="well" style="max-height: 400px;overflow: auto;">
-                                <div class="col-xs-3">
-                                  <div class="form-group" >
+    <!-- page content wrapper -->
+    <div class="page-content-wrap">
+      <div class="container">
+        <h2>Branch Offices Page:    <small> Add/Edit your branch offices </small></h2>
+      </div>
+      <div class="divider">
+        <div class="box"><span class="fa fa-angle-down"></span></div>
+      </div>
+
+      <!-- page content holder -->
+      <div class="page-content-wrap">
+        <div class="container">
+          <div class="row">
+            <br>
+            <br>
+            <!--FILTER-->
+            <div class="container">
+
+              <div class="well" style="max-height: 400px;overflow: auto;">
+                <div class="col-xs-3">
+                  <!--<div class="form-group" >
                                    <!--<label for="sel3">Lokasi Cabang:</label>-->
-                                   <select class="form-control select" id="lokasi" ng-model="kodim.kotamadya">
+                  <!--<select class="form-control select" id="lokasi" ng-model="kodim.kotamadya">
                                      <option >Lokasi Cabang</option>                                     
                                      <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                     
-                                   </select>
-                                 </div>
-                                
-                              </div>
-                              </div>
-                            </div> 
-                            <!--END FILTER-->
-                        </div>
-                        <br>
-                        <br>
-                        <!--RESULTS-->
-                      <div class="container">
-                        <h3>Search Results:</h3>
-                     
-                        <br>
-                      <div class="container" ng-show="kodim != null">
-                              <div class="row">
-                            <form class="form-horizontal col-lg-8 col-sm-offset-1"  ng-repeat="branch in branches | filter:kodim">
+                                   </select>-->
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!--END FILTER-->
+        </div>
+        <br>
+        <br>
+        <!--RESULTS-->
+        <div class="container">
+          <div class="col-xs-5">
+
+            <h3>List Cabang:</h3>
+            <a ui-sref="add-offices" class="btn btn-warning col-lg-4">
+              <span class="glyphicon glyphicon-plus-sign"></span> Add Branch
+            </a>
+          </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <!--<form class="form-horizontal col-lg-8 col-sm-offset-1"  ng-repeat="branch in branches | filter:kodim">
+                                            
                                             
                                                 <div class="form-group">
                                                     <label class="col-md-3 col-xs-12 control-label">Kotamadya </label>
                                                     <div class="col-md-6 col-xs-12">
                                                         <input type="text" class="form-control" id="inputKodya" value="{{branch.kotamadya}}" required/>
+                                                        <input type="text" class="form-control" id="id" value="{{branch.$id}}" disabled/>
                                                     </div>
                                                 </div>
 
@@ -111,69 +118,64 @@
                                                         <input type="text" class="form-control" id="inputTelp" value="{{branch.telp}}"  onkeypress="return event.charCode >= 45 && event.charCode <=57" required/>
                                                     </div>
                                                 </div>
-                                                
                                                 <div class="col-xs-9">
-                                                <button type="submit" id="buttonEdit" class="btn btn-primary pull-right"/>
+                                                <button id="buttonEdit" class="btn btn-primary pull-right"/>
                                                 Edit Branch
-                                                
                                             </div>
+                                            <a class="edit" ui-sref="branch-edit">Edit</a> 
                                             <br><hr>
 
-                                        
-                                   
-
                                 </form>
-                                
-                                
-                                <table class="table" bgcolor="#353831">
-                                  <thead>
-                                    <th>Kotamadya</th>
-                                    <th>Nama Kantor</th>
-                                    <th>Alamat</th>
-                                    <th>No Tlp</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                  </thead>
-                                  <tbody>
-                                    <tr ng-repeat="(id, branch) in branches">
-                                      <td>{{branch.kotamadya}}</td>
-                                      <td>{{branch.nama}}</td>
-                                      <td>{{branch.alamat}}</td>
-                                      <td>{{branch.telp}}</td>
-                                      <td>
-                                        <a class="edit" ui-sref="offices-edit">Edit</a>                                        
-                                      </td>
-                                      <td>
-                                        <a class="remove" ui-sref="remove">Remove</a>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                    
-            
-                </div>
-                <br>
-                        </div>
-                          <hr>
-                          
-                          <br>
-                          <hr>
-                      </div>
+                                <div class="col-xs-9">                                               
+                                            </div>-->
 
-                    <!--/RESULTS-->
+              <table class="table" bgcolor="#353831">
+                <thead>
+                  <th>Kotamadya</th>
+                  <th>Nama Kantor</th>
+                  <th>Alamat</th>
+                  <th>No Tlp</th>
+                  <th>&nbsp;</th>
+                  
+                </thead>
+                <tbody>
+                  <tr ng-repeat="branch in branches">
+                    <td>{{branch.kotamadya}}</td>
+                    <td>{{branch.nama}}</td>
+                    <td>{{branch.alamat}}</td>
+                    <td>{{branch.telp}}</td>
+                    <td>
+                      <a class="edit" ng-click="updateBranch(branch)">Edit</a>
+                    </td>
                     
-                    
-                    </div>
+                  </tr>
+                </tbody>
+              </table>
 
-                    </div>
-                    <!-- ./page content holder -->
-                </div>
-                <!-- ./page content wrapper -->
 
             </div>
-            <!-- ./page content -->
+            <br>
+          </div>
+          <hr>
 
-           
-
+          <br>
+          <hr>
         </div>
-        <!-- ./page container -->
+
+        <!--/RESULTS-->
+
+
+      </div>
+
+    </div>
+    <!-- ./page content holder -->
+  </div>
+  <!-- ./page content wrapper -->
+
+</div>
+<!-- ./page content -->
+
+
+
+</div>
+<!-- ./page container -->
