@@ -42,14 +42,16 @@ angular
           }
         }
       })
+      .state('reset-password', {
+        url: '/reset-password',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'auth/reset-password.html'
+      })
       .state('admin', {
         url: '/admin',
-        controller: 'AdminCtrl as adminCtrl',
-        templateUrl: 'admin/admin-landing.html',
+        controller: 'DashboardCtrl as dashboardCtrl',
+        templateUrl: 'dashboard/admin-landing.html',
         resolve: {
-          admin: function(Admin){
-            return Admin.$loaded();
-          },
           profile: function($state, Users, Auth){
             return Auth.$requireAuth().then( function(auth){
               return Users.getProfile(auth.uid).$loaded().then( function (profile){
@@ -65,23 +67,6 @@ angular
           }
         }
       })      
-      .state('admin-list', {
-        url: '/admin-list',
-        controller: 'ProfileCtrl as profileCtrl',
-        templateUrl: 'admin/admin-list.html',
-        resolve: {
-          auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
-              $state.go('login');
-            });
-          },
-          profile: function(Users, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return Users.getProfile(auth.uid).$loaded();
-            });
-          }
-        }
-      })
       .state('workerprof', {
         url: '/workerprof',
         controller: 'AuthCtrl as authCtrl',
@@ -89,6 +74,19 @@ angular
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
               $state.go('login');
             });
           }
@@ -103,6 +101,19 @@ angular
             return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
           }
         }
       })
@@ -113,6 +124,19 @@ angular
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
               $state.go('login');
             });
           }
@@ -129,22 +153,43 @@ angular
             }, function(error){
               $state.go('login');
             });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
           }
         }
       })
       .state('admin-profile', {
         url: '/admin-profile',
         controller: 'ProfileCtrl as profileCtrl',
-        templateUrl: 'admin/admin-edit.html',
+        templateUrl: 'admin/admin-profile.html',
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
           },
-          profile: function(Users, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return Users.getProfile(auth.uid).$loaded();
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
             });
           }
         }
@@ -153,18 +198,68 @@ angular
         url: '/branch-edit/:branchId',
         controller: 'searchController',
         templateUrl: 'admin/branch-edit.html',
-        resolve: 
-        {
+        resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
+          }          
+        },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
           }
-            
-        }
-      });
+       })
       
-
+      .state('admin-add', {
+        url: '/admin-add',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-add.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+        },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
+      })
+      .state('admin-list', {
+        url: '/admin-list',
+        controller: 'AdminCtrl as adminCtrl',
+        templateUrl: 'admin/admin-list.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          adminList: function($state, Users){
+            return Users.all.$loaded();
+          }
+        }
+      });  
     $urlRouterProvider.otherwise('/');
   })
   .constant('FirebaseUrl', 'https://jobcenter-id-auth.firebaseio.com/');

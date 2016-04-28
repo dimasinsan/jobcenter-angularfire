@@ -13,7 +13,7 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="fa fa-bars"></span>
                       </button>
-                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png"/></a>
+                      <a class="brand" ui-sref="admin"><img class="img-responsive" src="../img/logo.png"/></a>
                     </div>
                 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,7 +24,7 @@
                         <li><a ui-sref="admin-list">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
                         <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><a class="btn" title="Log Out" ng-click="adminCtrl.logout()"><span class="fa fa-sign-out"></span></a></li>
+                        <li><a ng-click="dashboardCtrl.logout()"><span class="fa fa-sign-out"></span> Log Out</a></li>
                       </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container -->
@@ -40,7 +40,7 @@
                 <!-- page content wrapper -->
                 <div class="page-content-wrap">
                     <div class="container">
-                        <h2>Admin Page:    <small> Welcome, {{ adminCtrl.profile.displayName }}. </small></h2>
+                        <h2>Admin Page:    <small> Welcome, {{ dashboardCtrl.profile.displayName }}. </small></h2>
                     </div>
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
 
