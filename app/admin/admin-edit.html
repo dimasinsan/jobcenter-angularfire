@@ -1,6 +1,6 @@
 <!-- page container -->
 <div class="page-container">
-    
+
     <!-- page header -->
     <div class="page-header">
 
@@ -12,19 +12,19 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="fa fa-bars"></span>
-                      </button>
-                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png"/></a>
-                    </div>
-                
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                      <ul class="nav navbar-nav navbar-right">
+                    </button>
+                    <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png" /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a title="Edit my profile" ui-sref="admin-profile"><span class="fa fa-cog"></span></a></li>
                         <li><a ui-sref="admin">Landing Page</a></li>
                         <li><a ui-sref="admin-list">Edit Admins</a></li>
                         <li><a ui-sref="workerprof">Edit Workers</a></li>
                         <li><a ui-sref="offices">Edit Offices</a></li>
-                        <li><a class="btn" title="Log Out"><span class="fa fa-sign-out"></span></a></li>
+                        <!--<li><a class="btn" title="Log Out"><span class="fa fa-sign-out"></span></a></li>-->
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -43,7 +43,7 @@
         <!-- page content wrapper -->
         <div class="page-content-wrap">
             <div class="container">
-                <h2>Admins Profile Page:    <small> Add your admins </small></h2>
+                <h2>Admins Profile Page:    <small> Edit your details </small></h2>
             </div>
             <div class="divider">
                 <div class="box"><span class="fa fa-angle-down"></span></div>
@@ -67,7 +67,7 @@
                                     <!--    </div>-->
                                     <!--</div>-->
                                     <div class="alert alert-warning" ng-show="authCtrl.error" ng-hide="profileCtrl.profile.displayName">
-                                        <span>Masukkan nama anda sebelum membuka halaman Admin</span>
+                                        <span>Masukkan detail anda sebelum membuka halaman Admin</span>
                                     </div>
                                     <div class="form-group">
                                         <label for="user-name" class="col-lg-3 control-label">Nama</label>
@@ -127,25 +127,16 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-lg-offset-2">
+                                        <button type="submit" class="btn btn-primary" ng-click="profileCtrl.updateProfile()">Save</button>
+                                        <button type="submit" class="btn btn-primary" ui-sref="admin-list">Cancel</button>
+                                    </div>
                                 </form>
-
-                                <!--       <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
-                      <a href="girls-3.jpg" class="thumbnail">
-                    <img src="girls-3.jpg" alt="girls-3"></img>
-                  </a>
-                    <div class="caption">
-                      <h5>Add your Pictures here</h5>
-                     <p><a href="#" class="btn btn-primary" role="button">Browse</a></p>
-                  </div>
-                  </div> -->
                             </div>
                             <br>
                             <!-- END WORKER PROFILE -->
 
-                            <div class="col-lg-6 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary" ng-click="profileCtrl.updateProfile()">Save</button>
-                                <button type="submit" class="btn btn-primary" ui-sref = "admin">Cancel</button>
-                            </div>
+                            
                         </div>
                         <br>
                     </div>

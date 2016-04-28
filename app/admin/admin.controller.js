@@ -1,10 +1,8 @@
 angular.module('mainApp')
-    .controller('AdminCtrl', function($state, Auth, Users, profile){
+    .controller('AdminCtrl', function($scope, $state, Auth, Users, adminList){
         var adminCtrl = this;
         
-        adminCtrl.profile = profile;
-        
-        adminCtrl.getDisplayName = Users.getDisplayName;
+        $scope.administrators = adminList;
         
         adminCtrl.logout = function() {
             Auth.$unauth();

@@ -44,12 +44,9 @@ angular
       })
       .state('admin', {
         url: '/admin',
-        controller: 'AdminCtrl as adminCtrl',
-        templateUrl: 'admin/admin-landing.html',
+        controller: 'DashboardCtrl as dashboardCtrl',
+        templateUrl: 'dashboard/admin-landing.html',
         resolve: {
-          admin: function(Admin){
-            return Admin.$loaded();
-          },
           profile: function($state, Users, Auth){
             return Auth.$requireAuth().then( function(auth){
               return Users.getProfile(auth.uid).$loaded().then( function (profile){
@@ -67,7 +64,7 @@ angular
       })      
       .state('admin-list', {
         url: '/admin-list',
-        controller: 'ProfileCtrl as profileCtrl',
+        controller: 'AdminCtrl as adminCtrl',
         templateUrl: 'admin/admin-list.html',
         resolve: {
           auth: function($state, Users, Auth){
@@ -75,10 +72,8 @@ angular
               $state.go('login');
             });
           },
-          profile: function(Users, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return Users.getProfile(auth.uid).$loaded();
-            });
+          adminList: function($state, Users){
+            return Users.all.$loaded();
           }
         }
       })
@@ -89,6 +84,19 @@ angular
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
               $state.go('login');
             });
           }
@@ -103,6 +111,19 @@ angular
             return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
           }
         }
       })
@@ -113,6 +134,19 @@ angular
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
               $state.go('login');
             });
           }
@@ -129,11 +163,24 @@ angular
             }, function(error){
               $state.go('login');
             });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
           }
         }
       })
-      .state('admin-profile', {
-        url: '/admin-profile',
+      .state('admin-edit', {
+        url: '/admin-edit',
         controller: 'ProfileCtrl as profileCtrl',
         templateUrl: 'admin/admin-edit.html',
         resolve: {
@@ -142,9 +189,42 @@ angular
               $state.go('login');
             });
           },
-          profile: function(Users, Auth){
-            return Auth.$requireAuth().then(function(auth){
-              return Users.getProfile(auth.uid).$loaded();
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
+      })
+      .state('admin-add', {
+        url: '/admin-add',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'admin/admin-add.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
             });
           }
         }
