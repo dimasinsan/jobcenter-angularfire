@@ -3,6 +3,8 @@ angular.module('mainApp')
         var authCtrl = this;
         
         var passVal = '';
+        var resetEmail = '';
+
         
         authCtrl.user = {
             email: '',
@@ -33,6 +35,18 @@ angular.module('mainApp')
         authCtrl.logout = function(){
             Auth.$unauth();
             $state.go('home');
+        };
+        
+        authCtrl.resetPass = function(){
+            Auth.$resetPassword({
+                email: authCtrl.user.email
+            }, function(error) {
+                if (error) {
+                    authCtrl.error = error;
+                } 
+            }).then(function(auth){
+                authCtrl.IsReset = true;
+            });
         };
     });
     // .controller('AlertCtrl', [

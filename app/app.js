@@ -42,6 +42,11 @@ angular
           }
         }
       })
+      .state('reset-password', {
+        url: '/reset-password',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'auth/reset-password.html'
+      })
       .state('admin', {
         url: '/admin',
         controller: 'DashboardCtrl as dashboardCtrl',
@@ -62,21 +67,6 @@ angular
           }
         }
       })      
-      .state('admin-list', {
-        url: '/admin-list',
-        controller: 'AdminCtrl as adminCtrl',
-        templateUrl: 'admin/admin-list.html',
-        resolve: {
-          auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
-              $state.go('login');
-            });
-          },
-          adminList: function($state, Users){
-            return Users.all.$loaded();
-          }
-        }
-      })
       .state('workerprof', {
         url: '/workerprof',
         controller: 'AuthCtrl as authCtrl',
@@ -179,10 +169,10 @@ angular
           }
         }
       })
-      .state('admin-edit', {
-        url: '/admin-edit',
+      .state('admin-profile', {
+        url: '/admin-profile',
         controller: 'ProfileCtrl as profileCtrl',
-        templateUrl: 'admin/admin-edit.html',
+        templateUrl: 'admin/admin-profile.html',
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
@@ -226,6 +216,21 @@ angular
             }, function(error){
               $state.go('login');
             });
+          }
+        }
+      })
+      .state('admin-list', {
+        url: '/admin-list',
+        controller: 'AdminCtrl as adminCtrl',
+        templateUrl: 'admin/admin-list.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          adminList: function($state, Users){
+            return Users.all.$loaded();
           }
         }
       });

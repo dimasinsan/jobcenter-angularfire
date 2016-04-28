@@ -119,11 +119,11 @@
                         <!--<h3>Search Results:</h3>-->
                         
                         <div class="row">
-                            <a ui-sref="admin-add" class="btn btn-primary btn-lg">
+                            <a ui-sref="admin-add" class="btn btn-success btn-lg col-md-2">
                                 <span class="glyphicon glyphicon-plus-sign"></span> Add Admin
                             </a>
-                            <a ui-sref="admin-edit" class="btn btn-primary btn-lg">
-                                <span class="glyphicon glyphicon-plus-sign"></span> Edit Admin
+                            <a ui-sref="admin-profile" class="btn btn-primary btn-lg col-md-2 col-md-offset-8">
+                                <span class="glyphicon glyphicon-plus-sign"></span> Edit Your Profile
                             </a>
                         </div>
                         <br>
@@ -142,6 +142,9 @@
                                     <th>
                                         Branch
                                     </th>
+                                    <th>
+                                        
+                                    </th>
                                 </tr>
                                 <tr ng-repeat="administrator in administrators">
                                     <td>
@@ -156,6 +159,9 @@
 
                                     <td>
                                         {{administrator.branch}}
+                                    </td>
+                                    <td>
+                                        <button class="btn">Edit</button>
                                     </td>
                                 </tr>
                             </table>
