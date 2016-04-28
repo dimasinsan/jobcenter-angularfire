@@ -38,6 +38,21 @@ body {
   background: #ffffff;
 }
 
+.edit {
+  color: #0063DB;
+}
+
+.edit:hover {
+  color: #00003B;
+}
+
+.remove {
+  color: #0063DB;
+}
+
+.remove:hover {
+  color: #00003B;
+}
 .navbar {
   margin-bottom: 0px;
   font-size: 15px;
