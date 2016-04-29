@@ -1,70 +1,75 @@
 <!-- page container -->
-        <div class="page-container" ng-controller="searchController">
+<div class="page-container">
 
-            <!-- page header -->
-            <!-- page header -->
-            <div class="page-header">
+    <!-- page header -->
+    <!-- page header -->
+    <div class="page-header">
 
-                <!-- page header holder -->
-                <nav class="navbar navbar-default">
-                  <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+        <!-- page header holder -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png"/></a>
-                    </div>
-                
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                      <ul class="nav navbar-nav navbar-right">
+                    <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png" /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Contact Us</a></li>
                         <li><a ui-sref="search">Cari Pekerja</a></li>
-                      </ul>
-            
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container -->
-                </nav><!-- /.navbar -->
-                <!-- ./page header holder -->
+                    </ul>
 
-            </div>
-            <!-- ./page header -->
-
-            <!-- page content -->
-            <div class="page-content">
-
-                <!-- page content wrapper -->
-                <div class="page-content-wrap bg-light">
-                    <!-- page content holder -->
-                    <div class="page-content-holder no-padding">
-                        <!-- page title -->
-                        <div class="page-title">
-                            <h1>Search Pekerja</h1>
-                            <!-- breadcrumbs -->
-                            <ul class="breadcrumb">
-                                <li><a ui-sref="home">Home</a></li>
-                                <li class="active">Cari Pekerja</li>
-                            </ul>
-                            <!-- ./breadcrumbs -->
-                        </div>
-                        <!-- ./page title -->
-                    </div>
-                    <!-- ./page content holder -->
                 </div>
-                <!-- ./page content wrapper -->
-                <!-- page content wrapper -->
-                <div class="page-content-wrap">
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- ./page header holder -->
 
-                    <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
+    </div>
+    <!-- ./page header -->
 
-                    <!-- page content holder -->
-                    <div class="page-content-holder">
+    <!-- page content -->
+    <div class="page-content">
 
-                 <!-- filter -->
+        <!-- page content wrapper -->
+        <div class="page-content-wrap bg-light">
+            <!-- page content holder -->
+            <div class="page-content-holder no-padding">
+                <!-- page title -->
+                <div class="page-title">
+                    <h1>Search Pekerja</h1>
+                    <!-- breadcrumbs -->
+                    <ul class="breadcrumb">
+                        <li><a ui-sref="home">Home</a></li>
+                        <li class="active">Cari Pekerja</li>
+                    </ul>
+                    <!-- ./breadcrumbs -->
+                </div>
+                <!-- ./page title -->
+            </div>
+            <!-- ./page content holder -->
+        </div>
+        <!-- ./page content wrapper -->
+        <!-- page content wrapper -->
+        <div class="page-content-wrap">
+
+            <div class="divider">
+                <div class="box"><span class="fa fa-angle-down"></span></div>
+            </div>
+
+            <!-- page content holder -->
+            <div class="page-content-holder" ng-controller="profileViewController">
+
+                <!-- filter -->
                 <div class="container">
                     <h3 class="text-left">Filter:</h3>
                     <div class="well" style="max-height: 400px;overflow: auto;">
@@ -109,11 +114,11 @@
                                 </select>
                             </div>
                         </div>
-                
+
                         <div class="col-xs-3">
                             <div class="form-group">
                                 <!--<label for="sel3">Lokasi Cabang:</label>-->
-                                <select class="form-control" id="lokasi" ng-controller="branchViewController" ng-model="input.lokasi">
+                                <select class="form-control" id="lokasi" ng-model="input.lokasi">
                                      <option value="">Lokasi Cabang</option>
                                      <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
                                      <!--<option>Jakarta Timur</option>-->
@@ -232,7 +237,7 @@
                                 </select>
                             </div>
                         </div>
-                
+
                         <div class="col-xs-3">
                             <div class="form-group">
                                 <!--<label for="sel5">Profesi:</label>-->
@@ -326,14 +331,14 @@
                                 </select>
                             </div>
                         </div>
-                
+
                         <div class="col-xs-3">
                             <div class="form-group">
                                 <!--<label for="sel7">Jenis Kelamin:</label>-->
                                 <select class="form-control" id="gender" ng-model="input.gender">
                                     <option value="">Jenis Kelamin</option>
-                                    <option>Pria</option>
-                                    <option>Wanita</option>
+                                    <option>Laki-laki</option>
+                                    <option>Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -396,19 +401,19 @@
                                 <span class="glyphicon glyphicon-filter"></span> Update
                             </a>
                         </div>
-                
+
                     </div>
                 </div>
                 <!--end of filter-->
-                
+
                 <!--RESULTS-->
                 <div class="container">
                     <h3>Search Results:</h3>
                 </div>
                 <div class="container" ng-repeat="data in datas | filter:filter">
                     <div class="col-lg-4">
-                        <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                        <a href="" class="">{{data.nama}}</a>
+                        <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"/>
+                        <p href="" ng-click="viewProfile(data)" class="text-danger">{{data.nama}}</p>
                     </div>
                     <div class="col-lg-4">
                         <div class="container text-center">
@@ -419,169 +424,153 @@
                         <h5 class="title">{{data.profesi}}</h5>
                     </div>
                 </div>
-                <!--            <div class="container">
-                <!--                           <div class="col-lg-4">-->
-                <!--                                  <img src="gadis_2.jpg" class="image-responsive" alt="image" style="max-height:30px;"></img>-->
-                <!--                                  <a href ="" class="">Michele</a>-->
-                <!--                                </div>-->
-                <!--                                <div class="col-lg-4">-->
-                <!--                                   <div class="container text-center">-->
-                <!--                                      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Bogor</span>-->
-                <!--                                  </div>-->
-                <!--                                </div>-->
-                <!--                                <div class="col-lg-4">-->
-                <!--                                  <h5 class="title">Baby Sitter</h5>-->
-                <!--                                </div>-->
-                <!--                              </div>
+                <!--/RESULTS-->
+                
+                <!-- pagination -->
+                <div class="container">
+                    <ul class="pagination pagination-md">
+                        <li><a href="">&laquo;</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">6</a></li>
+                        <li><a href="">7</a></li>
+                        <li><a href="">8</a></li>
+                        <li><a href="">&raquo;</a></li>
+                    </ul>
 
-<!--/RESULTS-->
-                      <!-- pagination -->
-                      <div class="container">
-                        <ul class="pagination pagination-md">
-                          <li><a href="">&laquo;</a></li>
-                          <li class="active"><a href="">1</a></li>
-                          <li><a href="">2</a></li>
-                          <li><a href="">3</a></li>
-                          <li><a href="">4</a></li>
-                          <li><a href="">5</a></li>
-                          <li><a href="">6</a></li>
-                          <li><a href="">7</a></li>
-                          <li><a href="">8</a></li>
-                          <li><a href="">&raquo;</a></li>
-                        </ul>
-
-                      </div>
-                      <!-- end of pagination -->
-                    </div>
-                    <!-- ./page content holder -->
                 </div>
-                <!-- ./page content wrapper -->
-
+                <!-- end of pagination -->
             </div>
-            <!-- ./page content -->
-
-          <!-- page footer -->
-            <div class="page-footer">
-
-                <!-- page footer wrap -->
-                <div class="page-footer-wrap bg-dark-gray">
-                    <!-- page footer holder -->
-                    <div class="page-footer-holder page-footer-holder-main">
-
-                        <div class="row">
-
-                            <!-- about -->
-                            <div class="col-md-3">
-                                <h3>About JobCenter.com</h3>
-                                <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you need.</p>
-                            </div>
-                            <!-- ./about -->
-
-                            <!-- quick links -->
-                            <div class="col-md-3">
-                                <h3>Quick links</h3>
-
-                                <div class="list-links">
-                                    <a ui-sref="home">Home</a>
-                                    <a ui-sref="contact-us">Contact Us</a>
-                                    <a ui-sref="search">Cari Pekerja</a>
-                                </div>
-                            </div>
-                            <!-- ./quick links -->
-
-                            <!-- recent tweets -->
-                            <div class="col-md-3">
-                                <h3>Recent Tweets</h3>
-
-                                <div class="list-with-icon small">
-                                    <div class="item">
-                                        <div class="icon">
-                                            <span class="fa fa-twitter"></span>
-                                        </div>
-                                        <div class="text">
-                                            <a href="#">@JohnDoe</a> We found a nanny for our kids within a week!
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="icon">
-                                            <span class="fa fa-twitter"></span>
-                                        </div>
-                                        <div class="text">
-                                            <a href="#">@Aqvatarius</a> Best service!
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="icon">
-                                            <span class="fa fa-twitter"></span>
-                                        </div>
-                                        <div class="text">
-                                            <a href="#">@StrayDemon</a> Will use JobCenter's service again!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- ./recent tweets -->
-
-                            <!-- contacts -->
-                            <div class="col-md-3">
-                                <h3>Contacts</h3>
-
-                                <div class="footer-contacts">
-                                    <div class="fc-row">
-                                        <span class="fa fa-home"></span>
-                                        000 StreetName, Suite 111,<br/>
-                                        City Name, ST 01234
-                                    </div>
-                                    <div class="fc-row">
-                                        <span class="fa fa-phone"></span>
-                                        (123) 456-7890
-                                    </div>
-                                    <div class="fc-row">
-                                        <span class="fa fa-envelope"></span>
-                                        <strong>John Doe</strong><br>
-                                        <a href="mailto:#">johndoe@domain.com</a>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <!-- ./contacts -->
-
-                        </div>
-
-                    </div>
-                    <!-- ./page footer holder -->
-                </div>
-                <!-- ./page footer wrap -->
-
-                <!-- page footer wrap -->
-                <div class="page-footer-wrap bg-darken-gray">
-                    <!-- page footer holder -->
-                    <div class="page-footer-holder">
-
-                        <!-- copyright -->
-                        <div class="copyright">
-                            &copy; 2016 JobCenter.com - All Rights Reserved
-                        </div>
-                        <!-- ./copyright -->
-
-                        <!-- social links -->
-                        <div class="social-links">
-                            <a href="#"><span class="fa fa-facebook"></span></a>
-                            <a href="#"><span class="fa fa-twitter"></span></a>
-                            <a href="#"><span class="fa fa-google-plus"></span></a>
-                            <a href="#"><span class="fa fa-linkedin"></span></a>
-                        </div>
-                        <!-- ./social links -->
-
-                    </div>
-                    <!-- ./page footer holder -->
-                </div>
-                <!-- ./page footer wrap -->
-
-            </div>
-            <!-- ./page footer -->
-
+            <!-- ./page content holder -->
         </div>
-        <!-- ./page container -->
+        <!-- ./page content wrapper -->
+
+    </div>
+    <!-- ./page content -->
+
+    <!-- page footer -->
+    <div class="page-footer">
+
+        <!-- page footer wrap -->
+        <div class="page-footer-wrap bg-dark-gray">
+            <!-- page footer holder -->
+            <div class="page-footer-holder page-footer-holder-main">
+
+                <div class="row">
+
+                    <!-- about -->
+                    <div class="col-md-3">
+                        <h3>About JobCenter.com</h3>
+                        <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you
+                            need.</p>
+                    </div>
+                    <!-- ./about -->
+
+                    <!-- quick links -->
+                    <div class="col-md-3">
+                        <h3>Quick links</h3>
+
+                        <div class="list-links">
+                            <a ui-sref="home">Home</a>
+                            <a ui-sref="contact-us">Contact Us</a>
+                            <a ui-sref="search">Cari Pekerja</a>
+                        </div>
+                    </div>
+                    <!-- ./quick links -->
+
+                    <!-- recent tweets -->
+                    <div class="col-md-3">
+                        <h3>Recent Tweets</h3>
+
+                        <div class="list-with-icon small">
+                            <div class="item">
+                                <div class="icon">
+                                    <span class="fa fa-twitter"></span>
+                                </div>
+                                <div class="text">
+                                    <a href="#">@JohnDoe</a> We found a nanny for our kids within a week!
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                    <span class="fa fa-twitter"></span>
+                                </div>
+                                <div class="text">
+                                    <a href="#">@Aqvatarius</a> Best service!
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                    <span class="fa fa-twitter"></span>
+                                </div>
+                                <div class="text">
+                                    <a href="#">@StrayDemon</a> Will use JobCenter's service again!
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ./recent tweets -->
+
+                    <!-- contacts -->
+                    <div class="col-md-3">
+                        <h3>Contacts</h3>
+
+                        <div class="footer-contacts">
+                            <div class="fc-row">
+                                <span class="fa fa-home"></span> 000 StreetName, Suite 111,<br/> City Name, ST 01234
+                            </div>
+                            <div class="fc-row">
+                                <span class="fa fa-phone"></span> (123) 456-7890
+                            </div>
+                            <div class="fc-row">
+                                <span class="fa fa-envelope"></span>
+                                <strong>John Doe</strong><br>
+                                <a href="mailto:#">johndoe@domain.com</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- ./contacts -->
+
+                </div>
+
+            </div>
+            <!-- ./page footer holder -->
+        </div>
+        <!-- ./page footer wrap -->
+
+        <!-- page footer wrap -->
+        <div class="page-footer-wrap bg-darken-gray">
+            <!-- page footer holder -->
+            <div class="page-footer-holder">
+
+                <!-- copyright -->
+                <div class="copyright">
+                    &copy; 2016 JobCenter.com - All Rights Reserved
+                </div>
+                <!-- ./copyright -->
+
+                <!-- social links -->
+                <div class="social-links">
+                    <a href="#"><span class="fa fa-facebook"></span></a>
+                    <a href="#"><span class="fa fa-twitter"></span></a>
+                    <a href="#"><span class="fa fa-google-plus"></span></a>
+                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                </div>
+                <!-- ./social links -->
+
+            </div>
+            <!-- ./page footer holder -->
+        </div>
+        <!-- ./page footer wrap -->
+
+    </div>
+    <!-- ./page footer -->
+
+</div>
+<!-- ./page container -->

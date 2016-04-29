@@ -42,8 +42,9 @@
         <div class="container text-center">
             <div class="container">
                 <br>
-                <h1>LABOR NAME</h1>
-                <p>Job Kategori | Location | Profesi</p>
+                <h1 style="font-weight:bold" >{{nameData}}</h1>
+                <p style="font-size:120%">{{katData}} | {{lokasiData}} | {{profesiData}} </p>
+                 <span class="label label-warning label-form">Gaji: Rp {{gajiData}} </span>
             </div>
             <hr>
         </div>
@@ -63,35 +64,35 @@
                         <table class="table table-stacked">
                             <tr>
                                 <td align="left">Jenis Kelamin :</td>
-                                <td align="left">Perempuan</td>
+                                <td align="left">{{genderData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Waktu :</td>
-                                <td align="left">Menginap</td>
+                                <td align="left">{{waktuData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Pendidikan :</td>
-                                <td align="left">SMA</td>
+                                <td align="left">{{pendData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Status :</td>
-                                <td align="left">Menikah</td>
+                                <td align="left">{{statusData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Agama :</td>
-                                <td align="left">Islam</td>
+                                <td align="left">{{agamaData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Suku :</td>
-                                <td align="left">Batak</td>
+                                <td align="left">{{sukuData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Umur :</td>
-                                <td align="left">272 bulan</td>
+                                <td align="left">{{umurData}} Tahun</td>
                             </tr>
                             <tr>
                                 <td align="left">Pengalaman Kerja :</td>
-                                <td align="left">5 Tahun</td>
+                                <td align="left">{{expData}} Tahun</td>
                             </tr>
 
                         </table>
@@ -106,35 +107,35 @@
                         <table class="table table-stacked">
                             <tr>
                                 <td align="left">Pengalaman di luar negeri :</td>
-                                <td align="left">Ya</td>
+                                <td align="left">{{explnData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Bisa Bahasa Inggris :</td>
-                                <td align="left">Ya</td>
+                                <td align="left">{{ingData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Tinggi Badan :</td>
-                                <td align="left">155 cm</td>
+                                <td align="left">{{tinggiData}} Cm</td>
                             </tr>
                             <tr>
                                 <td align="left">Berat Badan :</td>
-                                <td align="left">55</td>
+                                <td align="left">{{beratData}} Kg</td>
                             </tr>
                             <tr>
                                 <td align="left">Bisa Masak Non-halal :</td>
-                                <td align="left">Ya</td>
+                                <td align="left">{{halalData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Bersedia Lembur :</td>
-                                <td align="left">Ya</td>
+                                <td align="left">{{lemburData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Takut Anjing :</td>
-                                <td align="left">Ya</td>
+                                <td align="left">{{anjingData}}</td>
                             </tr>
                             <tr>
                                 <td align="left">Anak :</td>
-                                <td align="left">3</td>
+                                <td align="left">{{anakData}}</td>
                             </tr>
 
                         </table>
@@ -149,9 +150,9 @@
                         <i class="fa fa-search-plus margin-right-4"></i> Keterampilan
                     </div>
                     <div class="panel-body">
-                        <div class "row">
+                        <div class="row">
                             <div class="col-md-4">
-                                Mencuci Baju
+                                {{ketData}}
                             </div>
                             <div class="col-md-4">
                                 Memasak
@@ -162,7 +163,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <div class "row">
+                        <div class="row">
                             <div class="col-md-4">
                                 Merawat Lansia
                             </div>

@@ -2,38 +2,24 @@ var db = angular.module("dbApp", ["firebase"]);
 
 var URL = "https://jobcenter.firebaseio.com/";
 
-db.controller('branchCtrl', function($state, $scope){
-    var branchCtrl = this;
-    
-    branchCtrl.profile = branch;
-
-    branchCtrl.updateProfile = function(){
-        branchCtrl.profile.$save().then(function(){
-          $state.go('offices');
-        });
-    };
-  });
-
 db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$stateParams', '$rootScope', '$firebaseObject', function($scope, $firebaseArray, $state, $stateParams, $rootScope, $firebaseObject) {
   
-  var ref2 = new Firebase(URL + 'labor');
   var ref = new Firebase(URL + 'branch');
-  
-  
+  var ref2 = new Firebase(URL + 'labor');  
+  var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" +  $stateParams.branchId);
+  var ref4 = new Firebase("https://jobcenter.firebaseio.com/labor/" +  $stateParams.workerId);
+      
   $scope.branches = $firebaseArray(ref);
   $scope.datas = $firebaseArray(ref2);
+  $scope.branch = $firebaseObject(ref3);
+  $scope.data = $firebaseObject(ref4);
   
   $scope.updateBranch = function (branch) {
     $rootScope.branch = branch;
-    $state.go('branch-edit', {branchId: $rootScope.branch.$id});
-        
-  };
-
-  var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" +  $stateParams.branchId);
-   $scope.branch = $firebaseObject(ref3);
+    $state.go('branch-edit', {branchId: $rootScope.branch.$id});        
+  }; //end of update branch
      
-  $scope.editBranch = function () {   
-   
+  $scope.editBranch = function () {      
     $scope.branch.$save()
     .then(function() {
         alert('Branch Updated!');
@@ -41,10 +27,9 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         alert('Error!')        
       });
       $state.go('offices');
-  };
+  };  //end of edit branch
   
-  $scope.removeBranch = function (branch) {      
-   
+  $scope.removeBranch = function (branch) {         
     $scope.branch.$remove()
     .then(function() {
         alert('Branch Removed!');
@@ -52,7 +37,32 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         alert('Error!')        
       });
       $state.go('offices');
-  };
+  };  //end of remove branch
+  
+  $scope.updateWorker = function (data) {
+    $rootScope.data = data;
+    $state.go('worker-edit', {workerId: $rootScope.data.$id});        
+  }; //end of update worker
+  
+  $scope.editWorker = function () {      
+    $scope.data.$save()
+    .then(function() {
+        alert('Worker Updated!');
+      }).catch(function(error) {
+        alert('Error!')        
+      });
+      $state.go('workerprof');
+  };  //end of edit worker
+  
+  $scope.removeWorker = function (data) {         
+    $scope.data.$remove()
+    .then(function() {
+        alert('Worker Removed!');
+      }).catch(function(error) {
+        alert('Error!')        
+      });
+      $state.go('workerprof');
+  };  //end of remove worker
   
   $scope.filter = {};
   $scope.input = {};
@@ -60,58 +70,54 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     for(prop in $scope.input) {
       $scope.filter[prop] = $scope.input[prop];
     }
-  };
-  
-  
-  
-  // var inputNama = document.getElementById('inputNama');
-  // var inputKodya = document.getElementById('inputKodya');
-  // var inputTelp = document.getElementById('inputTelp');
-  // var inputAlamat = document.getElementById('inputAlamat');
-  // var buttonEdit = document.getElementById('buttonEdit');
-  // var id = document.getElementById('id');
-  // var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" + id);
-  
-  // buttonEdit.addEventListener('click', function() {
-  //  ref3.update({
-  //     nama: inputNama.value,
-  //     alamat: inputAlamat.value,
-  //     telp: inputTelp.value,
-  //     kotamadya: inputKodya.value
-  //   }).then(function() {
-  //       alert('Profile Updated!');
-  //     }).catch(function(error) {
-  //       alert('Error!');
-  //     });
-  // }); 
+  };  //end of filter function     
    
 }]); //end of searchController
 
-db.controller("profileViewController", function ($scope, $firebaseArray) {
+db.controller("profileViewController", function ($scope, $firebaseArray, $rootScope, $state, $stateParams) {
 
-  var JOB_URL = "https://jobcenter.firebaseio.com/labor/0001";
+  var JOB_URL = "https://jobcenter.firebaseio.com/labor/";
   var ref = new Firebase(JOB_URL);
-  $scope.messages = $firebaseArray(ref);
+  $scope.datas = $firebaseArray(ref);    
+  
+  $scope.viewProfile = function (data) {
+    
+    $rootScope.data = data;
+    if ($rootScope.data.tersedia === 'ya'){
+    $state.go('profiles', {workerId: $rootScope.data.$id});    
+    }
+    else{
+      alert("Pekerja Tidak Tersedia")
+    }    
+  }; //end of view Profile
+  
+  var ref2 = new Firebase("https://jobcenter.firebaseio.com/labor/" +  $stateParams.workerId);  
 
-  //var child = ref.child('0001');
-
-  ref.on("value", function (snap) {
-    if (snap.val().kategori === "Rumah Tangga") {
+  ref2.on("value", function (snap) {     
+      $scope.nameData = snap.val().nama;
       $scope.katData = snap.val().kategori;
-      $scope.nameData = snap.val().name;
-      $scope.ageData = snap.val().age;
-      $scope.expData = snap.val().exp;
-      $scope.gajiData = snap.val().gaji;
-      $scope.genderData = snap.val().gender;
       $scope.lokasiData = snap.val().lokasi;
-      $scope.maritalData = snap.val().marital;
-      $scope.typeData = snap.val().type;
+      $scope.profesiData = snap.val().profesi;
+      $scope.genderData = snap.val().gender;
+      $scope.waktuData = snap.val().waktu;
+      $scope.pendData = snap.val().pendidikan;
       $scope.statusData = snap.val().status;
+      $scope.agamaData = snap.val().agama;
+      $scope.sukuData = snap.val().suku;
+      $scope.umurData = snap.val().tanggallahir;
+      $scope.expData = snap.val().exp;
+      $scope.explnData = snap.val().luarnegri;
+      $scope.ingData = snap.val().inggris;
+      $scope.tinggiData = snap.val().tinggi;
+      $scope.beratData = snap.val().berat;
+      $scope.halalData = snap.val().nonhalal;
+      $scope.lemburData = snap.val().lembur;
+      $scope.anjingData = snap.val().anjing;
+      $scope.anakData = snap.val().anak;
+      $scope.gajiData = snap.val().gaji;
+      $scope.ketData = snap.val().ketrampilan;      
       $scope.gambarData = snap.val().images;
-    }
-    else {
-      alert("ALERT!");
-    }
+    
   });
 
   //var query = ref.orderByChild();
@@ -120,32 +126,12 @@ db.controller("profileViewController", function ($scope, $firebaseArray) {
   //var syncObject = $firebaseObject(ref);
   //syncObject.$bindTo($scope, "admin");
 
-}); //end of db view controller
+}); //end of profile view controller
 
 db.controller("branchViewController", function($scope, $firebaseArray) {
   
-  var ref = new Firebase(URL + "branch");
-  $scope.branches = $firebaseArray(ref);
-  
-  var inputNama = document.getElementById('inputNama');
-  var inputKodya = document.getElementById('inputKodya');
-  var inputTelp = document.getElementById('inputTelp');
-  var inputAlamat = document.getElementById('inputAlamat');
-  var buttonEdit = document.getElementById('buttonEdit');
-  var id = document.getElementById('id');
-  
-  buttonEdit.addEventListener('click', function() {
-    ref.child(id).update({
-      nama: inputNama.value,
-      alamat: inputAlamat.value,
-      telp: inputTelp.value,
-      kotamadya: inputKodya.value
-    }).then(function() {
-        alert('Profile Updated!');
-      }).catch(function(error) {
-        alert('Error!');
-      });
-  });
+  var ref = new Firebase(URL + 'branch');
+  $scope.branches = $firebaseArray(ref);   
   
 }); // end of branch view controller
 
@@ -177,7 +163,7 @@ db.controller("laborPushController", function ($scope, $firebaseArray) {
   var inputTinggi = document.getElementById('inputTinggi');
   var inputBerat = document.getElementById('inputBerat');
   var inputHalal = document.getElementById('inputHalal');
-  var inputLembur = document.getElementById('inputLembur');
+  var inputLembur = document.getElementById('inputLembur');  
   
   var btnSubmit = document.getElementById('btnSubmit');
 
@@ -210,19 +196,15 @@ db.controller("laborPushController", function ($scope, $firebaseArray) {
               nonhalal: inputHalal.value,
               lembur: inputLembur.value
               
-            });
-        });
-            
-            //ref2.child().push([inputKodya.value]);     
-                   
-            // inputNama.value = '';
-            // inputTanggal.value = '';            
-            // inputAlamat.value = '';
-            // inputKodya.value = '';
-            // inputTelp.value = '';
+            }).then(function() {
+               alert('Branch Updated!');
+               }).catch(function(error) {
+                alert('Error!')        
+               });
+                $state.go('offices');;
+        });                       
 
-        });
-      //end of branch push controller
+        }); //end of labor push controller
 
   /* push data into database with unique id
   pushRef.push({
@@ -284,21 +266,7 @@ db.controller("branchPushController", function () {
             inputAlamat.value = '';
             inputKodya.value = '';
             inputTelp.value = '';
-
-        });
-        
-            
-        // buttonEdit.addEventListener('click', function() {
-        //   ref2.update({
-        //     nama: inputNama.value,
-        //     alamat: inputAlamat.value,
-        //     telp: inputTelp.value,
-        //     kotamadya: inputKodya.value
-        //   });
-          
-        // });
-            
-            //ref2.child().push([inputKodya.value]);                       
+        });                                          
         
       }); //end of branch push controller
   
