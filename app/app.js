@@ -18,6 +18,7 @@ angular
     $stateProvider
       .state('home', {
         url: '/',
+        controller: 'HomeCtrl as homeCtrl',
         templateUrl: 'views/home.html'
       })
       .state('contact-us', {
@@ -28,6 +29,11 @@ angular
         url: '/search',
         templateUrl: 'search/search.html',
         controller: 'searchController'
+      })
+      .state('profiles', {
+        url: '/profiles',
+        controller: 'HomeCtrl as homeCtrl',
+        templateUrl: 'profiles/workerprofile.html'
       })
       .state('login', {
         url: '/login',
