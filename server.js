@@ -1,61 +1,57 @@
 // Dependencies goes here
 var express = require('express');
 var morgan = require('morgan');
-// var mongoose = require('mongoose');
-// var bodyParser = require('body-parser');
-// var session = require('express-session');
-// var cookieParser = require('cookie-parser');
-// var flash = require('express-flash');
-// var MongoStore = require('connect-mongo/es5')(session);
-// var passport = require('passport');
+var http = require('http');
+var bodyParser = require('body-parser');
+// var dotenv = require('dotenv'); 
+var nodemailer = require('nodemailer');
 
-// // Custom files goes here
-// var secret = require('./config/secret');
-// var User = require('./models/user');
+// create reusable transporter object using the default SMTP transport
+var transporter = nodemailer.createTransport('smtps://jobcenter.id%40gmail.com:AptusPac14@smtp.gmail.com');
+
+// dotenv.load(); //load environment variables from .env into ENV (process.env).
+
+// Sendgrind authentication
+// var sendgrid_username = process.env.fargobie;
+// var sendgrid_password = process.env.AptusPac14;
+
+// var sendgrid   = require('sendgrid')(sendgrid_username, sendgrid_password);
+// var email      = new sendgrid.Email();
 
 var app = express();
-
-// Database connection goes here
-// mongoose.connect(secret.database, function(err) {
-//     if(err) { 
-//         console.log(err);
-//     } else {
-//         console.log("Connected to the database");
-//     }
-// });
 
 // Middleware for use in express
 app.use(express.static(__dirname + '/app'));
 app.use(morgan('dev'));
-// app.use(bodyParser.json());
+app.use(bodyParser.json()); //needed for req.body
 // app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cookieParser());
-// app.use(session({
-//     resave: true,
-//     saveUninitialized: true,
-//     secret: secret.secretKey,
-//     store: new MongoStore({ url: secret.database, autoReconnect: true })
-// }));
-// app.use(flash());
-// app.use(passport.initialize());
-// app.use(passport.session());
 
-// Routes goes here - to remove into /routes folder later
-app.get('*', function(req, res) {
-    res.redirect('/#' + req.originalUrl);
+
+// // Routes goes here - to remove into /routes folder later
+// app.get('*', function(req, res) {
+//     res.redirect('/#' + req.originalUrl);
+// });
+
+app.post('/email', function(req, res) {
+    
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: '"JobCenter.id" <jobcenter.id@gmail.com>', // sender address
+        to: 'fargobie@gmail.com', // list of receivers
+        subject: 'Hello ✔', // Subject line
+        text: 'Hello from JobCenter.id', // plaintext body
+        html: '<b>Hello world 🐴</b><br><p>This is an automated email sent from nodemailer</p>' // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
 });
 
-// app.get('/', function(req, res) {
-//     res.sendFile(__dirname + '/public/index.html');
-// });
-
-// app.get('/admin', function(req, res) {
-//     res.sendFile(__dirname + '/public/admin/admin-index.html');
-// });
-
-// app.get('/login', function(req, res) {
-//     res.sendFile(__dirname + '/public/admin/admin-login.html');
-// });
 
 // express server - change port to whatever as needed
 app.listen(process.env.PORT, function(err){
