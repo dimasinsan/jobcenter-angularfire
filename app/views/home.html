@@ -1,338 +1,399 @@
 <!-- page container -->
-        <div class="page-container">
+<div class="page-container">
 
-            <!-- page header -->
-            <div class="page-header">
+    <!-- page header -->
+    <div class="page-header">
 
-                <!-- page header holder -->
-                <nav class="navbar navbar-default">
-                  <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+        <!-- page header holder -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                      </button>
-                      <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png"/></a>
-                    </div>
-                
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                      <ul class="nav navbar-nav navbar-right">
+                    </button>
+                    <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png" /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Contact Us</a></li>
                         <li><a ui-sref="search">Cari Pekerja</a></li>
-                      </ul>
-            
-                    </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container -->
-                </nav><!-- /.navbar -->
-                <!-- ./page header holder -->
+                    </ul>
 
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <!-- ./page header -->
+            <!-- /.container -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- ./page header holder -->
 
-            <!-- page content -->
-            <div class="page-content">
+    </div>
+    <!-- ./page header -->
+
+    <!-- page content -->
+    <div class="page-content">
 
 
-                <!-- Carousel slider -->
-            <div class="banner-container">
-                <div id="myCarousel" class="carousel slide">
-                    
-                      <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    
-                    <div class="carousel-inner">
-                        <div class="item active" style="background: url(./img/backgrounds/LP1.jpg) no-repeat left center; background-size: cover;">
-                            <div class="container">
-                                <div class="carousel-caption">
+        <!-- Carousel slider -->
+        <div class="banner-container">
+            <div id="myCarousel" class="carousel slide">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="item active" style="background: url(./img/backgrounds/LP1.jpg) no-repeat left center; background-size: cover;">
+                        <div class="container">
+                            <div class="carousel-caption">
                                 <h1>Mencari pekerja tidak pernah semudah ini</h1>
                                 <p class="lead">Berbagai jenis pekerja di lebih dari 200 lokasi di pulau Jawa.</p>
                                 <a class="btn btn-large btn-primary" href="#">Cari Pekerja</a>
-                                </div>
                             </div>
                         </div>
-                        
-                        <div class="item" style="background: url(./img/backgrounds/LP2.jpg) no-repeat left center; background-size: cover;">
-                            <div class="container">
-                                <div class="carousel-caption">
+                    </div>
+
+                    <div class="item" style="background: url(./img/backgrounds/LP2.jpg) no-repeat left center; background-size: cover;">
+                        <div class="container">
+                            <div class="carousel-caption">
                                 <h1>Cari dengan mudah.</h1>
                                 <p class="lead">Biggest worker's agency in Indonesia</p>
                                 <a class="btn btn-large btn-primary" href="#">Learn more</a>
-                                </div>
                             </div>
                         </div>
-                        
-                        <div class="item" style="background: url(./img/backgrounds/LP3.jpg) no-repeat left center; background-size: cover;">>
-                            <div class="container">
-                                <div class="carousel-caption">
+                    </div>
+
+                    <div class="item" style="background: url(./img/backgrounds/LP3.jpg) no-repeat left center; background-size: cover;">>
+                        <div class="container">
+                            <div class="carousel-caption">
                                 <h1>Mau cari pekerja?</h1>
                                 <p class="lead">Mulailah pencarian pekerja dengan memilih kategori dan lokasi</p>
-                                <a class="btn btn-large btn-primary" href="search.html">Cari Pekerja</a>
-                                </div>
+                                <a class="btn btn-large btn-primary" data-toggle="modal" data-target="#contactModal">Cari Pekerja</a>
                             </div>
                         </div>
                     </div>
-                </div>  
-            </div><!-- /.carousel -->
-                <div class="page-content-wrap bg-img-1">
-                    <!-- page content holder -->
-                    <div class="page-content-holder">
-                        <div class="row">
-                            <div class="col-md-8">
-
-                                <div class="block-heading block-heading-centralized">
-                                    <h2 class="heading-underline">JobCenter.Com</h2>
-                                    <div class="block-heading-text">
-                                        Biggest worker agency in Indonesia. Provides the most diverse types of workers in over 200 areas in Java.
-                                    </div>
-                                </div>
-                                <div class="block">
-                                    <img src="assets/atlant_technologies.png" class="img-responsive" alt="pic here"/>
-                                </div>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <img src="assets/atlant_responsive.png" class="img-responsive-mobile" alt="pic here"/>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ./page content holder -->
                 </div>
-                <!-- ./page content wrapper -->
-
-                <!-- page content wrapper -->
-                <div class="page-content-wrap bg-texture-1 bg-dark light-elements">
-
-                    <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
-
-                    <!-- page content holder -->
-                    <div class="page-content-holder">
-
-                        <div class="row">
-
-                            <div class="col-md-4">
-                                <div class="text-column text-column-centralized tex-column-icon-lg">
-                                    <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
-                                    </div>
-                                    <h4><strong>CARI</strong></h4>
-                                    <div class="text-column-info">
-                                        Gunakan search function kami untuk mencari sesuai kamauan anda. Pilih tipe pekerja yang anda cari dan pilih lokasi yang sesuai.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="text-column text-column-centralized tex-column-icon-lg">
-                                    <div class="text-column-icon">
-                                        <span class="fa icon-cal"></span>
-                                    </div>
-                                    <h4><strong>BOOK</strong></h4>
-                                    <div class="text-column-info">
-                                        Setelah anda menemukan pekerja yang anda suka, tekan tombol "Booking" dan isi form.
-                                        Selanjutnya anda akan dihubungi admin kami untuk process konfirmasi & penjadwalan wawancara
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="text-column text-column-centralized tex-column-icon-lg">
-                                    <div class="text-column-icon">
-                                        <span class="fa icon-int "></span>
-                                    </div>
-                                    <h4><strong>INTERVIEW</strong></h4>
-                                    <div class="text-column-info">
-                                        Wawancara dengan pekerja anda akan dilakukan di kantor kami. Jika tidak cocok admin kami akan menjadwalkan wawancara dengan pilihan berikutnya
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- ./page content holder -->
-                </div>
-                <!-- ./page content wrapper -->
-
-                <!-- page content wrapper -->
-                <div class="page-content-wrap bg-light bg-texture-1">
-
-                    <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
-
-                    <!-- page content holder -->
-                    <div class="page-content-holder">
-
-                      <div>
-                        <h2>About Us    <small> See what our clients have to say about our services! </small></h2>
-                      </div>
-
-                        <div class="row">
-                          <div class="col-lg-4">
-                            <blockquote>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper, quam porttitor iaculis semper, mi enim venenatis ligula,
-                                vel dictum lorem est suscipit nibh. Fusce pulvinar sodales tellus, eget iaculis tellus viverra vel. </p>
-                              <footer>John Doe</footer>
-                            </blockquote>
-                          </div>
-                          <div class="col-lg-4">
-                            <blockquote>
-                              <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                Fusce rhoncus elit ac nisl hendrerit mattis. Donec tempor urna eros, sed pulvinar purus consectetur vel.  </p>
-                              <footer>Jane Doe</footer>
-                            </blockquote>
-                          </div>
-                            <div class="col-lg-4">
-                            <blockquote>
-                              <p>Nunc ullamcorper risus vitae sem posuere pretium.
-                                Sed molestie diam commodo, placerat nulla sit amet, fermentum nisl. In quis justo vel nunc blandit ullamcorper ac a ex.  </p>
-                              <footer>Jay Doe</footer>
-                            </blockquote>
-                          </div>
-                        </div>
-
-                    </div>
-                    <!-- ./page content holder -->
-                </div>
-                <!-- ./page content wrapper -->
-
-                <!-- page content wrapper -->
-                <div class="page-content-wrap bg-light">
-                    <!-- page content holder -->
-
-                    <!-- ./page content holder -->
-                </div>
-                <!-- ./page content wrapper -->
             </div>
-            <!-- ./page content -->
+        </div>
+        <!-- /.carousel -->
+        <div class="page-content-wrap bg-img-1">
+            <!-- page content holder -->
+            <div class="page-content-holder">
+                <div class="row">
+                    <div class="col-md-8">
 
-            <!-- page footer -->
-            <div class="page-footer">
-
-                <!-- page footer wrap -->
-                <div class="page-footer-wrap bg-dark-gray">
-                    <!-- page footer holder -->
-                    <div class="page-footer-holder page-footer-holder-main">
-
-                        <div class="row">
-
-                            <!-- about -->
-                            <div class="col-md-3">
-                                <h3>About JobCenter.com</h3>
-                                <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you need.</p>
+                        <div class="block-heading block-heading-centralized">
+                            <h2 class="heading-underline">JobCenter.Com</h2>
+                            <div class="block-heading-text">
+                                Biggest worker agency in Indonesia. Provides the most diverse types of workers in over 200 areas in Java.
                             </div>
-                            <!-- ./about -->
-
-                            <!-- quick links -->
-                            <div class="col-md-3">
-                                <h3>Quick links</h3>
-
-                                <div class="list-links">
-                                    <a ui-sref="home">Home</a>
-                                    <a ui-sref="contact-us">Contact Us</a>
-                                    <a ui-sref="search">Cari Pekerja</a>
-                                </div>
-                            </div>
-                            <!-- ./quick links -->
-
-                            <!-- recent tweets -->
-                            <div class="col-md-3">
-                                <h3>Recent Tweets</h3>
-
-                                <div class="list-with-icon small">
-                                    <div class="item">
-                                        <div class="icon">
-                                            <span class="fa fa-twitter"></span>
-                                        </div>
-                                        <div class="text">
-                                            <a href="#">@JohnDoe</a> We found a nanny for our kids within a week!
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="icon">
-                                            <span class="fa fa-twitter"></span>
-                                        </div>
-                                        <div class="text">
-                                            <a href="#">@Aqvatarius</a> Best service!
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="icon">
-                                            <span class="fa fa-twitter"></span>
-                                        </div>
-                                        <div class="text">
-                                            <a href="#">@StrayDemon</a> Will use JobCenter's service again!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- ./recent tweets -->
-
-                            <!-- contacts -->
-                            <div class="col-md-3">
-                                <h3>Contacts</h3>
-
-                                <div class="footer-contacts">
-                                    <div class="fc-row">
-                                        <span class="fa fa-home"></span>
-                                        000 StreetName, Suite 111,<br/>
-                                        City Name, ST 01234
-                                    </div>
-                                    <div class="fc-row">
-                                        <span class="fa fa-phone"></span>
-                                        (123) 456-7890
-                                    </div>
-                                    <div class="fc-row">
-                                        <span class="fa fa-envelope"></span>
-                                        <strong>John Doe</strong><br>
-                                        <a href="mailto:#">johndoe@domain.com</a>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <!-- ./contacts -->
-
                         </div>
-
+                        <div class="block">
+                            <img src="assets/atlant_technologies.png" class="img-responsive" alt="pic here" />
+                        </div>
                     </div>
-                    <!-- ./page footer holder -->
-                </div>
-                <!-- ./page footer wrap -->
-
-                <!-- page footer wrap -->
-                <div class="page-footer-wrap bg-darken-gray">
-                    <!-- page footer holder -->
-                    <div class="page-footer-holder">
-
-                        <!-- copyright -->
-                        <div class="copyright">
-                            &copy; 2016 JobCenter.com - All Rights Reserved
-                        </div>
-                        <!-- ./copyright -->
-
-                        <!-- social links -->
-                        <div class="social-links">
-                            <a href="#"><span class="fa fa-facebook"></span></a>
-                            <a href="#"><span class="fa fa-twitter"></span></a>
-                            <a href="#"><span class="fa fa-google-plus"></span></a>
-                            <a href="#"><span class="fa fa-linkedin"></span></a>
-                        </div>
-                        <!-- ./social links -->
-
+                    <div class="col-md-4 text-center">
+                        <img src="assets/atlant_responsive.png" class="img-responsive-mobile" alt="pic here" />
                     </div>
-                    <!-- ./page footer holder -->
                 </div>
-                <!-- ./page footer wrap -->
+            </div>
+            <!-- ./page content holder -->
+        </div>
+        <!-- ./page content wrapper -->
+
+        <!-- page content wrapper -->
+        <div class="page-content-wrap bg-texture-1 bg-dark light-elements">
+
+            <div class="divider">
+                <div class="box"><span class="fa fa-angle-down"></span></div>
+            </div>
+
+            <!-- page content holder -->
+            <div class="page-content-holder">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="text-column text-column-centralized tex-column-icon-lg">
+                            <div class="text-column-icon">
+                                <span class="fa icon-search"></span>
+                            </div>
+                            <h4><strong>CARI</strong></h4>
+                            <div class="text-column-info">
+                                Gunakan search function kami untuk mencari sesuai kamauan anda. Pilih tipe pekerja yang anda cari dan pilih lokasi yang sesuai.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="text-column text-column-centralized tex-column-icon-lg">
+                            <div class="text-column-icon">
+                                <span class="fa icon-cal"></span>
+                            </div>
+                            <h4><strong>BOOK</strong></h4>
+                            <div class="text-column-info">
+                                Setelah anda menemukan pekerja yang anda suka, tekan tombol "Booking" dan isi form. Selanjutnya anda akan dihubungi admin kami untuk process konfirmasi & penjadwalan wawancara
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="text-column text-column-centralized tex-column-icon-lg">
+                            <div class="text-column-icon">
+                                <span class="fa icon-int "></span>
+                            </div>
+                            <h4><strong>INTERVIEW</strong></h4>
+                            <div class="text-column-info">
+                                Wawancara dengan pekerja anda akan dilakukan di kantor kami. Jika tidak cocok admin kami akan menjadwalkan wawancara dengan pilihan berikutnya
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-            <!-- ./page footer -->
+            <!-- ./page content holder -->
+        </div>
+        <!-- ./page content wrapper -->
+
+        <!-- page content wrapper -->
+        <div class="page-content-wrap bg-light bg-texture-1">
+
+            <div class="divider">
+                <div class="box"><span class="fa fa-angle-down"></span></div>
+            </div>
+
+            <!-- page content holder -->
+            <div class="page-content-holder">
+
+                <div>
+                    <h2>About Us    <small> See what our clients have to say about our services! </small></h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper, quam porttitor iaculis semper, mi enim venenatis ligula, vel dictum lorem est suscipit nibh. Fusce pulvinar sodales tellus, eget iaculis tellus viverra vel.
+                            </p>
+                            <footer>John Doe</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-lg-4">
+                        <blockquote>
+                            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce rhoncus elit ac nisl hendrerit mattis. Donec tempor urna eros, sed pulvinar purus consectetur vel. </p>
+                            <footer>Jane Doe</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-lg-4">
+                        <blockquote>
+                            <p>Nunc ullamcorper risus vitae sem posuere pretium. Sed molestie diam commodo, placerat nulla sit amet, fermentum nisl. In quis justo vel nunc blandit ullamcorper ac a ex. </p>
+                            <footer>Jay Doe</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ./page content holder -->
+        </div>
+        <!-- ./page content wrapper -->
+
+        <!-- page content wrapper -->
+        <div class="page-content-wrap bg-light">
+            <!-- page content holder -->
+
+            <!-- ./page content holder -->
+        </div>
+        <!-- ./page content wrapper -->
+    </div>
+    <!-- ./page content -->
+
+    <!-- page footer -->
+    <div class="page-footer">
+
+        <!-- page footer wrap -->
+        <div class="page-footer-wrap bg-dark-gray">
+            <!-- page footer holder -->
+            <div class="page-footer-holder page-footer-holder-main">
+
+                <div class="row">
+
+                    <!-- about -->
+                    <div class="col-md-3">
+                        <h3>About JobCenter.com</h3>
+                        <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you need.</p>
+                    </div>
+                    <!-- ./about -->
+
+                    <!-- quick links -->
+                    <div class="col-md-3">
+                        <h3>Quick links</h3>
+
+                        <div class="list-links">
+                            <a ui-sref="home">Home</a>
+                            <a ui-sref="contact-us">Contact Us</a>
+                            <a ui-sref="search">Cari Pekerja</a>
+                        </div>
+                    </div>
+                    <!-- ./quick links -->
+
+                    <!-- recent tweets -->
+                    <div class="col-md-3">
+                        <h3>Recent Tweets</h3>
+
+                        <div class="list-with-icon small">
+                            <div class="item">
+                                <div class="icon">
+                                    <span class="fa fa-twitter"></span>
+                                </div>
+                                <div class="text">
+                                    <a href="#">@JohnDoe</a> We found a nanny for our kids within a week!
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                    <span class="fa fa-twitter"></span>
+                                </div>
+                                <div class="text">
+                                    <a href="#">@Aqvatarius</a> Best service!
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                    <span class="fa fa-twitter"></span>
+                                </div>
+                                <div class="text">
+                                    <a href="#">@StrayDemon</a> Will use JobCenter's service again!
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ./recent tweets -->
+
+                    <!-- contacts -->
+                    <div class="col-md-3">
+                        <h3>Contacts</h3>
+
+                        <div class="footer-contacts">
+                            <div class="fc-row">
+                                <span class="fa fa-home"></span> 000 StreetName, Suite 111,
+                                <br/> City Name, ST 01234
+                            </div>
+                            <div class="fc-row">
+                                <span class="fa fa-phone"></span> (123) 456-7890
+                            </div>
+                            <div class="fc-row">
+                                <span class="fa fa-envelope"></span>
+                                <strong>John Doe</strong>
+                                <br>
+                                <a href="mailto:#">johndoe@domain.com</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- ./contacts -->
+
+                </div>
+
+            </div>
+            <!-- ./page footer holder -->
+        </div>
+        <!-- ./page footer wrap -->
+
+        <!-- page footer wrap -->
+        <div class="page-footer-wrap bg-darken-gray">
+            <!-- page footer holder -->
+            <div class="page-footer-holder">
+
+                <!-- copyright -->
+                <div class="copyright">
+                    &copy; 2016 JobCenter.com - All Rights Reserved
+                </div>
+                <!-- ./copyright -->
+
+                <!-- social links -->
+                <div class="social-links">
+                    <a href="#"><span class="fa fa-facebook"></span></a>
+                    <a href="#"><span class="fa fa-twitter"></span></a>
+                    <a href="#"><span class="fa fa-google-plus"></span></a>
+                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                </div>
+                <!-- ./social links -->
+
+            </div>
+            <!-- ./page footer holder -->
+        </div>
+        <!-- ./page footer wrap -->
+
+    </div>
+    <!-- ./page footer -->
+    <!-- Modal -->
+    <div id="contactModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hubungi Kami</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger" ng-show="notValid">
+                        <span>Harap isi semua field di form ini.</span>
+                    </div>
+                    <!-- ANGULAR VALIDATION FORM ============ -->
+
+                    <form name="userForm" novalidate>
+
+                        <!-- NAME -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required>
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Masukkan nama lengkap anda.</p>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required>
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Masukkan alamat email anda.</p>
+                        </div>
+
+                        <!-- CONTACT -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.contact.$invalid && !userForm.contact.$pristine }">
+                            <label>No Telp</label>
+                            <input type="number" name="contact" class="form-control" ng-model="user.contact" placeholder="021 123123" required>
+                            <p ng-show="userForm.contact.$invalid && !userForm.contact.$pristine" class="help-block">Masukkan nomer telepon anda.</p>
+                        </div>
+
+                        <!-- COMMENT -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
+                            <label>Permintaan</label>
+                            <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini" required></textarea>
+                            <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
+                            <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" ng-click="submitForm()">Submit</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
 
         </div>
-        <!-- ./page container -->
+    </div>
+</div>
+<!-- ./page container -->

@@ -18,6 +18,7 @@ angular
     $stateProvider
       .state('home', {
         url: '/',
+        controller: 'HomeCtrl as homeCtrl',
         templateUrl: 'views/home.html'
       })
       .state('contact-us', {
