@@ -31,8 +31,8 @@ angular
         controller: 'searchController'
       })
       .state('profiles', {
-        url: '/profiles',
-        controller: 'HomeCtrl as homeCtrl',
+        url: '/profiles/:workerId',
+        controller: 'profileViewController',
         templateUrl: 'profiles/workerprofile.html'
       })
       .state('login', {

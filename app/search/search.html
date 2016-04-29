@@ -67,7 +67,7 @@
             </div>
 
             <!-- page content holder -->
-            <div class="page-content-holder">
+            <div class="page-content-holder" ng-controller="profileViewController">
 
                 <!-- filter -->
                 <div class="container">
@@ -412,8 +412,8 @@
                 </div>
                 <div class="container" ng-repeat="data in datas | filter:filter">
                     <div class="col-lg-4">
-                        <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"></img>
-                        <a href="" class="">{{data.nama}}</a>
+                        <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"/>
+                        <p href="" ng-click="viewProfile(data)" class="text-danger">{{data.nama}}</p>
                     </div>
                     <div class="col-lg-4">
                         <div class="container text-center">

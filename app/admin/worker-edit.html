@@ -295,7 +295,7 @@
               <div class="form-group">
                 <label for="halal" class="col-lg-3 control-label">Bisa Masak Non-halal?</label>
                 <div class="col-sm-8">
-                  <select class="form-control select" ng-model="data.halal" id="inputHalal" required>
+                  <select class="form-control select" ng-model="data.nonhalal" id="inputHalal" required>
                   <option value="">Select</option>
                   <option>Ya</option>
                   <option>Tidak</option>
@@ -313,11 +313,22 @@
                   </select>
                 </div>
               </div>
+              
+              <div class="form-group">
+                <label for="tersedia" class="col-lg-3 control-label">Pekerja Masih Tersedia?</label>
+                <div class="col-sm-8">
+                  <select class="form-control select" ng-model="data.tersedia" id="tersedia" required>
+                  <option value="">Select</option>
+                  <option>Ya</option>
+                  <option>Tidak</option>
+                  </select>
+                </div>
+              </div>
               <br>
               <div class="col-lg-12">
                   
             <button type="submit" class="btn btn-primary pull-right" id="btnSubmit">Save</button>
-            <button type="cancel" class="btn btn-danger" ng-click="removeWorker(data)">Remove</button>
+            <button type="cancel" class="btn btn-danger mb-control" data-box="#message-box-danger" ng-click="removeWorker(data)">Remove</button>
             <!--<button type="cancel" class="btn btn-default" onclick="this.form.reset()">Reset</button>-->
             <button type="cancel" class="btn btn-primary" ui-sref="workerfrof">Cancel</button>
           </div>
