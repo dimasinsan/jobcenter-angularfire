@@ -26,7 +26,8 @@ angular
       })
       .state('search', {
         url: '/search',
-        templateUrl: 'search/search.html'
+        templateUrl: 'search/search.html',
+        controller: 'searchController'
       })
       .state('login', {
         url: '/login',

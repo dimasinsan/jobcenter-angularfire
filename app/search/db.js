@@ -2,24 +2,11 @@ var db = angular.module("dbApp", ["firebase"]);
 
 var URL = "https://jobcenter.firebaseio.com/";
 
-db.controller('branchCtrl', function($state, $scope){
-    var branchCtrl = this;
-    
-    branchCtrl.profile = branch;
-
-    branchCtrl.updateProfile = function(){
-        branchCtrl.profile.$save().then(function(){
-          $state.go('offices');
-        });
-    };
-  });
-
 db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$stateParams', '$rootScope', '$firebaseObject', function($scope, $firebaseArray, $state, $stateParams, $rootScope, $firebaseObject) {
   
   var ref2 = new Firebase(URL + 'labor');
   var ref = new Firebase(URL + 'branch');
-  
-  
+    
   $scope.branches = $firebaseArray(ref);
   $scope.datas = $firebaseArray(ref2);
   
@@ -30,7 +17,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   };
 
   var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" +  $stateParams.branchId);
-   $scope.branch = $firebaseObject(ref3);
+  $scope.branch = $firebaseObject(ref3);
      
   $scope.editBranch = function () {   
    
@@ -61,7 +48,6 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       $scope.filter[prop] = $scope.input[prop];
     }
   };
-  
   
   
   // var inputNama = document.getElementById('inputNama');
@@ -284,21 +270,7 @@ db.controller("branchPushController", function () {
             inputAlamat.value = '';
             inputKodya.value = '';
             inputTelp.value = '';
-
-        });
-        
-            
-        // buttonEdit.addEventListener('click', function() {
-        //   ref2.update({
-        //     nama: inputNama.value,
-        //     alamat: inputAlamat.value,
-        //     telp: inputTelp.value,
-        //     kotamadya: inputKodya.value
-        //   });
-          
-        // });
-            
-            //ref2.child().push([inputKodya.value]);                       
+        });                                          
         
       }); //end of branch push controller
   

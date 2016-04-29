@@ -68,56 +68,15 @@
           </div>
           <br>
           <div class="container">
-            <div class="row">
-              <!--<form class="form-horizontal col-lg-8 col-sm-offset-1"  ng-repeat="branch in branches | filter:kodim">
-                                            
-                                            
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Kotamadya </label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" id="inputKodya" value="{{branch.kotamadya}}" required/>
-                                                        <input type="text" class="form-control" id="id" value="{{branch.$id}}" disabled/>
-                                                    </div>
-                                                </div>
+            <div class="table-responsive">              
 
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Kantor</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" id="inputNama" value="{{branch.nama}}" required/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">Alamat</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <textarea class="form-control" rows="5" id="inputAlamat"  required>{{branch.alamat}}</textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 col-xs-12 control-label">No. Telp</label>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <input type="text" class="form-control" id="inputTelp" value="{{branch.telp}}"  onkeypress="return event.charCode >= 45 && event.charCode <=57" required/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-9">
-                                                <button id="buttonEdit" class="btn btn-primary pull-right"/>
-                                                Edit Branch
-                                            </div>
-                                            <a class="edit" ui-sref="branch-edit">Edit</a> 
-                                            <br><hr>
-
-                                </form>
-                                <div class="col-xs-9">                                               
-                                            </div>-->
-
-              <table class="table" bgcolor="#353831">
+              <table class="table table-striped table-actions">
                 <thead>
                   <th>Kotamadya</th>
                   <th>Nama Kantor</th>
                   <th>Alamat</th>
                   <th>No Tlp</th>
-                  <th>&nbsp;</th>
+                  <th width="50">&nbsp;</th>
                   
                 </thead>
                 <tbody>
@@ -127,13 +86,13 @@
                     <td>{{branch.alamat}}</td>
                     <td>{{branch.telp}}</td>
                     <td>
-                      <a class="edit" ng-click="updateBranch(branch)">Edit</a>
+                      <button class="btn btn-default btn-rounded btn-sm" ng-click="updateBranch(branch)">
+                        <span class="fa fa-pencil"></span>
+                      </button>
                     </td>
-                    
                   </tr>
                 </tbody>
               </table>
-
 
             </div>
             <br>
