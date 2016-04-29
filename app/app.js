@@ -28,6 +28,10 @@ angular
         url: '/search',
         templateUrl: 'search/search.html'
       })
+      .state('profiles', {
+        url: '/profiles',
+        templateUrl: 'profiles/workerprofile.html'
+      })
       .state('login', {
         url: '/login',
         controller: 'AuthCtrl as authCtrl',
