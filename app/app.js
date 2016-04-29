@@ -31,6 +31,7 @@ angular
       })
       .state('profiles', {
         url: '/profiles',
+        controller: 'HomeCtrl as homeCtrl',
         templateUrl: 'profiles/workerprofile.html'
       })
       .state('login', {
