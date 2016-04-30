@@ -87,9 +87,10 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     $state.go('profiles', {workerId: $rootScope.data.$id});    
     }
     else{
-      alert("Pekerja Tidak Tersedia")
-    }    
-  }; //end of view Profile
+      alert("Pekerja Tidak Tersedia");
+    }
+  
+    }; //end of view Profile
   
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/labor/" +  $stateParams.workerId);  
 
@@ -125,6 +126,16 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   //download data into a local object
   //var syncObject = $firebaseObject(ref);
   //syncObject.$bindTo($scope, "admin");
+  
+  //modal popup on book button press with validation
+  $scope.submitForm = function(){
+        
+        if ($scope.userForm.$valid) {
+            alert('our form is amazing');
+        } else {
+            $scope.notValid = true;
+        }
+    };
 
 }); //end of profile view controller
 
