@@ -414,17 +414,20 @@
                     <h3>Search Results:</h3>
                 </div>
                 <div class="container" ng-repeat="data in datas | filter:filter | filter:isi">
-                    <div class="col-lg-4">
-                        <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"/>
-                        <p href="" ng-click="viewProfile(data)" class="text-danger">{{data.nama}}</p>
+                    <div class="col-lg-1">
+                        <img src="img/daler.jpg" class="image-responsive" alt="image" style="max-height:45px;"/>
                     </div>
-                    <div class="col-lg-4">
+                     <div class="col-lg-3">
+                        <h2 style="font-size:24px; font-family:proxima" ui-sref="" ng-click="viewProfile(data)" class="text-danger">{{data.nama}}</h2>
+
+                     </div>
+                    <div class="col-lg-2">
                         <div class="container text-center">
-                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> {{data.lokasi}}</span>
+                            <h4 style="font-size:18px; font-family:proxima"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}</h4>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <h5 class="title">{{data.profesi}}</h5>
+                    <div class="col-lg-3">
+                        <h5 style="font-size:18px; font-family:proxima">{{data.profesi}}</h5>
                     </div>
                 </div>
                 <!--/RESULTS-->
