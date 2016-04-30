@@ -330,6 +330,9 @@
                                     <option>55</option>
                                 </select>
                             </div>
+                            
+                                <input type="text" class="" id="tersedia" ng-model="isi.tersedia" ng-init="isi.tersedia='ya'" hidden/>                                                                   
+                            
                         </div>
 
                         <div class="col-xs-3">
@@ -410,7 +413,7 @@
                 <div class="container">
                     <h3>Search Results:</h3>
                 </div>
-                <div class="container" ng-repeat="data in datas | filter:filter">
+                <div class="container" ng-repeat="data in datas | filter:filter | filter:isi">
                     <div class="col-lg-4">
                         <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"/>
                         <p href="" ng-click="viewProfile(data)" class="text-danger">{{data.nama}}</p>

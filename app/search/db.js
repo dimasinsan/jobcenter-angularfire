@@ -118,7 +118,6 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.gajiData = snap.val().gaji;
       $scope.ketData = snap.val().ketrampilan;      
       $scope.gambarData = snap.val().images;
-    
   });
 
   //var query = ref.orderByChild();
