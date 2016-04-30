@@ -145,7 +145,7 @@ db.controller("branchViewController", function($scope, $firebaseArray) {
   
 }); // end of branch view controller
 
-db.controller("laborPushController", function ($scope, $firebaseArray) {
+db.controller("laborPushController", function ($scope, $firebaseArray, $state) {
   
   var ref = new Firebase(URL + 'labor');
   var inputNama = document.getElementById('inputNama');
@@ -207,11 +207,11 @@ db.controller("laborPushController", function ($scope, $firebaseArray) {
               lembur: inputLembur.value
               
             }).then(function() {
-               alert('Branch Updated!');
+               alert('Worker Added!');
                }).catch(function(error) {
                 alert('Error!')        
                });
-                $state.go('offices');;
+                $state.go('workerprof');
         });                       
 
         }); //end of labor push controller
