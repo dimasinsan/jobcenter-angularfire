@@ -226,6 +226,15 @@ db.controller("laborPushController", function ($scope, $firebaseArray, $state) {
                 $state.go('workerprof');
         });                       
 
+			
+          $(function(){
+            // Set up the number formatting.
+            $('#inputGaji').number( true, '', '.' );
+ 
+ 
+            //https://github.com/customd/jquery-number.
+          });
+
         }); //end of labor push controller
 
   /* push data into database with unique id
