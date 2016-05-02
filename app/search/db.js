@@ -1,4 +1,4 @@
-var db = angular.module("dbApp", ["firebase"]);
+var db = angular.module("dbApp", ["firebase", "angularUtils.directives.dirPagination"]);
 
 var URL = "https://jobcenter.firebaseio.com/";
 
@@ -70,7 +70,15 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     for(prop in $scope.input) {
       $scope.filter[prop] = $scope.input[prop];
     }
-  };  //end of filter function     
+  };  //end of filter function
+  
+   //pagination
+  $scope.currentPage = 1;
+  $scope.pageSize = 15;
+  
+  //sort table
+  $scope.sortType = "kategori";
+  $scope.sortReverse = true;           
    
 }]); //end of searchController
 
@@ -78,7 +86,11 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 
   var JOB_URL = "https://jobcenter.firebaseio.com/labor/";
   var ref = new Firebase(JOB_URL);
-  $scope.datas = $firebaseArray(ref);    
+  $scope.datas = $firebaseArray(ref);
+  
+  //pagination
+  $scope.currentPage = 1;
+  $scope.pageSize = 10;    
   
   $scope.viewProfile = function (data) {
     
@@ -117,7 +129,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.anakData = snap.val().anak;
       $scope.gajiData = snap.val().gaji;
       $scope.ketData = snap.val().ketrampilan;      
-      $scope.gambarData = snap.val().images;
+      $scope.gambarData = snap.val().image;
   });
 
   //var query = ref.orderByChild();
