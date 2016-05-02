@@ -78,7 +78,11 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   
   //sort table
   $scope.sortType = "kategori";
-  $scope.sortReverse = true;           
+  $scope.sortReverse = true;
+  
+   $(function(){
+      $('#inputGaji').number( true, '', '.' );
+   });                       
 
 }]); //end of searchController
 
@@ -157,9 +161,50 @@ db.controller("branchViewController", function($scope, $firebaseArray) {
   
 }); // end of branch view controller
 
-db.controller("laborPushController", function ($scope, $firebaseArray, $state) {
+db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', function ($scope, $firebaseArray, $state) {
   
+  var ref2 = new Firebase(URL + 'branch');
+  $scope.branches = $firebaseArray(ref2);
+   
   var ref = new Firebase(URL + 'labor');
+  $scope.push = $firebaseArray(ref);
+  
+  $scope.pushWorker = function() {
+  $scope.push.$add({
+    nama: $scope.inputNama,
+    tanggallahir: $scope.inputTanggal.toString(),
+    asal: $scope.inputAsal,      
+    alamat: $scope.inputAlamat,
+    lokasi: $scope.inputLokasi,
+    kategori: $scope.inputKategori,
+    profesi: $scope.inputProfesi,
+    tersedia: "ya",
+    gender: $scope.inputGender,
+    waktu: $scope.inputWaktu,
+    pendidikan: $scope.inputPend,
+    status: $scope.inputStatus,
+    anak: $scope.inputAnak,              
+    telp: $scope.inputTelp,
+    agama: $scope.inputAgama,
+    suku: $scope.inputSuku,
+    gaji: $scope.inputGaji,
+    ketrampilan: $scope.inputKetrampilan,
+    anjing: $scope.inputAnjing,
+    exp: $scope.inputExp,
+    luarnegri: $scope.inputExpln,
+    inggris: $scope.inputIng,
+    tinggi: $scope.inputTinggi,
+    berat: $scope.inputBerat,
+    nonhalal: $scope.inputHalal,
+    lembur: $scope.inputLembur
+  })
+  .then(function() {
+        alert('Worker Added!');
+        }).catch(function(error) {
+        alert('Error!')        
+        });
+        $state.go('workerprof');
+  };
   
   // upload picture and convert to base64
   $scope.data = {}; //init variable
@@ -192,89 +237,17 @@ db.controller("laborPushController", function ($scope, $firebaseArray, $state) {
         r.readAsDataURL(f); //once defined all callbacks, begin reading the file
 
       };
-  // end of upload picture and convert to base64
+  // end of upload picture and convert to base64  
   
-  var inputNama = document.getElementById('inputNama');
-  var inputTanggal = document.getElementById('inputTanggal');
-  var inputAsal = document.getElementById('inputAsal');
-  var inputAlamat = document.getElementById('inputAlamat');
-  var inputLokasi = document.getElementById('inputLokasi');
-  var inputKategori = document.getElementById('inputKategori');
-  var inputProfesi = document.getElementById('inputProfesi');
-  //var tersedia = "Ya";
-  var inputGender = document.getElementById('inputGender');
-  var inputWaktu = document.getElementById('inputWaktu');
-  var inputPend = document.getElementById('inputPend');
-  var inputStatus = document.getElementById('inputStatus');
-  var inputAnak = document.getElementById('inputAnak');
-  var inputTelp = document.getElementById('inputTelp');
-  var inputAgama = document.getElementById('inputAgama');
-  var inputSuku = document.getElementById('inputSuku');
-  var inputGaji = document.getElementById('inputGaji');
-  var inputKetrampilan = document.getElementById('inputKetrampilan');
-  var inputAnjing = document.getElementById('inputAnjing');
-  var inputExp = document.getElementById('inputExp');
-  var inputExpln = document.getElementById('inputExpln');
-  var inputIng = document.getElementById('inputIng');
-  var inputTinggi = document.getElementById('inputTinggi');
-  var inputBerat = document.getElementById('inputBerat');
-  var inputHalal = document.getElementById('inputHalal');
-  var inputLembur = document.getElementById('inputLembur');  
-  
-  var btnSubmit = document.getElementById('btnSubmit');
-
-        btnSubmit.addEventListener('click', function () {
-            ref.push({
-              nama: inputNama.value,
-              tanggallahir: inputTanggal.value,
-              asal: inputAsal.value,      
-              alamat: inputAlamat.value,
-              lokasi: inputLokasi.value,
-              kategori: inputKategori.value,
-              profesi: inputProfesi.value,
-              tersedia: "ya",
-              gender: inputGender.value,
-              waktu: inputWaktu.value,
-              pendidikan: inputPend.value,
-              status: inputStatus.value,
-              anak: inputAnak.value,              
-              telp: inputTelp.value,
-              agama: inputAgama.value,
-              suku: inputSuku.value,
-              gaji: inputGaji.value,
-              ketrampilan: inputKetrampilan.value,
-              anjing: inputAnjing.value,
-              exp: inputExp.value,
-              luarnegri: inputExpln.value,
-              inggris: inputIng.value,
-              tinggi: inputTinggi.value,
-              berat: inputBerat.value,
-              nonhalal: inputHalal.value,
-              lembur: inputLembur.value
-              
-            }).then(function() {
-               alert('Worker Added!');
-               }).catch(function(error) {
-                alert('Error!')        
-               });
-                $state.go('workerprof');
-        });                       
-
-			
+  			
           $(function(){
             // Set up the number formatting.
-            $('#inputGaji').number( true, '', '.' );
-            $('span.number').number( true, 2 );
+            $('#inputGaji').number( true, '', '.' );                       
 
             //https://github.com/customd/jquery-number.
-          });
+          });         
 
-          $(function(){
-            $('span.number').number( true, 2 );
-
-          });
-
-        }); //end of labor push controller
+        }]); //end of labor push controller
 
   /* push data into database with unique id
   pushRef.push({
