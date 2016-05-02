@@ -70,7 +70,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     for(prop in $scope.input) {
       $scope.filter[prop] = $scope.input[prop];
     }
-  };  //end of filter function     
+  };  //end of filter function
    
 }]); //end of searchController
 
@@ -148,6 +148,40 @@ db.controller("branchViewController", function($scope, $firebaseArray) {
 db.controller("laborPushController", function ($scope, $firebaseArray, $state) {
   
   var ref = new Firebase(URL + 'labor');
+  
+  // upload picture and convert to base64
+  $scope.data = {}; //init variable
+    $scope.click = function() { //default function, to be override if browser supports input type='file'
+      $scope.data.alert = "Your browser doesn't support HTML5 input type='File'"
+    }
+
+    var fileSelect = document.createElement('input'); //input it's not displayed in html, I want to trigger it form other elements
+    fileSelect.type = 'file';
+
+    if (fileSelect.disabled) { //check if browser support input type='file' and stop execution of controller
+      return;
+    }
+  
+      $scope.click = function() { //activate function to begin input file on click
+        fileSelect.click();
+      }
+
+      fileSelect.onchange = function() { //set callback to action after choosing file
+        var f = fileSelect.files[0], r = new FileReader();
+
+        r.onloadend = function(e) { //callback after files finish loading
+          $scope.data.b64 = e.target.result;
+          $scope.$apply();
+          console.log($scope.data.b64.replace(/^data:image\/(png|jpg);base64,/, "")); //replace regex if you want to rip off the base 64 "header"
+
+          //here you can send data over your server as desired
+        }
+
+        r.readAsDataURL(f); //once defined all callbacks, begin reading the file
+
+      };
+  // end of upload picture and convert to base64
+  
   var inputNama = document.getElementById('inputNama');
   var inputTanggal = document.getElementById('inputTanggal');
   var inputAsal = document.getElementById('inputAsal');
