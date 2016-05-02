@@ -59,12 +59,13 @@
         <br>
         <!--RESULTS-->
         <div class="container">
-          <div class="col-xs-5">
-
-            <h3>List Cabang:</h3>
-            <a ui-sref="add-offices" class="btn btn-primary col-lg-4">
+          <div class="col-sm-5">
+            <h3>List Cabang:</h3>            
+          </div>
+          <div class="pull-right">
+            <button ui-sref="add-offices" class="btn btn-primary">
               <span class="glyphicon glyphicon-plus-sign"></span> Add Branch
-            </a>
+            </button>
           </div>
           <br>
           <div class="container">
@@ -80,7 +81,7 @@
                   
                 </thead>
                 <tbody>
-                  <tr ng-repeat="branch in branches">
+                  <tr dir-paginate="branch in branches | itemsPerPage: pageSize" current-page="currentPage">
                     <td>{{branch.kotamadya}}</td>
                     <td>{{branch.nama}}</td>
                     <td>{{branch.alamat}}</td>
@@ -93,7 +94,9 @@
                   </tr>
                 </tbody>
               </table>
-
+              <div class="text-center">
+                  <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
+              </div>
             </div>
             <br>
           </div>
