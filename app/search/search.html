@@ -412,21 +412,31 @@
                 <!--RESULTS-->
                 <div class="container">
                     <h3>Search Results:</h3>
-                </div>
-                <div class="container" ng-repeat="data in datas | filter:filter | filter:isi">
-                    <div class="col-lg-4">
-                        <img src="{{data.images}}" class="image-responsive" alt="image" style="max-height:30px;"/>
-                        <p href="" ng-click="viewProfile(data)" class="text-danger">{{data.nama}}</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="container text-center">
-                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> {{data.lokasi}}</span>
+                    <div class="well well-lg" ng-repeat="data in datas | filter:filter | filter:isi">
+                        <div class="col-lg-2">
+                            <img src="../img/daler.jpg" class="image-responsive" alt="image" style="max-height:100px;"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p href="" ng-click="viewProfile(data)" class="text-danger" style="text-transform: uppercase;"><strong>{{data.nama}}<strong></p>
+                                <p>Gaji (Rp): <span class="number">{{ data.gaji}}</span></p>
+                                <p>Pengalaman : {{ data.exp }} tahun</p>
+                                <span class="label label-default"> {{ data.ketrampilan }} </span>
+                            </div>
+                            
+                            <div class="col-lg-3">
+                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+                                {{data.lokasi}}
+                            </div>
+                            
+                            <div class="col-lg-3">
+                                <p class="title">{{data.profesi}}</p>
+                            </div>
+                            <br>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <h5 class="title">{{data.profesi}}</h5>
-                    </div>
                 </div>
+
                 <!--/RESULTS-->
                 
                 <!-- pagination -->

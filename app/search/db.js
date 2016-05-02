@@ -218,9 +218,14 @@ db.controller("laborPushController", function ($scope, $firebaseArray, $state) {
           $(function(){
             // Set up the number formatting.
             $('#inputGaji').number( true, '', '.' );
- 
- 
+            $('span.number').number( true, 2 );
+
             //https://github.com/customd/jquery-number.
+          });
+
+          $(function(){
+            $('span.number').number( true, 2 );
+
           });
 
         }); //end of labor push controller
