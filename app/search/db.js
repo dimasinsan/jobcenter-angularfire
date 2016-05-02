@@ -71,7 +71,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       $scope.filter[prop] = $scope.input[prop];
     }
   };  //end of filter function
-  
+
    //pagination
   $scope.currentPage = 1;
   $scope.pageSize = 15;
@@ -82,8 +82,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   
    $(function(){
       $('#inputGaji').number( true, '', '.' );
-   });           
-   
+   });                       
+
 }]); //end of searchController
 
 db.controller("profileViewController", function ($scope, $firebaseArray, $rootScope, $state, $stateParams) {
@@ -197,7 +197,8 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
     berat: $scope.inputBerat,
     nonhalal: $scope.inputHalal,
     lembur: $scope.inputLembur
-  }).then(function() {
+  })
+  .then(function() {
         alert('Worker Added!');
         }).catch(function(error) {
         alert('Error!')        
@@ -205,72 +206,40 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
         $state.go('workerprof');
   };
   
-  // var inputNama = document.getElementById('inputNama');
-  // var inputTanggal = document.getElementById('inputTanggal');
-  // var inputAsal = document.getElementById('inputAsal');
-  // var inputAlamat = document.getElementById('inputAlamat');
-  // var inputLokasi = document.getElementById('inputLokasi');
-  // var inputKategori = document.getElementById('inputKategori');
-  // var inputProfesi = document.getElementById('inputProfesi');
-  // //var tersedia = "Ya";
-  // var inputGender = document.getElementById('inputGender');
-  // var inputWaktu = document.getElementById('inputWaktu');
-  // var inputPend = document.getElementById('inputPend');
-  // var inputStatus = document.getElementById('inputStatus');
-  // var inputAnak = document.getElementById('inputAnak');
-  // var inputTelp = document.getElementById('inputTelp');
-  // var inputAgama = document.getElementById('inputAgama');
-  // var inputSuku = document.getElementById('inputSuku');
-  // var inputGaji = document.getElementById('inputGaji');
-  // var inputKetrampilan = document.getElementById('inputKetrampilan');
-  // var inputAnjing = document.getElementById('inputAnjing');
-  // var inputExp = document.getElementById('inputExp');
-  // var inputExpln = document.getElementById('inputExpln');
-  // var inputIng = document.getElementById('inputIng');
-  // var inputTinggi = document.getElementById('inputTinggi');
-  // var inputBerat = document.getElementById('inputBerat');
-  // var inputHalal = document.getElementById('inputHalal');
-  // var inputLembur = document.getElementById('inputLembur');  
-  
-  // var btnSubmit = document.getElementById('btnSubmit');
+  // upload picture and convert to base64
+  $scope.data = {}; //init variable
+    $scope.click = function() { //default function, to be override if browser supports input type='file'
+      $scope.data.alert = "Your browser doesn't support HTML5 input type='File'"
+    }
 
-  //       btnSubmit.addEventListener('click', function () {
-  //           ref.push({
-  //             nama: inputNama.value,
-  //             tanggallahir: inputTanggal.value,
-  //             asal: inputAsal.value,      
-  //             alamat: inputAlamat.value,
-  //             lokasi: inputLokasi.value,
-  //             kategori: inputKategori.value,
-  //             profesi: inputProfesi.value,
-  //             tersedia: "ya",
-  //             gender: inputGender.value,
-  //             waktu: inputWaktu.value,
-  //             pendidikan: inputPend.value,
-  //             status: inputStatus.value,
-  //             anak: inputAnak.value,              
-  //             telp: inputTelp.value,
-  //             agama: inputAgama.value,
-  //             suku: inputSuku.value,
-  //             gaji: inputGaji.value,
-  //             ketrampilan: inputKetrampilan.value,
-  //             anjing: inputAnjing.value,
-  //             exp: inputExp.value,
-  //             luarnegri: inputExpln.value,
-  //             inggris: inputIng.value,
-  //             tinggi: inputTinggi.value,
-  //             berat: inputBerat.value,
-  //             nonhalal: inputHalal.value,
-  //             lembur: inputLembur.value
-              
-  //           }).then(function() {
-  //              alert('Worker Added!');
-  //              }).catch(function(error) {
-  //               alert('Error!')        
-  //              });
-  //               $state.go('workerprof');
-  //       });                       
-			
+    var fileSelect = document.createElement('input'); //input it's not displayed in html, I want to trigger it form other elements
+    fileSelect.type = 'file';
+
+    if (fileSelect.disabled) { //check if browser support input type='file' and stop execution of controller
+      return;
+    }
+  
+      $scope.click = function() { //activate function to begin input file on click
+        fileSelect.click();
+      }
+
+      fileSelect.onchange = function() { //set callback to action after choosing file
+        var f = fileSelect.files[0], r = new FileReader();
+
+        r.onloadend = function(e) { //callback after files finish loading
+          $scope.data.b64 = e.target.result;
+          $scope.$apply();
+          console.log($scope.data.b64.replace(/^data:image\/(png|jpg);base64,/, "")); //replace regex if you want to rip off the base 64 "header"
+
+          //here you can send data over your server as desired
+        }
+
+        r.readAsDataURL(f); //once defined all callbacks, begin reading the file
+
+      };
+  // end of upload picture and convert to base64  
+  
+  			
           $(function(){
             // Set up the number formatting.
             $('#inputGaji').number( true, '', '.' );                       
