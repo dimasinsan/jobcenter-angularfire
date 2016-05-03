@@ -2,7 +2,7 @@ var db = angular.module("dbApp", ["firebase", "angularUtils.directives.dirPagina
 
 var URL = "https://jobcenter.firebaseio.com/";
 
-db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$stateParams', '$rootScope', '$firebaseObject', function($scope, $firebaseArray, $state, $stateParams, $rootScope, $firebaseObject) {
+db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$stateParams', '$rootScope', '$firebaseObject', '$http', function($scope, $firebaseArray, $state, $stateParams, $rootScope, $firebaseObject, $http) {
   
   var ref = new Firebase(URL + 'branch');
   var ref2 = new Firebase(URL + 'labor');  
@@ -13,6 +13,23 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.datas = $firebaseArray(ref2);
   $scope.branch = $firebaseObject(ref3);
   $scope.data = $firebaseObject(ref4);
+  
+  $scope.submitForm = function(user) {
+
+            if ($scope.userForm.$invalid === true) {
+                $scope.notValid = true;
+                return
+            }
+            $scope.postData = angular.copy(user);
+
+            $http.post('/contact', $scope.postData)
+                .success(function(data) {
+                    alert('successfully emailed form');
+                })
+                .error(function(data) {
+                    alert('something went wrong');
+                });
+        };
   
   $scope.updateBranch = function (branch) {
     $rootScope.branch = branch;
