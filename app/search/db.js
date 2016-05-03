@@ -154,7 +154,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.anakData = snap.val().anak;
       $scope.gajiData = snap.val().gaji;
       $scope.ketData = snap.val().ketrampilan;      
-      $scope.gambarData = snap.val().image;
+      $scope.gambarData = snap.val().foto;
       $scope.asalData = snap.val().asal;
       $scope.gajihData = snap.val().gajih;   
     
@@ -203,6 +203,7 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
   
   $scope.pushWorker = function() {
   $scope.push.$add({
+    foto: $scope.data.b64,
     nama: $scope.inputNama,
     tanggallahir: tanggal.value,
     asal: $scope.inputAsal,      

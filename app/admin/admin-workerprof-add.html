@@ -58,14 +58,15 @@
 
             <form class="form-horizontal col-lg-5 col-sm-offset-1" ng-controller="laborPushController" ng-submit="pushWorker()">
 
-              <button ng-click="click()">click to select and get base64</button>
-                <br> BASE 64 data:
-                <br>
-                <span style="color: red">{{data.alert}}</span>
-              <div style="word-wrap:break-word" ng-if="data.b64">
-                <!--{{data.b64}}-->
-                Image successfully uploaded!
-                <img ng-src="{{data.b64}}">
+              <div class="col-md-5" align="center">
+                <img ng-src="{{data.b64}}"></img>
+                <div class="caption">
+                  <h5>Upload gambar</h5>
+                  <a class="btn btn-info" role="button" ng-click="click()">Browse</a>
+                  <div style="word-wrap:break-word" ng-if="data.b64">
+                    <h5>Gambar berhasil diupload!</h5>
+                  </div>
+                </div>
               </div>
 
               <div class="form-group">
@@ -89,14 +90,14 @@
                   <input type="text" class="form-control" id="inputAsal" ng-model="inputAsal" placeholder="Masukkan Asal Pekerja" required/>
                 </div>
               </div>
-              ​
+              
               <div class="form-group">
                 <label for="user-address" class="col-lg-3 control-label">Alamat Lengkap</label>
                 <div class="col-lg-8">
                   <textarea class="form-control" id="inputAlamat" ng-model="inputAlamat" rows="5" required></textarea>
                 </div>
               </div>
-              ​
+              
               <div class="form-group">
                 <label for="lokasi-cabang" class="col-lg-3 control-label">Lokasi Cabang</label>
                 <div class="col-sm-8">
@@ -190,14 +191,14 @@
                   <input type="number" class="form-control" id="inputAnak" string-to-number ng-model="inputAnak" value="0" min="0" required/>
                 </div>
               </div>
-              ​
+
               <div class="form-group">
                 <label for="telp" class="col-lg-3 control-label">Tel/Handphone</label>
                 <div class="col-sm-8">
                   <input type="tel" class="form-control" id="inputTelp" ng-model="inputTelp" placeholder="Masukkan Nomor Telephone/Handphone"
                     required/>
                 </div>
-              </div> ​
+              </div> 
 
               <div class="form-group">
                 <label for="agama" class="col-lg-3 control-label">Agama</label>
@@ -341,17 +342,9 @@
                 <button type="cancel" class="btn btn-default" onclick="this.form.reset()">Reset</button>
               </div>
               
-            </form>
               
-              <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
-                <a href="../img/admin_worker/gadis_2.jpg" class="thumbnail">
-                  <img src="../img/admin_worker/gadis_2.jpg" alt="gadis_2"></img>
-                </a>
-                <div class="caption">
-                  <h5>Add your Pictures here</h5>
-                  <p><a href="#" class="btn btn-info" role="button">Browse</a></p>
-                </div>
-              </div>
+            </form>
+
           </div>
           <hr>
           <!-- END WORKER PROFILE -->
