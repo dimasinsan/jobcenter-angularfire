@@ -18,9 +18,9 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $rootScope.branch = branch;
     $state.go('branch-edit', {branchId: $rootScope.branch.$id});        
   }; //end of update branch
-     
+    
   $scope.editBranch = function () {      
-    $scope.branch.$save()
+    $scope.branch.$save()    
     .then(function() {
         alert('Branch Updated!');
       }).catch(function(error) {
@@ -44,8 +44,12 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $state.go('worker-edit', {workerId: $rootScope.data.$id});        
   }; //end of update worker
   
+  var tanggal = document.getElementById('inputTanggal');
+  var gaji = document.getElementById('inputGaji');
+   
   $scope.editWorker = function () {      
     $scope.data.$save()
+    .then(ref4.update({tanggallahir: tanggal.value, gaji: gaji.value}))
     .then(function() {
         alert('Worker Updated!');
       }).catch(function(error) {
@@ -106,7 +110,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       alert("Pekerja Tidak Tersedia");
     }
   
-    }; //end of view Profile
+  }; //end of view Profile
   
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/labor/" +  $stateParams.workerId);  
 
@@ -169,10 +173,13 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
   var ref = new Firebase(URL + 'labor');
   $scope.push = $firebaseArray(ref);
   
+  var tanggal = document.getElementById('inputTanggal');
+  var gaji = document.getElementById('inputGaji');
+  
   $scope.pushWorker = function() {
   $scope.push.$add({
     nama: $scope.inputNama,
-    tanggallahir: $scope.inputTanggal.toString(),
+    tanggallahir: tanggal.value,
     asal: $scope.inputAsal,      
     alamat: $scope.inputAlamat,
     lokasi: $scope.inputLokasi,
@@ -187,7 +194,7 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
     telp: $scope.inputTelp,
     agama: $scope.inputAgama,
     suku: $scope.inputSuku,
-    gaji: $scope.inputGaji,
+    gaji: gaji.value,
     ketrampilan: $scope.inputKetrampilan,
     anjing: $scope.inputAnjing,
     exp: $scope.inputExp,
@@ -204,7 +211,7 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
         alert('Error!')        
         });
         $state.go('workerprof');
-  };
+  };  //end of push worker
   
   // upload picture and convert to base64
   $scope.data = {}; //init variable
@@ -240,14 +247,14 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
   // end of upload picture and convert to base64  
   
   			
-          $(function(){
-            // Set up the number formatting.
-            $('#inputGaji').number( true, '', '.' );                       
+    $(function(){
+      // Set up the number formatting.
+      $('#inputGaji').number( true, '', '.' );                       
 
-            //https://github.com/customd/jquery-number.
-          });         
+      //https://github.com/customd/jquery-number.
+    });         
 
-        }]); //end of labor push controller
+  }]); //end of labor push controller
 
   /* push data into database with unique id
   pushRef.push({
@@ -279,7 +286,6 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
     "lembur": "ya"
   });
 */
- //end of labor push controller
 
 db.controller("branchPushController", function () {
   
