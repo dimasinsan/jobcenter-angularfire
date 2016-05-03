@@ -16,6 +16,8 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
+    
+    // Front page UI Routes
       .state('home', {
         url: '/',
         controller: 'HomeCtrl as homeCtrl',
@@ -35,6 +37,10 @@ angular
         controller: 'profileViewController',
         templateUrl: 'profiles/workerprofile.html'
       })
+    // END Front page UI Routes  
+    
+    
+    // Admin page UI Routes
       .state('login', {
         url: '/login',
         controller: 'AuthCtrl as authCtrl',
@@ -73,7 +79,9 @@ angular
             });
           }
         }
-      })      
+      })
+      
+      // WORKER PAGES - Admin Page UI Routes
       .state('workerprof', {
         url: '/workerprof',
         controller: 'AuthCtrl as authCtrl',
@@ -124,6 +132,34 @@ angular
           }
         }
       })
+      .state('worker-edit', {
+        url: '/worker-edit/:workerId',
+        controller: 'searchController',
+        templateUrl: 'admin/worker-edit.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          }          
+        },
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.displayName){
+                  return profile;
+                } else {
+                  $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
+          }
+       })
+      // END WORKER PAGES - Admin Page UI Routes
+
+      // OFFICE PAGES - Admin Page UI Routes
       .state('offices', {
         url: '/offices',
         controller: 'searchController',
@@ -149,6 +185,7 @@ angular
           }
         }
       })
+      
       .state('add-offices', {
         url: '/add-offices',
         controller: 'AuthCtrl as authCtrl',
@@ -176,31 +213,7 @@ angular
           }
         }
       })
-      .state('admin-profile', {
-        url: '/admin-profile',
-        controller: 'ProfileCtrl as profileCtrl',
-        templateUrl: 'admin/admin-profile.html',
-        resolve: {
-          auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
-              $state.go('login');
-            });
-          },
-          profile: function($state, Users, Auth){
-            return Auth.$requireAuth().then( function(auth){
-              return Users.getProfile(auth.uid).$loaded().then( function (profile){
-                if(profile.displayName){
-                  return profile;
-                } else {
-                  $state.go('admin-profile');
-                }
-              });
-            }, function(error){
-              $state.go('login');
-            });
-          }
-        }
-      })
+      
       .state('branch-edit', {
         url: '/branch-edit/:branchId',
         controller: 'searchController',
@@ -226,18 +239,20 @@ angular
             });
           }
        })
-       
-       .state('worker-edit', {
-        url: '/worker-edit/:workerId',
-        controller: 'searchController',
-        templateUrl: 'admin/worker-edit.html',
+      // END OFFICE PAGES - Admin Page UI Routes
+
+      // ADMIN USER PAGES - Admin Page UI Routes
+
+      .state('admin-profile', {
+        url: '/admin-profile',
+        controller: 'ProfileCtrl as profileCtrl',
+        templateUrl: 'admin/admin-profile.html',
         resolve: {
           auth: function($state, Users, Auth){
             return Auth.$requireAuth().catch(function(){
               $state.go('login');
             });
-          }          
-        },
+          },
           profile: function($state, Users, Auth){
             return Auth.$requireAuth().then( function(auth){
               return Users.getProfile(auth.uid).$loaded().then( function (profile){
@@ -251,7 +266,8 @@ angular
               $state.go('login');
             });
           }
-       })
+        }
+      })
       
       .state('admin-add', {
         url: '/admin-add',
@@ -292,7 +308,11 @@ angular
             return Users.all.$loaded();
           }
         }
-      });  
+      });
+      // END ADMIN USER PAGES - Admin Page UI Routes
+    // END Admin page UI Routes
+
+
     $urlRouterProvider.otherwise('/');
   })
   .constant('FirebaseUrl', 'https://jobcenter-id-auth.firebaseio.com/');
