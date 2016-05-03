@@ -94,8 +94,8 @@
                                 <td align="left">{{expData}} Tahun</td>
                             </tr>
                             <tr>
-                                <td align="left">Asal :</td>
-                                <td align="left"></td>
+                                <td align="left">Asal/Asli :</td>
+                                <td align="left">{{asalData}}</td>
                             </tr>
                         </table>
                     </div>
@@ -139,9 +139,9 @@
                                 <td align="left">Anak :</td>
                                 <td align="left">{{anakData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!gajihData">
                                 <td align="left">Gaji Harian :</td>
-                                <td align="left"></td>
+                                <td align="left">{{gajihData}}</td>
                             </tr>
                         </table>
                     </div>

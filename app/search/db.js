@@ -154,16 +154,16 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.anakData = snap.val().anak;
       $scope.gajiData = snap.val().gaji;
       $scope.ketData = snap.val().ketrampilan;      
-      $scope.gambarData = snap.val().image;   
+      $scope.gambarData = snap.val().image;
+      $scope.asalData = snap.val().asal;
+      $scope.gajihData = snap.val().gajih;   
     
       var value = umur;
       var today = new Date();
       var dob = new Date(value.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
       $scope.age = today.getFullYear() - dob.getFullYear(); //This is the update
       //$('#age').val(age); //for element id
-  });
-  
-      
+  });        
 
   //var query = ref.orderByChild();
 
@@ -228,7 +228,8 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
     tinggi: $scope.inputTinggi,
     berat: $scope.inputBerat,
     nonhalal: $scope.inputHalal,
-    lembur: $scope.inputLembur
+    lembur: $scope.inputLembur,
+    gajih: $scope.inputGajih
   })
   .then(function() {
         alert('Worker Added!');
@@ -274,7 +275,8 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
   			
     $(function(){
       // Set up the number formatting.
-      $('#inputGaji').number( true, '', '.' );                       
+      $('#inputGaji').number( true, '', '.' );
+      $('#inputGajih').number( true, '', '.' );                         
 
       //https://github.com/customd/jquery-number.
     });         
