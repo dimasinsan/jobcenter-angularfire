@@ -478,7 +478,7 @@
 
     </div>
     <!-- ./page content -->
-
+    
     <!-- page footer -->
     <div class="page-footer">
 
@@ -599,6 +599,65 @@
 
     </div>
     <!-- ./page footer -->
+    <!-- Modal -->
+    <div id="contactModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hubungi Kami</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger" ng-show="notValid">
+                        <span>Harap isi semua field di form ini.</span>
+                    </div>
+                    <!-- ANGULAR VALIDATION FORM ============ -->
+
+                    <form name="userForm" novalidate>
+
+                        <!-- NAME -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required>
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Masukkan nama lengkap anda.</p>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required>
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Masukkan alamat email anda.</p>
+                        </div>
+
+                        <!-- CONTACT -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.contact.$invalid && !userForm.contact.$pristine }">
+                            <label>No Telp</label>
+                            <input type="number" name="contact" class="form-control" ng-model="user.contact" placeholder="021 123123" required>
+                            <p ng-show="userForm.contact.$invalid && !userForm.contact.$pristine" class="help-block">Masukkan nomer telepon anda.</p>
+                        </div>
+
+                        <!-- COMMENT -->
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
+                            <label>Permintaan</label>
+                            <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini" required></textarea>
+                            <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
+                            <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end modal -->
 
 </div>
 <!-- ./page container -->
