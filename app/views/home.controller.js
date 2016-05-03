@@ -1,14 +1,22 @@
 angular.module('mainApp')
-  .controller('HomeCtrl', function($scope){
-    var homeCtrl = this;
-    
+    .controller('HomeCtrl', function($scope, $http) {
+        var homeCtrl = this;
 
-    $scope.submitForm = function(){
-        
-        if ($scope.userForm.$valid) {
-            alert('our form is amazing');
-        } else {
-            $scope.notValid = true;
-        }
-    };
-  });
+
+        $scope.submitForm = function(user) {
+
+            if ($scope.userForm.$invalid === true) {
+                $scope.notValid = true;
+                return
+            }
+            $scope.postData = angular.copy(user);
+
+            $http.post('/contact', $scope.postData)
+                .success(function(data) {
+                    alert('successfully emailed form');
+                })
+                .error(function(data) {
+                    alert('something went wrong');
+                });
+        };
+    });
