@@ -55,6 +55,20 @@ angular
           }
         }
       })
+      // .state('superlogin', {
+      //   url: '/superlogin',
+      //   controller: 'AuthCtrl as authCtrl',
+      //   templateUrl: 'auth/superlogin.html',
+      //   resolve: {
+      //     requireNoAuth: function($state, Auth){
+      //       return Auth.$requireAuth().then(function(auth){
+      //         $state.go('superadmin');
+      //       }, function(error){
+      //         return;
+      //       });
+      //     }
+      //   }
+      // })
       .state('reset-password', {
         url: '/reset-password',
         controller: 'AuthCtrl as authCtrl',
@@ -72,6 +86,26 @@ angular
                   return profile;
                 } else {
                   $state.go('admin-profile');
+                }
+              });
+            }, function(error){
+              $state.go('login');
+            });
+          }
+        }
+      })
+      .state('superadmin', {
+        url: '/superadmin',
+        controller: 'DashboardCtrl as dashboardCtrl',
+        templateUrl: 'dashboard/superadmin-landing.html',
+        resolve: {
+          profile: function($state, Users, Auth){
+            return Auth.$requireAuth().then( function(auth){
+              return Users.getProfile(auth.uid).$loaded().then( function (profile){
+                if(profile.super){
+                  return profile;
+                } else {
+                  $state.go('admin');
                 }
               });
             }, function(error){

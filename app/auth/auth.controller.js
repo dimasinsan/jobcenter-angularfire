@@ -13,11 +13,19 @@ angular.module('mainApp')
         
         authCtrl.login = function() {
             Auth.$authWithPassword(authCtrl.user).then(function(auth){
-                $state.go('admin');
+                $state.go('superadmin');
             }, function(error){
                 authCtrl.error = error;
             });
         };
+        
+        // authCtrl.superLogin = function() {
+        //     Auth.$authWithPassword(authCtrl.user).then(function(auth){
+        //         $state.go('superadmin');
+        //     }, function(error){
+        //         authCtrl.error = error;
+        //     });
+        // };
         
         authCtrl.register = function (){
             if (authCtrl.user.password != authCtrl.passVal) {
