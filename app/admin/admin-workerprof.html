@@ -88,9 +88,12 @@
                                  <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                     
                                </select>
                             </div>
+                            <div class="form-group"> 
+                              <input placeholder="Gaji Harian" class="form-control" id="gaji" />
+                         </div> 
                             
                         </div>
-
+                        
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <select class="form-control" id="profesi" ng-model="input.profesi">
@@ -120,6 +123,7 @@
                             <br>
                             
                         </div>
+                        
                         
                     </div>
                     <a class="btn btn-primary pull-right" ng-click="apply()">
