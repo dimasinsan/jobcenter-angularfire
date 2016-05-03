@@ -125,7 +125,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.statusData = snap.val().status;
       $scope.agamaData = snap.val().agama;
       $scope.sukuData = snap.val().suku;
-      $scope.umurData = snap.val().tanggallahir;
+      var umur = snap.val().tanggallahir;
       $scope.expData = snap.val().exp;
       $scope.explnData = snap.val().luarnegri;
       $scope.ingData = snap.val().inggris;
@@ -137,8 +137,16 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.anakData = snap.val().anak;
       $scope.gajiData = snap.val().gaji;
       $scope.ketData = snap.val().ketrampilan;      
-      $scope.gambarData = snap.val().image;
+      $scope.gambarData = snap.val().image;   
+    
+      var value = umur;
+      var today = new Date();
+      var dob = new Date(value.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+      $scope.age = today.getFullYear() - dob.getFullYear(); //This is the update
+      //$('#age').val(age); //for element id
   });
+  
+      
 
   //var query = ref.orderByChild();
 
