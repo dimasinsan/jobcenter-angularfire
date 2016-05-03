@@ -432,24 +432,32 @@
                 <div class="container">
                    
                     <div class="well well-lg" dir-paginate="data in datas | filter:filter | filter:isi | itemsPerPage: pageSize" current-page="currentPage">
-                        <div class="col-lg-2">
+                        <div class="col-sm-2">
                             <img src="{{data.image}}" class="image-responsive" alt="image" style="max-height:100px;"/>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-sm-4">
                                 <a ng-click="viewProfile(data)" href=""><p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}<strong></p></a>
                                 <p>Gaji (Rp): {{ data.gaji}}</p>
                                 <p>Pengalaman : {{ data.exp }} tahun</p>
-                                <span class="label label-default"> {{ data.ketrampilan }} </span>
+                                <span class="label label-default" style="font-size: 100%;"> {{ data.ketrampilan }} </span>
                             </div>
                             
-                            <div class="col-lg-3">
+                            <div class="col-sm-3">
                                 <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
                                {{data.lokasi}}</p>
                             </div>
                             
-                            <div class="col-lg-3">
+                            <div class="col-sm-3">
                                 <p class="title" style="font-size: 16px">{{data.profesi}}</p>
+                                <button class="btn btn-success btn-md" data-toggle="modal" data-target="#contactModal">
+                                    <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
+                                </button>
+                                <br>
+                                <br>
+                                <button ng-click="viewProfile(data)" class="btn btn-primary btn-md">
+                                    <span class="glyphicon glyphicon-search"></span> Detail Pekerja
+                                </button>
                             </div>
                             <br>
                         </div>
@@ -483,7 +491,7 @@
 
                     <!-- about -->
                     <div class="col-md-3">
-                        <h3>About JobCenter.com</h3>
+                        <h3>About JobCenter.id</h3>
                         <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you
                             need.</p>
                     </div>
@@ -571,7 +579,7 @@
 
                 <!-- copyright -->
                 <div class="copyright">
-                    &copy; 2016 JobCenter.com - All Rights Reserved
+                    &copy; 2016 JobCenter.id - All Rights Reserved
                 </div>
                 <!-- ./copyright -->
 
