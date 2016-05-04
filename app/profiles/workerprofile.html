@@ -321,7 +321,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Hubungi Kami</h4>
+                        <h4 class="modal-title">Book {{nameData}}</h4>
+                        <h5 class="modal-title">Lokasi di {{lokasiData}}</h5>
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-danger" ng-show="notValid">
@@ -361,7 +362,10 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary" ng-click="submitForm()">Submit</button>
-
+                            <br>
+                            <br>
+                            <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible. </p>
+                            <p> Thank you for using JobCenter.id </p>
                         </form>
                     </div>
                     <div class="modal-footer">

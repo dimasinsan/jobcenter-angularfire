@@ -51,19 +51,13 @@
 
       <!-- page content holder -->
       <div class="page-content-wrap">
-          <button ng-click="click()">click to select and get base64</button>
-            <br>
-            BASE 64 data:
-            <br> 
-            <span style="color: red">{{data.alert}}</span>
-            <div style="word-wrap:break-word">
-              {{data.b64}}
-            </div>
             
         <div class="container">
+          <br>
+          <br>
           <div class="row">
             <form class="form-horizontal col-lg-5 col-sm-offset-1" ng-submit="editWorker()">
-              
+
               <div class="form-group">
                 <label for="tersedia" class="col-lg-3 control-label">Pekerja Masih Tersedia?</label>
                 <div class="col-sm-8">
@@ -349,16 +343,19 @@
                     <button type="cancel" class="btn btn-primary" ui-sref="workerprof">Cancel</button>
                   </div>
                 </form>
-                
-                <div class="col-sm-6 col-md-4 col-md-offset-1" align="center">
-                  <a href="../img/admin_worker/gadis_2.jpg" class="thumbnail">
-                    <img src="../img/admin_worker/gadis_2.jpg" alt="gadis_2"></img>
-                  </a>
-                  <div class="caption">
-                    <h5>Add your Pictures here</h5>
-                    <p><a href="#" class="btn btn-info" role="button">Browse</a></p>
+              
+              <form class="form-horizontal col-lg-5 col-sm-offset-1">
+                <div class="form-group">
+                  <div class="col-lg-8" align="center">
+                    <img ng-src="{{data.foto}}"></img>
+                    <div class="caption">
+                      <h5>Upload gambar</h5>
+                      <a class="btn btn-info" role="button" ng-click="click()">Browse</a>
+                    </div>
                   </div>
                 </div>
+              </form>
+                
               </div>
               <hr>
               <!-- END WORKER PROFILE -->
