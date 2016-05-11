@@ -37,7 +37,7 @@
     <!-- ./page header -->
 
     <!-- page content -->
-    <div class="page-content">
+    <div class="page-content" ng-controller="profileViewController">
 
 
         <!-- Carousel slider -->
@@ -45,14 +45,13 @@
             <div id="myCarousel" class="carousel slide">
 
                 <!-- Indicators -->
-                <ol class="carousel-indicators">
+                <!--<ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
+                </ol>-->
 
-                <div class="carousel-inner">
-                    <div class="item active" style="background: url(./img/backgrounds/LP1.jpg) no-repeat left center; background-size: cover;">
+                    <!--<div class="item active" style="background: url(./img/backgrounds/LP1.jpg) no-repeat left center; background-size: cover;">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h1>Mencari pekerja tidak pernah semudah ini</h1>
@@ -69,18 +68,21 @@
                                 <p class="lead">Biggest worker's agency in Indonesia</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="item" style="background: url(./img/backgrounds/LP3.jpg) no-repeat left center; background-size: cover;">>
                         <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Mencari yang berbeda?</h1>
-                                <p class="lead">Hubungi kami untuk mencari lebih cepat.</p>
-                                <a class="btn btn-large btn-primary" data-toggle="modal" data-target="#contactModal">Hubungi Kami</a>
+                            <div class="carousel-caption" ng-controller="branchViewController">
+                                <h1>Anda Ingin Mencari Pekerja?</h1>
+                                <p class="lead">Hubungi Kami Langsung atau Cari Daftar Pekerja Kami!</p>
+                                <button class="btn btn-primary" ui-sref="contact-us">Hubungi Kami</button> &nbsp &nbsp
+                                <select class="btn btn-primary" ng-model="atas.lokasi">
+                                    <option value="">Pilih Lokasi Anda</option>
+                                    <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
         <!-- /.carousel -->
@@ -88,45 +90,509 @@
             <!-- page content holder -->
             <div class="page-content-holder">
                 <div class="block-heading block-heading-centralized">
-                    <h2 class="heading-underline">JobCenter.id</h2>
+                    <h2 class="heading-underline">Cari Pekerja Berdasarkan Kategori</h2>
                     <div class="block-heading-text">
-                        Temukan pekerja yang tepat untuk kategori jasa ini.
+                        Berikut adalah beberapa jenis pekerjaan yang kami sediakan
                     </div>
                     <br>
-                    <div class="block-heading-text">
+                    <!--<div class="block-heading-text">
                         Anda dapat menemukan pekerja professional untuk jasa-jasa ini. 
-                    </div>
+                    </div>-->
                     <br>
                     <br>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-2 col-md-offset-1">
                             <a ui-sref="search">
                                 <img src="../img/icons/nanny.jpg" class="img-circle" width="55%"/>
                                 <br>
                                 <p style="color: #002b80; font-size: 25px;"><strong>Babysitter</strong></p>
                             </a>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2 ">
                             <a ui-sref="search">
                                 <img src="../img/icons/caregiver.jpg" ui-sref="#" class="img-circle" width="55%"/>
                                 <br>
                                 <p style="color: #002b80; font-size: 25px;"><strong>Perawat Lansia</strong></p>
                             </a>
                         </div>
-                        <div class="col-md-4">
-                            <a ui-sref="search">
-                                <img src="../img/icons/housekeeper.jpg" ui-sref="#" class="img-circle" width="55%"/>
-                                <br>
-                                <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
-                            </a>
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="search">
+                                    <div class="text-column-icon">
+                                    <span class="fa icon-search"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="search">
+                                    <div class="text-column-icon">
+                                    <span class="fa icon-search"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="search">
+                                    <div class="text-column-icon">
+                                    <span class="fa icon-search"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-1">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
+                                    <a ui-sref="search">
+                                        <div class="text-column-icon">
+                                        <span class="fa icon-search"></span>
+                                        </div>
+                                        <br>
+                                        <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                             <div class="col-md-2 ">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
+                                    <a ui-sref="search">
+                                        <div class="text-column-icon">
+                                        <span class="fa icon-search"></span>
+                                        </div>
+                                        <br>
+                                        <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                             <div class="col-md-2 ">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
+                                    <a ui-sref="search">
+                                        <div class="text-column-icon">
+                                        <span class="fa icon-search"></span>
+                                        </div>
+                                        <br>
+                                        <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                             <div class="col-md-2 ">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
+                                    <a ui-sref="search">
+                                        <div class="text-column-icon">
+                                        <span class="fa icon-search"></span>
+                                        </div>
+                                        <br>
+                                        <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                             <div class="col-md-2 ">
+                                <div class="text-column text-column-centralized tex-column-icon-lg">
+                                    <a ui-sref="search">
+                                        <div class="text-column-icon">
+                                        <span class="fa icon-search"></span>
+                                        </div>
+                                        <br>
+                                        <p style="color: #002b80; font-size: 25px;"><strong>Asisten Rumah Tangga</strong></p>
+                                    </a>
+                                </div>
+                            </div>
+                      </div>
                 </div>
             </div>
             <!-- ./page content holder -->
         </div>
         <!-- ./page content wrapper -->
+        <div class="page-content-wrap bg-texture-1 bg-light dark-elements">
+             <div class="page-content-wrap">
 
+            <div class="divider">
+                <div class="box"><span class="fa fa-angle-down"></span></div>
+            </div>
+
+            <!-- page content holder -->
+            <div class="page-content-holder" >
+
+                <!-- filter -->
+                <div class="container">
+                    <h3 class="text-left">Advanced Filter:</h3>
+                    <div class="well" style="max-height: 400px;overflow: auto;">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!--<label for="sel1">Kategori:</label>-->
+                                <select class="form-control" id="kategori" ng-model="input.kategori">
+                                    <option value="">Kategori</option>
+                                    <option>Rumah Tangga</option>
+                                    <option>Pekerja Umum</option>
+                                    <option>Pekerja Berketrampilan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel2">Status:</label>-->
+                                <select class="form-control" id="status" ng-model="input.status">
+                                    <option value="">Status</option>
+                                    <option>Lajang</option>
+                                    <option>Menikah</option>
+                                    <option>Janda / Duda</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel6">Agama:</label>-->
+                                <select class="form-control" id="agama" ng-model="input.agama">
+                                    <option value="">Agama</option>
+                                    <option>Islam</option>
+                                    <option>Katolik</option>
+                                    <option>Kristen</option>
+                                    <option>Hindu</option>
+                                    <option>Budha</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel1">Waktu:</label>-->
+                                <select class="form-control" id="waktu" ng-model="input.waktu">
+                                    <option value="">Waktu</option>
+                                    <option>Menginap</option>
+                                    <option>Infal</option>
+                                    <option>Pulang-Pergi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group" ng-controller="branchViewController">
+                                <!--<label for="sel3">Lokasi Cabang:</label>-->
+                                <select class="form-control" id="lokasi" ng-model="input.lokasi">
+                                     <option value="">Lokasi Cabang</option>
+                                     <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                    
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel4">Gaji Bulanan(min):</label>-->
+                                <select class="form-control" id="gajimin">
+                                    <option>Gaji Bulanan(min)</option>
+                                    <option>Rp 1,000,000</option>
+                                    <option>Rp 1,100,000</option>
+                                    <option>Rp 1,200,000</option>
+                                    <option>Rp 1,300,000</option>
+                                    <option>Rp 1,400,000</option>
+                                    <option>Rp 1,500,000</option>
+                                    <option>Rp 1,600,000</option>
+                                    <option>Rp 1,700,000</option>
+                                    <option>Rp 1,800,000</option>
+                                    <option>Rp 1,900,000</option>
+                                    <option>Rp 2,000,000</option>
+                                    <option>Rp 2,100,000</option>
+                                    <option>Rp 2,200,000</option>
+                                    <option>Rp 2,300,000</option>
+                                    <option>Rp 2,400,000</option>
+                                    <option>Rp 2,500,000</option>
+                                    <option>Rp 2,600,000</option>
+                                    <option>Rp 2,700,000</option>
+                                    <option>Rp 2,800,000</option>
+                                    <option>Rp 2,900,000</option>
+                                    <option>Rp 3,000,000</option>
+                                    <option>Rp 3,100,000</option>
+                                    <option>Rp 3,200,000</option>
+                                    <option>Rp 3,300,000</option>
+                                    <option>Rp 3,400,000</option>
+                                    <option>Rp 3,500,000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel1">Suku Asal:</label>-->
+                                <select class="form-control" id="suku" ng-model="input.asal">
+                                    <option value="">Suku Asal</option>
+                                    <option>Jawa</option>
+                                    <option>Sunda</option>
+                                    <option>Banten</option>
+                                    <option>Batak</option>
+                                    <option>Bali</option>
+                                    <option>NTB/NTT</option>
+                                    <option>Lampung</option>
+                                    <option>Madura</option>
+                                    <option>Melayu</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel7">Pengalaman (tahun):</label>-->
+                                <select class="form-control" id="exp" ng-model="input.exp">
+                                    <option value="">Pengalaman (tahun)</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!--<label for="sel5">Profesi:</label>-->
+                                <select class="form-control" id="profesi" ng-model="input.profesi">
+                                    <option value="">Profesi</option>
+                                    <option>PRT</option>
+                                    <option>Nanny</option>
+                                    <option>Baby Sitter</option>
+                                    <option>Perawat Lansia</option>
+                                    <option>Tukang Kebun</option>
+                                    <option>Sopir</option>
+                                    <option>Pekerja Beketrampilan</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel4">Gaji Bulanan(max):</label>-->
+                                <select class="form-control" id="gajimax">
+                                    <option>Gaji Bulanan(max)</option>
+                                    <option>Rp 1,000,000</option>
+                                    <option>Rp 1,100,000</option>
+                                    <option>Rp 1,200,000</option>
+                                    <option>Rp 1,300,000</option>
+                                    <option>Rp 1,400,000</option>
+                                    <option>Rp 1,500,000</option>
+                                    <option>Rp 1,600,000</option>
+                                    <option>Rp 1,700,000</option>
+                                    <option>Rp 1,800,000</option>
+                                    <option>Rp 1,900,000</option>
+                                    <option>Rp 2,000,000</option>
+                                    <option>Rp 2,100,000</option>
+                                    <option>Rp 2,200,000</option>
+                                    <option>Rp 2,300,000</option>
+                                    <option>Rp 2,400,000</option>
+                                    <option>Rp 2,500,000</option>
+                                    <option>Rp 2,600,000</option>
+                                    <option>Rp 2,700,000</option>
+                                    <option>Rp 2,800,000</option>
+                                    <option>Rp 2,900,000</option>
+                                    <option>Rp 3,000,000</option>
+                                    <option>Rp 3,100,000</option>
+                                    <option>Rp 3,200,000</option>
+                                    <option>Rp 3,300,000</option>
+                                    <option>Rp 3,400,000</option>
+                                    <option>Rp 3,500,000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel2">Usia (min):</label>-->
+                                <select class="form-control" id="usiamin">
+                                    <option>Usia (min)</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                    <option>31</option>
+                                    <option>32</option>
+                                    <option>33</option>
+                                    <option>34</option>
+                                    <option>35</option>
+                                    <option>36</option>
+                                    <option>37</option>
+                                    <option>38</option>
+                                    <option>39</option>
+                                    <option>40</option>
+                                    <option>41</option>
+                                    <option>42</option>
+                                    <option>43</option>
+                                    <option>44</option>
+                                    <option>45</option>
+                                    <option>46</option>
+                                    <option>47</option>
+                                    <option>48</option>
+                                    <option>49</option>
+                                    <option>50</option>
+                                    <option>51</option>
+                                    <option>52</option>
+                                    <option>53</option>
+                                    <option>54</option>
+                                    <option>55</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="" id="tersedia" ng-model="isi.tersedia" ng-init="isi.tersedia='ya'" hidden/>                                                                   
+                            
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!--<label for="sel7">Jenis Kelamin:</label>-->
+                                <select class="form-control" id="gender" ng-model="input.gender">
+                                    <option value="">Jenis Kelamin</option>
+                                    <option>Laki-laki</option>
+                                    <option>Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel7">Pendidikan Terakhir:</label>-->
+                                <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
+                                    <option value="">Pendidikan Terakhir</option>
+                                    <option>SD</option>
+                                    <option>SMP</option>
+                                    <option>SMA</option>
+                                    <option>Perguruan Tinggi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel2">Usia (max):</label>-->
+                                <select class="form-control" id="usiamax">
+                                    <option>Usia (max)</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                    <option>31</option>
+                                    <option>32</option>
+                                    <option>33</option>
+                                    <option>34</option>
+                                    <option>35</option>
+                                    <option>36</option>
+                                    <option>37</option>
+                                    <option>38</option>
+                                    <option>39</option>
+                                    <option>40</option>
+                                    <option>41</option>
+                                    <option>42</option>
+                                    <option>43</option>
+                                    <option>44</option>
+                                    <option>45</option>
+                                    <option>46</option>
+                                    <option>47</option>
+                                    <option>48</option>
+                                    <option>49</option>
+                                    <option>50</option>
+                                    <option>51</option>
+                                    <option>52</option>
+                                    <option>53</option>
+                                    <option>54</option>
+                                    <option>55</option>
+                                </select>
+                            </div>
+                            <br>
+                            <a class="btn btn-primary pull-right" ng-click="apply()">
+                                <span class="glyphicon glyphicon-filter"></span> Update
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <!--end of filter-->
+
+                <!--RESULTS-->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3 style="font-family:proxima">Hasil Pencarian:</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1 pull-right">
+                            <select class="form-control" id="page" ng-model="pageSize">
+                            <option>10</option>
+                            <option>15</option>
+                            <option>25</option>
+                            <option>50</option>
+                            </select>
+                        </div>                        
+                    <div class="pull-right">
+                        <label for="page">Items per Page: </label>
+                    </div>                   
+                    </div>
+                </div>
+                <hr>
+                <div class="container">
+                   
+                    <div class="well well-lg" dir-paginate="data in datas | filter:filter | filter:isi | filter:atas | itemsPerPage: pageSize" current-page="currentPage">
+                        <div class="col-sm-2">
+                            <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px;"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a ng-click="viewProfile(data)" href=""><p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}<strong></p></a>
+                                <p>Gaji (Rp): {{ data.gaji}}</p>
+                                <p>Pengalaman : {{ data.exp }} tahun</p>
+                                <span class="label label-default" style="font-size: 100%;"> {{ data.ketrampilan }} </span>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+                               {{data.lokasi}}</p>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <p class="title" style="font-size: 16px">{{data.profesi}}</p>
+                                <button class="btn btn-success btn-md" data-toggle="modal" data-target="#contactModal">
+                                    <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
+                                </button>
+                                <br>
+                                <br>
+                                <button ng-click="viewProfile(data)" class="btn btn-primary btn-md">
+                                    <span class="glyphicon glyphicon-search"></span> Detail Pekerja
+                                </button>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>  <!-- end of search results -->                              
+                
+                <!-- pagination -->
+                <div class="container">
+                    <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>                    
+                </div>  <!-- end of pagination -->
+                
+            </div>  <!-- end of page content holder -->
+            
+        </div>
+        </div>
         <!-- page content wrapper -->
         <div class="page-content-wrap bg-texture-1 bg-dark light-elements">
 
