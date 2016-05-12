@@ -4333,7 +4333,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav .open>a,
 .nav .open>a:hover,
 .nav .open>a:focus {
-    background-color: #eee;
+    background-color: #FFA000;
     border-color: #428bca
 }
 
@@ -4853,7 +4853,9 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-nav>li>.dropdown-menu {
     margin-top: 0;
     border-top-left-radius: 0;
-    border-top-right-radius: 0
+    border-top-right-radius: 0;
+    background-color: #FFA000;
+    padding: 20px 20px
 }
 
 .navbar-fixed-bottom .navbar-nav>li>.dropdown-menu {
