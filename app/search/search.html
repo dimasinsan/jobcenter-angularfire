@@ -650,7 +650,7 @@
                             <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                         </ul>
                      
-                        <button ng-show="term" type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
+                        <button ng-disabled="!term" type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
 
                         <br>
                         <br>
