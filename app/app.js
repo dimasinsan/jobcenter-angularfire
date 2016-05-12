@@ -37,6 +37,10 @@ angular
         controller: 'profileViewController',
         templateUrl: 'profiles/workerprofile.html'
       })
+      .state('terms', {
+        url: '/terms',
+        templateUrl: 'profiles/terms-conditions.html'
+      })
     // END Front page UI Routes  
     
     

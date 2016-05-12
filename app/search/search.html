@@ -646,7 +646,9 @@
                             <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
                             <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
                         </div>
-                        
+                        <ul id="check-box-list" class="list-group checked-list-box">
+                            <div class="checkbox"><label><input type="checkbox" value="">I Accept the </label> <a href="#" value="" style="color: #F2071F">Terms & Conditions</a></div>
+                        </ul>
                         <button type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
                         <br>
                         <br>
