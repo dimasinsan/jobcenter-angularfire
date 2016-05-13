@@ -23,6 +23,10 @@ angular
         controller: 'HomeCtrl as homeCtrl',
         templateUrl: 'views/home.html'
       })
+      .state('homie', {
+        url: '/homie/:workerId',
+        templateUrl: 'views/home.html'
+      })
       .state('contact-us', {
         url: '/contact-us',
         templateUrl: 'views/contact-us.html'

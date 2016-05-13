@@ -560,7 +560,7 @@
                             <div class="col-sm-2">
                                 <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px;" />
                             </div>
-                            <div class="row">
+                            <div class="row" ng-controller="profileViewController">
                                 <div class="col-sm-4">
                                     <a ng-click="viewProfile(data)" href="">
                                         <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
@@ -577,7 +577,7 @@
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#contactModal">
+                                    <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homie({ '#': 'contactModal' })" ng-click="bookProfile(data)">
                                     <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
                                 </button>
                                     <br>
@@ -846,10 +846,12 @@
         <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" ng-controller="profileViewController">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Hubungi Kami</h4>
+                     <h4 class="modal-title">Book {{nameData}}</h4>
+                     <h5 class="modal-title">Lokasi di {{lokasiData}}</h5>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">

@@ -188,7 +188,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     for (prop in $scope.a) {
       $scope.filter.profesi[prop] = $scope.a[prop];
     }   
-  };
+  };  //end of redirect filter
 
   //pagination
   $scope.currentPage = 1;
@@ -256,8 +256,13 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     else {
       alert("Pekerja Tidak Tersedia");
     }
-
   }; //end of view Profile
+  
+  $scope.bookProfile = function (data) {
+
+    $rootScope.data = data;    
+    $state.go('homie', { workerId: $rootScope.data.$id });   
+  };
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/labor/" + $stateParams.workerId);
 
