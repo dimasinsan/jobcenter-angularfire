@@ -21,8 +21,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-collapse-2">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a ui-sref="contact-us">Contact Us</a></li>
-                        <li><a ui-sref="search">Cari Pekerja</a></li>
+                        <li><a ui-sref="contact-us">Hubungi Kami</a></li>
+                        <!--<li><a ui-sref="search">Cari Pekerja</a></li>-->
                     </ul>
 
                 </div>
@@ -37,7 +37,7 @@
     <!-- ./page header -->
 
     <!-- page content -->
-    <div class="page-content" ng-controller="profileViewController">
+    <div class="page-content" ng-controller="searchController">
 
 
         <!-- Carousel slider -->
@@ -76,7 +76,7 @@
                             <h1>Anda Ingin Mencari Pekerja?</h1>
                             <p class="lead">Hubungi Kami Langsung atau Cari Daftar Pekerja Kami!</p>
                             <button class="btn btn-primary" ui-sref="contact-us">Hubungi Kami</button> &nbsp &nbsp
-                            <button class="btn btn-primary" ui-sref="home({ '#': 'tipe' })">Pilih Kategori Anda</button>                            &nbsp &nbsp
+                            <button class="btn btn-primary" ui-sref="home({ '#': 'tipe' })" ng-click="redirect($event)">Pilih Kategori Pekerja</button>                            &nbsp &nbsp
                         </div>
                     </div>
                 </div>
@@ -99,24 +99,23 @@
                     <br>
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
-                            <a ui-sref="home({ '#': 'search' })">
-                            <!--<input type="text" class="" ng-model="isi.profesi" ng-init="isi.profesi='Nanny'" hidden/>-->
+                            <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
                                 <img src="../img/icons/nanny.jpg" class="img-circle" width="55%" />
                                 <br>
                                 <p style="color: #002b80; font-size: 25px;"><strong>Infal / Cuci-gosok</strong></p>
                             </a>
                         </div>
                         <div class="col-md-2 ">
-                            <a ui-sref="home({ '#': 'search' })">
+                            <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterPembantu($event)">
                                 <!--<input type="text" class="" ng-model="isi.profesi" ng-init="isi.profesi='Perawat Lansia'" hidden/>-->
                                 <img src="../img/icons/caregiver.jpg" ui-sref="#" class="img-circle" width="55%" />
                                 <br>
-                                <p style="color: #002b80; font-size: 25px;" ng-model="isi.profesi" ><strong>Pembantu (Full-time)</strong></p>
+                                <p style="color: #002b80; font-size: 25px;"><strong>Pembantu (Full-time)</strong></p>
                             </a>
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterKebun($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -127,7 +126,7 @@
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBinatang($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -138,7 +137,7 @@
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSopir($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -152,7 +151,7 @@
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterTukang($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -164,7 +163,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBaby($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -176,7 +175,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterNanny($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -188,7 +187,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSatpam($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -200,7 +199,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="search">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterUmum($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-search"></span>
                                     </div>
@@ -217,32 +216,40 @@
         <!-- ./page content wrapper -->
         <div class="page-content-wrap bg-texture-1 bg-light dark-elements">
             <div class="page-content-wrap">
-                
+
                 <div class="divider">
                     <div class="box"><span class="fa fa-angle-down"></span></div>
-                    <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:10px" ng-controller="branchViewController" ng-model="isi.lokasi">
+
+                </div>
+                
+
+                
+
+                <!-- page content holder -->
+                <div class="page-content-holder" id="search">
+                    <div class="text-center">
+                    <h1 class="heading-underline">Dimanakah Anda Berada?</h1>
+                    <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px" ng-controller="branchViewController"
+                        ng-model="input.lokasi">
                     <option value="">Pilih Lokasi Anda</option>
                     <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
                 </select>
                 </div>
+                <br>
 
-                <!-- page content holder -->
-                <div class="page-content-holder">
-                    
                     <!-- filter -->
                     <div class="container">
                         <h3 class="text-left">Advanced Filter:</h3>
                         <div class="well" style="max-height: 400px;overflow: auto;">
                             <div class="col-md-3">
-                                <div class="form-group">
-                                    <!--<label for="sel1">Kategori:</label>-->
+                                <!--<div class="form-group">
                                     <select class="form-control" id="kategori" ng-model="input.kategori">
                                     <option value="">Kategori</option>
                                     <option>Rumah Tangga</option>
                                     <option>Pekerja Umum</option>
                                     <option>Pekerja Berketrampilan</option>
                                 </select>
-                                </div>
+                                </div>-->
                                 <div class="form-group">
                                     <!--<label for="sel2">Status:</label>-->
                                     <select class="form-control" id="status" ng-model="input.status">
@@ -276,13 +283,12 @@
                             </div>
 
                             <div class="col-md-3">
-                                <div class="form-group" ng-controller="branchViewController">
-                                    <!--<label for="sel3">Lokasi Cabang:</label>-->
+                                <!--<div class="form-group" ng-controller="branchViewController">
                                     <select class="form-control" id="lokasi" ng-model="input.lokasi">
                                      <option value="">Lokasi Cabang</option>
                                      <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                    
                                 </select>
-                                </div>
+                                </div>-->
                                 <div class="form-group">
                                     <!--<label for="sel4">Gaji Bulanan(min):</label>-->
                                     <select class="form-control" id="gajimin">
@@ -521,27 +527,27 @@
                                 </select>
                                 </div>
                                 <br>
-                                <a class="btn btn-primary pull-right" ng-click="apply()">
+                                <!--<a class="btn btn-primary pull-right" ng-click="apply()">
                                     <span class="glyphicon glyphicon-filter"></span> Update
-                                </a>
+                                </a>-->
                             </div>
                         </div>
                     </div>
                     <!--end of filter-->
 
                     <!--RESULTS-->
-                    <div class="row" id="search">
+                    <div class="row">
                         <div class="col-sm-4">
                             <h3 style="font-family:proxima">Hasil Pencarian:</h3>
                         </div>
                         <div class="row">
                             <div class="col-sm-1 pull-right">
                                 <select class="form-control" id="page" ng-model="pageSize">
-                            <option>10</option>
-                            <option>15</option>
-                            <option>25</option>
-                            <option>50</option>
-                            </select>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>25</option>
+                                <option>50</option>
+                                </select>
                             </div>
                             <div class="pull-right">
                                 <label for="page">Items per Page: </label>
@@ -550,8 +556,7 @@
                     </div>
                     <div class="container">
 
-                        <div class="well well-lg" dir-paginate="data in datas | filter:filter | filter:isi | filter:atas | itemsPerPage: pageSize"
-                            current-page="currentPage">
+                        <div class="well well-lg" dir-paginate="data in datas | filter:isi | filter:input | itemsPerPage: pageSize" current-page="currentPage">
                             <div class="col-sm-2">
                                 <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px;" />
                             </div>
@@ -566,13 +571,13 @@
                                 </div>
 
                                 <div class="col-sm-3">
+                                    <p class="title" style="font-size: 16px; font-weight: bold">{{data.profesi}}</p>
                                     <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
                                     </p>
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <p class="title" style="font-size: 16px">{{data.profesi}}</p>
-                                    <button class="btn btn-success btn-md" data-toggle="modal" data-target="#contactModal">
+                                    <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#contactModal">
                                     <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
                                 </button>
                                     <br>
@@ -738,7 +743,7 @@
 
                         <div class="list-links">
                             <a ui-sref="home">Home</a>
-                            <a ui-sref="contact-us">Contact Us</a>
+                            <a ui-sref="contact-us">Hubungi Kami</a>
                             <a ui-sref="search">Cari Pekerja</a>
                         </div>
                     </div>
@@ -883,11 +888,11 @@
                             <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
                             <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
                         </div>
-                        
-                         <ul id="check-box-list" class="list-group checked-list-box">
+
+                        <ul id="check-box-list" class="list-group checked-list-box">
                             <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                         </ul>
-                     
+
                         <button ng-disabled="!term" type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
                         <br>
                         <br>
