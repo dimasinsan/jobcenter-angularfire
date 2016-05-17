@@ -43,7 +43,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         lokasi: $scope.data.lokasi,
         email: $scope.user.email,
         contact: $scope.user.contact,
-        comment: $scope.user.comment
+        comment: $scope.user.comment,
+        status: "booked"
       })
       .then(function () {
         ref4.update({tersedia: "booked"});        
