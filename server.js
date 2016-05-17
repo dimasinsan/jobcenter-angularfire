@@ -1,4 +1,5 @@
 // Dependencies goes here
+require('newrelic');
 var express = require('express');
 var morgan = require('morgan');
 var http = require('http');

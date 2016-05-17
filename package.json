@@ -24,6 +24,7 @@
     "express-flash": "0.0.2",
     "mailgun-js": "^0.7.10",
     "morgan": "^1.7.0",
+    "newrelic": "^1.27.2",
     "nodemailer": "0.7.1"
   }
 }
