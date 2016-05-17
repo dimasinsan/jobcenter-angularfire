@@ -14,22 +14,22 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.branch = $firebaseObject(ref3);
   $scope.data = $firebaseObject(ref4);
 
-  $scope.submitForm = function (user) {
+  // $scope.submitForm = function (user) {
 
-    if ($scope.userForm.$invalid === true) {
-      $scope.notValid = true;
-      return
-    }
-    $scope.postData = angular.copy(user);
+  //   if ($scope.userForm.$invalid === true) {
+  //     $scope.notValid = true;
+  //     return
+  //   }
+  //   $scope.postData = angular.copy(user);
 
-    $http.post('/contact', $scope.postData)
-      .success(function (data) {
-        alert('successfully emailed form');
-      })
-      .error(function (data) {
-        alert('something went wrong');
-      });
-  };
+  //   $http.post('/contact', $scope.postData)
+  //     .success(function (data) {
+  //       alert('successfully emailed form');
+  //     })
+  //     .error(function (data) {
+  //       alert('something went wrong');
+  //     });
+  // };
   
   var bookRef = new Firebase(URL + 'booked');
   
@@ -46,7 +46,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         comment: $scope.user.comment
       })
       .then(function () {
-        $scope.data.update({tersedia: "booked"});        
+        ref4.update({tersedia: "booked"});        
       alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
       })
     } else {
