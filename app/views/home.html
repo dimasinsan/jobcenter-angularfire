@@ -458,7 +458,7 @@
                                 </select>
                                 </div>
 
-                                <input type="text" class="" id="tersedia" ng-model="isi.tersedia" ng-init="isi.tersedia='ya'" hidden/>
+                                <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
 
                             </div>
 
@@ -558,7 +558,7 @@
 
                         <div class="well well-lg" dir-paginate="data in datas | filter:isi | filter:input | itemsPerPage: pageSize" current-page="currentPage">
                             <div class="col-sm-2">
-                                <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px;" />
+                                <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
                             </div>
                             <div class="row" ng-controller="profileViewController">
                                 <div class="col-sm-4">
@@ -567,8 +567,10 @@
                                     </a>
                                     <p>Gaji (Rp): {{ data.gaji}}</p>
                                     <p>Pengalaman : {{ data.exp }} tahun</p>
-                                    <span class="label label-default" style="font-size: 100%;"> {{ data.ketrampilan }} </span>
-                                </div>
+                                    <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                                    <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
+                                    </div>
+                                </div>                                
 
                                 <div class="col-sm-3">
                                     <p class="title" style="font-size: 16px; font-weight: bold">{{data.profesi}}</p>

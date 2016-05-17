@@ -5,9 +5,9 @@ var URL = "https://jobcenter.firebaseio.com/";
 db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$stateParams', '$rootScope', '$firebaseObject', '$http', function ($scope, $firebaseArray, $state, $stateParams, $rootScope, $firebaseObject, $http) {
 
   var ref = new Firebase(URL + 'branch');
-  var ref2 = new Firebase(URL + 'labor');
+  var ref2 = new Firebase(URL + 'worker');
   var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" + $stateParams.branchId);
-  var ref4 = new Firebase("https://jobcenter.firebaseio.com/labor/" + $stateParams.workerId);
+  var ref4 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
   $scope.branches = $firebaseArray(ref);
   $scope.datas = $firebaseArray(ref2);
@@ -239,7 +239,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
 
 db.controller("profileViewController", function ($scope, $firebaseArray, $rootScope, $state, $stateParams) {
 
-  var JOB_URL = "https://jobcenter.firebaseio.com/labor/";
+  var JOB_URL = "https://jobcenter.firebaseio.com/worker/";
   var ref = new Firebase(JOB_URL);
   $scope.datas = $firebaseArray(ref);
 
@@ -250,7 +250,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   $scope.viewProfile = function (data) {
 
     $rootScope.data = data;
-    if ($rootScope.data.tersedia === 'ya') {
+    if ($rootScope.data.tersedia === 'available') {
       $state.go('profiles', { workerId: $rootScope.data.$id });
     }
     else {
@@ -264,7 +264,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     $state.go('homie', { workerId: $rootScope.data.$id });   
   };
 
-  var ref2 = new Firebase("https://jobcenter.firebaseio.com/labor/" + $stateParams.workerId);
+  var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
   ref2.on("value", function (snap) {
     $scope.nameData = snap.val().nama;
