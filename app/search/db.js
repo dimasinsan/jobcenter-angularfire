@@ -30,6 +30,36 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         alert('something went wrong');
       });
   };
+  
+  var bookRef = new Firebase(URL + 'booked');
+  
+  $scope.submitForm = function () {
+
+    if ($scope.userForm.$valid) {
+      bookRef.push({
+        nama: $scope.data.nama,
+        id: $scope.data.$id,
+        user: $scope.user.name,
+        lokasi: $scope.data.lokasi,
+        email: $scope.user.email,
+        contact: $scope.user.contact,
+        comment: $scope.user.comment
+      })
+      .then(function () {
+        $scope.data.update({tersedia: "booked"});        
+      alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+      })
+    } else {
+      $scope.notValid = true;
+    }
+  };
+  
+  $scope.bookProfile = function (data) {
+
+    $rootScope.data = data;    
+    $state.go('homie', { workerId: $rootScope.data.$id });   
+  };
+        //------------->x
 
   $scope.updateBranch = function (branch) {
     $rootScope.branch = branch;
@@ -56,34 +86,34 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $state.go('offices');
   };  //end of remove branch
 
-  $scope.updateWorker = function (data) {
-    $rootScope.data = data;
-    $state.go('worker-edit', { workerId: $rootScope.data.$id });
-  }; //end of update worker
+  // $scope.updateWorker = function (data) {
+  //   $rootScope.data = data;
+  //   $state.go('worker-edit', { workerId: $rootScope.data.$id });
+  // }; //end of update worker
 
-  var tanggal = document.getElementById('inputTanggal');
-  var gaji = document.getElementById('inputGaji');
+  // var tanggal = document.getElementById('inputTanggal');
+  // var gaji = document.getElementById('inputGaji');
 
-  $scope.editWorker = function () {
-    $scope.data.$save()
-      .then(ref4.update({ tanggallahir: tanggal.value, gaji: gaji.value }))
-      .then(function () {
-        alert('Worker Updated!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('workerprof');
-  };  //end of edit worker
+  // $scope.editWorker = function () {
+  //   $scope.data.$save()
+  //     .then(ref4.update({ tanggallahir: tanggal.value, gaji: gaji.value }))
+  //     .then(function () {
+  //       alert('Worker Updated!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('workerprof');
+  // };  //end of edit worker
 
-  $scope.removeWorker = function (data) {
-    $scope.data.$remove()
-      .then(function () {
-        alert('Worker Removed!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('workerprof');
-  };  //end of remove worker
+  // $scope.removeWorker = function (data) {
+  //   $scope.data.$remove()
+  //     .then(function () {
+  //       alert('Worker Removed!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('workerprof');
+  // };  //end of remove worker
 
   $scope.filter = {};
   $scope.input = {};
@@ -256,13 +286,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     else {
       alert("Pekerja Tidak Tersedia");
     }
-  }; //end of view Profile
-  
-  $scope.bookProfile = function (data) {
-
-    $rootScope.data = data;    
-    $state.go('homie', { workerId: $rootScope.data.$id });   
-  };
+  }; //end of view Profile    
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
@@ -307,14 +331,29 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   //syncObject.$bindTo($scope, "admin");
 
   //modal popup on book button press with validation
+  
+  var bookRef = new Firebase(URL + 'booked');
+  
   $scope.submitForm = function () {
 
     if ($scope.userForm.$valid) {
-      alert('our form is amazing');
+      bookRef.push({
+        nama: $scope.data.nama,
+        id: $scope.data.$id,
+        user: $scope.user.name,
+        lokasi: $scope.data.lokasi,
+        email: $scope.user.email,
+        contact: $scope.user.contact,
+        comment: $scope.user.comment
+      })
+      .then(function () {
+        $scope.data.update({tersedia: "booked"});        
+      alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+      })
     } else {
       $scope.notValid = true;
     }
-  };
+  };    
 
 }); //end of profile view controller
 
