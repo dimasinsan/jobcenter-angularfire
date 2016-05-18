@@ -29,7 +29,8 @@ angular
       })
       .state('contact-us', {
         url: '/contact-us',
-        templateUrl: 'views/contact-us.html'
+        templateUrl: 'views/contact-us.html',
+        controller: 'branchViewController'
       })
       .state('search', {
         url: '/search',

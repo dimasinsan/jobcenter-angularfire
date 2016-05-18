@@ -7,6 +7,7 @@
 @import "./fontawesome/proxima.css";
 @import "./fontawesome/icomoon.css";
 @import "./fontawesome/helvetica.css";
+@import "./fontawesome/icons.css";
 
 
 /* PREDEFINED CLASSES */
@@ -804,8 +805,15 @@ a:hover {
 .page-container .page-content .page-content-wrap .page-content-holder .text-column.tex-column-icon-lg .text-column-icon .fa {
   width: 100px;
   height: 100px;
-  font-size: 48px;
+  font-size: 450%;
   line-height: 101px;
+}
+.page-container .page-content .page-content-wrap .page-content-holder .text-column.tex-column-icon-lg .text-column-icon .fx {
+  width: 100px;
+  height: 100px;
+  font-size: 350%;
+  line-height: 101px;
+  font-family: icomoon;
 }
 .page-container .page-content .page-content-wrap .page-content-holder .text-column .list-links {
   float: left;

@@ -39,7 +39,6 @@
     <!-- page content -->
     <div class="page-content">
 
-
         <!-- Carousel slider -->
         <div class="banner-container">
             <div id="myCarousel" class="carousel slide">
@@ -82,9 +81,10 @@
                 </div>
             </div>
         </div>
-        <!-- /.carousel -->
-        <div class="page-content-wrap bg-img-1" id="tipe">
-            <!-- page content holder -->
+        <!-- ./carousel -->
+        
+        <!-- Icon Category -->
+        <div class="page-content-wrap bg-img-1" id="tipe">            
             <div class="page-content-holder">
                 <div class="block-heading block-heading-centralized">
                     <h1 class="heading-underline">Cari Pekerja Berdasarkan Kategori</h1>
@@ -99,25 +99,32 @@
                     <br>
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
-                            <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
-                                <img src="../img/icons/nanny.jpg" class="img-circle" width="55%" />
-                                <br>
-                                <p style="color: #002b80; font-size: 25px;"><strong>Infal / Cuci-gosok</strong></p>
-                            </a>
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
+                                    <div class="text-column-icon">
+                                        <span class="fa icon-infal"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Infal / Cuci-gosok</strong></p>
+                                </a>
+                            </div>
                         </div>
                         <div class="col-md-2 ">
-                            <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterPembantu($event)">
-                                <!--<input type="text" class="" ng-model="isi.profesi" ng-init="isi.profesi='Perawat Lansia'" hidden/>-->
-                                <img src="../img/icons/caregiver.jpg" ui-sref="#" class="img-circle" width="55%" />
-                                <br>
-                                <p style="color: #002b80; font-size: 25px;"><strong>Pembantu (Full-time)</strong></p>
-                            </a>
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterPembantu($event)">
+                                    <div class="text-column-icon">
+                                        <span class="fa icon-pembantu"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Pembantu (Full-time)</strong></p>
+                                </a>
+                            </div>
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterKebun($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-kebun"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Tukang Kebun</strong></p>
@@ -128,7 +135,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBinatang($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-binatang"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Penjaga Binatang Peliharaan</strong></p>
@@ -139,7 +146,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSopir($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-driver"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Sopir</strong></p>
@@ -153,7 +160,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterTukang($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-tukang"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Tukang / Maintenance</strong></p>
@@ -165,7 +172,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBaby($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-babysitter"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Baby Sitter</strong></p>
@@ -177,7 +184,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterNanny($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-suster"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Nanny / Perawat Orang Sakit</strong></p>
@@ -189,7 +196,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSatpam($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-satpam"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Satpam</strong></p>
@@ -201,7 +208,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterUmum($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-general"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Pekerja Umum</strong></p>
@@ -213,7 +220,9 @@
             </div>
             <!-- ./page content holder -->
         </div>
-        <!-- ./page content wrapper -->
+        <!-- ./Icon Category -->
+        
+        <!-- Filter and Results -->
         <div class="page-content-wrap bg-texture-1 bg-light dark-elements">
             <div class="page-content-wrap">
 
@@ -221,9 +230,9 @@
                     <div class="box"><span class="fa fa-angle-down"></span></div>
 
                 </div>
-                                
-                <!-- page content holder -->
+                                                
                 <div class="page-content-holder" id="search">
+                    <!-- LOKASI -->
                     <div class="text-center">
                     <h1 class="heading-underline">Dimanakah Anda Berada?</h1>
                     <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px" ng-controller="branchViewController"
@@ -524,7 +533,7 @@
                         </div>
                     </div>
                 </div>
-                <!--end of filter-->
+                <!-- ./filter -->
 
                 <!--RESULTS-->
                 <div class="row">
@@ -545,8 +554,8 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="container">
-
                     <div class="well well-lg" dir-paginate="data in datas | filter:isi | filter:input | itemsPerPage: pageSize" current-page="currentPage">
                         <div class="col-sm-2">
                             <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
@@ -583,7 +592,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- end of search results -->
+                <!-- ./RESULTS -->
 
                 <!-- pagination -->
                 <div class="container">
@@ -591,14 +600,16 @@
                         <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
                     </div>
                 </div>
-                <!-- end of pagination -->
+                <!-- ./pagination -->
 
                 </div>
                 <!-- end of page content holder -->
 
             </div>
         </div>
-        <!-- page content wrapper -->
+        <!-- ./Filter and Results -->
+        
+        <!-- How to Book -->
         <div class="page-content-wrap bg-texture-1 bg-dark light-elements">
 
             <div class="divider">
@@ -613,7 +624,7 @@
                     <div class="col-md-4">
                         <div class="text-column text-column-centralized tex-column-icon-lg">
                             <div class="text-column-icon">
-                                <span class="fa icon-search"></span>
+                                <span class="fa icons-search" style="font-family:icomoon; font-size:350%"></span>
                             </div>
                             <h4><strong>CARI</strong></h4>
                             <div class="text-column-info">
@@ -625,7 +636,7 @@
                     <div class="col-md-4">
                         <div class="text-column text-column-centralized tex-column-icon-lg">
                             <div class="text-column-icon">
-                                <span class="fa icon-cal"></span>
+                                <span class="fa icons-cal" style="font-family:icomoon; font-size:350%"></span>
                             </div>
                             <h4><strong>BOOK</strong></h4>
                             <div class="text-column-info">
@@ -638,7 +649,7 @@
                     <div class="col-md-4">
                         <div class="text-column text-column-centralized tex-column-icon-lg">
                             <div class="text-column-icon">
-                                <span class="fa icon-int "></span>
+                                <span class="fa icons-int" style="font-family:icomoon; font-size:350%"></span>
                             </div>
                             <h4><strong>INTERVIEW</strong></h4>
                             <div class="text-column-info">
@@ -653,9 +664,9 @@
             </div>
             <!-- ./page content holder -->
         </div>
-        <!-- ./page content wrapper -->
+        <!-- ./How to Book -->
 
-        <!-- page content wrapper -->
+        <!-- About us -->
         <div class="page-content-wrap bg-light bg-texture-1">
 
             <div class="divider">
@@ -699,7 +710,7 @@
             </div>
             <!-- ./page content holder -->
         </div>
-        <!-- ./page content wrapper -->
+        <!-- ./About Us -->
 
         <!-- page content wrapper -->
         <div class="page-content-wrap bg-light">
@@ -833,6 +844,7 @@
 
     </div>
     <!-- ./page footer -->
+    
     <!-- Modal -->
     <div id="contactModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -901,5 +913,7 @@
 
         </div>
     </div>
+    <!-- ./Modal -->
+    
 </div>
 <!-- ./page container -->
