@@ -551,7 +551,7 @@
                         <div class="col-sm-2">
                             <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
                         </div>
-                        <div class="row" ng-controller="profileViewController">
+                        <div class="row" >
                             <div class="col-sm-4">
                                 <a ng-click="viewProfile(data)" href="">
                                     <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
@@ -887,7 +887,7 @@
                             <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                         </ul>
 
-                        <button ng-disabled="!term" type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
+                        <button ng-disabled="!term" type="submit" class="btn btn-primary" id="close" ng-click="submitForm(userForm)">Submit</button>
                         <br>
                         <br>
                         <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible. </p>

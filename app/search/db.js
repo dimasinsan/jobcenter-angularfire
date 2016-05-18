@@ -32,11 +32,11 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   // };
   
   var bookRef = new Firebase(URL + 'booked');
-  
+  var date = new Date().getTime();
   $scope.submitForm = function () {
 
     if ($scope.userForm.$valid) {
-      bookRef.push({
+      bookRef.child($scope.data.$id).set({
         nama: $scope.data.nama,
         id: $scope.data.$id,
         user: $scope.user.name,
@@ -44,11 +44,12 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         email: $scope.user.email,
         contact: $scope.user.contact,
         comment: $scope.user.comment,
-        status: "booked"
+        status: "booked",
+        bookDate: date
       })
       .then(function () {
         ref4.update({tersedia: "booked"});        
-      alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');                       
       })
     } else {
       $scope.notValid = true;
@@ -60,6 +61,17 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $rootScope.data = data;    
     $state.go('homie', { workerId: $rootScope.data.$id });   
   };
+  
+  $scope.viewProfile = function (data) {
+
+    $rootScope.data = data;
+    if ($rootScope.data.tersedia === 'available') {
+      $state.go('profiles', { workerId: $rootScope.data.$id });
+    }
+    else {
+      alert("Pekerja Tidak Tersedia");
+    }
+  }; //end of view Profile
         //------------->x
 
   $scope.updateBranch = function (branch) {
@@ -274,20 +286,9 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   var ref = new Firebase(JOB_URL);
   $scope.datas = $firebaseArray(ref);
 
-  //pagination
-  $scope.currentPage = 1;
-  $scope.pageSize = 10;
-
-  $scope.viewProfile = function (data) {
-
-    $rootScope.data = data;
-    if ($rootScope.data.tersedia === 'available') {
-      $state.go('profiles', { workerId: $rootScope.data.$id });
-    }
-    else {
-      alert("Pekerja Tidak Tersedia");
-    }
-  }; //end of view Profile    
+  // //pagination
+  // $scope.currentPage = 1;
+  // $scope.pageSize = 10;      
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
@@ -317,10 +318,11 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     $scope.gambarData = snap.val().foto;
     $scope.asalData = snap.val().asal;
     $scope.gajihData = snap.val().gajih;
+    $scope.idk = snap.key();
 
-    var value = umur;
+    //var value = umur;
     var today = new Date();
-    var dob = new Date(value.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+    var dob = new Date(umur.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
     $scope.age = today.getFullYear() - dob.getFullYear(); //This is the update
     //$('#age').val(age); //for element id
   });
@@ -334,27 +336,29 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   //modal popup on book button press with validation
   
   var bookRef = new Firebase(URL + 'booked');
-  
+  var date = new Date().getTime();
   $scope.submitForm = function () {
 
     if ($scope.userForm.$valid) {
-      bookRef.push({
+      bookRef.child($scope.idk).set({
         nama: $scope.data.nama,
         id: $scope.data.$id,
         user: $scope.user.name,
         lokasi: $scope.data.lokasi,
         email: $scope.user.email,
         contact: $scope.user.contact,
-        comment: $scope.user.comment
+        comment: $scope.user.comment,
+        status: "booked",
+        bookDate: date
       })
       .then(function () {
-        $scope.data.update({tersedia: "booked"});        
-      alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+        ref2.update({tersedia: "booked"});        
+        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');                       
       })
     } else {
       $scope.notValid = true;
     }
-  };    
+  };   
 
 }); //end of profile view controller
 
