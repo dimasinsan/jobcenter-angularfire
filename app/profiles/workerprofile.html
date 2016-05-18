@@ -45,8 +45,12 @@
                 <h1 style="font-weight:bold" >{{nameData}}</h1>
                 <p style="font-size:120%">{{profesiData}} | {{lokasiData}}</p>
                  <span class="label label-warning label-form">Gaji: Rp {{gajiData}} </span>
+                 </br></br>
+                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                    <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
+                    </div>
             </div>
-            <hr>
+            </br></br>
         </div>
 
         <div class="container">
@@ -152,7 +156,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!--<div class="container">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-danger panel-info">
                     <div class="panel-heading">
@@ -169,7 +173,7 @@
                             <div class="col-md-4">
                                 Memotong Rumput
                             </div>-->
-                        </div>
+                        <!--</div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -186,7 +190,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="container">
             <button class="btn btn-success btn-lg col-md-10 col-md-offset-1" data-toggle="modal" data-target="#contactModal">
                 <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja Ini Sekarang!
