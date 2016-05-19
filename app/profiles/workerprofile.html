@@ -37,16 +37,20 @@
     <!-- ./page header -->
 
     <!-- page content -->
-    <div class="page-content">
+    <div class="page-content" ng-controller="profileViewController">
 
         <div class="container text-center">
             <div class="container">
                 <br>
                 <h1 style="font-weight:bold" >{{nameData}}</h1>
-                <p style="font-size:120%">{{katData}} | {{lokasiData}} | {{profesiData}}</p>
+                <p style="font-size:120%">{{profesiData}} | {{lokasiData}}</p>
                  <span class="label label-warning label-form">Gaji: Rp {{gajiData}} </span>
+                 </br></br>
+                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                    <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
+                    </div>
             </div>
-            <hr>
+            </br></br>
         </div>
 
         <div class="container">
@@ -96,6 +100,10 @@
                             <tr>
                                 <td align="left">Asal/Asli :</td>
                                 <td align="left">{{asalData}}</td>
+                            </tr>
+                            <tr>
+                                <td align="left">Profesi :</td>
+                                <td align="left">{{katData}}</td>
                             </tr>
                         </table>
                     </div>
@@ -148,7 +156,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!--<div class="container">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-danger panel-info">
                     <div class="panel-heading">
@@ -156,16 +164,16 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4">
-                                {{ketData}}
+                            <div class="col-md-4" ng-repeat="ket in ketData">
+                                {{ket.text}}
                             </div>
-                            <div class="col-md-4">
+                            <!--<div class="col-md-4">
                                 Memasak
                             </div>
                             <div class="col-md-4">
                                 Memotong Rumput
-                            </div>
-                        </div>
+                            </div>-->
+                        <!--</div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -182,7 +190,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="container">
             <button class="btn btn-success btn-lg col-md-10 col-md-offset-1" data-toggle="modal" data-target="#contactModal">
                 <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja Ini Sekarang!
@@ -313,6 +321,7 @@
 
         </div>
         <!-- ./page footer -->
+        
         <!-- Modal -->
         <div id="contactModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -321,8 +330,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Book {{nameData}}</h4>
-                        <h5 class="modal-title">Lokasi di {{lokasiData}}</h5>
+                        <h4 class="modal-title">Book <span class="text-danger"> {{nameData}}</span> Sekarang Juga!</h4>
+                     <h5 class="modal-title">Lokasi di <strong>{{lokasiData}}</strong></h5>
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-danger" ng-show="notValid">
@@ -363,7 +372,7 @@
                             <ul id="check-box-list" class="list-group checked-list-box">
                                 <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                             </ul>
-                            <button type="submit" ng-disabled="!term" class="btn btn-primary" ng-click="submitForm()">Submit</button>
+                            <button type="submit" ng-disabled="!term" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
                             <br>
                             <br>
                             <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible. </p>

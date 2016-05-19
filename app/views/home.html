@@ -1,5 +1,5 @@
 <!-- page container -->
-<div class="page-container">
+<div class="page-container" ng-controller="searchController">
 
     <!-- page header -->
     <div class="page-header">
@@ -37,8 +37,7 @@
     <!-- ./page header -->
 
     <!-- page content -->
-    <div class="page-content" ng-controller="searchController">
-
+    <div class="page-content">
 
         <!-- Carousel slider -->
         <div class="banner-container">
@@ -82,9 +81,10 @@
                 </div>
             </div>
         </div>
-        <!-- /.carousel -->
-        <div class="page-content-wrap bg-img-1" id="tipe">
-            <!-- page content holder -->
+        <!-- ./carousel -->
+        
+        <!-- Icon Category -->
+        <div class="page-content-wrap bg-img-1" id="tipe">            
             <div class="page-content-holder">
                 <div class="block-heading block-heading-centralized">
                     <h1 class="heading-underline">Cari Pekerja Berdasarkan Kategori</h1>
@@ -99,25 +99,32 @@
                     <br>
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
-                            <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
-                                <img src="../img/icons/nanny.jpg" class="img-circle" width="55%" />
-                                <br>
-                                <p style="color: #002b80; font-size: 25px;"><strong>Infal / Cuci-gosok</strong></p>
-                            </a>
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
+                                    <div class="text-column-icon">
+                                        <span class="fa icon-infal"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Infal / Cuci-gosok</strong></p>
+                                </a>
+                            </div>
                         </div>
                         <div class="col-md-2 ">
-                            <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterPembantu($event)">
-                                <!--<input type="text" class="" ng-model="isi.profesi" ng-init="isi.profesi='Perawat Lansia'" hidden/>-->
-                                <img src="../img/icons/caregiver.jpg" ui-sref="#" class="img-circle" width="55%" />
-                                <br>
-                                <p style="color: #002b80; font-size: 25px;"><strong>Pembantu (Full-time)</strong></p>
-                            </a>
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterPembantu($event)">
+                                    <div class="text-column-icon">
+                                        <span class="fa icon-pembantu"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>Pembantu (Full-time)</strong></p>
+                                </a>
+                            </div>
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterKebun($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-kebun"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Tukang Kebun</strong></p>
@@ -128,7 +135,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBinatang($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-binatang"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Penjaga Binatang Peliharaan</strong></p>
@@ -139,7 +146,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSopir($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-driver"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Sopir</strong></p>
@@ -153,7 +160,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterTukang($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-tukang"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Tukang / Maintenance</strong></p>
@@ -165,7 +172,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBaby($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-babysitter"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Baby Sitter</strong></p>
@@ -177,7 +184,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterNanny($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-suster"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Nanny / Perawat Orang Sakit</strong></p>
@@ -189,7 +196,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSatpam($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-satpam"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Satpam</strong></p>
@@ -201,7 +208,7 @@
                             <div class="text-column text-column-centralized tex-column-icon-lg">
                                 <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterUmum($event)">
                                     <div class="text-column-icon">
-                                        <span class="fa icon-search"></span>
+                                        <span class="fa icon-general"></span>
                                     </div>
                                     <br>
                                     <p style="color: #002b80; font-size: 25px;"><strong>Pekerja Umum</strong></p>
@@ -213,7 +220,9 @@
             </div>
             <!-- ./page content holder -->
         </div>
-        <!-- ./page content wrapper -->
+        <!-- ./Icon Category -->
+        
+        <!-- Filter and Results -->
         <div class="page-content-wrap bg-texture-1 bg-light dark-elements">
             <div class="page-content-wrap">
 
@@ -221,12 +230,9 @@
                     <div class="box"><span class="fa fa-angle-down"></span></div>
 
                 </div>
-                
-
-                
-
-                <!-- page content holder -->
+                                                
                 <div class="page-content-holder" id="search">
+                    <!-- LOKASI -->
                     <div class="text-center">
                     <h1 class="heading-underline">Dimanakah Anda Berada?</h1>
                     <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px" ng-controller="branchViewController"
@@ -237,375 +243,373 @@
                 </div>
                 <br>
 
-                    <!-- filter -->
-                    <div class="container">
-                        <h3 class="text-left">Advanced Filter:</h3>
-                        <div class="well" style="max-height: 400px;overflow: auto;">
-                            <div class="col-md-3">
-                                <!--<div class="form-group">
-                                    <select class="form-control" id="kategori" ng-model="input.kategori">
-                                    <option value="">Kategori</option>
-                                    <option>Rumah Tangga</option>
-                                    <option>Pekerja Umum</option>
-                                    <option>Pekerja Berketrampilan</option>
-                                </select>
-                                </div>-->
-                                <div class="form-group">
-                                    <!--<label for="sel2">Status:</label>-->
-                                    <select class="form-control" id="status" ng-model="input.status">
-                                    <option value="">Status</option>
-                                    <option>Lajang</option>
-                                    <option>Menikah</option>
-                                    <option>Janda / Duda</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel6">Agama:</label>-->
-                                    <select class="form-control" id="agama" ng-model="input.agama">
-                                    <option value="">Agama</option>
-                                    <option>Islam</option>
-                                    <option>Katolik</option>
-                                    <option>Kristen</option>
-                                    <option>Hindu</option>
-                                    <option>Budha</option>
-                                    <option>Lainnya</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel1">Waktu:</label>-->
-                                    <select class="form-control" id="waktu" ng-model="input.waktu">
-                                    <option value="">Waktu</option>
-                                    <option>Menginap</option>
-                                    <option>Infal</option>
-                                    <option>Pulang-Pergi</option>
-                                </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <!--<div class="form-group" ng-controller="branchViewController">
-                                    <select class="form-control" id="lokasi" ng-model="input.lokasi">
-                                     <option value="">Lokasi Cabang</option>
-                                     <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                    
-                                </select>
-                                </div>-->
-                                <div class="form-group">
-                                    <!--<label for="sel4">Gaji Bulanan(min):</label>-->
-                                    <select class="form-control" id="gajimin">
-                                    <option>Gaji Bulanan(min)</option>
-                                    <option>Rp 1,000,000</option>
-                                    <option>Rp 1,100,000</option>
-                                    <option>Rp 1,200,000</option>
-                                    <option>Rp 1,300,000</option>
-                                    <option>Rp 1,400,000</option>
-                                    <option>Rp 1,500,000</option>
-                                    <option>Rp 1,600,000</option>
-                                    <option>Rp 1,700,000</option>
-                                    <option>Rp 1,800,000</option>
-                                    <option>Rp 1,900,000</option>
-                                    <option>Rp 2,000,000</option>
-                                    <option>Rp 2,100,000</option>
-                                    <option>Rp 2,200,000</option>
-                                    <option>Rp 2,300,000</option>
-                                    <option>Rp 2,400,000</option>
-                                    <option>Rp 2,500,000</option>
-                                    <option>Rp 2,600,000</option>
-                                    <option>Rp 2,700,000</option>
-                                    <option>Rp 2,800,000</option>
-                                    <option>Rp 2,900,000</option>
-                                    <option>Rp 3,000,000</option>
-                                    <option>Rp 3,100,000</option>
-                                    <option>Rp 3,200,000</option>
-                                    <option>Rp 3,300,000</option>
-                                    <option>Rp 3,400,000</option>
-                                    <option>Rp 3,500,000</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel1">Suku Asal:</label>-->
-                                    <select class="form-control" id="suku" ng-model="input.asal">
-                                    <option value="">Suku Asal</option>
-                                    <option>Jawa</option>
-                                    <option>Sunda</option>
-                                    <option>Banten</option>
-                                    <option>Batak</option>
-                                    <option>Bali</option>
-                                    <option>NTB/NTT</option>
-                                    <option>Lampung</option>
-                                    <option>Madura</option>
-                                    <option>Melayu</option>
-                                    <option>Lainnya</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel7">Pengalaman (tahun):</label>-->
-                                    <select class="form-control" id="exp" ng-model="input.exp">
-                                    <option value="">Pengalaman (tahun)</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                    <option>13</option>
-                                    <option>14</option>
-                                    <option>15</option>
-                                    <option>16</option>
-                                    <option>17</option>
-                                    <option>18</option>
-                                    <option>19</option>
-                                    <option>20</option>
-                                </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <!--<label for="sel5">Profesi:</label>-->
-                                    <select class="form-control" id="profesi" ng-model="input.profesi">
-                                    <option value="">Profesi</option>
-                                    <option>PRT</option>
-                                    <option>Nanny</option>
-                                    <option>Baby Sitter</option>
-                                    <option>Perawat Lansia</option>
-                                    <option>Tukang Kebun</option>
-                                    <option>Sopir</option>
-                                    <option>Pekerja Beketrampilan</option>
-                                    <option>Lainnya</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel4">Gaji Bulanan(max):</label>-->
-                                    <select class="form-control" id="gajimax">
-                                    <option>Gaji Bulanan(max)</option>
-                                    <option>Rp 1,000,000</option>
-                                    <option>Rp 1,100,000</option>
-                                    <option>Rp 1,200,000</option>
-                                    <option>Rp 1,300,000</option>
-                                    <option>Rp 1,400,000</option>
-                                    <option>Rp 1,500,000</option>
-                                    <option>Rp 1,600,000</option>
-                                    <option>Rp 1,700,000</option>
-                                    <option>Rp 1,800,000</option>
-                                    <option>Rp 1,900,000</option>
-                                    <option>Rp 2,000,000</option>
-                                    <option>Rp 2,100,000</option>
-                                    <option>Rp 2,200,000</option>
-                                    <option>Rp 2,300,000</option>
-                                    <option>Rp 2,400,000</option>
-                                    <option>Rp 2,500,000</option>
-                                    <option>Rp 2,600,000</option>
-                                    <option>Rp 2,700,000</option>
-                                    <option>Rp 2,800,000</option>
-                                    <option>Rp 2,900,000</option>
-                                    <option>Rp 3,000,000</option>
-                                    <option>Rp 3,100,000</option>
-                                    <option>Rp 3,200,000</option>
-                                    <option>Rp 3,300,000</option>
-                                    <option>Rp 3,400,000</option>
-                                    <option>Rp 3,500,000</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel2">Usia (min):</label>-->
-                                    <select class="form-control" id="usiamin">
-                                    <option>Usia (min)</option>
-                                    <option>17</option>
-                                    <option>18</option>
-                                    <option>19</option>
-                                    <option>20</option>
-                                    <option>21</option>
-                                    <option>22</option>
-                                    <option>23</option>
-                                    <option>24</option>
-                                    <option>25</option>
-                                    <option>26</option>
-                                    <option>27</option>
-                                    <option>28</option>
-                                    <option>29</option>
-                                    <option>30</option>
-                                    <option>31</option>
-                                    <option>32</option>
-                                    <option>33</option>
-                                    <option>34</option>
-                                    <option>35</option>
-                                    <option>36</option>
-                                    <option>37</option>
-                                    <option>38</option>
-                                    <option>39</option>
-                                    <option>40</option>
-                                    <option>41</option>
-                                    <option>42</option>
-                                    <option>43</option>
-                                    <option>44</option>
-                                    <option>45</option>
-                                    <option>46</option>
-                                    <option>47</option>
-                                    <option>48</option>
-                                    <option>49</option>
-                                    <option>50</option>
-                                    <option>51</option>
-                                    <option>52</option>
-                                    <option>53</option>
-                                    <option>54</option>
-                                    <option>55</option>
-                                </select>
-                                </div>
-
-                                <input type="text" class="" id="tersedia" ng-model="isi.tersedia" ng-init="isi.tersedia='ya'" hidden/>
-
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <!--<label for="sel7">Jenis Kelamin:</label>-->
-                                    <select class="form-control" id="gender" ng-model="input.gender">
-                                    <option value="">Jenis Kelamin</option>
-                                    <option>Laki-laki</option>
-                                    <option>Perempuan</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel7">Pendidikan Terakhir:</label>-->
-                                    <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
-                                    <option value="">Pendidikan Terakhir</option>
-                                    <option>SD</option>
-                                    <option>SMP</option>
-                                    <option>SMA</option>
-                                    <option>Perguruan Tinggi</option>
-                                </select>
-                                </div>
-                                <div class="form-group">
-                                    <!--<label for="sel2">Usia (max):</label>-->
-                                    <select class="form-control" id="usiamax">
-                                    <option>Usia (max)</option>
-                                    <option>17</option>
-                                    <option>18</option>
-                                    <option>19</option>
-                                    <option>20</option>
-                                    <option>21</option>
-                                    <option>22</option>
-                                    <option>23</option>
-                                    <option>24</option>
-                                    <option>25</option>
-                                    <option>26</option>
-                                    <option>27</option>
-                                    <option>28</option>
-                                    <option>29</option>
-                                    <option>30</option>
-                                    <option>31</option>
-                                    <option>32</option>
-                                    <option>33</option>
-                                    <option>34</option>
-                                    <option>35</option>
-                                    <option>36</option>
-                                    <option>37</option>
-                                    <option>38</option>
-                                    <option>39</option>
-                                    <option>40</option>
-                                    <option>41</option>
-                                    <option>42</option>
-                                    <option>43</option>
-                                    <option>44</option>
-                                    <option>45</option>
-                                    <option>46</option>
-                                    <option>47</option>
-                                    <option>48</option>
-                                    <option>49</option>
-                                    <option>50</option>
-                                    <option>51</option>
-                                    <option>52</option>
-                                    <option>53</option>
-                                    <option>54</option>
-                                    <option>55</option>
-                                </select>
-                                </div>
-                                <br>
-                                <!--<a class="btn btn-primary pull-right" ng-click="apply()">
-                                    <span class="glyphicon glyphicon-filter"></span> Update
-                                </a>-->
-                            </div>
-                        </div>
-                    </div>
-                    <!--end of filter-->
-
-                    <!--RESULTS-->
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h3 style="font-family:proxima">Hasil Pencarian:</h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-1 pull-right">
-                                <select class="form-control" id="page" ng-model="pageSize">
+                <!-- filter -->
+                <div class="container">
+                    <h3 class="text-left">Advanced Filter:</h3>
+                    <div class="well" style="max-height: 400px;overflow: auto;">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!--<label for="sel5">Profesi:</label>-->
+                                <select class="form-control" id="profesi" ng-model="input.profesi">
+                                <option value="">Pekerjaan yang Diminati</option>
+                                <option>Infal / Cuci-gosok</option>
+                                <option>Pembantu (Full-time)</option>
+                                <option>Tukang Kebun</option>
+                                <option>Penjaga Binatang Peliharaan</option>
+                                <option>Sopir</option>
+                                <option>Tukang / Maintenance</option>
+                                <option>Baby Sitter</option>
+                                <option>Nanny / Perawat Orang Sakit</option>
+                                <option>Satpam</option>
+                                <option>Pekerja Umum</option>
+                            </select>
+                            </div>                            
+                           
+                            <div class="form-group">
+                                <!--<label for="sel7">Pengalaman (tahun):</label>-->
+                                <select class="form-control" id="exp" ng-model="input.exp">
+                                <option value="">Pengalaman (tahun)</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
                                 <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
                                 <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel1">Waktu:</label>-->
+                                <select class="form-control" id="waktu" ng-model="input.waktu">
+                                <option value="">Waktu</option>
+                                <option>Menginap</option>
+                                <option>Infal</option>
+                                <option>Pulang-Pergi</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <!--<div class="form-group" ng-controller="branchViewController">
+                                <select class="form-control" id="lokasi" ng-model="input.lokasi">
+                                    <option value="">Lokasi Cabang</option>
+                                    <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>                                    
+                            </select>
+                            </div>-->
+                             <div class="form-group">
+                                <select class="form-control" id="agama" ng-model="input.agama">
+                                <option value="">Agama</option>
+                                <option>Islam</option>
+                                <option>Katolik</option>
+                                <option>Kristen</option>
+                                <option>Hindu</option>
+                                <option>Budha</option>
+                                <option>Lainnya</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel4">Gaji Bulanan(min):</label>-->
+                                <select class="form-control" id="gajimin">
+                                <option>Gaji Bulanan(min)</option>
+                                <option>Rp 1,000,000</option>
+                                <option>Rp 1,100,000</option>
+                                <option>Rp 1,200,000</option>
+                                <option>Rp 1,300,000</option>
+                                <option>Rp 1,400,000</option>
+                                <option>Rp 1,500,000</option>
+                                <option>Rp 1,600,000</option>
+                                <option>Rp 1,700,000</option>
+                                <option>Rp 1,800,000</option>
+                                <option>Rp 1,900,000</option>
+                                <option>Rp 2,000,000</option>
+                                <option>Rp 2,100,000</option>
+                                <option>Rp 2,200,000</option>
+                                <option>Rp 2,300,000</option>
+                                <option>Rp 2,400,000</option>
+                                <option>Rp 2,500,000</option>
+                                <option>Rp 2,600,000</option>
+                                <option>Rp 2,700,000</option>
+                                <option>Rp 2,800,000</option>
+                                <option>Rp 2,900,000</option>
+                                <option>Rp 3,000,000</option>
+                                <option>Rp 3,100,000</option>
+                                <option>Rp 3,200,000</option>
+                                <option>Rp 3,300,000</option>
+                                <option>Rp 3,400,000</option>
+                                <option>Rp 3,500,000</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel1">Suku Asal:</label>-->
+                                <select class="form-control" id="suku" ng-model="input.asal">
+                                <option value="">Suku Asal</option>
+                                <option>Jawa</option>
+                                <option>Sunda</option>
+                                <option>Banten</option>
+                                <option>Batak</option>
+                                <option>Bali</option>
+                                <option>NTB/NTT</option>
+                                <option>Lampung</option>
+                                <option>Madura</option>
+                                <option>Melayu</option>
+                                <option>Lainnya</option>
+                            </select>
+                            </div>                            
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!--<label for="sel2">Status:</label>-->
+                                <select class="form-control" id="status" ng-model="input.status">
+                                <option value="">Status</option>
+                                <option>Lajang</option>
+                                <option>Menikah</option>
+                                <option>Janda / Duda</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel4">Gaji Bulanan(max):</label>-->
+                                <select class="form-control" id="gajimax">
+                                <option>Gaji Bulanan(max)</option>
+                                <option>Rp 1,000,000</option>
+                                <option>Rp 1,100,000</option>
+                                <option>Rp 1,200,000</option>
+                                <option>Rp 1,300,000</option>
+                                <option>Rp 1,400,000</option>
+                                <option>Rp 1,500,000</option>
+                                <option>Rp 1,600,000</option>
+                                <option>Rp 1,700,000</option>
+                                <option>Rp 1,800,000</option>
+                                <option>Rp 1,900,000</option>
+                                <option>Rp 2,000,000</option>
+                                <option>Rp 2,100,000</option>
+                                <option>Rp 2,200,000</option>
+                                <option>Rp 2,300,000</option>
+                                <option>Rp 2,400,000</option>
+                                <option>Rp 2,500,000</option>
+                                <option>Rp 2,600,000</option>
+                                <option>Rp 2,700,000</option>
+                                <option>Rp 2,800,000</option>
+                                <option>Rp 2,900,000</option>
+                                <option>Rp 3,000,000</option>
+                                <option>Rp 3,100,000</option>
+                                <option>Rp 3,200,000</option>
+                                <option>Rp 3,300,000</option>
+                                <option>Rp 3,400,000</option>
+                                <option>Rp 3,500,000</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel2">Usia (min):</label>-->
+                                <select class="form-control" id="usiamin">
+                                <option>Usia (min)</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
                                 <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
                                 <option>50</option>
-                                </select>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                            </select>
                             </div>
-                            <div class="pull-right">
-                                <label for="page">Items per Page: </label>
+
+                            <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!--<label for="sel7">Jenis Kelamin:</label>-->
+                                <select class="form-control" id="gender" ng-model="input.gender">
+                                <option value="">Jenis Kelamin</option>
+                                <option>Laki-laki</option>
+                                <option>Perempuan</option>
+                            </select>
                             </div>
+                            <div class="form-group">
+                                <!--<label for="sel7">Pendidikan Terakhir:</label>-->
+                                <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
+                                <option value="">Pendidikan Terakhir</option>
+                                <option>SD</option>
+                                <option>SMP</option>
+                                <option>SMA</option>
+                                <option>Perguruan Tinggi</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel2">Usia (max):</label>-->
+                                <select class="form-control" id="usiamax">
+                                <option>Usia (max)</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                            </select>
+                            </div>
+                            <br>
+                            <!--<a class="btn btn-primary pull-right" ng-click="apply()">
+                                <span class="glyphicon glyphicon-filter"></span> Update
+                            </a>-->
                         </div>
                     </div>
-                    <div class="container">
+                </div>
+                <!-- ./filter -->
 
-                        <div class="well well-lg" dir-paginate="data in datas | filter:isi | filter:input | itemsPerPage: pageSize" current-page="currentPage">
-                            <div class="col-sm-2">
-                                <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px;" />
+                <!--RESULTS-->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3 style="font-family:proxima">Hasil Pencarian:</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1 pull-right">
+                            <select class="form-control" id="page" ng-model="pageSize">
+                            <option>10</option>
+                            <option>15</option>
+                            <option>25</option>
+                            <option>50</option>
+                            </select>
+                        </div>
+                        <div class="pull-right">
+                            <label for="page">Items per Page: </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="well well-lg" dir-paginate="data in datas | filter:isi | filter:input | itemsPerPage: pageSize" current-page="currentPage">
+                        <div class="col-sm-2">
+                            <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
+                        </div>
+                        <div class="row" >
+                            <div class="col-sm-4">
+                                <a ng-click="viewProfile(data)" href="">
+                                    <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
+                                </a>
+                                <p>Gaji (Rp): {{ data.gaji}}</p>
+                                <p>Pengalaman : {{ data.exp }} tahun</p>
+                                <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                                <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
+                                </div>
+                            </div>                                
+
+                            <div class="col-sm-3">
+                                <p class="title" style="font-size: 16px; font-weight: bold">{{data.profesi}}</p>
+                                <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
+                                </p>
                             </div>
-                            <div class="row" ng-controller="profileViewController">
-                                <div class="col-sm-4">
-                                    <a ng-click="viewProfile(data)" href="">
-                                        <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
-                                    </a>
-                                    <p>Gaji (Rp): {{ data.gaji}}</p>
-                                    <p>Pengalaman : {{ data.exp }} tahun</p>
-                                    <span class="label label-default" style="font-size: 100%;"> {{ data.ketrampilan }} </span>
-                                </div>
 
-                                <div class="col-sm-3">
-                                    <p class="title" style="font-size: 16px; font-weight: bold">{{data.profesi}}</p>
-                                    <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
-                                    </p>
-                                </div>
-
-                                <div class="col-sm-3">
-                                    <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homie({ '#': 'contactModal' })" ng-click="bookProfile(data)">
-                                    <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
-                                </button>
-                                    <br>
-                                    <br>
-                                    <button ng-click="viewProfile(data)" class="btn btn-primary btn-md">
-                                    <span class="glyphicon glyphicon-search"></span> Detail Pekerja
-                                </button>
-                                </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homie({ '#': 'contactModal' })" ng-click="bookProfile(data)">
+                                <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
+                            </button>
                                 <br>
+                                <br>
+                                <button ng-click="viewProfile(data)" class="btn btn-primary btn-md">
+                                <span class="glyphicon glyphicon-search"></span> Detail Pekerja
+                            </button>
                             </div>
+                            <br>
                         </div>
                     </div>
-                    <!-- end of search results -->
+                </div>
+                <!-- ./RESULTS -->
 
-                    <!-- pagination -->
-                    <div class="container">
-                        <div class="text-center">
-                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
-                        </div>
+                <!-- pagination -->
+                <div class="container">
+                    <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
                     </div>
-                    <!-- end of pagination -->
+                </div>
+                <!-- ./pagination -->
 
                 </div>
                 <!-- end of page content holder -->
 
             </div>
         </div>
-        <!-- page content wrapper -->
+        <!-- ./Filter and Results -->
+        
+        <!-- How to Book -->
         <div class="page-content-wrap bg-texture-1 bg-dark light-elements">
 
             <div class="divider">
@@ -620,7 +624,7 @@
                     <div class="col-md-4">
                         <div class="text-column text-column-centralized tex-column-icon-lg">
                             <div class="text-column-icon">
-                                <span class="fa icon-search"></span>
+                                <span class="fa icons-search" style="font-family:icomoon; font-size:350%"></span>
                             </div>
                             <h4><strong>CARI</strong></h4>
                             <div class="text-column-info">
@@ -632,7 +636,7 @@
                     <div class="col-md-4">
                         <div class="text-column text-column-centralized tex-column-icon-lg">
                             <div class="text-column-icon">
-                                <span class="fa icon-cal"></span>
+                                <span class="fa icons-cal" style="font-family:icomoon; font-size:350%"></span>
                             </div>
                             <h4><strong>BOOK</strong></h4>
                             <div class="text-column-info">
@@ -645,7 +649,7 @@
                     <div class="col-md-4">
                         <div class="text-column text-column-centralized tex-column-icon-lg">
                             <div class="text-column-icon">
-                                <span class="fa icon-int "></span>
+                                <span class="fa icons-int" style="font-family:icomoon; font-size:350%"></span>
                             </div>
                             <h4><strong>INTERVIEW</strong></h4>
                             <div class="text-column-info">
@@ -660,9 +664,9 @@
             </div>
             <!-- ./page content holder -->
         </div>
-        <!-- ./page content wrapper -->
+        <!-- ./How to Book -->
 
-        <!-- page content wrapper -->
+        <!-- About us -->
         <div class="page-content-wrap bg-light bg-texture-1">
 
             <div class="divider">
@@ -706,7 +710,7 @@
             </div>
             <!-- ./page content holder -->
         </div>
-        <!-- ./page content wrapper -->
+        <!-- ./About Us -->
 
         <!-- page content wrapper -->
         <div class="page-content-wrap bg-light">
@@ -840,17 +844,18 @@
 
     </div>
     <!-- ./page footer -->
+    
     <!-- Modal -->
     <div id="contactModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-content" ng-controller="profileViewController">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Hubungi Kami</h4>
-                     <h4 class="modal-title">Book {{nameData}}</h4>
-                     <h5 class="modal-title">Lokasi di {{lokasiData}}</h5>
+                    <!--<h4 class="modal-title">Hubungi Kami</h4>-->
+                     <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Sekarang Juga!</h4>
+                     <h5 class="modal-title">Lokasi di <strong>{{data.lokasi}}</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">
@@ -894,7 +899,7 @@
                             <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                         </ul>
 
-                        <button ng-disabled="!term" type="submit" class="btn btn-primary" ng-click="submitForm(userForm)">Submit</button>
+                        <button ng-disabled="!term" type="submit" class="btn btn-primary" id="close" ng-click="submitForm(userForm)">Submit</button>
                         <br>
                         <br>
                         <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible. </p>
@@ -908,5 +913,7 @@
 
         </div>
     </div>
+    <!-- ./Modal -->
+    
 </div>
 <!-- ./page container -->

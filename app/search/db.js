@@ -5,31 +5,75 @@ var URL = "https://jobcenter.firebaseio.com/";
 db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$stateParams', '$rootScope', '$firebaseObject', '$http', function ($scope, $firebaseArray, $state, $stateParams, $rootScope, $firebaseObject, $http) {
 
   var ref = new Firebase(URL + 'branch');
-  var ref2 = new Firebase(URL + 'labor');
+  var ref2 = new Firebase(URL + 'worker');
   var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" + $stateParams.branchId);
-  var ref4 = new Firebase("https://jobcenter.firebaseio.com/labor/" + $stateParams.workerId);
+  var ref4 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
   $scope.branches = $firebaseArray(ref);
   $scope.datas = $firebaseArray(ref2);
   $scope.branch = $firebaseObject(ref3);
   $scope.data = $firebaseObject(ref4);
 
-  $scope.submitForm = function (user) {
+  // $scope.submitForm = function (user) {
 
-    if ($scope.userForm.$invalid === true) {
-      $scope.notValid = true;
-      return
-    }
-    $scope.postData = angular.copy(user);
+  //   if ($scope.userForm.$invalid === true) {
+  //     $scope.notValid = true;
+  //     return
+  //   }
+  //   $scope.postData = angular.copy(user);
 
-    $http.post('/contact', $scope.postData)
-      .success(function (data) {
-        alert('successfully emailed form');
+  //   $http.post('/contact', $scope.postData)
+  //     .success(function (data) {
+  //       alert('successfully emailed form');
+  //     })
+  //     .error(function (data) {
+  //       alert('something went wrong');
+  //     });
+  // };
+  
+  var bookRef = new Firebase(URL + 'booked');
+  var date = new Date().getTime();
+  $scope.submitForm = function () {
+
+    if ($scope.userForm.$valid) {
+      bookRef.child($scope.data.$id).set({
+        nama: $scope.data.nama,
+        id: $scope.data.$id,
+        user: $scope.user.name,
+        lokasi: $scope.data.lokasi,
+        email: $scope.user.email,
+        contact: $scope.user.contact,
+        comment: $scope.user.comment,
+        status: "booked",
+        bookDate: date,
+        profesi: $scope.data.profesi
       })
-      .error(function (data) {
-        alert('something went wrong');
-      });
+      .then(function () {
+        ref4.update({tersedia: "booked"});        
+        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');                       
+      })
+    } else {
+      $scope.notValid = true;
+    }
   };
+  
+  $scope.bookProfile = function (data) {
+
+    $rootScope.data = data;    
+    $state.go('homie', { workerId: $rootScope.data.$id });   
+  };
+  
+  $scope.viewProfile = function (data) {
+
+    $rootScope.data = data;
+    if ($rootScope.data.tersedia === 'available') {
+      $state.go('profiles', { workerId: $rootScope.data.$id });
+    }
+    else {
+      alert("Pekerja Tidak Tersedia");
+    }
+  }; //end of view Profile
+        //------------->x
 
   $scope.updateBranch = function (branch) {
     $rootScope.branch = branch;
@@ -56,34 +100,34 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $state.go('offices');
   };  //end of remove branch
 
-  $scope.updateWorker = function (data) {
-    $rootScope.data = data;
-    $state.go('worker-edit', { workerId: $rootScope.data.$id });
-  }; //end of update worker
+  // $scope.updateWorker = function (data) {
+  //   $rootScope.data = data;
+  //   $state.go('worker-edit', { workerId: $rootScope.data.$id });
+  // }; //end of update worker
 
-  var tanggal = document.getElementById('inputTanggal');
-  var gaji = document.getElementById('inputGaji');
+  // var tanggal = document.getElementById('inputTanggal');
+  // var gaji = document.getElementById('inputGaji');
 
-  $scope.editWorker = function () {
-    $scope.data.$save()
-      .then(ref4.update({ tanggallahir: tanggal.value, gaji: gaji.value }))
-      .then(function () {
-        alert('Worker Updated!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('workerprof');
-  };  //end of edit worker
+  // $scope.editWorker = function () {
+  //   $scope.data.$save()
+  //     .then(ref4.update({ tanggallahir: tanggal.value, gaji: gaji.value }))
+  //     .then(function () {
+  //       alert('Worker Updated!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('workerprof');
+  // };  //end of edit worker
 
-  $scope.removeWorker = function (data) {
-    $scope.data.$remove()
-      .then(function () {
-        alert('Worker Removed!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('workerprof');
-  };  //end of remove worker
+  // $scope.removeWorker = function (data) {
+  //   $scope.data.$remove()
+  //     .then(function () {
+  //       alert('Worker Removed!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('workerprof');
+  // };  //end of remove worker
 
   $scope.filter = {};
   $scope.input = {};
@@ -239,32 +283,15 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
 
 db.controller("profileViewController", function ($scope, $firebaseArray, $rootScope, $state, $stateParams) {
 
-  var JOB_URL = "https://jobcenter.firebaseio.com/labor/";
+  var JOB_URL = "https://jobcenter.firebaseio.com/worker/";
   var ref = new Firebase(JOB_URL);
   $scope.datas = $firebaseArray(ref);
 
-  //pagination
-  $scope.currentPage = 1;
-  $scope.pageSize = 10;
+  // //pagination
+  // $scope.currentPage = 1;
+  // $scope.pageSize = 10;      
 
-  $scope.viewProfile = function (data) {
-
-    $rootScope.data = data;
-    if ($rootScope.data.tersedia === 'ya') {
-      $state.go('profiles', { workerId: $rootScope.data.$id });
-    }
-    else {
-      alert("Pekerja Tidak Tersedia");
-    }
-  }; //end of view Profile
-  
-  $scope.bookProfile = function (data) {
-
-    $rootScope.data = data;    
-    $state.go('homie', { workerId: $rootScope.data.$id });   
-  };
-
-  var ref2 = new Firebase("https://jobcenter.firebaseio.com/labor/" + $stateParams.workerId);
+  var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
   ref2.on("value", function (snap) {
     $scope.nameData = snap.val().nama;
@@ -292,10 +319,11 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     $scope.gambarData = snap.val().foto;
     $scope.asalData = snap.val().asal;
     $scope.gajihData = snap.val().gajih;
+    $scope.idk = snap.key();
 
-    var value = umur;
+    //var value = umur;
     var today = new Date();
-    var dob = new Date(value.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+    var dob = new Date(umur.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
     $scope.age = today.getFullYear() - dob.getFullYear(); //This is the update
     //$('#age').val(age); //for element id
   });
@@ -307,14 +335,32 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   //syncObject.$bindTo($scope, "admin");
 
   //modal popup on book button press with validation
+  
+  var bookRef = new Firebase(URL + 'booked');
+  var date = new Date().getTime();
   $scope.submitForm = function () {
 
     if ($scope.userForm.$valid) {
-      alert('our form is amazing');
+      bookRef.child($scope.idk).set({
+        nama: $scope.data.nama,
+        id: $scope.data.$id,
+        user: $scope.user.name,
+        lokasi: $scope.data.lokasi,
+        email: $scope.user.email,
+        contact: $scope.user.contact,
+        comment: $scope.user.comment,
+        status: "booked",
+        bookDate: date,
+        profesi: $scope.data.profesi
+      })
+      .then(function () {
+        ref2.update({tersedia: "booked"});        
+        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');                       
+      })
     } else {
       $scope.notValid = true;
     }
-  };
+  };   
 
 }); //end of profile view controller
 
