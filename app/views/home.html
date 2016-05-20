@@ -22,6 +22,27 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-2">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Hubungi Kami</a></li>
+                        <a class="btn-link font2" data-toggle="dropdown" aria-expanded="false"> 
+                            <img alt="JobCenter - ID" class="svg-flag mr-5" height="20" src="../img/flag-Indonesia.jpg" width="30">
+                            <span class="caret"></span>
+                         </a>
+                         <ul class="dropdown-menu with-arrow-v2-right-language" role="menu"> 
+                             <li>
+                            <a href="#" rel="nofollow">
+                                <img alt="JobCenter - EN" class="svg-flag mr-5" height="20" src="../img/USA.jpg" width="30">
+                                "English"
+                            </a>
+                             </li>
+                             <li class="disabled"> 
+                                 <a href="#" rel="nofollow">
+                                     <img alt="JobCenter - ID" class="svg-flag mr-5" height="20" src="../img/flag-Indonesia.jpg" width="30">
+                                     "Indonesia"
+                                   </a>
+                                 </li>
+                           </ul>
+                       
+                             
+                            
                         <!--<li><a ui-sref="search">Cari Pekerja</a></li>-->
                     </ul>
 
@@ -76,6 +97,13 @@
                             <p class="lead">Hubungi Kami Langsung atau Cari Daftar Pekerja Kami!</p>
                             <button class="btn btn-primary" ui-sref="contact-us">Hubungi Kami</button> &nbsp &nbsp
                             <button class="btn btn-primary" ui-sref="home({ '#': 'tipe' })" ng-click="redirect($event)">Pilih Kategori Pekerja</button>                            &nbsp &nbsp
+                            <button onclick="alert()">Remove</button>
+                            <script>
+
+                                function alert () {
+                                swal("Konfirmasi apakah anda yakin?");
+                                }
+                             </script>
                         </div>
                     </div>
                 </div>

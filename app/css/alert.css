@@ -1,0 +1,24 @@
+element.style {
+    display: block;
+    margin-top: -34px;
+}
+.showSweetAlert[data-animation=pop] {
+    -webkit-animation: showSweetAlert 0.3s;
+    animation: showSweetAlert 0.3s;
+}
+.sweet-alert {
+    background-color: white;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 460px;
+    padding: 8px;
+    border-radius: 30px;
+    text-align: center;
+    position: fixed;
+    left: 52%;
+    top: 40%;
+    margin-left: -256px;
+    margin-top: -200px;
+    overflow: hidden;
+    display: none;
+    z-index: 99999;
+}
