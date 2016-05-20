@@ -50,8 +50,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       })
       .then(function () {
         ref4.update({tersedia: "booked"});        
-        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
-                              
+        alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+        $("#contactModal").modal("hide");                              
       })
     } else {
       $scope.notValid = true;
@@ -357,7 +357,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       })
       .then(function () {
         ref2.update({tersedia: "booked"});        
-        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+        alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
         $("#contactModal").modal("hide");
         $state.go('home');                       
       })
