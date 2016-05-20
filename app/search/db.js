@@ -293,7 +293,6 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   // $scope.pageSize = 10;      
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
-
   
   ref2.on("value", function (snap) {
     $scope.nameData = snap.val().nama;
