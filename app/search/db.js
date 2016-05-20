@@ -45,7 +45,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         contact: $scope.user.contact,
         comment: $scope.user.comment,
         status: "booked",
-        bookDate: date
+        bookDate: date,
+        profesi: $scope.data.profesi
       })
       .then(function () {
         ref4.update({tersedia: "booked"});        
@@ -349,7 +350,8 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
         contact: $scope.user.contact,
         comment: $scope.user.comment,
         status: "booked",
-        bookDate: date
+        bookDate: date,
+        profesi: $scope.data.profesi
       })
       .then(function () {
         ref2.update({tersedia: "booked"});        
