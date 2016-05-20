@@ -359,7 +359,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
         ref2.update({tersedia: "booked"});        
         alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
         $("#contactModal").modal("hide");
-        $state.go('home');                       
+        //$state.go('home');                       
       })
     } else {
       $scope.notValid = true;
