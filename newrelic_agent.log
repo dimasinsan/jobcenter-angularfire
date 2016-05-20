@@ -1,9 +1,6 @@
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":5492,"time":"2016-05-18T07:09:37.141Z","msg":"Starting New Relic for Node.js connection process."}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":5492,"time":"2016-05-18T07:09:43.124Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1334608/applications/18671075","component":"new_relic_response"}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":5492,"time":"2016-05-18T07:09:43.126Z","msg":"Connected to collector-174.newrelic.com:443 with agent run ID 80279773065570920.","component":"collector_api"}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":9284,"time":"2016-05-18T07:10:25.715Z","msg":"Starting New Relic for Node.js connection process."}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":9284,"time":"2016-05-18T07:10:33.168Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1334608/applications/18671075","component":"new_relic_response"}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":9284,"time":"2016-05-18T07:10:33.170Z","msg":"Connected to collector-174.newrelic.com:443 with agent run ID 80279773065574862.","component":"collector_api"}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":10488,"time":"2016-05-18T20:24:27.052Z","msg":"Starting New Relic for Node.js connection process."}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":10488,"time":"2016-05-18T20:24:34.063Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1334608/applications/18671075","component":"new_relic_response"}
-{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":10488,"time":"2016-05-18T20:24:34.064Z","msg":"Connected to collector-174.newrelic.com:443 with agent run ID 80279773068980361.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":8356,"time":"2016-05-20T10:25:32.203Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":8356,"time":"2016-05-20T10:25:37.308Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1334608/applications/18671075","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":8356,"time":"2016-05-20T10:25:37.310Z","msg":"Connected to collector-174.newrelic.com:443 with agent run ID 80279773078463464.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":9624,"time":"2016-05-20T10:26:00.310Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":9624,"time":"2016-05-20T10:26:06.813Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/1334608/applications/18671075","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"DESKTOP-GK64EBF","pid":9624,"time":"2016-05-20T10:26:06.814Z","msg":"Connected to collector-174.newrelic.com:443 with agent run ID 80279773078465180.","component":"collector_api"}

@@ -24,7 +24,7 @@ angular
         templateUrl: 'views/home.html'
       })
       .state('homie', {
-        url: '/homie/:workerId',
+        url: '/:workerId',
         templateUrl: 'views/home.html'
       })
       .state('contact-us', {

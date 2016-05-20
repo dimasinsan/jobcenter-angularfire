@@ -50,7 +50,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       })
       .then(function () {
         ref4.update({tersedia: "booked"});        
-        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');                       
+        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+                              
       })
     } else {
       $scope.notValid = true;
@@ -285,7 +286,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 
   var JOB_URL = "https://jobcenter.firebaseio.com/worker/";
   var ref = new Firebase(JOB_URL);
-  $scope.datas = $firebaseArray(ref);
+  $scope.datas = $firebaseArray(ref);    
 
   // //pagination
   // $scope.currentPage = 1;
@@ -293,6 +294,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
+  
   ref2.on("value", function (snap) {
     $scope.nameData = snap.val().nama;
     $scope.katData = snap.val().kategori;
@@ -355,7 +357,9 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       })
       .then(function () {
         ref2.update({tersedia: "booked"});        
-        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');                       
+        alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+        $("#contactModal").modal("hide");
+        $state.go('home');                       
       })
     } else {
       $scope.notValid = true;
@@ -465,37 +469,6 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
 
 }]); //end of labor push controller
 
-/* push data into database with unique id
-pushRef.push({
-  "nama": "Maryati",
-  "tanggallahir": "27/04/1985",
-  "asal": "Padang Panjang",
-  "alamat": "Depok 2",
-  "lokasi": "Depok",
-  "kategori": "Rumah Tangga",
-  "profesi": "Nanny",
-  "tersedia": "ya",
-  "gender": "Perempuan",
-  "waktu": "Menginap",
-  "pendidikan": "SD",
-  "status": "Lajang",
-  "anak": "0",
-  "agama": "Islam",
-  "suku": "Padang",
-  "gaji": "2.700.000",
-  "ketrampilan": "memasak, mencuci",
-  "anjing": "ya",
-  "pengalaman": "7",
-  "luarnegri": "tidak",
-  "inggris": "tidak",
-  "tinggi": "162",
-  "berat": "50",
-  "images": "./Gallery/gadis_1.jpg",
-  "non-halal": "ya",
-  "lembur": "ya"
-});
-*/
-
 db.controller("branchPushController", function () {
 
   var ref = new Firebase(URL + 'branch');
@@ -539,14 +512,6 @@ db.controller("branchPushController", function () {
   //   this.review = {};
   // };
   //  var branchRef = ref.child("branch");
-
-  //push data into database with unique id
-  // ref.push({
-  //   nama: nama,
-  //   alamat: alamat,
-  //   kotamadya: kotamadya,
-  //   telp: telp
-  // });
 
 
 /* push() function

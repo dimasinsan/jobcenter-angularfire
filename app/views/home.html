@@ -245,11 +245,12 @@
 
                 <!-- filter -->
                 <div class="container">
-                    <h3 class="text-left">Advanced Filter:</h3>
-                    <div class="well" style="max-height: 400px;overflow: auto;">
+                    <a ng-model="collapsed" ng-click="collapsed=!collapsed" href="">
+                        
+                        <h3 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h3></a>
+                    <div class="well" style="max-height: 400px;overflow: auto;" ng-show="collapsed">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <!--<label for="sel5">Profesi:</label>-->
                                 <select class="form-control" id="profesi" ng-model="input.profesi">
                                 <option value="">Pekerjaan yang Diminati</option>
                                 <option>Infal / Cuci-gosok</option>
