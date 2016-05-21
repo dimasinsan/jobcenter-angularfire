@@ -23,6 +23,11 @@ angular
         controller: 'HomeCtrl as homeCtrl',
         templateUrl: 'views/home.html'
       })
+      .state('home-en', {
+        url: '/en',
+        controller: 'HomeCtrl as homeCtrl',
+        templateUrl: 'views/home-en.html'
+      })
       .state('homie', {
         url: '/:workerId',
         templateUrl: 'views/home.html'
