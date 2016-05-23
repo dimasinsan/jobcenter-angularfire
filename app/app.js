@@ -20,12 +20,12 @@ angular
     // Front page UI Routes
       .state('home', {
         url: '/',
-        controller: 'HomeCtrl as homeCtrl',
+        controller: 'searchController',
         templateUrl: 'views/home.html'
       })
       .state('home-en', {
-        url: '/en',
-        controller: 'HomeCtrl as homeCtrl',
+        url: '/',
+        controller: 'searchController',
         templateUrl: 'views/home-en.html'
       })
       .state('homie', {
@@ -35,7 +35,7 @@ angular
       .state('contact-us', {
         url: '/contact-us',
         templateUrl: 'views/contact-us.html',
-        controller: 'branchViewController'
+        //controller: 'branchViewController'
       })
       .state('search', {
         url: '/search',

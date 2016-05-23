@@ -76,30 +76,30 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   }; //end of view Profile
         //------------->x
 
-  $scope.updateBranch = function (branch) {
-    $rootScope.branch = branch;
-    $state.go('branch-edit', { branchId: $rootScope.branch.$id });
-  }; //end of update branch
+  // $scope.updateBranch = function (branch) {
+  //   $rootScope.branch = branch;
+  //   $state.go('branch-edit', { branchId: $rootScope.branch.$id });
+  // }; //end of update branch
 
-  $scope.editBranch = function () {
-    $scope.branch.$save()
-      .then(function () {
-        alert('Branch Updated!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('offices');
-  };  //end of edit branch
+  // $scope.editBranch = function () {
+  //   $scope.branch.$save()
+  //     .then(function () {
+  //       alert('Branch Updated!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('offices');
+  // };  //end of edit branch
 
-  $scope.removeBranch = function (branch) {
-    $scope.branch.$remove()
-      .then(function () {
-        alert('Branch Removed!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('offices');
-  };  //end of remove branch
+  // $scope.removeBranch = function (branch) {
+  //   $scope.branch.$remove()
+  //     .then(function () {
+  //       alert('Branch Removed!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('offices');
+  // };  //end of remove branch
 
   // $scope.updateWorker = function (data) {
   //   $rootScope.data = data;
@@ -136,7 +136,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     for (prop in $scope.input) {
       $scope.filter[prop] = $scope.input[prop];
     }   
-  };  //end of filter function
+  };  //end of filter button function
 
   $scope.redirect = function (event) {
     if (event.target.className !== 'button')
@@ -240,12 +240,12 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.pageSize = 15;
 
   //sort table
-  $scope.sortType = "kategori";
-  $scope.sortReverse = true;
+  // $scope.sortType = "kategori";
+  // $scope.sortReverse = true;
 
-  $(function () {
-    $('#inputGaji').number(true, '', '.');
-  });
+  // $(function () {
+  //   $('#inputGaji').number(true, '', '.');
+  // });
 
   //  // upload picture and convert to base64
   // $scope.data = {}; //init variable
@@ -374,6 +374,7 @@ db.controller("branchViewController", function ($scope, $firebaseArray) {
 
 }); // end of branch view controller
 
+/*
 db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', function ($scope, $firebaseArray, $state) {
 
   var ref2 = new Firebase(URL + 'branch');
@@ -467,7 +468,9 @@ db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', func
   });
 
 }]); //end of labor push controller
+*/
 
+/*
 db.controller("branchPushController", function () {
 
   var ref = new Firebase(URL + 'branch');

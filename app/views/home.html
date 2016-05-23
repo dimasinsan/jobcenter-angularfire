@@ -1,5 +1,5 @@
 <!-- page container -->
-<div class="page-container" ng-controller="searchController">
+<div class="page-container" >
 
     <!-- page header -->
     <div class="page-header">
@@ -257,6 +257,7 @@
                 <div class="page-content-holder" id="search">
                     <!-- LOKASI -->
                     <div class="text-center">
+                        <h3>Anda Mencari: <span ng-model="input.profesi" style="color:#00003B">{{input.profesi}}</span></h3>                       
                     <h1 class="heading-underline">Dimanakah Anda Berada?</h1>
                     <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px" ng-controller="branchViewController"
                         ng-model="input.lokasi">
@@ -270,7 +271,7 @@
                 <div class="container">
                     <a ng-model="collapsed" ng-click="collapsed=!collapsed" href="">
                         
-                        <h3 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h3></a>
+                        <h4 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h4></a>
                     <div class="well" style="max-height: 400px;overflow: auto;" ng-show="collapsed">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -347,7 +348,7 @@
                             <div class="form-group">
                                 <!--<label for="sel4">Gaji Bulanan(min):</label>-->
                                 <select class="form-control" id="gajimin">
-                                <option>Gaji Bulanan(min)</option>
+                                <option value="">Gaji Bulanan(min)</option>
                                 <option>Rp 1,000,000</option>
                                 <option>Rp 1,100,000</option>
                                 <option>Rp 1,200,000</option>
@@ -407,7 +408,7 @@
                             <div class="form-group">
                                 <!--<label for="sel4">Gaji Bulanan(max):</label>-->
                                 <select class="form-control" id="gajimax">
-                                <option>Gaji Bulanan(max)</option>
+                                <option value="">Gaji Bulanan(max)</option>
                                 <option>Rp 1,000,000</option>
                                 <option>Rp 1,100,000</option>
                                 <option>Rp 1,200,000</option>
@@ -439,7 +440,7 @@
                             <div class="form-group">
                                 <!--<label for="sel2">Usia (min):</label>-->
                                 <select class="form-control" id="usiamin">
-                                <option>Usia (min)</option>
+                                <option value="">Usia (min)</option>
                                 <option>17</option>
                                 <option>18</option>
                                 <option>19</option>
@@ -508,7 +509,7 @@
                             <div class="form-group">
                                 <!--<label for="sel2">Usia (max):</label>-->
                                 <select class="form-control" id="usiamax">
-                                <option>Usia (max)</option>
+                                <option value="">Usia (max)</option>
                                 <option>17</option>
                                 <option>18</option>
                                 <option>19</option>
@@ -926,8 +927,8 @@
                         <button ng-disabled="!term" type="submit" class="btn btn-primary" id="close" ng-click="submitForm(userForm)">Submit</button>
                         <br>
                         <br>
-                        <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible. </p>
-                        <p> Thank you for using JobCenter.id </p>
+                        <p> NOTE: Anda akan dihubungi oleh admin kami untuk mengatur jadwal meeting dengan pekerja yang anda pilih.</p>
+                        <p> Terima kasih telah menggunakan JobCenter.id </p>
                     </form>
                 </div>
                 <div class="modal-footer">

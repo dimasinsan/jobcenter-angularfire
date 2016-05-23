@@ -1,5 +1,5 @@
 <!-- page container -->
-<div class="page-container" ng-controller="searchController">
+<div class="page-container" >
 
     <!-- page header -->
     <div class="page-header">
@@ -321,7 +321,7 @@
                                 <option value="">Work Time</option>
                                 <option value="Menginap">Stay-In</option>
                                 <option value="Infal">Seasonal</option>
-                                <option value="Pulang-Pergi">Nine-to-Five</option>
+                                <option value="Pulang-Pergi">Nine-to-Five / Temporary</option>
                             </select>
                             </div>
                         </div>
@@ -347,7 +347,7 @@
                             <div class="form-group">
                                 <!--<label for="sel4">Gaji Bulanan(min):</label>-->
                                 <select class="form-control" id="gajimin">
-                                <option>Monthly Salary(min)</option>
+                                <option value="">Monthly Salary(min)</option>
                                 <option>Rp 1,000,000</option>
                                 <option>Rp 1,100,000</option>
                                 <option>Rp 1,200,000</option>
@@ -407,7 +407,7 @@
                             <div class="form-group">
                                 <!--<label for="sel4">Gaji Bulanan(max):</label>-->
                                 <select class="form-control" id="gajimax">
-                                <option>Monthly Salary(max)</option>
+                                <option value="">Monthly Salary(max)</option>
                                 <option>Rp 1,000,000</option>
                                 <option>Rp 1,100,000</option>
                                 <option>Rp 1,200,000</option>
@@ -439,7 +439,7 @@
                             <div class="form-group">
                                 <!--<label for="sel2">Usia (min):</label>-->
                                 <select class="form-control" id="usiamin">
-                                <option>Age (min)</option>
+                                <option value="">Age (min)</option>
                                 <option>17</option>
                                 <option>18</option>
                                 <option>19</option>
@@ -501,14 +501,14 @@
                                 <option value="">Education Level</option>
                                 <option value="SD">Primary</option>
                                 <option value="SMP">Secondary</option>
-                                <option value="SMA">High School Diploma</option>
+                                <option value="SMA">High School</option>
                                 <option value="Perguruan Tinggi">Degree</option>
                             </select>
                             </div>
                             <div class="form-group">
                                 <!--<label for="sel2">Usia (max):</label>-->
                                 <select class="form-control" id="usiamax">
-                                <option>Age (max)</option>
+                                <option value="">Age (max)</option>
                                 <option>17</option>
                                 <option>18</option>
                                 <option>19</option>
@@ -877,12 +877,12 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <!--<h4 class="modal-title">Hubungi Kami</h4>-->
-                     <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Sekarang Juga!</h4>
-                     <h5 class="modal-title">Lokasi di <strong>{{data.lokasi}}</strong></h5>
+                     <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Now!</h4>
+                     <h5 class="modal-title">Location in <strong>{{data.lokasi}}</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">
-                        <span>Harap isi semua field di form ini.</span>
+                        <span>Please Complete the Form!</span>
                     </div>
                     <!-- ANGULAR VALIDATION FORM ============ -->
 
@@ -892,30 +892,30 @@
                         <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                             <label>Name</label>
                             <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required>
-                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Masukkan nama lengkap anda.</p>
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Please Enter Your Full Name</p>
                         </div>
 
                         <!-- EMAIL -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                             <label>Email</label>
                             <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required>
-                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Masukkan alamat email anda.</p>
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Please Enter Your Email</p>
                         </div>
 
                         <!-- CONTACT -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.contact.$invalid && !userForm.contact.$pristine }">
-                            <label>No Telp</label>
+                            <label>Phone Number</label>
                             <input type="number" name="contact" class="form-control" ng-model="user.contact" placeholder="021 123123" required>
-                            <p ng-show="userForm.contact.$invalid && !userForm.contact.$pristine" class="help-block">Masukkan nomer telepon anda.</p>
+                            <p ng-show="userForm.contact.$invalid && !userForm.contact.$pristine" class="help-block">Please Enter Your Phone Number</p>
                         </div>
 
                         <!-- COMMENT -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
-                            <label>Permintaan</label>
+                            <label>Additional Request</label>
                             <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini"
                                 required></textarea>
-                            <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
-                            <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
+                            <p ng-show="userForm.comment.$error.minlength" class="help-block">Please Fill in Your Request</p>
+                            <p ng-show="userForm.comment.$error.maxlength" class="help-block">Your request is exceed the maximum character of 200.</p>
                         </div>
 
                         <ul id="check-box-list" class="list-group checked-list-box">
