@@ -24,18 +24,22 @@ angular
         templateUrl: 'views/home.html'
       })
       .state('home-en', {
-        url: '/',
+        url: '/en',
         controller: 'searchController',
         templateUrl: 'views/home-en.html'
-      })
-      .state('homie', {
-        url: '/:workerId',
-        templateUrl: 'views/home.html'
       })
       .state('contact-us', {
         url: '/contact-us',
         templateUrl: 'views/contact-us.html',
         //controller: 'branchViewController'
+      })
+      .state('homie', {
+        url: '/:workerId',
+        templateUrl: 'views/home.html'
+      })
+      .state('homien', {
+        url: '/en/:workerId',
+        templateUrl: 'views/home-en.html'
       })
       .state('search', {
         url: '/search',

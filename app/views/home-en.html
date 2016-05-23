@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" ui-sref="home"><img class="img-responsive" src="../img/logo.png"></a>
+                    <a class="brand" ui-sref="home-en"><img class="img-responsive" src="../img/logo.png"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -98,7 +98,7 @@
                             <h1>Looking For Hired Help?</h1>
                             <p class="lead">Contact one of our branches or search through our database.</p>
                             <button class="btn btn-primary" ui-sref="contact-us">Contact Us</button> &nbsp &nbsp
-                            <button class="btn btn-primary" ui-sref="home({ '#': 'tipe' })" ng-click="redirect($event)">Choose Worker Category</button>                            &nbsp &nbsp
+                            <button class="btn btn-primary" ui-sref="home-en({ '#': 'tipe' })" ng-click="redirecten($event)">Choose Worker Category</button>                            &nbsp &nbsp
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterInfalen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-infal"></span>
                                     </div>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterPembantu($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterPembantuen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-pembantu"></span>
                                     </div>
@@ -145,7 +145,7 @@
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterKebun($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterKebunen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-kebun"></span>
                                     </div>
@@ -156,7 +156,7 @@
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBinatang($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterBinatangen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-binatang"></span>
                                     </div>
@@ -167,7 +167,7 @@
                         </div>
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSopir($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterSopiren($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-driver"></span>
                                     </div>
@@ -181,7 +181,7 @@
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterTukang($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterTukangen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-tukang"></span>
                                     </div>
@@ -193,7 +193,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterBaby($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterBabyen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-babysitter"></span>
                                     </div>
@@ -205,7 +205,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterNanny($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterNannyen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-suster"></span>
                                     </div>
@@ -217,7 +217,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterSatpam($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterSatpamen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-satpam"></span>
                                     </div>
@@ -229,7 +229,7 @@
 
                         <div class="col-md-2 ">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterUmum($event)">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterUmumen($event)">
                                     <div class="text-column-icon">
                                         <span class="fa icon-general"></span>
                                     </div>
@@ -251,13 +251,24 @@
 
                 <div class="divider">
                     <div class="box"><span class="fa fa-angle-down"></span></div>
-
                 </div>
                                                 
                 <div class="page-content-holder" id="search">
                     <!-- LOKASI -->
                     <div class="text-center">
-                    <h1 class="heading-underline">What's Your Location?</h1>
+                    <h3>You're Looking For: 
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Infal / Cuci-gosok'">Seasonal / Daily Cleaner</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Pembantu (Full-time)'">Housemaid (Full-time)</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Tukang Kebun'">Gardener</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Penjaga Binatang Peliharaan'">Pet Sitter</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Sopir'">Driver</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Tukang / Maintenance'">Handyman</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Baby Sitter'">Baby Sitter</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Nanny / Perawat Orang Sakit'">Nanny / Nurse</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Satpam'">Security</span>
+                        <span ng-model="input.profesi" style="color:#00003B" ng-show="input.profesi == 'Pekerja Umum'">General Worker</span>
+                    </h3>
+                    <h1 class="heading-underline">Where are You?</h1>
                     <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px" ng-controller="branchViewController"
                         ng-model="input.lokasi">
                     <option value="">Choose A Location</option>
@@ -603,7 +614,7 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homie({ '#': 'contactModal' })" ng-click="bookProfile(data)">
+                                <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homien({ '#': 'contactModal' })" ng-click="bookProfileen(data)">
                                 <span class="glyphicon glyphicon-plus-sign"></span> Book Worker!
                             </button>
                                 <br>

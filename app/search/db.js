@@ -64,6 +64,12 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $state.go('homie', { workerId: $rootScope.data.$id });   
   };
   
+  $scope.bookProfileen = function (data) {
+
+    $rootScope.data = data;    
+    $state.go('homien', { workerId: $rootScope.data.$id });   
+  };
+  
   $scope.viewProfile = function (data) {
 
     $rootScope.data = data;
@@ -137,7 +143,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       $scope.filter[prop] = $scope.input[prop];
     }   
   };  //end of filter button function
-
+  
+  //redirect for Indonesian
   $scope.redirect = function (event) {
     if (event.target.className !== 'button')
       $state.go('home');
@@ -233,7 +240,105 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     for (prop in $scope.a) {
       $scope.filter.profesi[prop] = $scope.a[prop];
     }   
-  };  //end of redirect filter
+  };  //end of redirect indon filter
+  
+  //redirect for English
+  $scope.redirecten = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+  };  //end of scroll function
+  
+  //  Redirect with Filter Profesi -->
+  $scope.redirectFilterInfalen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Infal / Cuci-gosok";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };  
+  $scope.redirectFilterPembantuen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Pembantu (Full-time)";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };  
+  $scope.redirectFilterKebunen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Tukang Kebun";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };
+  $scope.redirectFilterBinatangen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Penjaga Binatang Peliharaan";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };  
+  $scope.redirectFilterSopiren = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Sopir";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };
+  $scope.redirectFilterTukangen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Tukang / Maintenance";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };
+  $scope.redirectFilterBabyen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Baby Sitter";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };
+  $scope.redirectFilterNannyen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Nanny / Perawat Orang Sakit";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };
+  $scope.redirectFilterSatpamen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Satpam";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };
+  $scope.redirectFilterUmumen = function (event) {
+    if (event.target.className !== 'button')
+      $state.go('home-en');
+    $scope.input.profesi = "Pekerja Umum";
+    $scope.a = {};
+    for (prop in $scope.a) {
+      $scope.filter.profesi[prop] = $scope.a[prop];
+    }   
+  };  //end of redirect english filter
 
   //pagination
   $scope.currentPage = 1;
