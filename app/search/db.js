@@ -427,7 +427,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       $scope.lemburData = snap.val().lembur;
       $scope.anjingData = snap.val().anjing;
       $scope.anakData = snap.val().anak;
-      $scope.gajiData = snap.val().gaji;
+      //$scope.gajiData = snap.val().gaji;
       $scope.gaji = snap.val().gajiNum;
       $scope.ketData = snap.val().ketrampilan;
       $scope.gambarData = snap.val().foto;

@@ -600,7 +600,7 @@
                                 <a ng-click="viewProfile(data)" href="">
                                     <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
                                 </a>
-                                <p>Salary (Rp): {{ data.gaji}}</p>
+                                <p>Salary: {{ data.gajiNum | currency:"Rp. ":0}}</p>
                                 <p>Experience : {{ data.exp }} yrs.</p>
                                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
                                 <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
