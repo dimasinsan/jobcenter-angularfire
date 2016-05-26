@@ -275,7 +275,7 @@
                     <div class="well" style="max-height: 400px;overflow: auto;" ng-show="collapsed">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <select class="form-control" id="profesi" ng-model="input.profesi">
+                                <select class="form-control" id="profesi" ng-model="input.ket">
                                 <option value="">Pekerjaan yang Diminati</option>
                                 <option>Infal / Cuci-gosok</option>
                                 <option>Pembantu (Full-time)</option>
@@ -598,13 +598,13 @@
                             </div>                                
 
                             <div class="col-sm-3">
-                                <p class="title" style="font-size: 16px; font-weight: bold">{{data.profesi}}</p>
                                 <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
                                 </p>
+                                 <p class="title"><label ng-repeat="ket in data.profesi">{{ket.value + ',&nbsp'}}</label></p>
                             </div>
 
                             <div class="col-sm-3">
-                                <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homie({ '#': 'contactModal' })" ng-click="bookProfile(data)">
+                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#contactModal" ng-click="bookProfile(data)">
                                 <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
                             </button>
                                 <br>

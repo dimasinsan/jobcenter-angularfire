@@ -43,11 +43,12 @@
             <div class="container">
                 <br>
                 <h1 style="font-weight:bold" >{{nameData}}</h1>
-                <p style="font-size:120%">{{profesiData}} | {{lokasiData}}</p>
-                 <span class="label label-warning label-form">Gaji: Rp {{gajiData}} </span>                 
-                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px"><br>
-                    <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
-                    </div>
+                <p style="font-size:110%"><label ng-repeat="ket in profesiData">{{ket.value + ',&nbsp'}}</label> 
+                <label>| {{lokasiData}}</label></p>
+                 <span class="label label-warning label-form">Gaji: {{gaji | currency:"Rp. ":0}}</span>                 
+                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                    <br><span class="label label-default" style="font-size: 100%;" ng-repeat="ket in ketData"> {{ ket.text }} </span>
+                </div>
             </div>
             <hr>
         </div>
@@ -148,7 +149,7 @@
                             </tr>
                             <tr ng-hide="!gajihData">
                                 <td align="left">Gaji Harian / Daily Pay:</td>
-                                <td align="left">{{gajihData}}</td>
+                                <td align="left">{{gajihData | currency:"Rp. ":0}}</td>
                             </tr>
                         </table>
                     </div>

@@ -36,6 +36,9 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.submitForm = function () {
 
     if ($scope.userForm.$valid) {
+      $("#contactModal").modal("hide");
+      alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
+        if (e) {
       bookRef.child($scope.data.$id).set({
         nama: $scope.data.nama,
         id: $scope.data.$id,
@@ -50,9 +53,11 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       })
       .then(function () {
         ref4.update({tersedia: "booked"});        
-        alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
-        $("#contactModal").modal("hide");                              
+        //alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
+        $state.go('home');                             
       })
+       }
+      });
     } else {
       $scope.notValid = true;
     }
@@ -397,42 +402,60 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   // $scope.currentPage = 1;
   // $scope.pageSize = 10;      
 
-  var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
+  var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);      
   
   ref2.on("value", function (snap) {
-    $scope.nameData = snap.val().nama;
-    $scope.katData = snap.val().kategori;
-    $scope.lokasiData = snap.val().lokasi;
-    $scope.profesiData = snap.val().profesi;
-    $scope.genderData = snap.val().gender;
-    $scope.waktuData = snap.val().waktu;
-    $scope.pendData = snap.val().pendidikan;
-    $scope.statusData = snap.val().status;
-    $scope.agamaData = snap.val().agama;
-    $scope.sukuData = snap.val().suku;
-    var umur = snap.val().tanggallahir;
-    $scope.expData = snap.val().exp;
-    $scope.explnData = snap.val().luarnegri;
-    $scope.ingData = snap.val().inggris;
-    $scope.tinggiData = snap.val().tinggi;
-    $scope.beratData = snap.val().berat;
-    $scope.halalData = snap.val().nonhalal;
-    $scope.lemburData = snap.val().lembur;
-    $scope.anjingData = snap.val().anjing;
-    $scope.anakData = snap.val().anak;
-    $scope.gajiData = snap.val().gaji;
-    $scope.ketData = snap.val().ketrampilan;
-    $scope.gambarData = snap.val().foto;
-    $scope.asalData = snap.val().asal;
-    $scope.gajihData = snap.val().gajih;
-    $scope.idk = snap.key();
+    if (snap.val().tersedia === "available") {
+      
+      $scope.nameData = snap.val().nama;
+      $scope.katData = snap.val().kategori;
+      $scope.lokasiData = snap.val().lokasi;
+      $scope.profesiData = snap.val().profesi;
+      $scope.genderData = snap.val().gender;
+      $scope.waktuData = snap.val().waktu;
+      $scope.pendData = snap.val().pendidikan;
+      $scope.statusData = snap.val().status;
+      $scope.agamaData = snap.val().agama;
+      $scope.sukuData = snap.val().suku;
+      var umur = snap.val().tanggallahir;
+      $scope.expData = snap.val().exp;
+      $scope.explnData = snap.val().luarnegri;
+      $scope.ingData = snap.val().inggris;
+      $scope.tinggiData = snap.val().tinggi;
+      $scope.beratData = snap.val().berat;
+      $scope.halalData = snap.val().nonhalal;
+      $scope.lemburData = snap.val().lembur;
+      $scope.anjingData = snap.val().anjing;
+      $scope.anakData = snap.val().anak;
+      $scope.gajiData = snap.val().gaji;
+      $scope.gaji = snap.val().gajiNum;
+      $scope.ketData = snap.val().ketrampilan;
+      $scope.gambarData = snap.val().foto;
+      $scope.asalData = snap.val().asal;
+      $scope.gajihData = snap.val().gajih;
+      //$scope.gajih = snap.val().gajih;
+      $scope.idk = snap.key();
 
-    //var value = umur;
-    var today = new Date();
-    var dob = new Date(umur.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
-    $scope.age = today.getFullYear() - dob.getFullYear(); //This is the update
-    //$('#age').val(age); //for element id
+      //var value = umur;
+      var today = new Date();
+      var dob = new Date(umur.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+      $scope.age = today.getFullYear() - dob.getFullYear(); //This is the update
+      //$('#age').val(age); //for element id
+  
+    } else {
+      //alertify.alert("Pekerja Tidak Tersedia");
+      $state.go('home');   
+    
+    }
   });
+  // function close(){
+  //     var j = 5;
+  //     for (var i=0; i<j; i++) {
+  //       document.body.innerHTML += i;
+  //               
+  //   }    
+    
+  //   };
 
   //var query = ref.orderByChild();
 
@@ -440,13 +463,15 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   //var syncObject = $firebaseObject(ref);
   //syncObject.$bindTo($scope, "admin");
 
-  //modal popup on book button press with validation
-  
+  //modal popup on book button press with validation  
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
   $scope.submitForm = function () {
 
     if ($scope.userForm.$valid) {
+      $("#contactModal").modal("hide");
+      alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
+        if (e) {
       bookRef.child($scope.idk).set({
         nama: $scope.data.nama,
         id: $scope.data.$id,
@@ -461,10 +486,11 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       })
       .then(function () {
         ref2.update({tersedia: "booked"});        
-        alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
-        $("#contactModal").modal("hide");
-        //$state.go('home');                       
+        //alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');        
+        $state.go('home');                       
       })
+        }
+      });
     } else {
       $scope.notValid = true;
     }
