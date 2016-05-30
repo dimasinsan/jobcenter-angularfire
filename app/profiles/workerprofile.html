@@ -43,7 +43,7 @@
             <div class="container">
                 <br>
                 <h1 style="font-weight:bold" >{{nameData}}</h1>
-                <p style="font-size:110%"><label ng-repeat="ket in profesiData">{{ket.value + ',&nbsp'}}</label> 
+                <p style="font-size:110%"><label ng-repeat="ket in profesiData">{{ket +',&nbsp' }}</label> 
                 <label>| {{lokasiData}}</label></p>
                  <span class="label label-warning label-form">Gaji: {{gaji | currency:"Rp. ":0}}</span>                 
                  <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">

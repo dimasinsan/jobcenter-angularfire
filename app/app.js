@@ -35,11 +35,13 @@ angular
       })
       .state('homie', {
         url: '/:workerId',
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/home.html',
+        controller: 'searchController'
       })
       .state('homien', {
         url: '/en/:workerId',
-        templateUrl: 'views/home-en.html'
+        templateUrl: 'views/home-en.html',
+        controller: 'searchController'
       })
       .state('search', {
         url: '/search',
