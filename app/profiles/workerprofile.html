@@ -69,15 +69,15 @@
                                 <td align="left">Jenis Kelamin / Gender :</td>
                                 <td align="left">{{genderData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!waktuData">
                                 <td align="left">Waktu / Work Time:</td>
                                 <td align="left">{{waktuData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!pendData">
                                 <td align="left">Pendidikan / Education:</td>
                                 <td align="left">{{pendData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!statusData">
                                 <td align="left">Status :</td>
                                 <td align="left">{{statusData}}</td>
                             </tr>
@@ -85,7 +85,7 @@
                                 <td align="left">Agama / Religion:</td>
                                 <td align="left">{{agamaData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!sukuData">
                                 <td align="left">Suku / Tribe:</td>
                                 <td align="left">{{sukuData}}</td>
                             </tr>
@@ -97,11 +97,11 @@
                                 <td align="left">Pengalaman Kerja / Experience:</td>
                                 <td align="left">{{expData}} Tahun</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!asalData">
                                 <td align="left">Asal / Origin :</td>
                                 <td align="left">{{asalData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!katData">
                                 <td align="left">Profesi / Profession:</td>
                                 <td align="left">{{katData}}</td>
                             </tr>
@@ -115,35 +115,35 @@
                             <i class="fa fa-search-plus margin-right-4"></i> Profile
                         </div>
                         <table class="table table-stacked">
-                            <tr>
+                            <tr ng-hide="!explnData">
                                 <td align="left">Pengalaman di luar negeri / Experience Abroad:</td>
                                 <td align="left">{{explnData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!ingData">
                                 <td align="left">Bisa Bahasa Inggris / Able To Speak English:</td>
                                 <td align="left">{{ingData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!tinggiData">
                                 <td align="left">Tinggi Badan / Height:</td>
                                 <td align="left">{{tinggiData}} Cm</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!beratData">
                                 <td align="left">Berat Badan / Weight:</td>
                                 <td align="left">{{beratData}} Kg</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!halalData">
                                 <td align="left">Bisa Masak Non-halal / Able to Cook Non-Halal:</td>
                                 <td align="left">{{halalData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!lemburData">
                                 <td align="left">Bersedia Lembur / Overtime:</td>
                                 <td align="left">{{lemburData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!anjingData">
                                 <td align="left">Takut Anjing / Afraid of Dogs:</td>
                                 <td align="left">{{anjingData}}</td>
                             </tr>
-                            <tr>
+                            <tr ng-hide="!anakData">
                                 <td align="left">Anak / Kids:</td>
                                 <td align="left">{{anakData}}</td>
                             </tr>
@@ -365,7 +365,8 @@
                             <!-- COMMENT -->
                             <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
                                 <label>Permintaan</label>
-                                <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini" required></textarea>
+                                <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini" 
+                                ng-init="user.comment=null"></textarea>
                                 <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
                                 <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
                             </div>

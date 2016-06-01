@@ -945,7 +945,7 @@
                         <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
                             <label>Additional Request</label>
                             <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini"
-                                required></textarea>
+                               ng-init="user.comment=null" ></textarea>
                             <p ng-show="userForm.comment.$error.minlength" class="help-block">Please Fill in Your Request</p>
                             <p ng-show="userForm.comment.$error.maxlength" class="help-block">Your request is exceed the maximum character of 200.</p>
                         </div>
