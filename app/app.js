@@ -23,6 +23,11 @@ angular
         controller: 'searchController',
         templateUrl: 'views/home.html'
       })
+      .state('underconstruction', {
+        url: '/underconstruction',
+        controller: 'searchController',
+        templateUrl: 'views/undercons.html'
+      })
       .state('home-en', {
         url: '/en',
         controller: 'searchController',
