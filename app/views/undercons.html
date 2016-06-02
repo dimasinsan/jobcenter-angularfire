@@ -1,0 +1,103 @@
+	<style type="text/css">
+.bgimg {
+    text-align: center;
+    padding: 50px 0;
+    background-image: url('../img/undcon-bg.jpg');
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 100%;
+    width: 100%;	
+    
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.6em;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    
+}
+</style>
+  
+  <div id="wrapper" class="bgimg" style="
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    ">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+          <img style=" width: 60%;" src="./img/logo.png"/>
+					<h2 class="subtitle" style="font-family: 'Lato', sans-serif;
+          font-weight: 300;
+          font-size: 25px;
+          color: #FFF;">We're working hard to improve our website and we'll ready to launch soon!</h2>
+					<div id="countdown" style="
+          	font-size: 48px;
+            color: #fff;
+            line-height: 1.1em;
+            margin: 40px 0 60px;"></div>
+					<form class="form-inline signup" role="form">
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address" style="
+              height: 42px;
+              width: 200px;
+              border-radius: 0;
+              border: none;">
+					  </div>
+					  <button style="display: inline-block;
+                    padding: 10px 20px;
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    font-weight: normal;
+                    line-height: 1.428571429;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    -webkit-user-select: none;
+                      -moz-user-select: none;
+                        -ms-user-select: none;
+                        -o-user-select: none;
+                            user-select: none;
+                    background-image: none;
+                    border: 1px solid transparent;
+                    border-radius: 0;
+                    background-color: #4F92AF;
+                    border-color: #4F92AF;
+          "type="submit" class="btn btn-theme">Get notified!</button>
+					</form>		
+					
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3">
+						<p class="copyright" style="margin-top: 50px;
+	          color: #fff;
+            text-align: center;">Copyright &copy; 2016. Al rights reserved. </p>
+            <p style="color: #555"><a href="http://bootstraptaste.com/">Bootstrap Themes</a> by BootstrapTaste</p>
+                        <!-- 
+                            All links in the footer should remain intact. 
+                            Licenseing information is available at: http://bootstraptaste.com/license/
+                            You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=WeBuild
+                        -->
+				</div>
+			</div>		
+		</div>
+	</div>
+	<script type="text/javascript">
+  $('#countdown').countdown('2016/06/27', function(event) {
+    $(this).html(event.strftime('%w weeks %d days <br /> %H:%M:%S'));
+  });
+</script>
+  </body>
+</html>

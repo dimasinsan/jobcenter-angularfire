@@ -99,6 +99,8 @@
                             <p class="lead">Hubungi Kami Langsung atau Cari Daftar Pekerja Kami!</p>
                             <button class="btn btn-primary" ui-sref="contact-us">Hubungi Kami</button> &nbsp &nbsp
                             <button class="btn btn-primary" ui-sref="home({ '#': 'tipe' })" ng-click="redirect($event)">Pilih Kategori Pekerja</button>                            &nbsp &nbsp
+                            <!--<button class="btn btn-default" ng-click="test()">Test Pagination</button> &nbsp &nbsp
+                            <input type="text" class="form-control" ng-model="tes">-->
                         </div>
                     </div>
                 </div>
@@ -123,7 +125,7 @@
                     <div class="row">
                         <div class="col-md-2 col-md-offset-1">
                             <div class="text-column text-column-centralized tex-column-icon-lg">
-                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal($event)">
+                                <a ui-sref="home({ '#': 'search' })" ng-click="redirectFilterInfal()">
                                     <div class="text-column-icon">
                                         <span class="fa icon-infal"></span>
                                     </div>
@@ -271,60 +273,38 @@
                 <div class="container">
                     <a ng-model="collapsed" ng-click="collapsed=!collapsed" href="">
                         
-                        <h4 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h4></a>
+                  <h4 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h4></a>
                     <div class="well" style="max-height: 400px;overflow: auto;" ng-show="collapsed">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <select class="form-control" id="profesi" ng-model="input.profesi">
-                                <option value="">Pekerjaan yang Diminati</option>
-                                <option>Infal / Cuci-gosok</option>
-                                <option>Pembantu (Full-time)</option>
-                                <option>Tukang Kebun</option>
-                                <option>Penjaga Binatang Peliharaan</option>
-                                <option>Sopir</option>
-                                <option>Tukang / Maintenance</option>
-                                <option>Baby Sitter</option>
-                                <option>Nanny / Perawat Orang Sakit</option>
-                                <option>Satpam</option>
-                                <option>Pekerja Umum</option>
-                            </select>
-                            </div>                            
-                           
-                            <div class="form-group">
-                                <!--<label for="sel7">Pengalaman (tahun):</label>-->
-                                <select class="form-control" id="exp" ng-model="input.exp">
-                                <option value="">Pengalaman (tahun)</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                            </select>
-                            </div>
-                            <div class="form-group">
-                                <!--<label for="sel1">Waktu:</label>-->
-                                <select class="form-control" id="waktu" ng-model="input.waktu">
-                                <option value="">Waktu</option>
-                                <option>Menginap</option>
-                                <option>Infal</option>
-                                <option>Pulang-Pergi</option>
-                            </select>
-                            </div>
+                              <label>
+                                <input type="checkbox" ng-model="isi.value1" ng-true-value="'Infal / Cuci-gosok'" ng-false-value="" >
+                                    Infal / Cuci-gosok  &nbsp</label>
+                              <label>
+                                <input type="checkbox" ng-model="isi.value2" ng-true-value="'Pembantu (Full-time)'" ng-false-value="">
+                                    Pembantu (Full-time)  &nbsp</label>
+                              <label>
+                                <input type="checkbox" ng-model="isi.value3" ng-true-value="'Tukang Kebun'" ng-false-value="">
+                                    Tukang Kebun &nbsp</label>
+                              <label>
+                                <input type="checkbox" ng-model="isi.value4" ng-true-value="'Penjaga Binatang Peliharaan'" ng-false-value="">
+                                    Penjaga Binatang Peliharaan  &nbsp</label>
+                              <label><input type="checkbox" ng-model="isi.value9" ng-true-value="'Satpam'" ng-false-value="">
+                                    Satpam  &nbsp</label>
+                                <!--<select class="form-control" id="profesi" >
+                                  <option value="">Pekerjaan yang Diminati</option>
+                                  <option>Infal / Cuci-gosok</option>
+                                  <option>Pembantu (Full-time)</option>
+                                  <option>Tukang Kebun</option>
+                                  <option>Penjaga Binatang Peliharaan</option>
+                                  <option>Sopir</option>
+                                  <option>Tukang / Maintenance</option>
+                                  <option>Baby Sitter</option>
+                                  <option>Nanny / Perawat Orang Sakit</option>
+                                  <option>Satpam</option>
+                                  <option>Pekerja Umum</option>
+                              </select>-->
+                            </div>                                                                                                                                      
                         </div>
 
                         <div class="col-md-3">
@@ -394,6 +374,21 @@
                             </select>
                             </div>  
                                                      
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label>
+                              <input type="checkbox" ng-model="isi.value5" ng-true-value="'Sopir'" ng-false-value="">
+                                  Sopir  &nbsp</label>
+                            <label>
+                              <input type="checkbox" ng-model="isi.value6" ng-true-value="'Tukang / Maintenance'" ng-false-value="">
+                                  Tukang / Maintenance</label>
+                            <label><input type="checkbox" ng-model="isi.value7" ng-true-value="'Baby Sitter'" ng-false-value="">
+                                Baby Sitter  &nbsp</label>
+                            <label><input type="checkbox" ng-model="isi.value8" ng-true-value="'Nanny / Perawat Orang Sakit'" ng-false-value="">
+                                Nanny / Perawat Orang Sakit  &nbsp</label>
+                            <label><input type="checkbox" ng-model="isi.value10" ng-true-value="'Pekerja Umum'" ng-false-value="">
+                                Pekerja Umum  &nbsp</label> 
+                          </div>                                                                                    
                         </div>
 
                         <div class="col-md-3">
@@ -483,8 +478,22 @@
                                 <option>55</option>
                             </select>
                             </div>
-
-                            <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
+                            <div class="form-group">
+                                <!--<label for="sel1">Suku Asal:</label>-->
+                                <select class="form-control" id="suku" ng-model="input.asal">
+                                <option value="">Suku Asal</option>
+                                <option>Jawa</option>
+                                <option>Sunda</option>
+                                <option>Banten</option>
+                                <option>Batak</option>
+                                <option>Bali</option>
+                                <option>NTB/NTT</option>
+                                <option>Lampung</option>
+                                <option>Madura</option>
+                                <option>Melayu</option>
+                                <option>Lainnya</option>
+                            </select>
+                            </div> 
 
                         </div>
 
@@ -498,16 +507,38 @@
                             </select>
                             </div>
                             <div class="form-group">
-                                <!--<label for="sel7">Pendidikan Terakhir:</label>-->
-                                <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
-                                <option value="">Pendidikan Terakhir</option>
-                                <option>SD</option>
-                                <option>SMP</option>
-                                <option>SMA</option>
-                                <option>Perguruan Tinggi</option>
+                                <!--<label for="sel4">Gaji Bulanan(min):</label>-->
+                                <select class="form-control" id="gajimin">
+                                <option value="">Gaji Bulanan(min)</option>
+                                <option>Rp 1,000,000</option>
+                                <option>Rp 1,100,000</option>
+                                <option>Rp 1,200,000</option>
+                                <option>Rp 1,300,000</option>
+                                <option>Rp 1,400,000</option>
+                                <option>Rp 1,500,000</option>
+                                <option>Rp 1,600,000</option>
+                                <option>Rp 1,700,000</option>
+                                <option>Rp 1,800,000</option>
+                                <option>Rp 1,900,000</option>
+                                <option>Rp 2,000,000</option>
+                                <option>Rp 2,100,000</option>
+                                <option>Rp 2,200,000</option>
+                                <option>Rp 2,300,000</option>
+                                <option>Rp 2,400,000</option>
+                                <option>Rp 2,500,000</option>
+                                <option>Rp 2,600,000</option>
+                                <option>Rp 2,700,000</option>
+                                <option>Rp 2,800,000</option>
+                                <option>Rp 2,900,000</option>
+                                <option>Rp 3,000,000</option>
+                                <option>Rp 3,100,000</option>
+                                <option>Rp 3,200,000</option>
+                                <option>Rp 3,300,000</option>
+                                <option>Rp 3,400,000</option>
+                                <option>Rp 3,500,000</option>
                             </select>
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <!--<label for="sel2">Usia (max):</label>-->
                                 <select class="form-control" id="usiamax">
                                 <option value="">Usia (max)</option>
@@ -552,10 +583,71 @@
                                 <option>55</option>
                             </select>
                             </div>
-                            <br>
+                            <div class="form-group">
+                                <!--<label for="sel7">Pendidikan Terakhir:</label>-->
+                                <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
+                                <option value="">Pendidikan Terakhir</option>
+                                <option>SD</option>
+                                <option>SMP</option>
+                                <option>SMA</option>
+                                <option>Perguruan Tinggi</option>
+                            </select>
+                            </div>
+                           
                             <!--<a class="btn btn-primary pull-right" ng-click="apply()">
                                 <span class="glyphicon glyphicon-filter"></span> Update
                             </a>-->
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group">
+                                <!--<label for="sel7">Pengalaman (tahun):</label>-->
+                                <select class="form-control" id="exp" ng-model="input.exp">
+                                <option value="">Pengalaman (tahun)</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="sel1">Waktu:</label>-->
+                                <select class="form-control" id="waktu" ng-model="input.waktu">
+                                <option value="">Waktu</option>
+                                <option>Menginap</option>
+                                <option>Infal</option>
+                                <option>Pulang-Pergi</option>
+                            </select>
+                            </div>
+                             <div class="form-group">
+                                <select class="form-control" id="agama" ng-model="input.agama">
+                                <option value="">Agama</option>
+                                <option>Islam</option>
+                                <option>Katolik</option>
+                                <option>Kristen</option>
+                                <option>Hindu</option>
+                                <option>Budha</option>
+                                <option>Lainnya</option>
+                            </select>
+                            </div>
+                            
+                            <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
+                            
                         </div>
                     </div>
                 </div>
@@ -582,7 +674,8 @@
                 </div>
                 
                 <div class="container">
-                    <div class="well well-lg" dir-paginate="data in datas | filter:isi | filter:input | itemsPerPage: pageSize" current-page="currentPage">
+                    <div class="well well-lg" dir-paginate="data in datas | filter:{profesi: isi} | filter:input | 
+                                                    itemsPerPage: pageSize" current-page="currentPage">
                         <div class="col-sm-2">
                             <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
                         </div>
@@ -591,7 +684,7 @@
                                 <a ng-click="viewProfile(data)" href="">
                                     <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
                                 </a>
-                                <p>Gaji (Rp): {{ data.gaji}}</p>
+                                <p>Gaji: {{ data.gajiNum | currency:"Rp. ":0}}</p>
                                 <p>Pengalaman : {{ data.exp }} tahun</p>
                                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
                                 <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
@@ -599,13 +692,13 @@
                             </div>                                
 
                             <div class="col-sm-3">
-                                <p class="title" style="font-size: 16px; font-weight: bold">{{data.profesi}}</p>
                                 <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
                                 </p>
+                                 <p class="title"><label ng-repeat="ket in data.profesi">{{ket + ',&nbsp'}}</label></p>
                             </div>
 
                             <div class="col-sm-3">
-                                <button class="btn btn-danger btn-md" data-toggle="modal" ui-sref="homie({ '#': 'contactModal' })" ng-click="bookProfile(data)">
+                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#contactModal" ng-click="bookProfile(data)">
                                 <span class="glyphicon glyphicon-plus-sign"></span> Book Pekerja!
                             </button>
                                 <br>
@@ -881,7 +974,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <!--<h4 class="modal-title">Hubungi Kami</h4>-->
                      <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Sekarang Juga!</h4>
-                     <h5 class="modal-title">Lokasi di <strong>{{data.lokasi}}</strong></h5>
+                     <h5 class="modal-title">Lokasi di <strong>{{data.lokasi}}</strong></h5>                     
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">
@@ -913,10 +1006,10 @@
                         </div>
 
                         <!-- COMMENT -->
-                        <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
+                        <div class="form-group" >
                             <label>Permintaan</label>
-                            <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini"
-                                required></textarea>
+                            <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-maxlength="200" placeholder="Isi permintaan anda disini"
+                               ng-init="user.comment=null" ></textarea>
                             <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
                             <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
                         </div>
@@ -925,7 +1018,7 @@
                             <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                         </ul>
 
-                        <button ng-disabled="!term" type="submit" class="btn btn-primary" id="close" ng-click="submitForm(userForm)">Submit</button>
+                        <button ng-disabled="!term" type="submit" class="btn btn-primary" ng-click="submitForm()">Submit</button>
                         <br>
                         <br>
                         <p> NOTE: Anda akan dihubungi oleh admin kami untuk mengatur jadwal meeting dengan pekerja yang anda pilih.</p>

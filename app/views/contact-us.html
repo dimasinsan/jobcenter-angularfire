@@ -69,7 +69,7 @@
             <!-- page content holder -->
             <div class="page-content-holder" ng-controller="branchViewController">
 
-                <div class="row">
+                <div class="row" ng-controller="branchViewController">
                     <div class="col-md-7">
 
                         <div class="text-column">
@@ -85,26 +85,39 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name <span class="text-hightlight">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>E-mail <span class="text-hightlight">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required/>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Subject <span class="text-hightlight">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="subject" class="form-control" ng-model="user.subject" placeholder="Isi subject anda" required/>
                                 </div>
-                                <div class="form-group">
-                                    <label>Message <span class="text-hightlight">*</span></label>
-                                    <textarea class="form-control" rows="8"></textarea>
-                                </div>
-                                <button class="btn btn-primary btn-lg pull-right">Send Message</button>
                             </div>
+                            <div class="col-md-6">
+                                <label>Location <span class="text-hightlight">*</span></label>
+                                <select class="form-control" ng-model="user.location">
+                                    <option value="">Pilih Lokasi Anda</option>
+                                    <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12" >
+                            <div class="form-group">
+                                <label>Message <span class="text-hightlight">*</span></label>
+                                <textarea type="text" name="message" class="form-control"  ng-model="user.message" rows="8"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg pull-right" ng-click="submitForm()">Send Message</button>
                         </div>
                           </br></br>
                     
