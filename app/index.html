@@ -39,7 +39,15 @@
         <script src="./vendor/angularfire.min.js"></script>
         <script src="./vendor/angular-ui-router.min.js"></script>
         <script src="./vendor/jquery.number.js"></script>
-
+        
+        
+       
+        <!--maps google-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="./vendor/gmap3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mapstyle.css">
+        
+       
     </head>
     <body ng-app="mainApp">
         <ui-view></ui-view>
@@ -52,8 +60,9 @@
         
           ga('create', 'UA-76951171-1', 'auto');
           ga('send', 'pageview');
-        
-        </script>       
+        </script>
+       
+           
          
         <!-- START FRONT PAGE PLUGINS -->
         <link rel="stylesheet" href="vendor/alertify.js/alertify.default.css">
@@ -95,6 +104,12 @@
         <script src="app.js"></script>
         <script src="./search/db.js"></script>
         <script src="vendor/dirPagination.js"></script>
+       
+        <!--<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB8L9qTK5gepR9is8I6Y9L5IMTYNEWf8g
+            &libraries=visualization&callback=initMap">
+       </script>-->
+      
       
         <!--<script type="text/javascript" src="auth/auth.controller.js"></script>
         <script type="text/javascript" src="auth/auth.service.js"></script>-->

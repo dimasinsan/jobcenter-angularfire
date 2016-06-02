@@ -135,7 +135,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   //     });
   //   $state.go('workerprof');
   // };  //end of remove worker
-
+  
+  
   $scope.filter = {};
   $scope.input = {};
   $scope.apply = function () {
@@ -476,8 +477,78 @@ db.controller("branchViewController", function ($scope, $firebaseArray) {
 
   var ref = new Firebase(URL + 'branch');
   $scope.branches = $firebaseArray(ref);
+ 
+  // var lat = document.getElementById('lat');
+  // var long = document.getElementById('long');
+  
+  $('#maps')
+      .gmap3({
+        center: [-6.175572666304688,106.82703861907953],
+        zoom: 7
+      })
+      .cluster({
+        size: 20,
+        markers: [
+          {position: [-6.31335512, 106.95156529999999]},
+          {position: [-6.2826944, 106.6998767]},
+          {position: [-7.575488700000001, 110.82432719999997]},
+          {position: [-6.995603924682818, 110.42975690787353]},
+          {position: [-6.618081999999999, 106.81704309999998]},
+          {position: [-6.909624892235514, 107.61066847718507]}
+        ],
+        cb: function (markers) {
+          if (markers.length > 1) { // 1 marker stay unchanged (because cb returns nothing)
+            if (markers.length < 50) {
+              return {
+                content: "<div class='cluster cluster-1'>" + markers.length + "</div>",
+                x: -100,
+                y: -100
+              };
+            }
+          }
+        }
+      });
+  //  $.gmap3(false);
+  //   var center = [-6.175529999999999 , 106.82278999999994 ];
+    
+  //   $('#maps')
+  //     .gmap3({
+  //       center: center,
+  //       zoom: 6,
+  //       mapTypeId : google.maps.MapTypeId.ROADMAP
+  //     })
+  //     .marker(function (map) {
+  //       return {
+  //         position: map.getCenter(),
+  //         icon: 'http://maps.google.com/mapfiles/marker_green.png'
+  //       };
+  //     })
+  //       .on('click', function (marker, event) {
+  //         marker.setIcon('http://maps.google.com/mapfiles/marker_orange.png');
+  //         setTimeout(function () {
+  //           marker.setIcon('http://maps.google.com/mapfiles/marker_green.png');
+  //         }, 200);
+  //       });
+  
 
+//  $('#map').locationpicker ({
+//     location: {
+//         latitude: [],
+//         longitude: []
+//     },
+//     radius: 100,
+//     inputBinding: {
+//         latitudeInput: $('#lat'),
+//         longitudeInput: $('#long'),
+//         //radiusInput: $('#us2-radius'),
+//         locationNameInput: $('#alamat')
+//     },
+//     enableAutocomplete: true
+//   });
+ 
+ 
 }); // end of branch view controller
+
 
 /*
 db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', function ($scope, $firebaseArray, $state) {
@@ -641,3 +712,12 @@ var postsRef = ref.child("posts");
     title: "Announcing COBOL, a New Programming Language"
   });
 */
+
+ 
+
+
+
+    
+      
+      
+      
