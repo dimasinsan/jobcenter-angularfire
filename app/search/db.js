@@ -208,6 +208,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.isi = {};
    $scope.apply = function () {
      $scope.input = {};
+     $scope.min = {};
+     $scope.max = {};
   //   for (prop in $scope.input) {
   //     $scope.filter[prop] = $scope.input[prop];
   //   }   
