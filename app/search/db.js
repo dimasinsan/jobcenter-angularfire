@@ -41,22 +41,6 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     ref2.push({nama: $scope.tes, tersedia: "available"})
   };
 
-  // $scope.submitForm = function (user) {
-
-  //   if ($scope.userForm.$invalid === true) {
-  //     $scope.notValid = true;
-  //     return
-  //   }
-  //   $scope.postData = angular.copy(user);
-
-  //   $http.post('/contact', $scope.postData)
-  //     .success(function (data) {
-  //       alert('successfully emailed form');
-  //     })
-  //     .error(function (data) {
-  //       alert('something went wrong');
-  //     });
-  // };
   
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
@@ -372,11 +356,38 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 
 }); //end of profile view controller
 
-db.controller("branchViewController", function ($scope, $firebaseArray) {
+db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
 
   var ref = new Firebase(URL + 'branch');
   $scope.branches = $firebaseArray(ref);
 
+  //NODEMAILER
+  
+  
+  $scope.submitForm = function (user) {
+    var data = ({
+        name : $scope.user.name,
+        email : $scope.user.email,
+        subject : $scope.user.subject,
+        location : $scope.user.location,          
+        message : $scope.user.message
+    });
+    
+    // if ($scope.userForm.$invalid === true) {
+    //   $scope.notValid = true;
+    //   return
+    // }
+    // $scope.postData = angular.copy(user);
+
+    $http.post('/contact', data)
+      .success(function (data) {
+        alert('successfully emailed form');
+      })
+      .error(function (data) {
+        alert('something went wrong');
+      });
+  };
+  
 }); // end of branch view controller
 
 /*
