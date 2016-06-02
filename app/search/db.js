@@ -37,15 +37,40 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     //         });
     // }
   
-  $scope.test = function(){
-    ref2.push({nama: $scope.tes, tersedia: "available"})
-  };
-
+  // $scope.submitForm = function (user) {
+  //   var data = ({
+  //       user : $scope.user.name,
+  //       email : $scope.user.email,
+  //       telp : $scope.user.contact,
+  //       nama: $scope.data.nama,
+  //       location : $scope.data.lokasi,
+  //       profesi: $scope.data.profesi,          
+  //       message : $scope.user.comment
+  //   });
+    
+  //   $http.post('/modal', data)
+  //     .success(function (data) {
+  //       alert('successfully emailed form');
+  //     })
+  //     .error(function (data) {
+  //       alert('something went wrong');
+  //     });
+  // };
   
+ 
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
    
   $scope.submitForm = function () {
+    var data = ({
+        user : $scope.user.name,
+        email : $scope.user.email,
+        telp : $scope.user.contact,
+        nama: $scope.data.nama,
+        location : $scope.data.lokasi,
+        profesi: $scope.data.profesi,          
+        message : $scope.user.comment
+    });
     if ($scope.userForm.$valid) {
       $("#contactModal").modal("hide");
       alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
@@ -63,7 +88,14 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         profesi: $scope.data.profesi
       })
       .then(function () {
-        ref4.update({tersedia: "booked"});        
+        ref4.update({tersedia: "booked"});
+        $http.post('/modal', data)
+        .success(function (data) {
+          alertify.success('successfully emailed form');
+        })
+        .error(function (data) {
+          alertify.error('email failed');
+        });        
         //alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
         $state.go('home');                             
       })
@@ -325,7 +357,15 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
   $scope.submitForm = function () {
-
+    var data = ({
+        user : $scope.user.name,
+        email : $scope.user.email,
+        telp : $scope.user.contact,
+        nama: $scope.data.nama,
+        location : $scope.data.lokasi,
+        profesi: $scope.data.profesi,          
+        message : $scope.user.comment
+    });
     if ($scope.userForm.$valid) {
       $("#contactModal").modal("hide");
       alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
@@ -343,7 +383,14 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
         profesi: $scope.data.profesi
       })))
       .then(function () {
-        ref2.update({tersedia: "booked"});        
+        ref2.update({tersedia: "booked"});   
+        $http.post('/modal', data)
+        .success(function (data) {
+          alertify.success('successfully emailed form');
+        })
+        .error(function (data) {
+          alertify.error('email failed');
+        });          
         //alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');        
         $state.go('home');                       
       })
@@ -380,12 +427,22 @@ db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
     // $scope.postData = angular.copy(user);
 
     $http.post('/contact', data)
-      .success(function (data) {
-        alert('successfully emailed form');
-      })
-      .error(function (data) {
-        alert('something went wrong');
+      // .success(function (data) {
+      //   alertify.success('successfully emailed form');
+      // })
+      // .error(function (data) {
+      //   alertify.error('something went wrong');
+      // });
+      .then(function () {
+        alertify.success('successfully emailed form');
+      }).catch(function (error) {
+        alertify.error('something went wrong');
       });
+      $scope.user.name = '';
+      $scope.user.email = '';
+      $scope.user.subject = '';
+      $scope.user.location = '';
+      $scope.user.message = '';
   };
   
 }); // end of branch view controller

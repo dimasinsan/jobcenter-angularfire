@@ -59,7 +59,49 @@ app.post('/contact', function(req, res) {
         from: data.from,
         to: 'audiae@gmail.com',
         subject: '[' + data.location + ']' + data.subject,
-        text: 'Alo Alo Bangdung ' + data.message
+        text: 'Hello,  ' +data.name+ 'at ' +data.email+ 'has sent you a message: ' +data.message,
+        
+    };
+
+    smtpTrans.sendMail(mailOpts, function(error, response) {
+        //Email not sent
+        if (error) {
+            console.log(error);
+        }
+        //Yay!! Email sent
+        else {
+            console.log('Message sent: ' + response);
+        }
+    });
+});
+
+app.post('/modal', function(req, res) {
+    
+    // var name = req.body.name;
+    // var from = req.body.email;
+    // var subject = req.body.subject;
+    // var location = req.body.location;
+    // var message = req.body.message;
+    // var to = 'audiae@gmail.com';
+    
+    var data = req.body;
+    
+    //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
+    var smtpTrans = nodemailer.createTransport('SMTP', {
+        service: 'Gmail',
+        auth: {
+            user: "audiae@gmail.com",
+            pass: "rskwzfomitkgjljz"
+        }
+    });
+    
+    //Mail options
+    var mailOpts = {
+        from: data.from,
+        to: 'audiae@gmail.com',
+        subject: '[' + data.location + ']' + data.subject,
+        text: 'Hello,  ' +data.user+ 'at ' +data.email+ +data.telp+' has sent you a message: ' +data.message+ 'Booking ' +data.nama+ ' lokasi di ' +data.location,
+        
     };
 
     smtpTrans.sendMail(mailOpts, function(error, response) {
