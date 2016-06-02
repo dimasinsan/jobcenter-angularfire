@@ -37,19 +37,18 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     //         });
     // }
   
-  $scope.test = function(){
-    ref2.push({nama: $scope.tes, tersedia: "available"})
-  };
-
   // $scope.submitForm = function (user) {
-
-  //   if ($scope.userForm.$invalid === true) {
-  //     $scope.notValid = true;
-  //     return
-  //   }
-  //   $scope.postData = angular.copy(user);
-
-  //   $http.post('/contact', $scope.postData)
+  //   var data = ({
+  //       user : $scope.user.name,
+  //       email : $scope.user.email,
+  //       telp : $scope.user.contact,
+  //       nama: $scope.data.nama,
+  //       location : $scope.data.lokasi,
+  //       profesi: $scope.data.profesi,          
+  //       message : $scope.user.comment
+  //   });
+    
+  //   $http.post('/modal', data)
   //     .success(function (data) {
   //       alert('successfully emailed form');
   //     })
@@ -58,10 +57,20 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   //     });
   // };
   
+ 
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
    
   $scope.submitForm = function () {
+    var data = ({
+        user : $scope.user.name,
+        email : $scope.user.email,
+        telp : $scope.user.contact,
+        nama: $scope.data.nama,
+        location : $scope.data.lokasi,
+        profesi: $scope.data.profesi,          
+        message : $scope.user.comment
+    });
     if ($scope.userForm.$valid) {
       $("#contactModal").modal("hide");
       alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
@@ -79,7 +88,14 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         profesi: $scope.data.profesi
       })
       .then(function () {
-        ref4.update({tersedia: "booked"});        
+        ref4.update({tersedia: "booked"});
+        $http.post('/modal', data)
+        .success(function (data) {
+          alertify.success('successfully emailed form');
+        })
+        .error(function (data) {
+          alertify.error('email failed');
+        });        
         //alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');
         $state.go('home');                             
       })
@@ -110,6 +126,62 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       alert("Pekerja Tidak Tersedia");
     }
   }; //end of view Profile
+        //------------->x
+
+  // $scope.updateBranch = function (branch) {
+  //   $rootScope.branch = branch;
+  //   $state.go('branch-edit', { branchId: $rootScope.branch.$id });
+  // }; //end of update branch
+
+  // $scope.editBranch = function () {
+  //   $scope.branch.$save()
+  //     .then(function () {
+  //       alert('Branch Updated!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('offices');
+  // };  //end of edit branch
+
+  // $scope.removeBranch = function (branch) {
+  //   $scope.branch.$remove()
+  //     .then(function () {
+  //       alert('Branch Removed!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('offices');
+  // };  //end of remove branch
+
+  // $scope.updateWorker = function (data) {
+  //   $rootScope.data = data;
+  //   $state.go('worker-edit', { workerId: $rootScope.data.$id });
+  // }; //end of update worker
+
+  // var tanggal = document.getElementById('inputTanggal');
+  // var gaji = document.getElementById('inputGaji');
+
+  // $scope.editWorker = function () {
+  //   $scope.data.$save()
+  //     .then(ref4.update({ tanggallahir: tanggal.value, gaji: gaji.value }))
+  //     .then(function () {
+  //       alert('Worker Updated!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('workerprof');
+  // };  //end of edit worker
+
+  // $scope.removeWorker = function (data) {
+  //   $scope.data.$remove()
+  //     .then(function () {
+  //       alert('Worker Removed!');
+  //     }).catch(function (error) {
+  //       alert('Error!')
+  //     });
+  //   $state.go('workerprof');
+  // };  //end of remove worker
+    
         //------------->x  
 
   //$scope.filter = {};
@@ -361,7 +433,15 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
   $scope.submitForm = function () {
-
+    var data = ({
+        user : $scope.user.name,
+        email : $scope.user.email,
+        telp : $scope.user.contact,
+        nama: $scope.data.nama,
+        location : $scope.data.lokasi,
+        profesi: $scope.data.profesi,          
+        message : $scope.user.comment
+    });
     if ($scope.userForm.$valid) {
       $("#contactModal").modal("hide");
       alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
@@ -379,7 +459,14 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
         profesi: $scope.data.profesi
       })))
       .then(function () {
-        ref2.update({tersedia: "booked"});        
+        ref2.update({tersedia: "booked"});   
+        $http.post('/modal', data)
+        .success(function (data) {
+          alertify.success('successfully emailed form');
+        })
+        .error(function (data) {
+          alertify.error('email failed');
+        });          
         //alertify.alert('Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami');        
         $state.go('home');                       
       })
@@ -392,12 +479,99 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 
 }); //end of profile view controller
 
-db.controller("branchViewController", function ($scope, $firebaseArray) {
+db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
 
   var ref = new Firebase(URL + 'branch');
   $scope.branches = $firebaseArray(ref);
+ 
+  // var lat = document.getElementById('lat');
+  // var long = document.getElementById('long');
+  
+  $('#maps')
+      .gmap3({
+        center: [-6.175572666304688,106.82703861907953],
+        zoom: 7
+      })
+      .cluster({
+        size: 20,
+        markers: [
+          {position: [-6.31335512, 106.95156529999999]},
+          {position: [-6.2826944, 106.6998767]},
+          {position: [-7.575488700000001, 110.82432719999997]},
+          {position: [-6.995603924682818, 110.42975690787353]},
+          {position: [-6.618081999999999, 106.81704309999998]},
+          {position: [-6.909624892235514, 107.61066847718507]}
+        ],
+        cb: function (markers) {
+          if (markers.length > 1) { // 1 marker stay unchanged (because cb returns nothing)
+            if (markers.length < 50) {
+              return {
+                content: "<div class='cluster cluster-1'>" + markers.length + "</div>",
+                x: -100,
+                y: -100
+              };
+            }
+          }
+        }
+      });
+  //  $.gmap3(false);
+  //   var center = [-6.175529999999999 , 106.82278999999994 ];
+    
+  //   $('#maps')
+  //     .gmap3({
+  //       center: center,
+  //       zoom: 6,
+  //       mapTypeId : google.maps.MapTypeId.ROADMAP
+  //     })
+  //     .marker(function (map) {
+  //       return {
+  //         position: map.getCenter(),
+  //         icon: 'http://maps.google.com/mapfiles/marker_green.png'
+  //       };
+  //     })
+  //       .on('click', function (marker, event) {
+  //         marker.setIcon('http://maps.google.com/mapfiles/marker_orange.png');
+  //         setTimeout(function () {
+  //           marker.setIcon('http://maps.google.com/mapfiles/marker_green.png');
+  //         }, 200);
+  //       });
+   
+  //NODEMAILER  
+  $scope.submitForm = function (user) {
+    var data = ({
+        name : $scope.user.name,
+        email : $scope.user.email,
+        subject : $scope.user.subject,
+        location : $scope.user.location,          
+        message : $scope.user.message
+    });
+    
+    // if ($scope.userForm.$invalid === true) {
+    //   $scope.notValid = true;
+    //   return
+    // }
+    // $scope.postData = angular.copy(user);
 
+    $http.post('/contact', data)
+      // .success(function (data) {
+      //   alertify.success('successfully emailed form');
+      // })
+      // .error(function (data) {
+      //   alertify.error('something went wrong');
+      // });
+      .then(function () {
+        alertify.success('successfully emailed form');
+      }).catch(function (error) {
+        alertify.error('something went wrong');
+      });
+      $scope.user.name = '';
+      $scope.user.email = '';
+      $scope.user.subject = '';
+      $scope.user.location = '';
+      $scope.user.message = '';
+  };  
 }); // end of branch view controller
+
 
 /*
 db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', function ($scope, $firebaseArray, $state) {
@@ -561,3 +735,12 @@ var postsRef = ref.child("posts");
     title: "Announcing COBOL, a New Programming Language"
   });
 */
+
+ 
+
+
+
+    
+      
+      
+      

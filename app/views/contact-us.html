@@ -67,9 +67,9 @@
             </div>
 
             <!-- page content holder -->
-            <div class="page-content-holder">
+            <div class="page-content-holder" ng-controller="branchViewController">
 
-                <div class="row">
+                <div class="row" ng-controller="branchViewController">
                     <div class="col-md-7">
 
                         <div class="text-column">
@@ -79,210 +79,76 @@
                                 tincidunt et eget purus.
                             </div>
                         </div>
-
+                       </div>
+                       </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name <span class="text-hightlight">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>E-mail <span class="text-hightlight">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required/>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Subject <span class="text-hightlight">*</span></label>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="subject" class="form-control" ng-model="user.subject" placeholder="Isi subject anda" required/>
                                 </div>
-                                <div class="form-group">
-                                    <label>Message <span class="text-hightlight">*</span></label>
-                                    <textarea class="form-control" rows="8"></textarea>
-                                </div>
-                                <button class="btn btn-primary btn-lg pull-right">Send Message</button>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Location <span class="text-hightlight">*</span></label>
+                                <select class="form-control" ng-model="user.location">
+                                    <option value="">Pilih Lokasi Anda</option>
+                                    <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
+                                </select>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="col-md-5">
-                        <div class="panel-group" id="accordion">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-target="#collapse1">
-                                     Jakarta Pusat</a>
-                                   </h4>
-                                </div>
-
-                                <div id="collapse1" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        Jl Menteng Dalam No 1 Kebon Sirih
-                                        <br> 021-25525550
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.605065156067!2d106.8302543140437!3d-6.18357856230788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f431a89af057%3A0xa99b10f338e2fdae!2sJl.+Menteng%2C+Kb.+Sirih%2C+Menteng%2C+Kota+Jakarta+Pusat%2C+Daerah+Khusus+Ibukota+Jakarta!5e0!3m2!1sen!2sid!4v1460530213274"
-                                            width="230" height="250" frameborder="0" style="border:;0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
+                        <br>
+                        <div class="col-md-12" >
+                            <div class="form-group">
+                                <label>Message <span class="text-hightlight">*</span></label>
+                                <textarea type="text" name="message" class="form-control"  ng-model="user.message" rows="8"></textarea>
                             </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                          	         <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse2">
-                          	         Jakarta Utara</a>
-                          	       </h4>
-                                </div>
-                                <div id="collapse2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Jl. Boulevard Raya, Pegangsaan Dua, Kelapa Gading
-                                        <br> 021-25525551
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.868392730342!2d106.90744901404328!3d-6.148371861978895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5358b607cef%3A0xe062bd5d79e32207!2sJl.+Boulevard+Raya%2C+Pegangsaan+Dua%2C+Klp.+Gading%2C+Kota+Jkt+Utara%2C+Daerah+Khusus+Ibukota+Jakarta!5e0!3m2!1sen!2sid!4v1460531095663"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse3">
-                                       Jakarta Timur</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Jalan Rawamangun Selatan, Rawamangun
-                                        <br> 021-25525552
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.466368466548!2d106.87955411404393!3d-6.2020421624812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4910a89d71b%3A0xd70adc717ce8feec!2sJl.+Rawamangun+Selatan%2C+Rawamangun%2C+Pulo+Gadung%2C+Kota+Jakarta+TimurPulogadung%2C+Daerah+Khusus+Ibukota+Jakarta!5e0!3m2!1sen!2sid!4v1460531302378"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse4">
-                                       Jakarta Selatan</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Jalan Tebet Raya, Tebet Timur
-                                        <br> 021-25525553
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2657771873037!2d106.85272781404417!3d-6.2286488627319345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f39073729f1b%3A0x1abb36b6144eca02!2sJl.+Tebet+Raya%2C+Tebet+Tim.%2C+Tebet%2C+Kota+Jakarta+Selatan%2C+Daerah+Khusus+Ibukota+Jakarta!5e0!3m2!1sen!2sid!4v1460531508187"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse5">
-                                       Jakarta Barat</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse5" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Meruya Utara, Kebon Jeruk No 1
-                                        <br> 021-56723410
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.500109235349!2d106.76310341404375!3d-6.197555562438995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f716360dbc21%3A0x60fc5f839a47b4f5!2sJl.+Meruya+Utara%2C+Kb.+Jeruk%2C+Kota+Jakarta+Barat%2C+Daerah+Khusus+Ibukota+Jakarta!5e0!3m2!1sen!2sid!4v1460531762482"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse6">
-                                       Bogor</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse6" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Jl. Pajajaran, Sukasari, Bogor
-                                        <br> 0251-23479845
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.232043413631!2d106.81484051404817!3d-6.6180689665338965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5fd4a0ccd31%3A0xc44551b0162c0673!2sJl.+Pajajaran%2C+Sukasari%2C+Bogor+Tim.%2C+Kota+Bogor%2C+Jawa+Barat!5e0!3m2!1sen!2sid!4v1460532240545"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse7">
-                                       Depok</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse7" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        MARGONDA, Jalan Margonda Raya, Depok
-                                        <br> 021-23412311
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.0089059252127!2d106.82090431404579!3d-6.392851664304908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ebe36674ca7b%3A0x3564e1e6f8964a62!2sMARGONDA!5e0!3m2!1sen!2sid!4v1460532327867"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse8">
-                                       Tangerang</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse8" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Jl. Niaga XI, Karang Timur, Tangerang City
-                                        <br> 021-28455345
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.276739265803!2d106.71865241404417!3d-6.227197762718243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fa0703087655%3A0xf2e9bd46747a6e7f!2sJl.+Niaga+XI%2C+Karang+Tim.%2C+Karang+Tengah%2C+Kota+Tangerang%2C+Banten!5e0!3m2!1sen!2sid!4v1460532522661"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="javascript:;" data-parent="#accordion" 
-          data-target="#collapse9">
-                                       Bekasi</a>
-                            	       </h4>
-                                </div>
-                                <div id="collapse9" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        Jalan Bekasi Timur, Cipinang Muara
-                                        <br> 021-27527523
-                                        <hr>
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.362093735038!2d106.886038514044!3d-6.215887462611544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f36005a058f3%3A0x9b251b057c9382a4!2sJl.+Bekasi+Timur%2C+Cipinang+Muara%2C+Jatinegara%2C+Kota+Jakarta+Timur%2C+Daerah+Khusus+Ibukota+Jakarta!5e0!3m2!1sen!2sid!4v1460532620785"
-                                            width="220" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg pull-right" ng-click="submitForm()">Send Message</button>
                         </div>
-                    </div>
+                          </br></br>
+                    
+                    <div id="maps" style="width: 1100px; height: 300px;"></div>
+                    
+                    </br></br>
+                        <div class="row" >
+                        <div class="col-lg-5" ng-repeat="branch in branches">
+                            
+                            <div class="panel panel-default" >
+                                <div class="panel-body profile">
+                                    <!--<div class="col-md-6">
+                        <br>                        
+                                                
+                            <input type="text"  ng-model="branch.lat" value="branch.lat" />
+                            <input type="text"  ng-model="branch.long" value="branch.long"/>
+                        </div>-->
+                        
+                                </div>      
+                                                         
+                                <div class="panel-body" >                                    
+                                    <div class="contact-info">
+                                        <p id="alamat">{{branch.alamat}}</p>
+                                        <p>{{branch.kotamadya}}</p>
+                                        <p>{{branch.telp}}</p> 
+                                        <p>{{branch.email}}</p>                                
+                                    </div>                             
+                            </div>
+                    </div>  
                 </div>
-
+            </div>
             </div>
             <!-- ./page content holder -->
         </div>
