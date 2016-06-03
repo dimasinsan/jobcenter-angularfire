@@ -185,13 +185,35 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         //------------->x  
 
   //$scope.filter = {};
-  $scope.input = {};
+  $scope.gaji = function (data) {
+    var gajiNum = data.gajiNum;
+    var min = $scope.min;
+    var max = $scope.max;
+    
+    if (!gajiNum) {
+      return false;
+    }
+  
+    if(min && gajiNum < min) {
+      return false;
+    }
+    
+    if(max && gajiNum > max) {
+      return false;
+    }
+  
+    return true;
+  };
+  
   $scope.isi = {};
-  // $scope.apply = function () {
+   $scope.apply = function () {
+     $scope.input = {};
+     $scope.min = {};
+     $scope.max = {};
   //   for (prop in $scope.input) {
   //     $scope.filter[prop] = $scope.input[prop];
   //   }   
-  // };  //end of filter button function
+   };  //end of filter button function
   
   //redirect for Indonesian
   $scope.redirect = function (event) {

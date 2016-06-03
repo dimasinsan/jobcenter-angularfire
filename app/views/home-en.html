@@ -269,7 +269,7 @@
                         <span style="color:#00003B" ng-show="isi.value10 == 'Pekerja Umum'">General Worker</span>
                     </h3>
                     <h1 class="heading-underline">Where are You?</h1>
-                    <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px" ng-controller="branchViewController"
+                    <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px"
                         ng-model="input.lokasi">
                     <option value="">Choose A Location</option>
                     <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
@@ -290,7 +290,7 @@
                                     Seasonal / Daily Cleaner  &nbsp</label>
                               <label>
                                 <input type="checkbox" ng-model="isi.value2" ng-true-value="'Pembantu (Full-time)'" ng-false-value="">
-                                    Housemaid (Full-time)  &nbsp</label>
+                                    Housemaid (Full-time) </label>
                               <label>
                                 <input type="checkbox" ng-model="isi.value3" ng-true-value="'Tukang Kebun'" ng-false-value="">
                                     Gardener &nbsp</label>
@@ -316,13 +316,13 @@
                             </div>
                           </div>  
                                                     
-                            <div class="col-md-2">
-                              <div class="form-group">
+                          <div class="col-md-2">
+                                <div class="form-group">
                                 <label>
-                                  <input type="checkbox" ng-model="isi.value5" ng-true-value="'Sopir'" ng-false-value="">
-                                    Driver  &nbsp</label>
+                                    <input type="checkbox" ng-model="isi.value5" ng-true-value="'Sopir'" ng-false-value="">
+                                    Driver </label><br>
                                 <label>
-                                  <input type="checkbox" ng-model="isi.value6" ng-true-value="'Tukang / Maintenance'" ng-false-value="">
+                                    <input type="checkbox" ng-model="isi.value6" ng-true-value="'Tukang / Maintenance'" ng-false-value="">
                                     Handyman</label>
                                 <label><input type="checkbox" ng-model="isi.value7" ng-true-value="'Baby Sitter'" ng-false-value="">
                                     Baby Sitter  &nbsp</label>
@@ -330,10 +330,10 @@
                                     Nanny / Nurse  &nbsp</label>
                                 <label><input type="checkbox" ng-model="isi.value10" ng-true-value="'Pekerja Umum'" ng-false-value="">
                                     General Worker  &nbsp</label> 
-                              </div> 
-                            </div>
+                                </div> 
+                          </div>
                             
-                            <div class="col-md-3">
+                          <div class="col-md-3">
                               <div class="form-group">
                                 <select class="form-control" id="status" ng-model="input.status">
                                 <option value="">Status</option>
@@ -344,34 +344,42 @@
                               </div>
                             
                               <div class="form-group">
-                                <select class="form-control" id="gajimax">
-                                  <option value="">Monthly Salary(max)</option>
-                                  <option>Rp 1,000,000</option>
-                                  <option>Rp 1,100,000</option>
-                                  <option>Rp 1,200,000</option>
-                                  <option>Rp 1,300,000</option>
-                                  <option>Rp 1,400,000</option>
-                                  <option>Rp 1,500,000</option>
-                                  <option>Rp 1,600,000</option>
-                                  <option>Rp 1,700,000</option>
-                                  <option>Rp 1,800,000</option>
-                                  <option>Rp 1,900,000</option>
-                                  <option>Rp 2,000,000</option>
-                                  <option>Rp 2,100,000</option>
-                                  <option>Rp 2,200,000</option>
-                                  <option>Rp 2,300,000</option>
-                                  <option>Rp 2,400,000</option>
-                                  <option>Rp 2,500,000</option>
-                                  <option>Rp 2,600,000</option>
-                                  <option>Rp 2,700,000</option>
-                                  <option>Rp 2,800,000</option>
-                                  <option>Rp 2,900,000</option>
-                                  <option>Rp 3,000,000</option>
-                                  <option>Rp 3,100,000</option>
-                                  <option>Rp 3,200,000</option>
-                                  <option>Rp 3,300,000</option>
-                                  <option>Rp 3,400,000</option>
-                                  <option>Rp 3,500,000</option>
+                                <select class="form-control" id="gajimin" ng-model="min">
+                                  <option value="">Monthly Salary(min)</option>
+                                    <option value="500000">Rp 500,000</option>
+                                    <option value="750000">Rp 750,000</option>
+                                    <option value="1000000">Rp 1,000,000</option>
+                                    <!--<option>Rp 1,100,000</option>-->
+                                    <!--<option value="1250000">Rp 1,250,000</option>
+                                    <option>Rp 1,300,000</option>
+                                    <option>Rp 1,400,000</option>-->
+                                    <option value="1500000">Rp 1,500,000</option>
+                                    <!--<option>Rp 1,600,000</option>-->
+                                    <option value="1750000">Rp 1,750,000</option>
+                                    <!--<option>Rp 1,800,000</option>
+                                    <option>Rp 1,900,000</option>-->
+                                    <option value="2000000">Rp 2,000,000</option>
+                                    <!--<option>Rp 2,100,000</option>-->
+                                    <option value="2250000">Rp 2,250,000</option>
+                                    <!--<option>Rp 2,300,000</option>
+                                    <option>Rp 2,400,000</option>-->
+                                    <option value="2500000">Rp 2,500,000</option>
+                                    <!--<option>Rp 2,600,000</option>-->
+                                    <option value="2750000">Rp 2,750,000</option>
+                                    <!--<option>Rp 2,800,000</option>
+                                    <option>Rp 2,900,000</option>-->
+                                    <option value="3000000">Rp 3,000,000</option>
+                                    <!--<option>Rp 3,100,000</option>-->
+                                    <option value="3250000">Rp 3,250,000</option>
+                                    <!--<option>Rp 3,300,000</option>
+                                    <option>Rp 3,400,000</option>-->
+                                    <option value="3500000">Rp 3,500,000</option>
+                                    <option value="3750000">Rp 3,750,000</option>
+                                    <option value="4000000">Rp 4,000,000</option>
+                                    <option value="4250000">Rp 4,250,000</option>
+                                    <option value="4500000">Rp 4,500,000</option>
+                                    <option value="4750000">Rp 4,750,000</option>
+                                    <option value="5000000">Rp 5,000,000</option>
                                 </select>
                               </div>
                              
@@ -435,9 +443,9 @@
                                   <option value="Lainnya">Others</option>
                                </select>
                               </div>   
-                            </div>
+                          </div>
                             
-                            <div class="col-md-3">
+                          <div class="col-md-3">
                               <div class="form-group">
                                 <select class="form-control" id="gender" ng-model="input.gender">
                                   <option value="">Gender</option>
@@ -447,34 +455,42 @@
                               </div>
                               
                               <div class="form-group">
-                                <select class="form-control" id="gajimin">
-                                  <option value="">Monthly Salary(min)</option>
-                                  <option>Rp 1,000,000</option>
-                                  <option>Rp 1,100,000</option>
-                                  <option>Rp 1,200,000</option>
-                                  <option>Rp 1,300,000</option>
-                                  <option>Rp 1,400,000</option>
-                                  <option>Rp 1,500,000</option>
-                                  <option>Rp 1,600,000</option>
-                                  <option>Rp 1,700,000</option>
-                                  <option>Rp 1,800,000</option>
-                                  <option>Rp 1,900,000</option>
-                                  <option>Rp 2,000,000</option>
-                                  <option>Rp 2,100,000</option>
-                                  <option>Rp 2,200,000</option>
-                                  <option>Rp 2,300,000</option>
-                                  <option>Rp 2,400,000</option>
-                                  <option>Rp 2,500,000</option>
-                                  <option>Rp 2,600,000</option>
-                                  <option>Rp 2,700,000</option>
-                                  <option>Rp 2,800,000</option>
-                                  <option>Rp 2,900,000</option>
-                                  <option>Rp 3,000,000</option>
-                                  <option>Rp 3,100,000</option>
-                                  <option>Rp 3,200,000</option>
-                                  <option>Rp 3,300,000</option>
-                                  <option>Rp 3,400,000</option>
-                                  <option>Rp 3,500,000</option>
+                                <select class="form-control" id="gajimax" ng-model="max">
+                                  <option value="">Monthly Salary(max)</option>
+                                    <option value="500000">Rp 500,000</option>
+                                    <option value="750000">Rp 750,000</option>
+                                    <option value="1000000">Rp 1,000,000</option>
+                                    <!--<option>Rp 1,100,000</option>-->
+                                    <!--<option value="1250000">Rp 1,250,000</option>
+                                    <option>Rp 1,300,000</option>
+                                    <option>Rp 1,400,000</option>-->
+                                    <option value="1500000">Rp 1,500,000</option>
+                                    <!--<option>Rp 1,600,000</option>-->
+                                    <option value="1750000">Rp 1,750,000</option>
+                                    <!--<option>Rp 1,800,000</option>
+                                    <option>Rp 1,900,000</option>-->
+                                    <option value="2000000">Rp 2,000,000</option>
+                                    <!--<option>Rp 2,100,000</option>-->
+                                    <option value="2250000">Rp 2,250,000</option>
+                                    <!--<option>Rp 2,300,000</option>
+                                    <option>Rp 2,400,000</option>-->
+                                    <option value="2500000">Rp 2,500,000</option>
+                                    <!--<option>Rp 2,600,000</option>-->
+                                    <option value="2750000">Rp 2,750,000</option>
+                                    <!--<option>Rp 2,800,000</option>
+                                    <option>Rp 2,900,000</option>-->
+                                    <option value="3000000">Rp 3,000,000</option>
+                                    <!--<option>Rp 3,100,000</option>-->
+                                    <option value="3250000">Rp 3,250,000</option>
+                                    <!--<option>Rp 3,300,000</option>
+                                    <option>Rp 3,400,000</option>-->
+                                    <option value="3500000">Rp 3,500,000</option>
+                                    <option value="3750000">Rp 3,750,000</option>
+                                    <option value="4000000">Rp 4,000,000</option>
+                                    <option value="4250000">Rp 4,250,000</option>
+                                    <option value="4500000">Rp 4,500,000</option>
+                                    <option value="4750000">Rp 4,750,000</option>
+                                    <option value="5000000">Rp 5,000,000</option>
                                 </select>
                               </div>
                               
@@ -532,62 +548,62 @@
                                   <option value="Perguruan Tinggi">Degree</option>
                                 </select>
                               </div>                            
+                          </div>
+                            
+                          <div class="col-md-2">
+                            <div class="form-group">
+                            <select class="form-control" id="exp" ng-model="input.exp">
+                                <option value="">Experience (years)</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                            </select>
                             </div>
                             
-                            <div class="col-md-2">
-                              <div class="form-group">
-                                <select class="form-control" id="exp" ng-model="input.exp">
-                                  <option value="">Experience (years)</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                  <option>13</option>
-                                  <option>14</option>
-                                  <option>15</option>
-                                  <option>16</option>
-                                  <option>17</option>
-                                  <option>18</option>
-                                  <option>19</option>
-                                  <option>20</option>
-                                </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <select class="form-control" id="waktu" ng-model="input.waktu">
-                                  <option value="">Work Time</option>
-                                  <option value="Menginap">Stay-In</option>
-                                  <option value="Infal">Seasonal</option>
-                                  <option value="Pulang-Pergi">Nine-to-Five / Temporary</option>
-                                </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <select class="form-control" id="agama" ng-model="input.agama">
-                                  <option value="">Religion</option>
-                                  <option value="Islam">Moslem</option>
-                                  <option value="Katolik">Catholic</option>
-                                  <option value="Kristen">Christian</option>
-                                  <option value="Hindu">Hindu</option>
-                                  <option value="Budha">Buddhist</option>
-                                  <option value="Lainnya">Other</option>
-                                </select>
-                              </div>
-                                <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
+                            <div class="form-group">
+                            <select class="form-control" id="waktu" ng-model="input.waktu">
+                                <option value="">Work Time</option>
+                                <option value="Menginap">Stay-In</option>
+                                <option value="Infal">Seasonal</option>
+                                <option value="Pulang-Pergi">Nine-to-Five / Temporary</option>
+                            </select>
                             </div>
-                                                        
-                    </div>                                                                      
-                            <!--<a class="btn btn-primary pull-right" ng-click="apply()">
-                                <span class="glyphicon glyphicon-filter"></span> Update
-                            </a>-->
+                            
+                            <div class="form-group">
+                            <select class="form-control" id="agama" ng-model="input.agama">
+                                <option value="">Religion</option>
+                                <option value="Islam">Moslem</option>
+                                <option value="Katolik">Catholic</option>
+                                <option value="Kristen">Christian</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Buddhist</option>
+                                <option value="Lainnya">Other</option>
+                            </select>                            
+                            </div>
+                            <a class="btn btn-primary pull-right" ng-click="apply()">
+                            <span class="glyphicon glyphicon-refresh"></span> Reset
+                            </a> 
+                            <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
+                          </div>
+                                                
+                    </div>                                                                                                  
                 </div>
                 <!-- ./filter -->
 
@@ -612,7 +628,7 @@
                 </div>
                 
                 <div class="container">
-                    <div class="well well-lg" dir-paginate="data in datas  | filter:input | filter:{profesi: isi} | itemsPerPage: pageSize" current-page="currentPage">
+                    <div class="well well-lg" dir-paginate="data in datas  | filter:input | filter:{profesi: isi} | filter:gaji | itemsPerPage: pageSize" current-page="currentPage">
                         <div class="col-sm-2">
                             <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
                         </div>

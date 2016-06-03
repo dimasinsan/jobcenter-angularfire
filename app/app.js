@@ -25,7 +25,7 @@ angular
       })
       .state('underconstruction', {
         url: '/underconstruction',
-        controller: 'searchController',
+        //controller: 'searchController',
         templateUrl: 'views/undercons.html'
       })
       .state('home-en', {
