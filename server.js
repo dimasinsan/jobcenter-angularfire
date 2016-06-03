@@ -62,8 +62,13 @@ app.post('/contact', function(req, res) {
     var mailOpts = {
         from: data.name,
         to: to, 
+        cc: data.email,
         subject: 'New message from '+data.name+' ('+data.email+')! in ' +data.location+'!',
-        html: '<p>Message from ' +data.name+ ' in ' +data.location+ ':</p><br>' +data.message+ '<p>--END MESSAGE--<p>'
+        html: 
+        '<p>Message from ' +data.name+ ' in ' +data.location+ ':</p><br>' 
+        +data.message+ 
+        '<p>--END MESSAGE--<p><p>Reminder: Reply to sender as soon as possible</p>'
+        
     };
 
     smtpTrans.sendMail(mailOpts, function(error, response) {
