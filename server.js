@@ -167,7 +167,7 @@ app.post('/contact', function(req, res) {
 
 
 // express server - change port to whatever as needed
-app.listen(8080, function(err) {
+app.listen(process.env.PORT, function(err) {
     if (err) throw err;
     console.log("Server is running at port: " + process.env.PORT + " and IP: " + process.env.IP);
 
