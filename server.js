@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 // Nodemailer
 var nodemailer = require('nodemailer');
+// var path = require('path')
+// var EmailTemplate = require('./template/').EmailTemplate
 
 // create reusable transporter object using the default SMTP transport
 // var transporter = nodemailer.createTransport('smtps://jobcenter.id%40gmail.com:AptusPac14@smtp.gmail.com');
@@ -36,27 +38,32 @@ app.get('*', function(req, res) {
 // contact us route using nodemailer
 app.post('/contact', function(req, res) {
     
-    var name = req.body.name;
-    var from = req.body.email;
-    var contact = req.body.contact;
-    var message = req.body.comment;
-    var to = 'fargobie@gmail.com';
+    // var name = req.body.name;
+    // var from = req.body.email;
+    // var contact = req.body.contact;
+    // var message = req.body.comment;
+    // var to = 'fargobie@gmail.com';
     
+        
     //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
     var smtpTrans = nodemailer.createTransport('SMTP', {
         service: 'Gmail',
         auth: {
-            user: "fargobie@gmail.com",
-            pass: "yaqhtrmawodljxkf"
+            user: "audiae@gmail.com",
+            pass: "kuypcfbrjacxzgtr"
         }
     });
     
+    var data = req.body;
+    var to = 'audiae@gmail.com';
+    var name = req.body.name;
+    var location = req.body.location;
     //Mail options
     var mailOpts = {
-        from: from,
+        from: data.name,
         to: to, 
-        subject: 'new message from '+name+' ('+contact+')!',
-        text: message
+        subject: 'New message from '+data.name+' ('+data.email+')! in ' +data.location+'!',
+        html: '<p>Message from ' +data.name+ ' in ' +data.location+ ':</p><br>' +data.message+ '<p>--END MESSAGE--<p>'
     };
 
     smtpTrans.sendMail(mailOpts, function(error, response) {
@@ -160,7 +167,7 @@ app.post('/contact', function(req, res) {
 
 
 // express server - change port to whatever as needed
-app.listen(process.env.PORT, function(err) {
+app.listen(8080, function(err) {
     if (err) throw err;
     console.log("Server is running at port: " + process.env.PORT + " and IP: " + process.env.IP);
 
