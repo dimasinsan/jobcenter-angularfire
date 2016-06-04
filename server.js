@@ -83,7 +83,50 @@ app.post('/contact', function(req, res) {
     });
 });
 
+app.post('/modal', function(req, res) {
+    
+    // var name = req.body.name;
+    // var from = req.body.email;
+    // var contact = req.body.contact;
+    // var message = req.body.comment;
+    // var to = 'fargobie@gmail.com';
+    
+        
+    //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
+    var smtpTrans = nodemailer.createTransport('SMTP', {
+        service: 'Gmail',
+        auth: {
+            user: "audiae@gmail.com",
+            pass: "kuypcfbrjacxzgtr"
+        }
+    });
+    
+    var data = req.body;
+    var to = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
+    //Mail options
+    var mailOpts = {
+        from: data.user,
+        to: data.location, 
+        cc: to + ',' + data.email,
+        subject: '[Booking] '+data.nama+ ' di ' + data.location,
+        html: 
+        '<p>Booking from ' +data.user+ ', ' +data.telp+ ' / ' +data.email+ ':</p><br>' 
+        +data.message+ 
+        '<p>--END MESSAGE--<p><p>Reminder: Reply to sender as soon as possible</p>'
+        
+    };
 
+    smtpTrans.sendMail(mailOpts, function(error, response) {
+        //Email not sent
+        if (error) {
+            console.log(error);
+        }
+        //Yay!! Email sent
+        else {
+            console.log('Message sent: ' + response);
+        }
+    });
+});
 
 // // Send a message to the specified email address when you navigate to /submit/someaddr@email.com
 // // The index redirects here
