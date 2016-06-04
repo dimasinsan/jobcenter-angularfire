@@ -55,17 +55,17 @@ app.post('/contact', function(req, res) {
     });
     
     var data = req.body;
-    var to = 'audiae@gmail.com';
+    var to = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
     var name = req.body.name;
     var location = req.body.location;
     //Mail options
     var mailOpts = {
         from: data.name,
-        to: to, 
-        cc: data.email,
-        subject: 'New message from '+data.name+' ('+data.email+')! in ' +data.location+'!',
+        to: data.location, 
+        cc: to + ',' + data.email,
+        subject: '['+data.name+'] ('+data.email+')!' + data.subject,
         html: 
-        '<p>Message from ' +data.name+ ' in ' +data.location+ ':</p><br>' 
+        '<p>Message from ' +data.name+ ':</p><br>' 
         +data.message+ 
         '<p>--END MESSAGE--<p><p>Reminder: Reply to sender as soon as possible</p>'
         
@@ -172,7 +172,7 @@ app.post('/contact', function(req, res) {
 
 
 // express server - change port to whatever as needed
-app.listen(process.env.PORT, function(err) {
+app.listen(8080, function(err) {
     if (err) throw err;
     console.log("Server is running at port: " + process.env.PORT + " and IP: " + process.env.IP);
 
