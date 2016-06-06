@@ -921,7 +921,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <!--<h4 class="modal-title">Hubungi Kami</h4>-->
                      <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Sekarang Juga!</h4>
-                     <h5 class="modal-title">Lokasi di <strong>{{data.lokasi}}</strong></h5>                     
+                     <h5 class="modal-title" ng-model="user.location" value="{{branch.email}}">Lokasi di <strong>{{data.lokasi}}</strong></h5>                     
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">

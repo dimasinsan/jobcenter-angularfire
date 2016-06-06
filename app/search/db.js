@@ -514,7 +514,7 @@ db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
   $('#maps')
       .gmap3({
         center: [-6.175572666304688,106.82703861907953],
-        zoom: 7
+        zoom: 6
       })
       .cluster({
         size: 20,
@@ -524,6 +524,8 @@ db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
           {position: [-7.575488700000001, 110.82432719999997]},
           {position: [-6.995603924682818, 110.42975690787353]},
           {position: [-6.618081999999999, 106.81704309999998]},
+          {position: [-7.334819999999998, 112.76497640000002]},
+          {position: [-7.795579799999998, 110.36948959999995]},
           {position: [-6.909624892235514, 107.61066847718507]}
         ],
         cb: function (markers) {
@@ -531,8 +533,8 @@ db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
             if (markers.length < 50) {
               return {
                 content: "<div class='cluster cluster-1'>" + markers.length + "</div>",
-                x: -100,
-                y: -100
+                x: -50,
+                y: -50
               };
             }
           }

@@ -107,7 +107,7 @@
                                 <label>Location <span class="text-hightlight">*</span></label>
                                 <select class="form-control" ng-model="user.location">
                                     <option value="">Pilih Lokasi Anda</option>
-                                    <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
+                                    <option ng-repeat="branch in branches" value="{{branch.email}}">{{branch.kotamadya}}</option>
                                 </select>
                             </div>
                         </div>
