@@ -384,7 +384,7 @@
                               </div>
                              
                               <div class="form-group">
-                                <select class="form-control" id="usiamin">
+                                <select class="form-control" id="usiamin" ng-model="usiamin">
                                   <option value="">Age (min)</option>
                                   <option>17</option>
                                   <option>18</option>
@@ -495,7 +495,7 @@
                               </div>
                               
                               <div class="form-group">
-                                <select class="form-control" id="usiamax">
+                                <select class="form-control" id="usiamax" ng-model="usiamax">
                                   <option value="">Age (max)</option>
                                   <option>17</option>
                                   <option>18</option>
@@ -628,7 +628,8 @@
                 </div>
                 
                 <div class="container">
-                    <div class="well well-lg" dir-paginate="data in datas  | filter:input | filter:{profesi: isi} | filter:gaji | itemsPerPage: pageSize" current-page="currentPage">
+                    <div class="well well-lg" dir-paginate="data in datas  | filter:input | filter:{profesi: isi} | filter:gaji 
+                                    | filter: usia | itemsPerPage: pageSize" current-page="currentPage">
                         <div class="col-sm-2">
                             <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
                         </div>
@@ -648,6 +649,7 @@
                                 <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
                                 </p>
                                  <p class="title"><label ng-repeat="ket in data.profesi">{{ket + ',&nbsp'}}</label></p>
+                                 <p>Born: {{data.tanggal | date}}</p>
                             </div>
 
                             <div class="col-sm-3">
