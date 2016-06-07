@@ -189,6 +189,8 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         //------------->x  
 
   //$scope.filter = {};
+  
+  // filter gaji
   $scope.gaji = function (data) {
     var gajiNum = data.gajiNum;
     var min = $scope.min;
@@ -196,19 +198,39 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     
     if (!gajiNum) {
       return false;
-    }
-  
+    }  
     if(min && gajiNum < min) {
       return false;
-    }
-    
+    }    
     if(max && gajiNum > max) {
       return false;
     }
-  
     return true;
   };
   
+  // filter usia
+  $scope.usia = function(data){
+    var tanggallahir = data.tanggallahir;
+    var today = new Date();
+    var dob = new Date(tanggallahir.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+    var age = today.getFullYear() - dob.getFullYear();
+    $scope.umur = age;
+    var min = $scope.usiamin;
+    var max = $scope.usiamax;
+    
+    if (!age) {
+      return false;
+    }  
+    if(min && age < min) {
+      return false;
+    }    
+    if(max && age > max) {
+      return false;
+    }
+    return true;
+  };
+  
+      
   $scope.isi = {};
    $scope.apply = function () {
      $scope.input = {};
