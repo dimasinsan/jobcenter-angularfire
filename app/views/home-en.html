@@ -937,7 +937,9 @@
                     <!-- ANGULAR VALIDATION FORM ============ -->
 
                     <form name="userForm" novalidate>
-
+                        <select id="lokasi" hidden>
+                            <option ng-selected="branch.kotamadya == data.lokasi" ng-repeat="branch in branches | filter: {kotamadya: data.lokasi}" ng-value="branch.email">{{branch.email}}</option>
+                        </select>
                         <!-- NAME -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                             <label>Name</label>

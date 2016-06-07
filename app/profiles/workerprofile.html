@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-2">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Contact Us</a></li>
-                        <li><a ui-sref="search">Cari Pekerja</a></li>
+                        <!--<li><a ui-sref="search">Cari Pekerja</a></li>-->
                     </ul>
 
                 </div>
@@ -340,7 +340,7 @@
                         <!-- ANGULAR VALIDATION FORM ============ -->
 
                         <form name="userForm" novalidate>
-                            <select id="lokasi">
+                            <select id="lokasi" hidden>
                                 <option ng-selected="branch.kotamadya == lokasiData" ng-repeat="branch in branches | filter: {kotamadya: lokasiData}" ng-value="branch.email">{{branch.email}}</option>
                             </select> 
                             <!-- NAME -->

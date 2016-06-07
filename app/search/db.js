@@ -439,7 +439,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       //$('#age').val(age); //for element id
   
     } else {
-      alertify.error("Pekerja Tidak Tersedia");
+      alertify.error("Pekerja Sudah Di Booking");
       $state.go('home');   
     
     }

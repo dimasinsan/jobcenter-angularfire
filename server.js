@@ -43,31 +43,39 @@ app.post('/contact', function(req, res) {
     // var contact = req.body.contact;
     // var message = req.body.comment;
     // var to = 'fargobie@gmail.com';
-    
+    var smtpTrans = nodemailer.createTransport('SMTP', {
+        host: 'mail.jobcenter.id',
+        port: 587,
+        secure: true, // use SSL
+        auth: {
+            user: 'admin@jobcenter.id',
+            pass: 'whosyourdaddy'
+            }
+    });
         
     //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
-    var smtpTrans = nodemailer.createTransport('SMTP', {
-        service: 'Gmail',
-        auth: {
-            user: "audiae@gmail.com",
-            pass: "kuypcfbrjacxzgtr"
-        }
-    });
+    // var smtpTrans = nodemailer.createTransport('SMTP', {
+    //     service: 'Gmail',
+    //     auth: {
+    //         user: "audiae@gmail.com",
+    //         pass: "kuypcfbrjacxzgtr"
+    //     }
+    // });
     
     var data = req.body;
-    var to = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
+    //var to = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
     var name = req.body.name;
     var location = req.body.location;
     //Mail options
     var mailOpts = {
-        from: data.name,
+        from: '"Jobcenter ID" <admin@jobcenter.id>',
         to: data.location, 
-        cc: to + ',' + data.email,
+        cc: data.email,
         subject: '['+data.name+'] ('+data.email+')!' + data.subject,
         html: 
         '<p>Message from ' +data.name+ ':</p><br>' 
         +data.message+ 
-        '<p>--END MESSAGE--<p><p>Reminder: Reply to sender as soon as possible</p>'
+        '<p>--END MESSAGE--<p><p>Reminder: Terima kasih telah menghubungi kami, anda akan dihubungi oleh admin Jobcenter pada cabang terkait</p>'
         
     };
 
@@ -83,6 +91,7 @@ app.post('/contact', function(req, res) {
     });
 });
 
+// send email from modal
 app.post('/modal', function(req, res) {
     
     // var name = req.body.name;
@@ -90,29 +99,37 @@ app.post('/modal', function(req, res) {
     // var contact = req.body.contact;
     // var message = req.body.comment;
     // var to = 'fargobie@gmail.com';
-    
+    var smtpTrans = nodemailer.createTransport('SMTP', {
+        host: 'mail.jobcenter.id',
+        port: 587,
+        secure: true, // use SSL
+        auth: {
+            user: 'admin@jobcenter.id',
+            pass: 'whosyourdaddy'
+            }
+    });
         
     //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
-    var smtpTrans = nodemailer.createTransport('SMTP', {
-        service: 'Gmail',
-        auth: {
-            user: "audiae@gmail.com",
-            pass: "kuypcfbrjacxzgtr"
-        }
-    });
+    // var smtpTrans = nodemailer.createTransport('SMTP', {
+    //     service: 'Gmail',
+    //     auth: {
+    //         user: "audiae@gmail.com",
+    //         pass: "kuypcfbrjacxzgtr"
+    //     }
+    // });
     
     var data = req.body;
-    var cc2 = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
+    //var cc2 = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
     //Mail options
     var mailOpts = {
-        from: data.user,
+        from: '"Jobcenter ID" <admin@jobcenter.id>',
         to: data.lokasi, 
-        cc: cc2 + ',' + data.email,
+        cc: data.email,
         subject: '[Booking] '+data.nama+ ' di ' + data.location,
         html: 
-        '<p>Booking from ' +data.user+ ', ' +data.telp+ ' / ' +data.email+ ':</p><br>' 
+        '<p>Nama Pekerja: ' +data.user+ ', <br/>No. Telp: ' +data.telp+ ' <br/>Email: ' +data.email+ ':</p><br>' 
         +data.message+ 
-        '<p>--END MESSAGE--<p><p>Reminder: Reply to sender as soon as possible</p>'
+        '<p>--END MESSAGE--<p><p>Reminder: Anda akan dihubungi oleh admin Jobcenter pada cabang terkait, terima kasih telah menggunakan jasa kami</p>'
         
     };
 
