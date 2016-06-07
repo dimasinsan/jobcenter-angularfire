@@ -60,8 +60,9 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
  
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
-   
+  
   $scope.submitForm = function () {
+    //var admail = document.getElementById('lokasi');
     var data = ({
         user : $scope.user.name,
         email : $scope.user.email,
@@ -69,8 +70,11 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
         nama: $scope.data.nama,
         location : $scope.data.lokasi,
         profesi: $scope.data.profesi,          
-        message : $scope.user.comment
+        message : $scope.user.comment,
+        lokasi : document.getElementById('lokasi').value
     });
+     //console.log(admail2);
+    // console.log(+admail2.value);
     if ($scope.userForm.$valid) {
       $("#contactModal").modal("hide");
       alertify.confirm("Terima Kasih Telah Memakai Jasa Kami! Anda akan dihubungi oleh customer service kami", function (e) {    
@@ -360,7 +364,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
 
 }]); //end of searchController
 
-db.controller("profileViewController", function ($scope, $firebaseArray, $rootScope, $state, $stateParams) {
+db.controller("profileViewController", function ($scope, $firebaseArray, $rootScope, $state, $stateParams, $http) {
 
   var JOB_URL = "https://jobcenter.firebaseio.com/worker/";
   var ref = new Firebase(JOB_URL);
@@ -371,7 +375,9 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
   // $scope.pageSize = 10;      
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);      
-  
+  var ref3 = new Firebase(URL + 'branch');
+  $scope.branches = $firebaseArray(ref3);
+
   ref2.on("value", function (snap) {
     if (snap.val().tersedia === "available") {
       
@@ -411,7 +417,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
       //$('#age').val(age); //for element id
   
     } else {
-      //alertify.alert("Pekerja Tidak Tersedia");
+      alertify.error("Pekerja Tidak Tersedia");
       $state.go('home');   
     
     }
@@ -442,7 +448,8 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
         nama: $scope.data.nama,
         location : $scope.data.lokasi,
         profesi: $scope.data.profesi,          
-        message : $scope.user.comment
+        message : $scope.user.comment,
+        lokasi : document.getElementById('lokasi').value
     });
     if ($scope.userForm.$valid) {
       $("#contactModal").modal("hide");

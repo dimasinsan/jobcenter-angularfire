@@ -916,11 +916,13 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" >
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <!--<h4 class="modal-title">Hubungi Kami</h4>-->
                      <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Sekarang Juga!</h4>
-                     <h5 class="modal-title" ng-model="user.location" value="{{branch.email}}">Lokasi di <strong>{{data.lokasi}}</strong></h5>                     
+                     <h5 class="modal-title" >Lokasi di <strong>{{data.lokasi}}</strong></h5>
+                     
+                                     
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">
@@ -929,7 +931,9 @@
                     <!-- ANGULAR VALIDATION FORM ============ -->
 
                     <form name="userForm" novalidate>
-
+                        <select id="lokasi" hidden>
+                            <option ng-selected="branch.kotamadya == data.lokasi" ng-repeat="branch in branches | filter: {kotamadya: data.lokasi}" ng-value="branch.email">{{branch.email}}</option>
+                        </select> 
                         <!-- NAME -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                             <label>Name</label>

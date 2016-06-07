@@ -102,12 +102,12 @@ app.post('/modal', function(req, res) {
     });
     
     var data = req.body;
-    var to = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
+    var cc2 = 'audi <audiae@gmail.com>, harry <htensei@live.com>';
     //Mail options
     var mailOpts = {
         from: data.user,
-        to: data.location, 
-        cc: to + ',' + data.email,
+        to: data.lokasi, 
+        cc: cc2 + ',' + data.email,
         subject: '[Booking] '+data.nama+ ' di ' + data.location,
         html: 
         '<p>Booking from ' +data.user+ ', ' +data.telp+ ' / ' +data.email+ ':</p><br>' 
