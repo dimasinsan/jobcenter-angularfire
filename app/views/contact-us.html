@@ -60,102 +60,97 @@
 
 
         <!-- page content wrapper -->
-        <div class="page-content-wrap">
+        <div class="page-content-wrap" ng-controller="branchViewController">
 
             <div class="divider">
                 <div class="box"><span class="fa fa-angle-down"></span></div>
             </div>
 
             <!-- page content holder -->
-            <div class="page-content-holder" ng-controller="branchViewController">
+           
+           <!--<div class="row" >
+                   <div class="col-md-7">
 
-                <div class="row" ng-controller="branchViewController">
-                    <div class="col-md-7">
+                       <div class="text-column">
+                           <h4>Contact Us</h4>
+                       </div>
+                      </div>
+                      </div>-->
+            <div id="maps" style="width: 100%; height: 350px;"></div>
+                      
+                      <br> <br><!--end of map-->
+                      
+           <!-- start page-content-holder-->
+           <!--<div class="page-content-holder">-->
 
-                        <div class="text-column">
-                            <h4>Contact Us</h4>
-                            <div class="text-column-info">
-                                Proin luctus nulla fringilla massa euismod commodo. Donec sit amet elementum libero. Curabitur ut lorem id tellus malesuada
-                                tincidunt et eget purus.
-                            </div>
-                        </div>
-                       </div>
-                       </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Name <span class="text-hightlight">*</span></label>
-                                    <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>E-mail <span class="text-hightlight">*</span></label>
-                                    <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required/>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Subject <span class="text-hightlight">*</span></label>
-                                    <input type="text" name="subject" class="form-control" ng-model="user.subject" placeholder="Isi subject anda" required/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Location <span class="text-hightlight">*</span></label>
-                                <select class="form-control" ng-model="user.location">
-                                    <option value="">Pilih Lokasi Anda</option>
-                                    <option ng-repeat="branch in branches" value="{{branch.email}}">{{branch.kotamadya}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="col-md-12" >
-                            <div class="form-group">
-                                <label>Message <span class="text-hightlight">*</span></label>
-                                <textarea type="text" name="message" class="form-control"  ng-model="user.message" rows="8"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg pull-right" ng-click="submitForm()">Send Message</button>
-                        </div>
-                          </br></br>
+                <div class="row" >
+                <!--start form group-->
+               
+                <div class="container col-lg-6 col-lg-offset-1">
+                    <div class="col-lg-6" ng-repeat="branch in branches">
                     
-                    <div id="maps" style="width: 1100px; height: 300px;"></div>
+                        <div class="panel panel-default" >
+                            <div class="panel-body profile">
+                                <h3 style="color:#FEFEFE">{{branch.kotamadya}} </h3>
                     
-                    </br></br>
-                        <div class="row" >
-                        <div class="col-lg-5" ng-repeat="branch in branches">
-                            
-                            <div class="panel panel-default" >
-                                <div class="panel-body profile">
-                                    <!--<div class="col-md-6">
-                        <br>                        
-                                                
-                            <input type="text"  ng-model="branch.lat" value="branch.lat" />
-                            <input type="text"  ng-model="branch.long" value="branch.long"/>
-                        </div>-->
-                        
-                                </div>      
-                                                         
-                                <div class="panel-body" >                                    
-                                    <div class="contact-info">
-                                        <p id="alamat">{{branch.alamat}}</p>
-                                        <p>{{branch.kotamadya}}</p>
-                                        <p>{{branch.telp}}</p> 
-                                        <p>{{branch.email}}</p>                                
-                                    </div>                             
+                            </div>      
+                                                    
+                            <div class="panel-body" >                                    
+                                <div class="contact-info">
+                                    <p id="alamat">{{branch.alamat}}</p>
+                                    <p>{{branch.kotamadya}}</p>
+                                    <p>{{branch.telp}}</p> 
+                                    <p>{{branch.email}}</p>                                
+                                </div>                             
                             </div>
                     </div>  
-                </div>
-            </div>
-            </div>
-            <!-- ./page content holder -->
-        </div>
-        <!-- ./page content wrapper -->
+                    </div>
+                 </div>
+                 
+                  <div class="col-lg-3 col-lg-offset-1">
+                     <h2>HUBUNGI KAMI</h2>
+                     <hr>
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                    <label>Name <span class="text-hightlight">*</span></label>
+                    <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Nama lengkap anda" required/>         
 
-    </div>
-    <!-- ./page content -->
+                   </div><!--end form group-->
+
+                <div class="form-group">
+                  <label>E-mail <span class="text-hightlight">*</span></label>
+                  <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="nama@domainemail.com" required/>                          
+  
+                </div><!--end form group-->
+
+                <div class="form-group">
+                  <label>Subject <span class="text-hightlight">*</span></label>
+                  <input type="text" name="subject" class="form-control" ng-model="user.subject" placeholder="Isi subject anda" required/>                          
+                  
+                </div><!--end form group-->
+
+                <div class="form-group">
+                   <label>Location <span class="text-hightlight">*</span></label>
+                       <select class="form-control" ng-model="user.location">
+                           <option value="">Pilih Lokasi Anda</option>
+                           <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
+                       </select>
+                 </div><!--end from group-->
+                 
+                    <div class="form-group">
+                        <label>Message <span class="text-hightlight">*</span></label>
+                        <textarea type="text" name="message" class="form-control"  ng-model="user.message" rows="8"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg pull-right" ng-click="submitForm()">Send Message</button>
+                </form>
+                </div>
+           
+           <!-- ./page content holder -->
+       </div>
+       <!-- ./page content wrapper -->
+
+   <!--</div>-->
+   <!-- ./page content -->
 
     <!-- page footer -->
     <div class="page-footer">
