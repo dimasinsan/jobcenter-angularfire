@@ -513,62 +513,38 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
 
   var ref = new Firebase(URL + 'branch');
-  $scope.branches = $firebaseArray(ref);
- 
-  // var lat = document.getElementById('lat');
-  // var long = document.getElementById('long');
-  
-  $('#maps')
-      .gmap3({
-        center: [-6.175572666304688,106.82703861907953],
-        zoom: 6
-      })
-      .cluster({
-        size: 20,
-        markers: [
-          {position: [-6.31335512, 106.95156529999999]},
-          {position: [-6.2826944, 106.6998767]},
-          {position: [-7.575488700000001, 110.82432719999997]},
-          {position: [-6.995603924682818, 110.42975690787353]},
-          {position: [-6.618081999999999, 106.81704309999998]},
-          {position: [-7.334819999999998, 112.76497640000002]},
-          {position: [-7.795579799999998, 110.36948959999995]},
-          {position: [-6.909624892235514, 107.61066847718507]}
-        ],
-        cb: function (markers) {
-          if (markers.length > 1) { // 1 marker stay unchanged (because cb returns nothing)
-            if (markers.length < 50) {
-              return {
-                content: "<div class='cluster cluster-1'>" + markers.length + "</div>",
-                x: -50,
-                y: -50
-              };
-            }
+  $scope.branches = $firebaseArray(ref); 
+
+  var markers = [];
+  $scope.branches.$loaded()
+    .then(function(){
+      angular.forEach($scope.branches, function(value, key){
+        this.push({position: [value.lat, value.long]});           
+      }, markers);
+    
+    $('#maps')
+    .gmap3({
+      center: [-6.175572666304688,106.82703861907953],
+      zoom: 7
+    })
+    .cluster({
+      size: 20,
+      markers: markers,
+      cb: function (markers) {
+        if (markers.length > 1) { // 1 marker stay unchanged (because cb returns nothing)
+          if (markers.length < 50) {
+            return {
+              content: "<div class='cluster cluster-1'>" + markers.length + "</div>",
+              x: -50,
+              y: -50
+            };
           }
         }
-      });
-  //  $.gmap3(false);
-  //   var center = [-6.175529999999999 , 106.82278999999994 ];
+      }
+    });
     
-  //   $('#maps')
-  //     .gmap3({
-  //       center: center,
-  //       zoom: 6,
-  //       mapTypeId : google.maps.MapTypeId.ROADMAP
-  //     })
-  //     .marker(function (map) {
-  //       return {
-  //         position: map.getCenter(),
-  //         icon: 'http://maps.google.com/mapfiles/marker_green.png'
-  //       };
-  //     })
-  //       .on('click', function (marker, event) {
-  //         marker.setIcon('http://maps.google.com/mapfiles/marker_orange.png');
-  //         setTimeout(function () {
-  //           marker.setIcon('http://maps.google.com/mapfiles/marker_green.png');
-  //         }, 200);
-  //       });
-   
+  });
+       
   //NODEMAILER  
   $scope.submitForm = function (user) {
     var data = ({

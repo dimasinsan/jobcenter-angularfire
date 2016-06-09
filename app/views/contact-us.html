@@ -78,6 +78,14 @@
                       </div>-->
             <div id="maps" style="width: 100%; height: 350px;"></div>
                       
+             <!--<center>
+        <input type="button" value="Show my location on Map"
+                onclick="javascript:showlocation()" />   <br/>
+    </center>
+                 
+        Latitude: <span id="branch.lat"></span>       <br/>
+        Longitude: <span id="branch.long"></span>         -->
+                      
                       <br> <br><!--end of map-->
                       
            <!-- start page-content-holder-->
@@ -87,11 +95,12 @@
                 <!--start form group-->
                
                 <div class="container col-lg-6 col-lg-offset-1">
+                    <h2>KANTOR CABANG</h2><hr>
                     <div class="col-lg-6" ng-repeat="branch in branches">
                     
                         <div class="panel panel-default" >
                             <div class="panel-body profile">
-                                <h3 style="color:#FEFEFE">{{branch.kotamadya}} </h3>
+                                <h4 style="color:#FEFEFE">{{branch.kotamadya}} </h4>
                     
                             </div>      
                                                     
@@ -108,7 +117,7 @@
                  </div>
                  
                   <div class="col-lg-3 col-lg-offset-1">
-                     <h2>HUBUNGI KAMI</h2>
+                     <h2>Hubungi Kami</h2>
                      <hr>
                 <form action="" class="form-horizontal">
                     <div class="form-group">
@@ -148,13 +157,13 @@
            <!-- ./page content holder -->
        </div>
        <!-- ./page content wrapper -->
-
+<br>
    <!--</div>-->
    <!-- ./page content -->
 
     <!-- page footer -->
     <div class="page-footer">
-
+     
         <!-- page footer wrap -->
         <div class="page-footer-wrap bg-dark-gray">
             <!-- page footer holder -->
