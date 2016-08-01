@@ -6,12 +6,10 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
 
   var ref = new Firebase(URL + 'branch');
   var ref2 = new Firebase(URL + 'worker');
-  //var ref3 = new Firebase("https://jobcenter.firebaseio.com/branch/" + $stateParams.branchId);
   var ref4 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);
 
   $scope.branches = $firebaseArray(ref);
   $scope.datas = $firebaseArray(ref2);
-  //$scope.branch = $firebaseObject(ref3);
   $scope.data = $firebaseObject(ref4);
   
   //pagination
@@ -35,28 +33,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     //             $scope.users = result.data.Items;
     //             $scope.totalUsers = result.data.Count
     //         });
-    // }
-  
-  // $scope.submitForm = function (user) {
-  //   var data = ({
-  //       user : $scope.user.name,
-  //       email : $scope.user.email,
-  //       telp : $scope.user.contact,
-  //       nama: $scope.data.nama,
-  //       location : $scope.data.lokasi,
-  //       profesi: $scope.data.profesi,          
-  //       message : $scope.user.comment
-  //   });
-    
-  //   $http.post('/modal', data)
-  //     .success(function (data) {
-  //       alert('successfully emailed form');
-  //     })
-  //     .error(function (data) {
-  //       alert('something went wrong');
-  //     });
-  // };
-  
+    // }    
  
   var bookRef = new Firebase(URL + 'booked');
   var date = new Date().getTime();
@@ -132,62 +109,6 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   }; //end of view Profile
         //------------->x
 
-  // $scope.updateBranch = function (branch) {
-  //   $rootScope.branch = branch;
-  //   $state.go('branch-edit', { branchId: $rootScope.branch.$id });
-  // }; //end of update branch
-
-  // $scope.editBranch = function () {
-  //   $scope.branch.$save()
-  //     .then(function () {
-  //       alert('Branch Updated!');
-  //     }).catch(function (error) {
-  //       alert('Error!')
-  //     });
-  //   $state.go('offices');
-  // };  //end of edit branch
-
-  // $scope.removeBranch = function (branch) {
-  //   $scope.branch.$remove()
-  //     .then(function () {
-  //       alert('Branch Removed!');
-  //     }).catch(function (error) {
-  //       alert('Error!')
-  //     });
-  //   $state.go('offices');
-  // };  //end of remove branch
-
-  // $scope.updateWorker = function (data) {
-  //   $rootScope.data = data;
-  //   $state.go('worker-edit', { workerId: $rootScope.data.$id });
-  // }; //end of update worker
-
-  // var tanggal = document.getElementById('inputTanggal');
-  // var gaji = document.getElementById('inputGaji');
-
-  // $scope.editWorker = function () {
-  //   $scope.data.$save()
-  //     .then(ref4.update({ tanggallahir: tanggal.value, gaji: gaji.value }))
-  //     .then(function () {
-  //       alert('Worker Updated!');
-  //     }).catch(function (error) {
-  //       alert('Error!')
-  //     });
-  //   $state.go('workerprof');
-  // };  //end of edit worker
-
-  // $scope.removeWorker = function (data) {
-  //   $scope.data.$remove()
-  //     .then(function () {
-  //       alert('Worker Removed!');
-  //     }).catch(function (error) {
-  //       alert('Error!')
-  //     });
-  //   $state.go('workerprof');
-  // };  //end of remove worker
-    
-        //------------->x  
-
   //$scope.filter = {};
   
   // filter gaji
@@ -228,8 +149,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
       return false;
     }
     return true;
-  };
-  
+  };  
       
   $scope.isi = {};
    $scope.apply = function () {
@@ -341,48 +261,7 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
     $state.go('home-en');
     $scope.isi.value10 = "Pekerja Umum";    
   };  //end of redirect english filter
-     //------------->x 
-        
-  //sort table
-  // $scope.sortType = "kategori";
-  // $scope.sortReverse = true;
-
-  // $(function () {
-  //   $('#inputGaji').number(true, '', '.');
-  // });
-
-  //  // upload picture and convert to base64
-  // $scope.data = {}; //init variable
-  //   $scope.click = function() { //default function, to be override if browser supports input type='file'
-  //     $scope.data.alert = "Your browser doesn't support HTML5 input type='File'"
-  //   }
-
-  //   var fileSelect = document.createElement('input'); //input it's not displayed in html, I want to trigger it form other elements
-  //   fileSelect.type = 'file';
-
-  //   if (fileSelect.disabled) { //check if browser support input type='file' and stop execution of controller
-  //     return;
-  //   }
-
-  //     $scope.click = function() { //activate function to begin input file on click
-  //       fileSelect.click();
-  //     }
-
-  //     fileSelect.onchange = function() { //set callback to action after choosing file
-  //       var f = fileSelect.files[0], r = new FileReader();
-
-  //       r.onloadend = function(e) { //callback after files finish loading
-  //         $scope.data.b64 = e.target.result;
-  //         $scope.$apply();
-  //         console.log($scope.data.b64.replace(/^data:image\/(png|jpg);base64,/, "")); //replace regex if you want to rip off the base 64 "header"
-
-  //         //here you can send data over your server as desired
-  //       }
-
-  //       r.readAsDataURL(f); //once defined all callbacks, begin reading the file
-
-  //     };
-  // // end of upload picture and convert to base64                       
+     //------------->x                        
 
 }]); //end of searchController
 
@@ -390,11 +269,7 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
 
   var JOB_URL = "https://jobcenter.firebaseio.com/worker/";
   var ref = new Firebase(JOB_URL);
-  $scope.datas = $firebaseArray(ref);    
-
-  // //pagination
-  // $scope.currentPage = 1;
-  // $scope.pageSize = 10;      
+  $scope.datas = $firebaseArray(ref);      
 
   var ref2 = new Firebase("https://jobcenter.firebaseio.com/worker/" + $stateParams.workerId);      
   var ref3 = new Firebase(URL + 'branch');
@@ -444,20 +319,6 @@ db.controller("profileViewController", function ($scope, $firebaseArray, $rootSc
     
     }
   });
-  // function close(){
-  //     var j = 5;
-  //     for (var i=0; i<j; i++) {
-  //       document.body.innerHTML += i;
-  //               
-  //   }    
-    
-  //   };
-
-  //var query = ref.orderByChild();
-
-  //download data into a local object
-  //var syncObject = $firebaseObject(ref);
-  //syncObject.$bindTo($scope, "admin");
 
   //modal popup on book button press with validation  
   var bookRef = new Firebase(URL + 'booked');
@@ -561,13 +422,7 @@ db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
     // }
     // $scope.postData = angular.copy(user);
 
-    $http.post('/contact', data)
-      // .success(function (data) {
-      //   alertify.success('successfully emailed form');
-      // })
-      // .error(function (data) {
-      //   alertify.error('something went wrong');
-      // });
+    $http.post('/contact', data)      
       .then(function () {
         alertify.success('successfully emailed form');
       }).catch(function (error) {
@@ -580,176 +435,3 @@ db.controller("branchViewController", function ($scope, $firebaseArray, $http) {
       $scope.user.message = '';
   };  
 }); // end of branch view controller
-
-
-/*
-db.controller("laborPushController", ['$scope', '$firebaseArray', '$state', function ($scope, $firebaseArray, $state) {
-
-  var ref2 = new Firebase(URL + 'branch');
-  $scope.branches = $firebaseArray(ref2);
-
-  var ref = new Firebase(URL + 'labor');
-  $scope.push = $firebaseArray(ref);
-
-  var tanggal = document.getElementById('inputTanggal');
-  var gaji = document.getElementById('inputGaji');
-
-  $scope.pushWorker = function () {
-    $scope.push.$add({
-      foto: $scope.data.b64,
-      nama: $scope.inputNama,
-      tanggallahir: tanggal.value,
-      asal: $scope.inputAsal,
-      alamat: $scope.inputAlamat,
-      lokasi: $scope.inputLokasi,
-      kategori: $scope.inputKategori,
-      profesi: $scope.inputProfesi,
-      tersedia: "ya",
-      gender: $scope.inputGender,
-      waktu: $scope.inputWaktu,
-      pendidikan: $scope.inputPend,
-      status: $scope.inputStatus,
-      anak: $scope.inputAnak,
-      telp: $scope.inputTelp,
-      agama: $scope.inputAgama,
-      suku: $scope.inputSuku,
-      gaji: gaji.value,
-      ketrampilan: $scope.inputKetrampilan,
-      anjing: $scope.inputAnjing,
-      exp: $scope.inputExp,
-      luarnegri: $scope.inputExpln,
-      inggris: $scope.inputIng,
-      tinggi: $scope.inputTinggi,
-      berat: $scope.inputBerat,
-      nonhalal: $scope.inputHalal,
-      lembur: $scope.inputLembur,
-      gajih: $scope.inputGajih
-    })
-      .then(function () {
-        alert('Worker Added!');
-      }).catch(function (error) {
-        alert('Error!')
-      });
-    $state.go('workerprof');
-  };  //end of push worker
-
-  // upload picture and convert to base64
-  $scope.data = {}; //init variable
-  $scope.click = function () { //default function, to be override if browser supports input type='file'
-    $scope.data.alert = "Your browser doesn't support HTML5 input type='File'"
-  }
-
-  var fileSelect = document.createElement('input'); //input it's not displayed in html, I want to trigger it form other elements
-  fileSelect.type = 'file';
-
-  if (fileSelect.disabled) { //check if browser support input type='file' and stop execution of controller
-    return;
-  }
-
-  $scope.click = function () { //activate function to begin input file on click
-    fileSelect.click();
-  }
-
-  fileSelect.onchange = function () { //set callback to action after choosing file
-    var f = fileSelect.files[0], r = new FileReader();
-
-    r.onloadend = function (e) { //callback after files finish loading
-      $scope.data.b64 = e.target.result;
-      $scope.$apply();
-      console.log($scope.data.b64.replace(/^data:image\/(png|jpg);base64,/, "")); //replace regex if you want to rip off the base 64 "header"
-
-      //here you can send data over your server as desired
-    }
-
-    r.readAsDataURL(f); //once defined all callbacks, begin reading the file
-
-  };
-  // end of upload picture and convert to base64  
-
-
-  $(function () {
-    // Set up the number formatting.
-    $('#inputGaji').number(true, '', '.');
-    $('#inputGajih').number(true, '', '.');
-
-    //https://github.com/customd/jquery-number.
-  });
-
-}]); //end of labor push controller
-*/
-
-/*
-db.controller("branchPushController", function () {
-
-  var ref = new Firebase(URL + 'branch');
-  var ref2 = new Firebase(URL + 'lokasi');
-
-  var inputNama = document.getElementById('inputNama');
-  var inputAlamat = document.getElementById('inputAlamat');
-  var inputKodya = document.getElementById('inputKodya');
-  var inputTelp = document.getElementById('inputTelp');
-  var buttonAdd = document.getElementById('buttonAdd');
-
-  buttonAdd.addEventListener('click', function () {
-    var pushref = ref.push({
-      nama: inputNama.value,
-      alamat: inputAlamat.value,
-      telp: inputTelp.value,
-      kotamadya: inputKodya.value
-    }).then(function (ref) {
-      alert("Succesfull!");
-    }, function (error) {
-      alert("Error: ", error);
-    });
-    // var pushID = pushref.key();
-    // alert("Succesfull! ");
-    inputNama.value = '';
-    inputAlamat.value = '';
-    inputKodya.value = '';
-    inputTelp.value = '';
-  });
-
-}); //end of branch push controller
-
-  // var nama = $('#nameInput').val();
-  // var alamat = $('#alamatInput').val();
-  // var kotamadya = $('#kodyaInput').val();
-  // var telp = $('#telpInput').val();
-
-  // this.review = {};
-  // this.add = function(ref){
-  //   ref.push(this.review);
-  //   this.review = {};
-  // };
-  //  var branchRef = ref.child("branch");
-
-
-/* push() function
-
-var postsRef = ref.child("posts");
-  var newPostRef = postsRef.push();
-  newPostRef.set({
-    author: "gracehop",
-    title: "Announcing COBOL, a New Programming Language"
-  });
-  // we can also chain the two calls together
-  postsRef.push().set({
-    author: "alanisawesome",
-    title: "The Turing Machine"
-  });
-
-  // This is equivalent to the calls to push().set(...) above
-  postsRef.push({
-    author: "gracehop",
-    title: "Announcing COBOL, a New Programming Language"
-  });
-*/
-
- 
-
-
-
-    
-      
-      
-      
