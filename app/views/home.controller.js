@@ -1,8 +1,7 @@
 angular.module('mainApp')
     .controller('HomeCtrl', function($scope, $http) {
         var homeCtrl = this;
-
-
+        
         $scope.submitForm = function(user) {
 
             if ($scope.userForm.$invalid === true) {

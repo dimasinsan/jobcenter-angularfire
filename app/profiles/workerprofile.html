@@ -42,11 +42,11 @@
         <div class="container text-center">
             <div class="container">
                 <br>
-                <h1 style="font-weight:bold" >{{nameData}}</h1>
-                <p style="font-size:110%"><label ng-repeat="ket in profesiData">{{ket +',&nbsp' }}</label> 
-                <label>| {{lokasiData}}</label></p>
-                 <span class="label label-warning label-form">Gaji: {{gaji | currency:"Rp. ":0}}</span>                 
-                 <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                <h1 style="font-weight:bold">{{nameData}}</h1>
+                <p style="font-size:110%"><label ng-repeat="ket in profesiData">{{ket +',&nbsp' }}</label>
+                    <label>| {{lokasiData}}</label></p>
+                <span class="label label-warning label-form">Gaji: {{gaji | currency:"Rp. ":0}}</span>
+                <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
                     <br><span class="label label-default" style="font-size: 100%;" ng-repeat="ket in ketData"> {{ ket.text }} </span>
                 </div>
             </div>
@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
-                    <img ng-src="{{gambarData}}" class="image-responsive" alt="image" style="max-width:100%; height: auto;"/>
+                    <img ng-src="{{gambarData}}" class="image-responsive" alt="image" style="max-width:100%; height: auto;" />
                 </div>
 
                 <div class="col-md-3">
@@ -173,7 +173,7 @@
                             <div class="col-md-4">
                                 Memotong Rumput
                             </div>-->
-                        <!--</div>
+        <!--</div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -201,102 +201,9 @@
         <!-- ./page content -->
 
         <!-- page footer -->
-        <div class="page-footer">
-
-            <!-- page footer wrap -->
-            <div class="page-footer-wrap bg-dark-gray">
-                <!-- page footer holder -->
-                <div class="page-footer-holder page-footer-holder-main">
-
-                    <div class="row">
-
-                        <!-- about -->
-                        <div class="col-md-3">
-                            <h3>About JobCenter.com</h3>
-                            <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you need.</p>
-                        </div>
-                        <!-- ./about -->
-
-                        <!-- quick links -->
-                        <div class="col-md-3">
-                            <h3>Quick links</h3>
-
-                            <div class="list-links">
-                                <a ui-sref="home">Home</a>
-                                <a ui-sref="contact-us">Contact Us</a>
-                                <a ui-sref="search">Cari Pekerja</a>
-                            </div>
-                        </div>
-                        <!-- ./quick links -->
-
-                        <!-- recent tweets -->
-                        <div class="col-md-3">
-                           
-
-                        </div>
-                        <!-- ./recent tweets -->
-
-                        <!-- contacts -->
-                        <div class="col-md-3">
-                            <h3>Contacts</h3>
-
-                            <div class="footer-contacts">
-                            <div class="fc-row">
-                                <span class="fa fa-home"></span>Head Office: Jl. WibawaMukti No. 46, Jatiluhur, Jatiasih,
-
-                                <br/>  Bekasi
-                            </div>
-                            <div class="fc-row">
-                                <span class="fa fa-phone"></span> 081282885731 / 087889276499
-
-                            </div>
-                            <div class="fc-row">
-                                <span class="fa fa-envelope"></span>
-                                <strong>Yusuf Satria</strong>
-                                <br>
-                                <a href="mailto:#">admin@jobcenter.id</a>
-                            </div>
-							</div>
-
-
-                        </div>
-                        <!-- ./contacts -->
-
-                    </div>
-
-                </div>
-                <!-- ./page footer holder -->
-            </div>
-            <!-- ./page footer wrap -->
-
-            <!-- page footer wrap -->
-            <div class="page-footer-wrap bg-darken-gray">
-                <!-- page footer holder -->
-                <div class="page-footer-holder">
-
-                    <!-- copyright -->
-                    <div class="copyright">
-                        &copy; 2016 JobCenter.com - All Rights Reserved
-                    </div>
-                    <!-- ./copyright -->
-
-                    <!-- social links -->
-                    <div class="social-links">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                    </div>
-                    <!-- ./social links -->
-
-                </div>
-                <!-- ./page footer holder -->
-            </div>
-            <!-- ./page footer wrap -->
-
-        </div>
+        <footer-main></footer-main>
         <!-- ./page footer -->
-        
+
         <!-- Modal -->
         <div id="contactModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -317,7 +224,7 @@
                         <form name="userForm" novalidate>
                             <select id="lokasi" hidden>
                                 <option ng-selected="branch.kotamadya == lokasiData" ng-repeat="branch in branches | filter: {kotamadya: lokasiData}" ng-value="branch.email">{{branch.email}}</option>
-                            </select> 
+                            </select>
                             <!-- NAME -->
                             <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                                 <label>Name</label>
@@ -342,18 +249,19 @@
                             <!-- COMMENT -->
                             <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
                                 <label>Permintaan</label>
-                                <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini" 
-                                ng-init="user.comment=null"></textarea>
+                                <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini"
+                                    ng-init="user.comment=null"></textarea>
                                 <p ng-show="userForm.comment.$error.minlength" class="help-block">Isi permintaan anda.</p>
                                 <p ng-show="userForm.comment.$error.maxlength" class="help-block">Isi permintaan terlalu panjang. (Maksimum 200 karakter)</p>
                             </div>
                             <ul id="check-box-list" class="list-group checked-list-box">
                                 <div class="checkbox"><label><input type="checkbox" ng-model="term">I Accept the </label> <a href="/terms" style="color: #F2071F">Terms & Conditions</a></div>
                             </ul>
-                            <button ng-disabled="!term" type="submit"  class="btn btn-primary" ng-click="submitForm()">Submit</button>
+                            <button ng-disabled="!term" type="submit" class="btn btn-primary" ng-click="submitForm()">Submit</button>
                             <br>
                             <br>
-                            <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible. </p>
+                            <p> NOTE: You will be contacted by our administrators to set an interview date as soon as possible.
+                            </p>
                             <p> Thank you for using JobCenter.id </p>
                         </form>
                     </div>

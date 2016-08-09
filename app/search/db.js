@@ -212,6 +212,11 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.redirectFilterUmum = function (event) {
     $state.go('home');
     $scope.isi.value10 = "Pekerja Umum";    
+  }; 
+  
+  $scope.redirectFilterSPG = function (event) {
+    $state.go('home');
+    $scope.isi.value11 = "SPG";    
   };  //end of redirect indon filter
   
   //redirect for English
@@ -260,6 +265,10 @@ db.controller("searchController", ['$scope', '$firebaseArray', '$state', '$state
   $scope.redirectFilterUmumen = function (event) {
     $state.go('home-en');
     $scope.isi.value10 = "Pekerja Umum";    
+  };
+  $scope.redirectFilterSPGen = function (event) {
+    $state.go('home-en');
+    $scope.isi.value11 = "SPG";    
   };  //end of redirect english filter
      //------------->x                        
 

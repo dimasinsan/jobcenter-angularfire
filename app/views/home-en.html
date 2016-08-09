@@ -1,5 +1,5 @@
 <!-- page container -->
-<div class="page-container" >
+<div class="page-container">
 
     <!-- page header -->
     <div class="page-header">
@@ -23,28 +23,26 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="contact-us">Contact Us</a></li>
                         <li class="dropdown dropdown-lang mr-5">
-                            <a class="btn-link font2" data-toggle="dropdown" aria-expanded="false"> 
+                            <a class="btn-link font2" data-toggle="dropdown" aria-expanded="false">
                                 <img alt="JobCenter - ID" class="svg-flag mr-5" height="25" src="../img/USA_flag.jpg" width="25">
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu with-arrow-v2-right-language pull-right" style="background-color:#e7e7e7" role="menu"> 
+                            <ul class="dropdown-menu with-arrow-v2-right-language pull-right" style="background-color:#e7e7e7" role="menu">
                                 <li class="disabled">
-                                <a ui-sref="home-en" rel="nofollow">
-                                    <img alt="JobCenter - EN" class="svg-flag mr-5" height="25" src="../img/USA_flag.jpg" width="25">
-                                    English
-                                </a>
-                                </li>
-                                <li > 
-                                    <a ui-sref="home" rel="nofollow">
-                                        <img alt="JobCenter - ID" class="svg-flag mr-5" height="25" src="../img/indo.jpg" width="25">
-                                        Indonesia
+                                    <a ui-sref="home-en" rel="nofollow">
+                                        <img alt="JobCenter - EN" class="svg-flag mr-5" height="25" src="../img/USA_flag.jpg" width="25">                                        English
                                     </a>
-                                    </li>
+                                </li>
+                                <li>
+                                    <a ui-sref="home" rel="nofollow">
+                                        <img alt="JobCenter - ID" class="svg-flag mr-5" height="25" src="../img/indo.jpg" width="25">                                        Indonesia
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                       
-                             
-                            
+
+
+
                         <!--<li><a ui-sref="search">Cari Pekerja</a></li>-->
                     </ul>
 
@@ -65,49 +63,23 @@
         <!-- Carousel slider -->
         <div class="banner-container">
             <div id="myCarousel" class="carousel slide">
-
-                <!-- Indicators -->
-                <!--<ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>-->
-
-                <!--<div class="item active" style="background: url(./img/backgrounds/LP1.jpg) no-repeat left center; background-size: cover;">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Mencari pekerja tidak pernah semudah ini</h1>
-                                <p class="lead">Berbagai jenis pekerja di lebih dari 200 lokasi di pulau Jawa.</p>
-                                <a class="btn btn-large btn-primary" ui-sref="search">Cari Pekerja</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item" style="background: url(./img/backgrounds/LP2.jpg) no-repeat left center; background-size: cover;">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Cari dengan mudah.</h1>
-                                <p class="lead">Biggest worker's agency in Indonesia</p>
-                            </div>
-                        </div>
-                    </div>-->
-
                 <div class="item" style="background: url(./img/backgrounds/LP3.jpg) no-repeat left center; background-size: cover;">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Looking For Hired Help?</h1>
                             <p class="lead">Contact one of our branches or search through our database.</p>
                             <button class="btn btn-primary" ui-sref="contact-us">Contact Us</button> &nbsp &nbsp
-                            <button class="btn btn-primary" ui-sref="home-en({ '#': 'tipe' })" ng-click="redirecten($event)">Choose Worker Category</button>                            &nbsp &nbsp
+                            <button class="btn btn-primary" ui-sref="home-en({ '#': 'tipe' })" ng-click="redirecten($event)">Choose Worker Category</button>
+                            <br><button class="btn btn-primary" ui-sref="daftar" style="width: 50%;margin-right: 1px;">Register as a Worker</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- ./carousel -->
-        
+
         <!-- Icon Category -->
-        <div class="page-content-wrap bg-img-1" id="tipe">            
+        <div class="page-content-wrap bg-img-1" id="tipe">
             <div class="page-content-holder">
                 <div class="block-heading block-heading-centralized">
                     <h1 class="heading-underline">Search Based on Profession</h1>
@@ -115,9 +87,6 @@
                         Below are a few of the types of workers we provide:
                     </div>
                     <br>
-                    <!--<div class="block-heading-text">
-                        Anda dapat menemukan pekerja professional untuk jasa-jasa ini. 
-                    </div>-->
                     <br>
                     <br>
                     <div class="row">
@@ -239,12 +208,50 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-1">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+                                <a ui-sref="home-en({ '#': 'search' })" ng-click="redirectFilterSPGen($event)">
+                                    <div class="text-column-icon">
+                                        <span class="fa icon-suster"></span>
+                                    </div>
+                                    <br>
+                                    <p style="color: #002b80; font-size: 25px;"><strong>SPG/SPB</strong></p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            <div class="text-column text-column-centralized tex-column-icon-lg">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- ./page content holder -->
         </div>
         <!-- ./Icon Category -->
-        
+
         <!-- Filter and Results -->
         <div class="page-content-wrap bg-texture-1 bg-light dark-elements">
             <div class="page-content-wrap">
@@ -252,100 +259,89 @@
                 <div class="divider">
                     <div class="box"><span class="fa fa-angle-down"></span></div>
                 </div>
-                                                
+
                 <div class="page-content-holder" id="search">
                     <!-- LOKASI -->
                     <div class="text-center">
-                    <h3>You're Looking For: 
-                        <span style="color:#00003B" ng-show="isi.value1 == 'Infal / Cuci-gosok'">Seasonal / Daily Cleaner</span>
-                        <span style="color:#00003B" ng-show="isi.value2 == 'Pembantu (Full-time)'">Housemaid (Full-time)</span>
-                        <span style="color:#00003B" ng-show="isi.value3 == 'Tukang Kebun'">Gardener</span>
-                        <span style="color:#00003B" ng-show="isi.value4 == 'Penjaga Binatang Peliharaan'">Pet Sitter</span>
-                        <span style="color:#00003B" ng-show="isi.value5 == 'Sopir'">Driver</span>
-                        <span style="color:#00003B" ng-show="isi.value6 == 'Tukang / Maintenance'">Handyman</span>
-                        <span style="color:#00003B" ng-show="isi.value7 == 'Baby Sitter'">Baby Sitter</span>
-                        <span style="color:#00003B" ng-show="isi.value8 == 'Nanny / Perawat Orang Sakit'">Nanny / Nurse</span>
-                        <span style="color:#00003B" ng-show="isi.value9 == 'Satpam'">Security</span>
-                        <span style="color:#00003B" ng-show="isi.value10 == 'Pekerja Umum'">General Worker</span>
-                    </h3>
-                    <h1 class="heading-underline">Where are You?</h1>
-                    <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px"
-                        ng-model="input.lokasi">
+                        <h3>You're Looking For:
+                            <span style="color:#00003B" ng-show="isi.value1 == 'Infal / Cuci-gosok'">Seasonal / Daily Cleaner</span>
+                            <span style="color:#00003B" ng-show="isi.value2 == 'Pembantu (Full-time)'">Housemaid (Full-time)</span>
+                            <span style="color:#00003B" ng-show="isi.value3 == 'Tukang Kebun'">Gardener</span>
+                            <span style="color:#00003B" ng-show="isi.value4 == 'Penjaga Binatang Peliharaan'">Pet Sitter</span>
+                            <span style="color:#00003B" ng-show="isi.value5 == 'Sopir'">Driver</span>
+                            <span style="color:#00003B" ng-show="isi.value6 == 'Tukang / Maintenance'">Handyman</span>
+                            <span style="color:#00003B" ng-show="isi.value7 == 'Baby Sitter'">Baby Sitter</span>
+                            <span style="color:#00003B" ng-show="isi.value8 == 'Nanny / Perawat Orang Sakit'">Nanny / Nurse</span>
+                            <span style="color:#00003B" ng-show="isi.value9 == 'Satpam'">Security</span>
+                            <span style="color:#00003B" ng-show="isi.value10 == 'Pekerja Umum'">General Worker</span>
+                            <span style="color:#00003B" ng-show="isi.value11 == 'Pekerja Umum'">SPG/SPB</span>
+                        </h3>
+                        <h1 class="heading-underline">Where are You?</h1>
+                        <select class="btn" style="background-color: #353831; border-color: #00003B; color: #FFFF03; padding:12px; font-size:20px"
+                            ng-model="input.lokasi">
                     <option value="">Choose A Location</option>
                     <option ng-repeat="branch in branches">{{branch.kotamadya}}</option>
                 </select>
-                </div>
-                <br>
+                    </div>
+                    <br>
 
-                <!-- filter -->
-                <div class="container">
-                    <a ng-model="collapsed" ng-click="collapsed=!collapsed" href="">
-                        
-                        <h3 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h3></a>
-                    <div class="well" style="max-height: 400px;overflow: auto;" ng-show="collapsed">
-                          <div class="col-md-2">
-                            <div class="form-group">
-                                <label>
+                    <!-- filter -->
+                    <div class="container">
+                        <a ng-model="collapsed" ng-click="collapsed=!collapsed" href="">
+                            <h3 class="text-left"><span class="fa fa-chevron-down"></span> Advanced Filter:</h3>
+                        </a>
+                        <div class="well" style="max-height: 400px;overflow: auto;" ng-show="collapsed">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>
                                 <input type="checkbox" ng-model="isi.value1" ng-true-value="'Infal / Cuci-gosok'" ng-false-value="" >
                                     Seasonal / Daily Cleaner  &nbsp</label>
-                              <label>
+                                    <label>
                                 <input type="checkbox" ng-model="isi.value2" ng-true-value="'Pembantu (Full-time)'" ng-false-value="">
                                     Housemaid (Full-time) </label>
-                              <label>
+                                    <label>
                                 <input type="checkbox" ng-model="isi.value3" ng-true-value="'Tukang Kebun'" ng-false-value="">
                                     Gardener &nbsp</label>
-                              <label>
+                                    <label>
                                 <input type="checkbox" ng-model="isi.value4" ng-true-value="'Penjaga Binatang Peliharaan'" ng-false-value="">
                                     Pet Sitter  &nbsp</label>
-                              <label><input type="checkbox" ng-model="isi.value9" ng-true-value="'Satpam'" ng-false-value="">
+                                    <label><input type="checkbox" ng-model="isi.value9" ng-true-value="'Satpam'" ng-false-value="">
                                     Security  &nbsp</label>
-                                
-                                <!--<select class="form-control" id="profesi" ng-model="input.profesi[8].value">
-                                    <option value="">Worker Type</option>
-                                    <option value="1">Seasonal / Daily Cleaner</option>
-                                    <option value="2">Housemaid (Full-time)</option>
-                                    <option value="Tukang Kebun">Gardener</option>
-                                    <option value="Penjaga Binatang Peliharaan">Pet Sitter</option>
-                                    <option value="Sopir">Driver</option>
-                                    <option value="Tukang / Maintenance">Handyman</option>
-                                    <option value="Baby Sitter">Baby Sitter</option>
-                                    <option value="Nanny / Perawat Orang Sakit">Nanny / Nurse</option>
-                                    <option value="Satpam">Security</option>
-                                    <option value="Pekerja Umum">General Worker</option>
-                                </select>-->
+                                </div>
                             </div>
-                          </div>  
-                                                    
-                          <div class="col-md-2">
+
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                <label>
+                                    <label>
                                     <input type="checkbox" ng-model="isi.value5" ng-true-value="'Sopir'" ng-false-value="">
                                     Driver </label><br>
-                                <label>
+                                    <label>
                                     <input type="checkbox" ng-model="isi.value6" ng-true-value="'Tukang / Maintenance'" ng-false-value="">
                                     Handyman</label>
-                                <label><input type="checkbox" ng-model="isi.value7" ng-true-value="'Baby Sitter'" ng-false-value="">
+                                    <label><input type="checkbox" ng-model="isi.value7" ng-true-value="'Baby Sitter'" ng-false-value="">
                                     Baby Sitter  &nbsp</label>
-                                <label><input type="checkbox" ng-model="isi.value8" ng-true-value="'Nanny / Perawat Orang Sakit'" ng-false-value="">
+                                    <label><input type="checkbox" ng-model="isi.value8" ng-true-value="'Nanny / Perawat Orang Sakit'" ng-false-value="">
                                     Nanny / Nurse  &nbsp</label>
-                                <label><input type="checkbox" ng-model="isi.value10" ng-true-value="'Pekerja Umum'" ng-false-value="">
-                                    General Worker  &nbsp</label> 
-                                </div> 
-                          </div>
-                            
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                <select class="form-control" id="status" ng-model="input.status">
-                                <option value="">Status</option>
-                                <option value="Lajang">Single</option>
-                                <option value="Menikah">Married</option>
-                                <option value="Janda / Duda">Widowed</option>
-                              </select>
-                              </div>
-                            
-                              <div class="form-group">
-                                <select class="form-control" id="gajimin" ng-model="min">
-                                  <option value="">Monthly Salary(min)</option>
+                                    <label><input type="checkbox" ng-model="isi.value10" ng-true-value="'Pekerja Umum'" ng-false-value="">
+                                    General Worker  &nbsp</label>
+                                    <label><input type="checkbox" ng-model="isi.value11" ng-true-value="'SPG'" ng-false-value="">
+                                    SPG/SPB&nbsp</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select class="form-control" id="status" ng-model="input.status">
+                                        <option value="">Status</option>
+                                        <option value="Lajang">Single</option>
+                                        <option value="Menikah">Married</option>
+                                        <option value="Janda / Duda">Widowed</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="gajimin" ng-model="min">
+                                    <option value="">Monthly Salary(min)</option>
                                     <option value="500000">Rp 500,000</option>
                                     <option value="750000">Rp 750,000</option>
                                     <option value="1000000">Rp 1,000,000</option>
@@ -381,10 +377,10 @@
                                     <option value="4750000">Rp 4,750,000</option>
                                     <option value="5000000">Rp 5,000,000</option>
                                 </select>
-                              </div>
-                             
-                              <div class="form-group">
-                                <select class="form-control" id="usiamin" ng-model="usiamin">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="usiamin" ng-model="usiamin">
                                   <option value="">Age (min)</option>
                                   <option>17</option>
                                   <option>18</option>
@@ -426,10 +422,10 @@
                                   <option>54</option>
                                   <option>55</option>
                                 </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <select class="form-control" id="suku" ng-model="input.suku">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="suku" ng-model="input.suku">
                                   <option value="">Origin</option>
                                   <option value="Jawa">Java</option>
                                   <option>Sunda</option>
@@ -442,20 +438,20 @@
                                   <option>Melayu</option>
                                   <option value="Lainnya">Others</option>
                                </select>
-                              </div>   
-                          </div>
-                            
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                <select class="form-control" id="gender" ng-model="input.gender">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select class="form-control" id="gender" ng-model="input.gender">
                                   <option value="">Gender</option>
                                   <option value="Laki-laki">Male</option>
                                   <option value="Perempuan">Female</option>
                                 </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <select class="form-control" id="gajimax" ng-model="max">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="gajimax" ng-model="max">
                                   <option value="">Monthly Salary(max)</option>
                                     <option value="500000">Rp 500,000</option>
                                     <option value="750000">Rp 750,000</option>
@@ -492,10 +488,10 @@
                                     <option value="4750000">Rp 4,750,000</option>
                                     <option value="5000000">Rp 5,000,000</option>
                                 </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <select class="form-control" id="usiamax" ng-model="usiamax">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="usiamax" ng-model="usiamax">
                                   <option value="">Age (max)</option>
                                   <option>17</option>
                                   <option>18</option>
@@ -537,22 +533,22 @@
                                   <option>54</option>
                                   <option>55</option>
                                 </select>
-                              </div>
-                              
-                              <div class="form-group">
-                                <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="pendidikan" ng-model="input.pendidikan">
                                   <option value="">Education Level</option>
                                   <option value="SD">Primary</option>
                                   <option value="SMP">Secondary</option>
                                   <option value="SMA">High School</option>
                                   <option value="Perguruan Tinggi">Degree</option>
                                 </select>
-                              </div>                            
-                          </div>
-                            
-                          <div class="col-md-2">
-                            <div class="form-group">
-                            <select class="form-control" id="exp" ng-model="input.exp">
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <select class="form-control" id="exp" ng-model="input.exp">
                                 <option value="">Experience (years)</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -575,19 +571,19 @@
                                 <option>19</option>
                                 <option>20</option>
                             </select>
-                            </div>
-                            
-                            <div class="form-group">
-                            <select class="form-control" id="waktu" ng-model="input.waktu">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="waktu" ng-model="input.waktu">
                                 <option value="">Work Time</option>
                                 <option value="Menginap">Stay-In</option>
                                 <option value="Infal">Seasonal</option>
                                 <option value="Pulang-Pergi">Nine-to-Five / Temporary</option>
                             </select>
-                            </div>
-                            
-                            <div class="form-group">
-                            <select class="form-control" id="agama" ng-model="input.agama">
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" id="agama" ng-model="input.agama">
                                 <option value="">Religion</option>
                                 <option value="Islam">Moslem</option>
                                 <option value="Katolik">Catholic</option>
@@ -595,86 +591,86 @@
                                 <option value="Hindu">Hindu</option>
                                 <option value="Budha">Buddhist</option>
                                 <option value="Lainnya">Other</option>
-                            </select>                            
+                            </select>
+                                </div>
+                                <a class="btn btn-primary pull-right" ng-click="apply()">
+                                    <span class="glyphicon glyphicon-refresh"></span> Reset
+                                </a>
+                                <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
                             </div>
-                            <a class="btn btn-primary pull-right" ng-click="apply()">
-                            <span class="glyphicon glyphicon-refresh"></span> Reset
-                            </a> 
-                            <input type="text" class="" id="tersedia" ng-model="input.tersedia" ng-init="input.tersedia='available'" hidden/>
-                          </div>
-                                                
-                    </div>                                                                                                  
-                </div>
-                <!-- ./filter -->
 
-                <!--RESULTS-->
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h3 style="font-family:proxima">Search Results:</h3>
+                        </div>
                     </div>
+                    <!-- ./filter -->
+
+                    <!--RESULTS-->
                     <div class="row">
-                        <div class="col-sm-1 pull-right">
-                            <select class="form-control" id="page" ng-model="pageSize">
+                        <div class="col-sm-4">
+                            <h3 style="font-family:proxima">Search Results:</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1 pull-right">
+                                <select class="form-control" id="page" ng-model="pageSize">
                             <option>10</option>
                             <option>15</option>
                             <option>25</option>
                             <option>50</option>
                             </select>
-                        </div>
-                        <div class="pull-right">
-                            <label for="page">Items per Page: </label>
+                            </div>
+                            <div class="pull-right">
+                                <label for="page">Items per Page: </label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="container">
-                    <div class="well well-lg" dir-paginate="data in datas  | filter:input | filter:{profesi: isi} | filter:gaji 
+
+                    <div class="container">
+                        <div class="well well-lg" dir-paginate="data in datas  | filter:input | filter:{profesi: isi} | filter:gaji 
                                     | filter: usia | itemsPerPage: pageSize" current-page="currentPage">
-                        <div class="col-sm-2">
-                            <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
-                        </div>
-                        <div class="row" >
-                            <div class="col-sm-4">
-                                <a ng-click="viewProfile(data)" href="">
-                                    <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
-                                </a>
-                                <p>Salary: {{ data.gajiNum | currency:"Rp. ":0}}</p>
-                                <p>Experience : {{ data.exp }} yrs.</p>
-                                <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
-                                <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
-                                </div>
-                            </div>                                
-
-                            <div class="col-sm-3">                               
-                                <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
-                                </p>
-                                 <p class="title"><label ng-repeat="ket in data.profesi">{{ket + ',&nbsp'}}</label></p>
-                                 <p>Born: {{data.tanggal | date}}</p>
+                            <div class="col-sm-2">
+                                <img ng-src="{{data.foto}}" class="image-responsive" alt="image" style="max-height:100px; max-width:150px" />
                             </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <a ng-click="viewProfile(data)" href="">
+                                        <p class="text-danger" style="text-transform: uppercase; font-size:18px"><strong>{{data.nama}}</strong></p>
+                                    </a>
+                                    <p>Salary: {{ data.gajiNum | currency:"Rp. ":0}}</p>
+                                    <p>Experience : {{ data.exp }} yrs.</p>
+                                    <div class="panel-heading" style="padding:0px 0px; border-bottom: 0px">
+                                        <span class="label label-default" style="font-size: 100%;" ng-repeat="ket in data.ketrampilan"> {{ ket.text }} </span>
+                                    </div>
+                                </div>
 
-                            <div class="col-sm-3">
-                                <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#contactModal" ng-click="bookProfileen(data)">
+                                <div class="col-sm-3">
+                                    <p class="title" style="font-size: 16px"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{data.lokasi}}
+                                    </p>
+                                    <p class="title"><label ng-repeat="ket in data.profesi">{{ket + ',&nbsp'}}</label></p>
+                                    <p>Born: {{data.tanggal | date}}</p>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#contactModal" ng-click="bookProfileen(data)">
                                 <span class="glyphicon glyphicon-plus-sign"></span> Book Worker!
                             </button>
-                                <br>
-                                <br>
-                                <button ng-click="viewProfile(data)" class="btn btn-primary btn-md">
+                                    <br>
+                                    <br>
+                                    <button ng-click="viewProfile(data)" class="btn btn-primary btn-md">
                                 <span class="glyphicon glyphicon-search"></span> Worker Details
                             </button>
+                                </div>
+                                <br>
                             </div>
-                            <br>
                         </div>
                     </div>
-                </div>
-                <!-- ./RESULTS -->
+                    <!-- ./RESULTS -->
 
-                <!-- pagination -->
-                <div class="container">
-                    <div class="text-center">
-                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
+                    <!-- pagination -->
+                    <div class="container">
+                        <div class="text-center">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./search/dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
                     </div>
-                </div>
-                <!-- ./pagination -->
+                    <!-- ./pagination -->
 
                 </div>
                 <!-- end of page content holder -->
@@ -682,7 +678,7 @@
             </div>
         </div>
         <!-- ./Filter and Results -->
-        
+
         <!-- How to Book -->
         <div class="page-content-wrap bg-texture-1 bg-dark light-elements">
 
@@ -714,8 +710,8 @@
                             </div>
                             <h4><strong>BOOK</strong></h4>
                             <div class="text-column-info">
-                                Once you have found the worker you like, click the "Book Worker" button and fill the form. One of our 
-                                administrators will contact you and set up an interview date.
+                                Once you have found the worker you like, click the "Book Worker" button and fill the form. One of our administrators will
+                                contact you and set up an interview date.
                             </div>
                         </div>
                     </div>
@@ -727,7 +723,8 @@
                             </div>
                             <h4><strong>INTERVIEW</strong></h4>
                             <div class="text-column-info">
-                                Interview with your worker will take place in our branch office. If you're satisfied with the worker we can schedule another interview with another one.
+                                Interview with your worker will take place in our branch office. If you're satisfied with the worker we can schedule another
+                                interview with another one.
                             </div>
                         </div>
                     </div>
@@ -750,7 +747,7 @@
             <div id="about" class="page-content-holder">
 
                 <div>
-                    <h2>About Us    <small> See what our clients have to say about our services! </small></h2>
+                    <h2>About Us <small> See what our clients have to say about our services! </small></h2>
                 </div>
 
                 <div class="row">
@@ -795,129 +792,6 @@
     </div>
     <!-- ./page content -->
 
-    <!-- page footer -->
-    <div class="page-footer">
-
-        <!-- page footer wrap -->
-        <div class="page-footer-wrap bg-dark-gray">
-            <!-- page footer holder -->
-            <div class="page-footer-holder page-footer-holder-main">
-
-                <div class="row">
-
-                    <!-- about -->
-                    <div class="col-md-3">
-                        <h3>About JobCenter.id</h3>
-                        <p>The premiere Indonesian worker search center. Use our search function to easily find the worker you
-                            need.
-                        </p>
-                    </div>
-                    <!-- ./about -->
-
-                    <!-- quick links -->
-                    <div class="col-md-3">
-                        <h3>Quick links</h3>
-
-                        <div class="list-links">
-                            <a ui-sref="home">Home</a>
-                            <a ui-sref="contact-us">Hubungi Kami</a>
-                        </div>
-                    </div>
-                    <!-- ./quick links -->
-
-                    <!-- recent tweets -->
-                    <!--<div class="col-md-3">
-                        <h3>Recent Tweets</h3>
-
-                        <div class="list-with-icon small">
-                            <div class="item">
-                                <div class="icon">
-                                    <span class="fa fa-twitter"></span>
-                                </div>
-                                <div class="text">
-                                    <a href="#">@JohnDoe</a> We found a nanny for our kids within a week!
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="icon">
-                                    <span class="fa fa-twitter"></span>
-                                </div>
-                                <div class="text">
-                                    <a href="#">@Aqvatarius</a> Best service!
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="icon">
-                                    <span class="fa fa-twitter"></span>
-                                </div>
-                                <div class="text">
-                                    <a href="#">@StrayDemon</a> Will use JobCenter's service again!
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>-->
-                    <!-- ./recent tweets -->
-
-                    <!-- contacts -->
-                    <div class="col-md-3">
-                        <h3>Contacts</h3>
-
-                        <div class="footer-contacts">
-                            <div class="fc-row">
-                                <span class="fa fa-home"></span> 000 StreetName, Suite 111,
-                                <br/> City Name, ST 01234
-                            </div>
-                            <div class="fc-row">
-                                <span class="fa fa-phone"></span> (123) 456-7890
-                            </div>
-                            <div class="fc-row">
-                                <span class="fa fa-envelope"></span>
-                                <strong>John Doe</strong>
-                                <br>
-                                <a href="mailto:#">johndoe@domain.com</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- ./contacts -->
-
-                </div>
-
-            </div>
-            <!-- ./page footer holder -->
-        </div>
-        <!-- ./page footer wrap -->
-
-        <!-- page footer wrap -->
-        <div class="page-footer-wrap bg-darken-gray">
-            <!-- page footer holder -->
-            <div class="page-footer-holder">
-
-                <!-- copyright -->
-                <div class="copyright">
-                    &copy; 2016 JobCenter.id - All Rights Reserved
-                </div>
-                <!-- ./copyright -->
-
-                <!-- social links -->
-                <div class="social-links">
-                    <a href="#"><span class="fa fa-facebook"></span></a>
-                    <a href="#"><span class="fa fa-twitter"></span></a>
-                    <a href="#"><span class="fa fa-google-plus"></span></a>
-                    <a href="#"><span class="fa fa-linkedin"></span></a>
-                </div>
-                <!-- ./social links -->
-
-            </div>
-            <!-- ./page footer holder -->
-        </div>
-        <!-- ./page footer wrap -->
-
-    </div>
-    <!-- ./page footer -->
-    
     <!-- Modal -->
     <div id="contactModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -927,8 +801,8 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <!--<h4 class="modal-title">Hubungi Kami</h4>-->
-                     <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Now!</h4>
-                     <h5 class="modal-title">Location in <strong>{{data.lokasi}}</strong></h5>
+                    <h4 class="modal-title">Book <span class="text-danger"> {{data.nama}}</span> Now!</h4>
+                    <h5 class="modal-title">Location in <strong>{{data.lokasi}}</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-danger" ng-show="notValid">
@@ -965,7 +839,7 @@
                         <div class="form-group" ng-class="{ 'has-error' : userForm.comment.$invalid && !userForm.comment.$pristine }">
                             <label>Additional Request</label>
                             <textarea type="text" name="comment" class="form-control" ng-model="user.comment" ng-minlength="3" ng-maxlength="200" placeholder="Isi permintaan anda disini"
-                               ng-init="user.comment=null" ></textarea>
+                                ng-init="user.comment=null"></textarea>
                             <p ng-show="userForm.comment.$error.minlength" class="help-block">Please Fill in Your Request</p>
                             <p ng-show="userForm.comment.$error.maxlength" class="help-block">Your request is exceed the maximum character of 200.</p>
                         </div>
@@ -989,6 +863,10 @@
         </div>
     </div>
     <!-- ./Modal -->
-    
+
+    <!-- page footer -->
+    <footer-main></footer-main>
+    <!-- ./page footer -->
+
 </div>
 <!-- ./page container -->
